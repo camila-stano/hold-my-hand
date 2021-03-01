@@ -1,2 +1,64 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="container border">
+  <div class="text-center">
+    <h1 class='title-home'>Hold My Hand</h1>
+    <h5 class='welcome'>A São Paulo guide for refugees! </h5>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div class="m-5">
+      <%= link_to "Crie sua conta", new_user_registration_path, class: 'btn btn-outline-warning rounded btn-home' %>
+      <% if current_user.present? %>
+        <%= link_to "Faça login", products_path, class: 'btn btn-outline-warning rounded btn-home' %>
+      <% else %>
+        <%= link_to "Faça login", new_user_session_path, class: 'btn btn-outline-warning rounded btn-home' %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="pop-up">
+    <div class="row text-center">
+      <div class="col-12">
+        <h2>Hold My Hand</h2>
+      </div>
+      <div class="col-12">
+        <h5>A São Paulo guide for refugees!</h5>
+      </div>    
+    </div>
+
+    <div class="row text-center d-flex align-items-center justify-content-center">
+      <div class="col-3 border">
+        <button type="button" class="btn btn-secondary">Shelter</button>
+      </div>
+      <div class="col-8 border">
+        <h5>Find a place to stay!</h5>
+      </div>    
+    </div>
+
+    <div class="row text-center d-flex align-items-center justify-content-center">
+      <div class="col-8 border">
+        <h5>Find a place to eat!</h5>
+      </div>    
+      <div class="col-3 border">
+        <button type="button" class="btn btn-secondary">Shelter</button>
+      </div>
+    </div>
+
+    <div class="row text-center d-flex align-items-center justify-content-center">
+      <div class="col-3 border">
+        <button type="button" class="btn btn-secondary">Shelter</button>
+      </div>
+      <div class="col-8 border">
+        <h5>Which documents, and how you can get then!</h5>
+      </div>    
+    </div>
+
+    <div class="row text-center d-flex align-items-center justify-content-center">
+      <div class="col-8 border">
+        <h5>Meet others refugees in Brazil!</h5>
+      </div>    
+      <div class="col-3 border">
+        <button type="button" class="btn btn-secondary">Shelter</button>
+      </div>
+    </div>
+  </div>
+</div>
