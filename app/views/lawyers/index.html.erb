@@ -1,2 +1,3 @@
-<h1>Lawyers#index</h1>
-<p>Find me in app/views/lawyers/index.html.erb</p>
+<% @lawyers.each do |lawyer| %>
+  <p><%= link_to lawyer.name, lawyer_path(lawyer.id) %></p>
+<% end %>
