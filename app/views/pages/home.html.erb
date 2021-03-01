@@ -1,2 +1,17 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="container border">
+  <div class="text-center">
+    <h1 class='title-home'>Hold My Hand</h1>
+    <h5 class='welcome'>A São Paulo guide for refugees! </h5>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div class="m-5">
+      <%= link_to "Crie sua conta", new_user_registration_path, class: 'btn btn-outline-warning rounded btn-home' %>
+      <% if current_user.present? %>
+        <%= link_to "Faça login", products_path, class: 'btn btn-outline-warning rounded btn-home' %>
+      <% else %>
+        <%= link_to "Faça login", new_user_session_path, class: 'btn btn-outline-warning rounded btn-home' %>
+      <% end %>
+    </div>
+  </div>
+</div>
