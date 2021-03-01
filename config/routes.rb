@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   resources :shelters, only: [:index, :show]
 
   resources :lawyers, only: [:index, :show]
-  resources :education, only: [:index, :show]
+  resources :educations, only: [:index, :show]
   resources :documents, only: [:index, :show]
+  resources :comunications, only: [:index]
 
   get '/maps', to: 'pages#maps', as: :maps
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
