@@ -14,12 +14,5 @@ class PagesController < ApplicationController
         lng: restaurant.longitude
       }
     end
-      
-    @shelter_markers = @shelters.geocoded.map do |shelter|
-      {
-        lat: shelter.latitude,
-        lng: shelter.longitude
-      }
-    end
   end
 end
