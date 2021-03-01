@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'lawyers/index'
+  get 'lawyers/show'
   devise_for :users
   root to: 'pages#home'
   
