@@ -37,6 +37,10 @@ gem 'simple_form'
 # gem used to seed database
 gem 'faker', '~> 1.6', '>= 1.6.6'
 
+gem 'bundler'
+
+
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
