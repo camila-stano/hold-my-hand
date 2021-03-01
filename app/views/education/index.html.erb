@@ -1,2 +1,7 @@
-<h1>Education#index</h1>
-<p>Find me in app/views/education/index.html.erb</p>
+<div class="container mt-5">
+  <ul>
+    <% @lawyers.each do |lawyer| %>
+      <li><%= link_to lawyer.name, lawyer_path(lawyer.id) %></li>
+    <% end %>
+  </ul>
+</div>
