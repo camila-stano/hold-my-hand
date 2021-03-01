@@ -1,0 +1,7 @@
+<h1> Documents needed </h1>
+<ul>
+  <%@documents.each do |document|%>
+    <li><%= link_to document.document_type, document_path(document) %></li>
+  <%end%>
+</ul>
+
