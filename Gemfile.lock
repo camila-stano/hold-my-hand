@@ -240,7 +240,6 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootsnap (>= 1.4.2)
-  bundler
   byebug
   capybara (>= 2.15)
   devise
@@ -271,4 +270,4 @@ RUBY VERSION
    ruby 2.6.6p146
 
 BUNDLED WITH
-   2.2.11
+   2.1.4
