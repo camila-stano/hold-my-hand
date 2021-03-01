@@ -95,6 +95,7 @@ GEM
     ffi (1.14.2)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
+    geocoder (1.6.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.8.9)
@@ -239,13 +240,13 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootsnap (>= 1.4.2)
-  bundler
   byebug
   capybara (>= 2.15)
   devise
   dotenv-rails
   faker (~> 1.6, >= 1.6.6)
   font-awesome-sass
+  geocoder
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
@@ -269,4 +270,4 @@ RUBY VERSION
    ruby 2.6.6p146
 
 BUNDLED WITH
-   2.2.11
+   2.1.4
