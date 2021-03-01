@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <ul>
-    <% @lawyers.each do |lawyer| %>
-      <li><%= link_to lawyer.name, lawyer_path(lawyer.id) %></li>
+    <% @educations.each do |education| %>
+      <li><%= link_to education.name, education_path(education.id) %></li>
     <% end %>
   </ul>
 </div>
