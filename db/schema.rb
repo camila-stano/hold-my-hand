@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_01_202057) do
+ActiveRecord::Schema.define(version: 2021_03_01_213141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "documents", force: :cascade do |t|
+    t.string "document_type"
+    t.string "public_agency"
+    t.string "address"
+    t.string "contact"
+    t.string "opening_hours"
+    t.string "required_docs"
+    t.string "url_agency"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "educations", force: :cascade do |t|
     t.string "language"
@@ -57,6 +69,12 @@ ActiveRecord::Schema.define(version: 2021_03_01_202057) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "age"
+    t.string "origin"
+    t.string "language"
+    t.string "current_address"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
