@@ -1,3 +1,7 @@
-<% @lawyers.each do |lawyer| %>
-  <p><%= link_to lawyer.name, lawyer_path(lawyer.id) %></p>
-<% end %>
+<div class="container mt-5">
+  <ul>
+    <% @lawyers.each do |lawyer| %>
+      <li><%= link_to lawyer.name, lawyer_path(lawyer.id) %></li>
+    <% end %>
+  </ul>
+</div>
