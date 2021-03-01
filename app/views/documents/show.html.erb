@@ -1,4 +1,4 @@
-<h1><%= @document.document_type %>/h1>
+<h1><%= @document.document_type %></h1>
 
 <h3>Public Agency:</h3>
 <p><%= @document.public_agency%></p>
@@ -16,5 +16,5 @@
 <p><%= @document.required_docs%></p>
 
 <h3>Website</h3>
-<p><%= @document.url_agency%></p>
+<p><%=link_to @document.url_agency, @document.url_agency%></p>
 
