@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :shelters, only: [:index, :show]
 
   resources :lawyers, only: [:index, :show]
-  resources :educations, only: [:index, :show]
+  resources :schools, only: [:index, :show]
   resources :documents, only: [:index, :show]
   resources :comunications, only: [:index]
 
