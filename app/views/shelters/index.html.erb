@@ -1,4 +1,7 @@
 
-<%@shelters.each do |shelter|%>
-  <h1><%= shelter %></h1>
-<%end%>
+<h1> Shelters </h1>
+<ul>
+  <%@shelters.each do |shelter|%>
+    <li><%= link_to shelter.name, shelter_path(shelter) %></li>
+  <%end%>
+</ul>
