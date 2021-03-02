@@ -40,6 +40,9 @@ gem 'faker', '~> 1.6', '>= 1.6.6'
 # gem to geocoder
 gem 'geocoder'
 
+# gem to hide private keys
+gem 'dotenv-rails', groups: [:development, :test]
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
