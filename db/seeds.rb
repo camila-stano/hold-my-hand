@@ -6,6 +6,7 @@ puts '-----------------------------'
 
 Restaurant.destroy_all
 Shelter.destroy_all
+Lawyer.destroy_all
 
 puts '-----------------------------'
 puts 'Database is clear!'
@@ -58,6 +59,25 @@ puts '-----------------------------'
   )
   
   puts "Document #{document.id} created"
+  puts '-----------------------------'
+
+end
+
+puts '-----------------------------'
+puts 'Creating Lawyers!'
+puts '-----------------------------'
+
+5.times do 
+ lawyer = Lawyer.create!(
+   name: Faker::FunnyName.name,
+   oab: "#{rand(1000000000..9999999999)}",
+   address: Faker::FunnyName.name,
+   phone: Faker::PhoneNumber.cell_phone,
+   area: "imigração",
+   description: "Mantém-se pautado em prestar serviços personalizados aos seus clientes, permitir o acompanhamento próximo e a colaboração em todas as fases e desdobramentos de suas demandas jurídicas"
+  )
+  
+  puts "Lawyer #{lawyer.id} created"
   puts '-----------------------------'
 
 end
