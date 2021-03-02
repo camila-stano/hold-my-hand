@@ -1,2 +1,0 @@
-class Comunication < ApplicationRecord
-end
