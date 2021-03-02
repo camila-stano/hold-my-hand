@@ -1,4 +1,4 @@
 es:
-  hello: "Hello world"
-  home:
-    sub-logo: "¡Una guía de São Paulo para refugiados!"
+  pages:
+    home:
+      sub-logo: "¡Una guía de São Paulo para refugiados!"

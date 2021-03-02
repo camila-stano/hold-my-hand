@@ -77,6 +77,10 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+   #i18n languages available
+   config.i18n.available_locales = [:'pt-BR', :en, :es, :fr]
+   config.i18n.default_locale = :en
+
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
