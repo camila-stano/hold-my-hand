@@ -40,6 +40,10 @@ gem 'faker', '~> 1.6', '>= 1.6.6'
 # gem to geocoder
 gem 'geocoder'
 
+
+#gem to i18n (responsible for translation)
+gem 'rails-i18n', '~> 6.0.0'
+
 # gem to hide private keys
 gem 'dotenv-rails', groups: [:development, :test]
 

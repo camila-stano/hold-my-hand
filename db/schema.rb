@@ -10,11 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_03_02_173839) do
+=======
+ActiveRecord::Schema.define(version: 2021_03_02_174028) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -38,6 +43,10 @@ ActiveRecord::Schema.define(version: 2021_03_02_173839) do
 
   create_table "comunications", force: :cascade do |t|
     t.string "expression"
+=======
+  create_table "communications", force: :cascade do |t|
+    t.string "phrase"
+>>>>>>> master
     t.string "translation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -66,6 +75,8 @@ ActiveRecord::Schema.define(version: 2021_03_02_173839) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -79,6 +90,17 @@ ActiveRecord::Schema.define(version: 2021_03_02_173839) do
     t.float "longitude"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "content"
+    t.integer "rating"
+    t.bigint "user_id", null: false
+    t.bigint "lawyer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lawyer_id"], name: "index_reviews_on_lawyer_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "schools", force: :cascade do |t|
     t.string "language"
     t.string "openning_hours"
@@ -88,6 +110,8 @@ ActiveRecord::Schema.define(version: 2021_03_02_173839) do
     t.string "url_instituition"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "shelters", force: :cascade do |t|
@@ -118,5 +142,10 @@ ActiveRecord::Schema.define(version: 2021_03_02_173839) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+=======
+  add_foreign_key "reviews", "lawyers"
+  add_foreign_key "reviews", "users"
+>>>>>>> master
 end
