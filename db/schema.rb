@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_01_234615) do
+ActiveRecord::Schema.define(version: 2021_03_02_145009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "comunications", force: :cascade do |t|
+  create_table "communications", force: :cascade do |t|
     t.string "expression"
     t.string "translation"
     t.datetime "created_at", precision: 6, null: false
