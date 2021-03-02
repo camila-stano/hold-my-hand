@@ -82,4 +82,30 @@ puts '-----------------------------'
 
 end
 
+puts '-----------------------------'
+puts 'Creating Schools!'
+puts '-----------------------------'
+
+5.times do 
+ school = School.create!(
+   name: Faker::FunnyName.name,
+   oab: "#{rand(1000000000..9999999999)}",
+   address: Faker::FunnyName.name,
+   phone: Faker::PhoneNumber.cell_phone,
+   area: "imigração",
+   description: "Mantém-se pautado em prestar serviços personalizados aos seus clientes, permitir o acompanhamento próximo e a colaboração em todas as fases e desdobramentos de suas demandas jurídicas"
+  )
+  t.string "language"
+  t.string "openning_hours"
+  t.string "address"
+  t.string "instituition"
+  t.string "contact"
+  t.string "url_instituition"
+  
+  puts "Lawyer #{school.id} created"
+  puts '-----------------------------'
+
+end
+
+
 puts "...finished seeds!!!"
