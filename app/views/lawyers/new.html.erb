@@ -1,28 +1,30 @@
-<h2 class = 'mb-3'>Cadastre-se como um advogado</h2>
+<div class="container container-forms form-group">
+  <h2 class = 'mb-3'>Cadastre-se como um advogado</h2>
+  <%= simple_form_for(@lawyer) do |f| %>
+  <div class="form-inputs">
+        <%= f.input :name,
+                    required: true,
+                    placeholder: 'Name',
+                    label: false,
+                    autofocus: true %>
+        <%= f.input :oab,
+                    placeholder: 'OAB',
+                    label: false %>
+        <%= f.input :address,
+                    placeholder: 'Address',
+                    label: false %>
+        <%= f.input :phone,
+                    placeholder: 'Phone',
+                    label: false %>
+        <%= f.input :area,
+                    placeholder: 'Área de atuação',
+                    label: false %>
+        <%= f.input :description,
+                    placeholder: 'Fale mais sobre você e suas experiências profissionais',
+                    label: false %>
+        <%= f.input :photo, as: :file, label: 'Foto de perfil' %>
+        <%= f.submit "Solicitar cadastro", class: 'btn btn-success mt-3 btn-create' %>
+      </div>
 
-<%= simple_form_for(@lawyer) do |f| %>
- <div class="form-inputs">
-      <%= f.input :name,
-                  required: true,
-                  placeholder: 'Name',
-                  label: false,
-                  autofocus: true %>
-      <%= f.input :oab,
-                  placeholder: 'OAB',
-                  label: false %>
-      <%= f.input :address,
-                  placeholder: 'Address',
-                  label: false %>
-      <%= f.input :phone,
-                  placeholder: 'Phone',
-                  label: false %>
-      <%= f.input :area,
-                  placeholder: 'Área de atuação',
-                  label: false %>
-      <%= f.input :description,
-                  placeholder: 'Fale mais sobre você e suas experiências profissionais',
-                  label: false %>
-      <%= f.input :photo, as: :file, label: 'Foto de perfil' %>
-    </div>
-
-  <% end %>
+    <% end %>
+</div>
