@@ -47,6 +47,9 @@ gem 'rails-i18n', '~> 6.0.0'
 # gem to hide private keys
 gem 'dotenv-rails', groups: [:development, :test]
 
+# photos cloud
+gem 'cloudinary', '~> 1.16.0'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'

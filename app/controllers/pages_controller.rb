@@ -14,5 +14,13 @@ class PagesController < ApplicationController
         lng: restaurant.longitude
       }
     end
+
+    @addresses = @shelters.geocoded.map do |address|
+      {
+        lat: address.latitude,
+        lng: address.longitude
+      }
+    end
+  
   end
 end

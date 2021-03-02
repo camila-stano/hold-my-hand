@@ -1,7 +1,22 @@
 
-<h1> Shelters </h1>
-<ul>
-  <%@shelters.each do |shelter|%>
-    <li><%= link_to shelter.name, shelter_path(shelter) %></li>
-  <%end%>
-</ul>
+<div class="container">
+  <h1 class='text-center mt-5'>Shelters</h1>
+  <div class="d-flex justify-content-center">
+
+    <div class="card-deck row d-flex">
+      <% @shelters.each do |shelter| %>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card m-3 w-100">     
+            <%= cl_image_tag shelter.photo.key, height: 230, width: 300, class: 'card-img-top' %>
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to shelter.name, shelter_path(shelter.id) %></h5>
+              <p class="card-text">Description (podemos adc à tabela) </p>
+              <p class="card-text"><small class="text-muted"> <%= shelter.address %></small></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    
+  </div>
+</div>
