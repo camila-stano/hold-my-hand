@@ -13,34 +13,35 @@ puts '-----------------------------'
 puts 'Creating Restaurants!'
 puts '-----------------------------'
 
-5.times do 
-  restaurant = Restaurant.create!(
-    name: Faker::Restaurant.name,
-    phone: Faker::PhoneNumber.cell_phone,
-    address: Faker::Address.street_name,
-    price: rand(1..5)
-  )
-  
-  puts "Restaurant #{restaurant.id} created"
-  puts '-----------------------------'
 
-end
+Restaurant.create!(name: "Bom prato", address: "R. 25 de Março, 166, Centro, São Paulo, SP", phone: nil, price: 2)
+puts "Restaurant Bom Prato created"
+puts '-----------------------------'
+Restaurant.create!(name: "Popular", address: "R. Barão de Ladário, 204, Brás", phone: "(11) 2292-4151", price: 1)
+puts "Restaurant Popular created"
+puts '-----------------------------'
+Restaurant.create!(name: "Comedoria Sesc Pinheiros", address: "R. Pais Leme, 195, Pinheiros, São Paulo - SP, Brasil. 05424-150", phone: nil, price: 10)
+puts "Restaurant Comedoria Sesc Pinheiros created"
+puts '-----------------------------'
+
 
 puts '-----------------------------'
 puts 'Creating Shelters!'
 puts '-----------------------------'
 
-5.times do 
-  shelter = Shelter.create!(
-    name: Faker::FunnyName.name,
-    address: Faker::Address.street_name,
-    phone: Faker::PhoneNumber.cell_phone,
-  )
-  
-  puts "Shelter #{shelter.id} created"
-  puts '-----------------------------'
 
-end
+Shelter.create!(name: "Acnur", address: "Largo Páteo do Colégio, 148 - Centro Histórico de São Paulo, São Paulo - SP", phone: "(11) 3101-2921")
+puts "Shelter Acnur created"
+puts '-----------------------------'
+
+Shelter.create!(name: "Missão Paz São Paulo", address: "Rua Glicério, 225, Liberdade, São Paulo", phone: "(11) 3340-6950")
+puts "Shelter Missão Paz São Paulo created"
+puts '-----------------------------'
+
+Shelter.create!(name: "Caritas Arquidiocesana de São Paulo", address: "R. José Bonifácio, 107 - 2º andar - Sé, São Paulo", phone: "(11) 94574-6358")
+puts "Shelter Caritas Arquidiocesana de São Paulo created"
+puts '-----------------------------'
+  
 
 puts '-----------------------------'
 puts 'Creating Documents!'
