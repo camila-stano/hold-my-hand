@@ -3,6 +3,12 @@
   background: white;
 }
 
+.navbar-lewagon h2 {
+  font-family: $hold-logo;
+  font-size: 36px;
+  margin: 0;
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }

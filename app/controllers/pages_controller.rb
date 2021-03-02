@@ -15,12 +15,12 @@ class PagesController < ApplicationController
       }
     end
 
-    @addresses = @shelters.geocoded.map do |address|
-      {
-        lat: address.latitude,
-        lng: address.longitude
-      }
-    end
+    # @addresses = @shelters.geocoded.map do |address|
+    #   {
+    #     lat: address.latitude,
+    #     lng: address.longitude
+    #   }
+    # end
   
   end
 end
