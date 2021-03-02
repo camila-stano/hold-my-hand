@@ -1,0 +1,7 @@
+<div class="container mt-5">
+  <ul>
+    <% @communications.each do |communication| %>
+      <li><%= link_to communication.phrase, communication_path(communication.id) %></li>
+    <% end %>
+  </ul>
+</div>
