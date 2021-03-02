@@ -10,3 +10,19 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+.language-choice-container{
+  width: 80%
+}
+.language-choice-list{
+  font-size: 12px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+.language-choice-list a{
+  padding: 0.3rem;
+}
