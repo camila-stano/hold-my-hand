@@ -9,6 +9,7 @@ Shelter.destroy_all
 Document.destroy_all
 Lawyer.destroy_all
 School.destroy_all
+Communication.destroy_all
 
 puts '-----------------------------'
 puts 'Database is clear!'
@@ -104,5 +105,19 @@ puts '-----------------------------'
 
 end
 
+puts '-----------------------------'
+puts 'Creating Communication!'
+puts '-----------------------------'
+
+5.times do 
+ communication = Communication.create!(
+   phrase: Faker::TvShows::DrWho.quote,
+   translation: Faker::TvShows::DrWho.quote,
+  )
+
+  puts "Communication #{communication.id} created"
+  puts '-----------------------------'
+
+end
 
 puts "...finished seeds!!!"
