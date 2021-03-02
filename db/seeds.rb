@@ -6,7 +6,9 @@ puts '-----------------------------'
 
 Restaurant.destroy_all
 Shelter.destroy_all
+Document.destroy_all
 Lawyer.destroy_all
+School.destroy_all
 
 puts '-----------------------------'
 puts 'Database is clear!'
@@ -71,7 +73,7 @@ puts '-----------------------------'
  lawyer = Lawyer.create!(
    name: Faker::FunnyName.name,
    oab: "#{rand(1000000000..9999999999)}",
-   address: Faker::FunnyName.name,
+   address: Faker::Address.street_name,
    phone: Faker::PhoneNumber.cell_phone,
    area: "imigração",
    description: "Mantém-se pautado em prestar serviços personalizados aos seus clientes, permitir o acompanhamento próximo e a colaboração em todas as fases e desdobramentos de suas demandas jurídicas"
@@ -81,5 +83,26 @@ puts '-----------------------------'
   puts '-----------------------------'
 
 end
+
+puts '-----------------------------'
+puts 'Creating Schools!'
+puts '-----------------------------'
+
+5.times do 
+ school = School.create!(
+   language: "Portuguese",
+   openning_hours: "#{rand(6..9)}h - #{rand(18..22)}h",
+   address: Faker::Address.street_name,
+   instituition: Faker::University.name,
+   contact: Faker::Internet.email,
+   url_instituition: Faker::Internet.url
+  )
+
+  
+  puts "School #{school.id} created"
+  puts '-----------------------------'
+
+end
+
 
 puts "...finished seeds!!!"
