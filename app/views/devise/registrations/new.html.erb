@@ -1,35 +1,58 @@
-<h2>Sign up</h2>
+<div class="container">
+  <h2>Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :email,
                 required: true,
+                placeholder: 'Email',
+                label: false,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
     <%= f.input :password,
                 required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                placeholder: 'Password',
+                label: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: true,
+                placeholder: 'Confirm password',
+                label: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :first_name,
-                  placeholder: 'Nome',
-                  label: false %>
-    <%= f.input :last_name,
-                placeholder: 'Sobrenome',
+                placeholder: 'First_name',
                 label: false %>
-    <%= f.input :address,
-                  placeholder: 'Endereço',
-                  label: false %>
-    <%= f.input :photo, as: :file, label: 'Foto de perfil' %>
+    <%= f.input :last_name,
+                placeholder: 'Last_name',
+                label: false %>
+    <%= f.input :age,
+                placeholder: 'Age',
+                label: false %>
+    <%= f.input :gender,
+                placeholder: 'How would you want to be treated?',
+                collection:User::GENDER,
+                hint: ('How would you want to be treated?'),
+                label: false %>
+    <%= f.input :origin,
+                placeholder: 'Origin',
+                label: false %>
+    <%= f.input :language,
+                placeholder: 'Language',
+                label: false %>    
+    <%= f.input :current_address,
+                placeholder: 'Current Address',
+                label: false %>
+    <%= f.input :photo, as: :file, 
+                label: false,
+                placeholder: 'Profile Picture' %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
   </div>
-<% end %>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>
