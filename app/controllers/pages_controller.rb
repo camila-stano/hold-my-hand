@@ -7,13 +7,20 @@ class PagesController < ApplicationController
   def maps
     @restaurants = Restaurant.all
     @shelters = Shelter.all
-    
+
     @markers = @restaurants.geocoded.map do |restaurant|
       {
         lat: restaurant.latitude,
         lng: restaurant.longitude
       }
     end
-  end
 
+    @addresses = @shelters.geocoded.map do |address|
+      {
+        lat: address.latitude,
+        lng: address.longitude
+      }
+    end
+  
+  end
 end
