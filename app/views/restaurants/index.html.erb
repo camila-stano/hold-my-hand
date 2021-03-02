@@ -3,7 +3,7 @@
     <% @restaurants.each do |restaurant| %>
       <div class="col-sm-12 col-md-6 col-lg-4">
         <div class="card m-3 w-100">     
-          <img class="card-img-top" src="https://s2.glbimg.com/clIobZ-eZba4yjkYFDcSqNHbixo=/0x0:732x458/984x0/smart/filters:strip_icc()/s.glbimg.com/jo/g1/f/original/2016/03/26/24032016---bom-prato---int.jpg" alt="Imagem restaurante">
+          <%= cl_image_tag restaurant.photo.key, height: 230, width: 300, class: 'card-img-top' %>
           <div class="card-body">
             <h5 class="card-title"><%= link_to restaurant.name, restaurant_path(restaurant.id) %></h5>
             <p class="card-text">Description (podemos adc à tabela) </p>

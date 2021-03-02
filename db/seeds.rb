@@ -1,4 +1,5 @@
 require 'faker'
+require "open-uri"
 
 puts '-----------------------------'
 puts 'Cleaning up database...'
@@ -14,15 +15,23 @@ puts 'Creating Restaurants!'
 puts '-----------------------------'
 
 
-Restaurant.create!(name: "Bom prato", address: "R. 25 de Março, 166, Centro, São Paulo, SP", phone: nil, price: 2)
+file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1614706687/bomprato_f0ruvk.jpg')
+restaurant = Restaurant.create!(name: "Bom prato", address: "R. 25 de Março, 166, Centro, São Paulo, SP", phone: nil, price: 2)
+restaurant.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 puts "Restaurant Bom Prato created"
 puts '-----------------------------'
-Restaurant.create!(name: "Popular", address: "R. Barão de Ladário, 204, Brás", phone: "(11) 2292-4151", price: 1)
+
+file = URI.open('https://cdn4.ecycle.com.br/cache/images/eDicas/alimentos/50-600-bom-prato-525.jpg')
+restaurant = Restaurant.create!(name: "Popular", address: "R. Barão de Ladário, 204, Brás", phone: "(11) 2292-4151", price: 1)
 puts "Restaurant Popular created"
 puts '-----------------------------'
-Restaurant.create!(name: "Comedoria Sesc Pinheiros", address: "R. Pais Leme, 195, Pinheiros, São Paulo - SP, Brasil. 05424-150", phone: nil, price: 10)
+restaurant.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
+file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1614708902/sesc_bwr69u.png')
+restaurant = Restaurant.create!(name: "Comedoria Sesc Pinheiros", address: "R. Pais Leme, 195, Pinheiros, São Paulo - SP, Brasil. 05424-150", phone: nil, price: 10)
 puts "Restaurant Comedoria Sesc Pinheiros created"
 puts '-----------------------------'
+restaurant.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
 puts '-----------------------------'
