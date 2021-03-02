@@ -31,3 +31,5 @@
 
 en:
   hello: "Hello world"
+  home:
+    sub-logo: "A São Paulo guide for refugees!"
