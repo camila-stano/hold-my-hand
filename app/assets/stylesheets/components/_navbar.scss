@@ -3,6 +3,22 @@
   background: white;
 }
 
+.navbar-lewagon h2 {
+  margin: 0;
+}
+
+.navbar-lewagon h2 a {
+  font-family: $hold-logo;
+  font-size: 26px;
+  margin: 0;
+}
+
+.navbar-lewagon p {
+  margin: 0;
+  padding: 0;
+  margin-right: 15px;
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }

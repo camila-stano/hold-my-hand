@@ -20,19 +20,19 @@ puts '-----------------------------'
 
 
 file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1614706687/bomprato_f0ruvk.jpg')
-restaurant = Restaurant.create!(name: "Bom prato", address: "R. 25 de Março, 166, Centro, São Paulo, SP", phone: nil, price: 2)
+restaurant = Restaurant.create!(name: "Bom prato", address: "R. 25 de Março, 166, Centro Histórico de São Paulo", phone: nil, price: 2)
 restaurant.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 puts "Restaurant Bom Prato created"
 puts '-----------------------------'
 
 file = URI.open('https://cdn4.ecycle.com.br/cache/images/eDicas/alimentos/50-600-bom-prato-525.jpg')
-restaurant = Restaurant.create!(name: "Popular", address: "R. Barão de Ladário, 204, Brás", phone: "(11) 2292-4151", price: 1)
+restaurant = Restaurant.create!(name: "Popular", address: "R. Barão de Ladário, 204 - Brás", phone: "(11) 2292-4151", price: 1)
 puts "Restaurant Popular created"
 puts '-----------------------------'
 restaurant.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1614708902/sesc_bwr69u.png')
-restaurant = Restaurant.create!(name: "Comedoria Sesc Pinheiros", address: "R. Pais Leme, 195, Pinheiros, São Paulo - SP, Brasil. 05424-150", phone: nil, price: 10)
+restaurant = Restaurant.create!(name: "Comedoria Sesc Pinheiros", address: "R. Pais Leme, 195 - Pinheiros, São Paulo - SP", phone: nil, price: 10)
 puts "Restaurant Comedoria Sesc Pinheiros created"
 puts '-----------------------------'
 restaurant.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
@@ -86,18 +86,18 @@ puts 'Creating Lawyers!'
 puts '-----------------------------'
 
 5.times do 
- lawyer = Lawyer.create!(
-   name: Faker::FunnyName.name,
-   oab: "#{rand(1000000000..9999999999)}",
-   address: Faker::Address.street_name,
-   phone: Faker::PhoneNumber.cell_phone,
-   area: "imigração",
-   description: "Mantém-se pautado em prestar serviços personalizados aos seus clientes, permitir o acompanhamento próximo e a colaboração em todas as fases e desdobramentos de suas demandas jurídicas"
-  )
-  
+  file = URI.open('https://source.unsplash.com/featured/?avatar')
+  lawyer = Lawyer.create!(
+    name: Faker::FunnyName.name,
+    oab: "#{rand(1000000000..9999999999)}",
+    address: Faker::Address.street_name,
+    phone: Faker::PhoneNumber.cell_phone,
+    area: "imigração",
+    description: "Mantém-se pautado em prestar serviços personalizados aos seus clientes, permitir o acompanhamento próximo e a colaboração em todas as fases e desdobramentos de suas demandas jurídicas"
+    )
+  lawyer.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   puts "Lawyer #{lawyer.id} created"
   puts '-----------------------------'
-
 end
 
 puts '-----------------------------'
