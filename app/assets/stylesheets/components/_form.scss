@@ -1,7 +1,14 @@
-.container-forms {
-  width: 50%;
-  margin-top: 50px;
-}
-.btn-create{
+.form-actions {
   width: 100%;
+}
+
+.title-form {
+  font-family: $hold-logo;
+  font-size: 35px;
+}
+
+.forgot-password {
+  font-size: 15px;
+  margin-top: 15px;
+  text-align: center;
 }
