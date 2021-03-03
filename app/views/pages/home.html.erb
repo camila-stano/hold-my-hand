@@ -1,8 +1,7 @@
-
-<div class="container border">
+<div class="container ">
   <div class="text-center">
-    <h1 class='title-home'>Hold My Hand</h1>
-    <h5 class='welcome'> <%= t('.sub-logo')%> </h5>
+    <h1 class="title">Hold My Hand</h1>
+    <h6 class='welcome'> <%= t('.sub-logo')%> </h6>
   </div>
   <div class="d-flex justify-content-center">
     <div class="m-5">
@@ -17,51 +16,12 @@
   <div class ='link-lawyer text-center mb-3'>
     <%= link_to 'cadastre-se como um advogado', new_lawyer_path %>
   </div>
-
-  <div class="pop-up">
-    <div class="row text-center">
-      <div class="col-12">
-        <h2>Hold My Hand</h2>
-      </div>
-      <div class="col-12">
-        <h5>A São Paulo guide for refugees!</h5>
-      </div>    
-    </div>
-
-    <div class="row text-center d-flex align-items-center justify-content-center">
-      <div class="col-3 border">
-        <%= link_to "Shelter", shelters_path, class: 'btn btn-secondary' %>
-      </div>
-      <div class="col-8 border">
-        <h5>Find a place to stay!</h5>
-      </div>    
-    </div>
-
-    <div class="row text-center d-flex align-items-center justify-content-center">
-      <div class="col-8 border">
-        <h5>Find a place to eat!</h5>
-      </div>    
-      <div class="col-3 border">
-        <%= link_to "Restaurants", restaurants_path, class: 'btn btn-secondary' %>
-      </div>
-    </div>
-
-    <div class="row text-center d-flex align-items-center justify-content-center">
-      <div class="col-3 border">
-        <button type="button" class="btn btn-secondary">Documents</button>
-      </div>
-      <div class="col-8 border">
-        <h5>Which documents, and how you can get then!</h5>
-      </div>    
-    </div>
-
-    <div class="row text-center d-flex align-items-center justify-content-center">
-      <div class="col-8 border">
-        <h5>Meet others refugees in Brazil!</h5>
-      </div>    
-      <div class="col-3 border">
-        <button type="button" class="btn btn-secondary">Community</button>
-      </div>
-    </div>
-  </div>
+  <%= render 'shared/pop_up' %>
 </div>
+
+<script>
+  $(document).ready(function() {
+    $('#exampleModal').modal("show")
+    console.log("Ready!"); 
+  });
+</script>

@@ -1,5 +1,6 @@
 class LawyersController < ApplicationController
   before_action :set_lawyer, only: [:show]
+  skip_before_action :authenticate_user!, only: [:new, :create]
   
   def index
     @lawyers = Lawyer.all

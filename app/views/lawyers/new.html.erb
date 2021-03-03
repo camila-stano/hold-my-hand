@@ -1,5 +1,5 @@
-<div class="container container-forms form-group">
-  <h2 class = 'mb-3'>Cadastre-se como um advogado</h2>
+<div class="container form-container my-5">
+  <h2 class = 'mb-3'>Cadastro de advogado</h2>
   <%= simple_form_for(@lawyer) do |f| %>
   <div class="form-inputs">
         <%= f.input :name,
@@ -17,11 +17,12 @@
                     placeholder: 'Phone',
                     label: false %>
         <%= f.input :area,
-                    placeholder: 'Área de atuação',
+                    placeholder: 'area of expertise',
                     label: false %>
         <%= f.input :description,
-                    placeholder: 'Fale mais sobre você e suas experiências profissionais',
-                    label: false %>
+                    as: :text,
+                    input_html: { 'rows': 5},
+                    label: 'Write about you and your professional experiences' %>
         <%= f.input :photo, as: :file, label: 'Foto de perfil' %>
         <%= f.submit "Solicitar cadastro", class: 'btn btn-success mt-3 btn-create' %>
       </div>
