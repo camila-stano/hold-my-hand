@@ -1,5 +1,5 @@
 
-<div class="container border">
+<div class="container ">
   <div class="text-center">
     <h1 class='title-home'>Hold My Hand</h1>
     <h5 class='welcome'> <%= t('.sub-logo')%> </h5>
@@ -28,38 +28,42 @@
       </div>    
     </div>
 
-    <div class="row text-center d-flex align-content-center justify-content-center mt-3 border" >
-      <div class="col-3 d-flex align-items-center border" >
-        <%= link_to "Shelter", shelters_path, class: 'btn btn-secondary' %>
+    <div class="row text-center d-flex align-content-center justify-content-center mt-3 " >
+      <div class="col-3 d-flex align-items-center " >
+        <% link_to shelters_path do %>
+          <i class="fas fa-home" ></i> 
+        <% end %>
       </div>
-      <div class="col-8 border">
+      <div class="col-8 ">
         <h5>Find a place to stay!</h5>
       </div>    
     </div>
 
     <div class="row text-center d-flex align-items-center justify-content-center mt-3">
-      <div class="col-8 border">
+      <div class="col-8 ">
         <h5>Find a place to eat!</h5>
       </div>    
-      <div class="col-3 border">
-        <%= link_to "Restaurants", restaurants_path, class: 'btn btn-secondary' %>
+      <div class="col-3 ">
+        <%= link_to restaurants_path do %>
+          <i class="fas fa-utensils"></i>
+        <% end %>
       </div>
     </div>
 
     <div class="row text-center d-flex align-items-center justify-content-center mt-3">
-      <div class="col-3 border">
+      <div class="col-3 ">
          <%= link_to "Documents", documents_path, class: 'btn btn-secondary' %>
       </div>
-      <div class="col-8 border">
+      <div class="col-8 ">
         <h5>Which documents, and how you can get then!</h5>
       </div>    
     </div>
 
     <div class="row text-center d-flex align-items-center justify-content-center mt-3">
-      <div class="col-8 border">
+      <div class="col-8 ">
         <h5>Meet others refugees in Brazil!</h5>
       </div>    
-      <div class="col-3 border">
+      <div class="col-3 ">
         <button type="button" class="btn btn-secondary">Community</button>
       </div>
     </div>
