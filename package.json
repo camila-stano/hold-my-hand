@@ -1,5 +1,5 @@
 {
-  "name": "_hold_my_hand",
+  "name": "hold_my_hand",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
