@@ -1,5 +1,5 @@
-<div class="container my-5">
-  <h2 class='text-center'>Sign up</h2>
+<div class="container form-container my-5">
+  <h2 class='text-center title-form'>Sign up</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -49,12 +49,12 @@
                 placeholder: 'Profile Picture' %>
   </div>
  
-    <div class="row form-actions align-items-center mt-5">
+    <div class="row align-items-center mt-3">
       <div class='col-sm-12 col-lg-6 d-flex justify-content-end'>
-        <%= f.button :submit, "Sign up", class: 'btn btn-primary btn-form rounded' %>
+        <%= f.button :submit, "Sign up", class: 'btn btn-outline-primary btn-form rounded' %>
       </div>
       <div class='col-sm-12 col-lg-6 d-flex justify-content-left'>      
-        <%= link_to "Log in", new_session_path(resource_name), class: 'btn btn-primary btn-form rounded' %>
+        <%= link_to "Log in", new_session_path(resource_name), class: 'btn btn-outline-primary btn-form rounded' %>
       </div>
     </div>
 
