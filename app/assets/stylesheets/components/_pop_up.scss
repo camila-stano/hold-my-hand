@@ -4,20 +4,18 @@
   height: 80vh;
   padding: 5vh;
   background-color: rgb(214, 214, 214);
-
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
 }
 
-.pop-up div {
+.box {
   line-height: 2em;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 10vh;
   color: white;
-  background-color: black;
+  background-color: #637381;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .title div {
@@ -26,15 +24,18 @@
   justify-content: center;
   align-items: center;
   height: 5vh;
+  background-color: rgb(214, 214, 214);
+  color: #637381;
 }
 
+
 .pop-up i {
-  font-size: 50px;
-  background-color: white;
+  font-size: 6vh;
+  // background-color: white;
   border-radius: 70px;
   padding: 10px;
   width: 10vh;
-  color: black;
+  color: white;
 }
 
 .pop-up i:hover {
