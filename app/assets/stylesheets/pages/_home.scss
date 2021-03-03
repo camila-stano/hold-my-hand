@@ -3,12 +3,7 @@ body {
   font-family: $headers-font;
 }
 
-h1 {
-  font-family: $hold-logo;
-  margin-top: 10px;
-}
-
- i {
+i {
   font-size: 70px;
   padding: 10px;
   width: 10vh;
@@ -23,6 +18,12 @@ h1 {
   margin: 20px;
 }
 
+h1 {
+  font-family: $hold-logo;
+  margin-top: 10px;
+}
+
+
 h5 {
   color: #16181f;
   font-weight: bold;
@@ -30,4 +31,18 @@ h5 {
 
 .box-title {
   padding: 40px;
+}
+
+.btn-w {
+  width: 150px;
+}
+
+a {
+  color: #16181f;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(136, 136, 136);
+  text-decoration: none;
 }

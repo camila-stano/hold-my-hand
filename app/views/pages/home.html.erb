@@ -5,37 +5,38 @@
       <h1 class="title">Hold My Hand</h1>
       <h5 class='welcome'> A São Paulo guide for refugees! </h5>
     </div>
+
 <%# ICONS -------------------------- %>
-    <div class="row d-flex justify-content-around">
+    <div class="row d-flex justify-content-around ">
       <div class="col-4 text-center ">
         <%= link_to shelters_path do %>
           <i class="fas fa-home bg-icon" ></i> 
         <% end %>
-        <h5>Find a place to stay!</h5>
+        <h5 class="">Find a place to stay!</h5>
       </div> 
 
       <div class="col-4 text-center ">
-        <%= link_to shelters_path do %>
+        <%= link_to maps_path do %>
           <i class="fas fa-passport bg-icon" ></i> 
         <% end %>
-        <h5>MAP!</h5>
+        <h5 class="">MAP!</h5>
       </div> 
 
       <div class="col-4 text-center ">
-        <%= link_to shelters_path do %>
+        <%= link_to restaurants_path do %>
           <i class="fas fa-utensils bg-icon" ></i> 
         <% end %>
         <h5>Where to eat!</h5>
       </div> 
 
 <%# LOGIN -------------------------- %>
-    <div class="row d-flex justify-content-center">
-      <div class="m-5">
-        <%= link_to "Crie sua conta", new_user_registration_path, class: 'btn btn-outline-warning rounded btn-home' %>
+    <div class="col-12 m-2">
+      <div class="m-5 ">
+        <%= link_to "Crie sua conta", new_user_registration_path, class: 'btn btn-secondary btn-w' %>
         <% if current_user.present? %>
-          <%= link_to "Faça login", root_path, class: 'btn btn-outline-warning rounded btn-home' %>
+          <%= link_to "Faça login", root_path, class: 'btn btn-secondary btn-w' %>
         <% else %>
-          <%= link_to "Faça login", new_user_session_path, class: 'btn btn-outline-warning rounded btn-home' %>
+          <%= link_to "Faça login", new_user_session_path, class: 'btn btn-secondary btn-w' %>
         <% end %>
       </div>
     </div>
