@@ -1,20 +1,22 @@
-<h1><%= @document.document_type %></h1>
+<div class="container">
+  <h1><%= @document.document_type %></h1>
 
-<h3>Public Agency:</h3>
-<p><%= @document.public_agency%></p>
+  <h3>Public Agency:</h3>
+  <p><%= @document.public_agency%></p>
 
-<h3>Adress:</h3>
-<p><%= @document.address%></p>
+  <h3>Adress:</h3>
+  <p><%= @document.address%></p>
 
-<h3>Contact:</h3>
-<p><%= @document.contact%></p>
+  <h3>Contact:</h3>
+  <p><%= @document.contact%></p>
 
-<h3>Opening Hours</h3>
-<p><%= @document.opening_hours%></p>
+  <h3>Opening Hours</h3>
+  <p><%= @document.opening_hours%></p>
 
-<h3> Required docs</h3>
-<p><%= @document.required_docs%></p>
+  <h3> Required docs</h3>
+  <p><%= @document.required_docs%></p>
 
-<h3>Website</h3>
-<p><%=link_to @document.url_agency, @document.url_agency%></p>
+  <h3>Website</h3>
+  <p><%=link_to @document.url_agency, @document.url_agency%></p>
+</div>
 

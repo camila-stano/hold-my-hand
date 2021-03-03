@@ -1,7 +1,11 @@
 <h1> Documents needed </h1>
 <ul>
   <%@documents.each do |document|%>
-    <li><%= link_to document.document_type, document_path(document) %></li>
+    <%= document.document_type %>
+    <div class="cards">
+      <%= link_to cl_image_tag(document.photo.key, class: "card-category", style: "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))"), document_path(document)%>
+    </div>
   <%end%>
 </ul>
+
 
