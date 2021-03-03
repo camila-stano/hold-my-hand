@@ -1,23 +1,52 @@
-<div class="container ">
-  <div class="text-center">
-    <h1 class="title">Hold My Hand</h1>
-    <h6 class='welcome'> <%= t('.sub-logo')%> </h6>
-  </div>
-  <div class="d-flex justify-content-center">
-    <div class="m-5">
-      <%= link_to "Crie sua conta", new_user_registration_path, class: 'btn btn-outline-warning rounded btn-home' %>
-      <% if current_user.present? %>
-        <%= link_to "Faça login", root_path, class: 'btn btn-outline-warning rounded btn-home' %>
-      <% else %>
-        <%= link_to "Faça login", new_user_session_path, class: 'btn btn-outline-warning rounded btn-home' %>
-      <% end %>
+<div class="banner">
+  <div class="container">
+<%# TITLE -------------------------- %>
+    <div class="box-title">
+      <h1 class="title">Hold My Hand</h1>
+      <h5 class='welcome'> A São Paulo guide for refugees! </h5>
+    </div>
+<%# ICONS -------------------------- %>
+    <div class="row d-flex justify-content-around">
+      <div class="col-4 text-center ">
+        <%= link_to shelters_path do %>
+          <i class="fas fa-home bg-icon" ></i> 
+        <% end %>
+        <h5>Find a place to stay!</h5>
+      </div> 
+
+      <div class="col-4 text-center ">
+        <%= link_to shelters_path do %>
+          <i class="fas fa-passport bg-icon" ></i> 
+        <% end %>
+        <h5>MAP!</h5>
+      </div> 
+
+      <div class="col-4 text-center ">
+        <%= link_to shelters_path do %>
+          <i class="fas fa-utensils bg-icon" ></i> 
+        <% end %>
+        <h5>Where to eat!</h5>
+      </div> 
+
+<%# LOGIN -------------------------- %>
+    <div class="row d-flex justify-content-center">
+      <div class="m-5">
+        <%= link_to "Crie sua conta", new_user_registration_path, class: 'btn btn-outline-warning rounded btn-home' %>
+        <% if current_user.present? %>
+          <%= link_to "Faça login", root_path, class: 'btn btn-outline-warning rounded btn-home' %>
+        <% else %>
+          <%= link_to "Faça login", new_user_session_path, class: 'btn btn-outline-warning rounded btn-home' %>
+        <% end %>
+      </div>
+    </div>
+
+<%# LAWYER ------------------------ %>
+    <div class ='link-lawyer text-center mb-3'>
+      <%= link_to 'cadastre-se como um advogado', new_lawyer_path %>
     </div>
   </div>
-  <div class ='link-lawyer text-center mb-3'>
-    <%= link_to 'cadastre-se como um advogado', new_lawyer_path %>
-  </div>
-  <%= render 'shared/pop_up' %>
 </div>
+<%# <%= render 'shared/pop_up' %> 
 
 <script>
   $(document).ready(function() {
