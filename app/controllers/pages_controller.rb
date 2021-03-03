@@ -8,19 +8,24 @@ class PagesController < ApplicationController
     @restaurants = Restaurant.all
     @shelters = Shelter.all
 
+
+
     @markers = @restaurants.geocoded.map do |restaurant|
       {
         lat: restaurant.latitude,
-        lng: restaurant.longitude
+        lng: restaurant.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { restaurant: restaurant })
       }
     end
 
-    # @addresses = @shelters.geocoded.map do |address|
-    #   {
-    #     lat: address.latitude,
-    #     lng: address.longitude
-    #   }
-    # end
+    @addresses = @shelters.geocoded.map do |shelter|
+      {
+        lat: shelter.latitude,
+        lng: shelter.longitude,
+        infoWindow: render_to_string(partial: "info", locals: { shelter: shelter })
+      }
+    end
   
+    @markers += @addresses
   end
 end

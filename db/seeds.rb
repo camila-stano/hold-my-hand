@@ -18,21 +18,21 @@ puts '-----------------------------'
 puts 'Creating Restaurants!'
 puts '-----------------------------'
 
-
+# latitude e longitude errados, inserir manualmente pelo rails c. latitude: -23.547794222490886, longitude: -46.63069957419347
 file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1614706687/bomprato_f0ruvk.jpg')
-restaurant = Restaurant.create!(name: "Bom prato", address: "R. 25 de Março, 166, Centro Histórico de São Paulo", phone: nil, price: 2)
+restaurant = Restaurant.create!(name: "Bom prato", address: "Rua 25 de Março, 166, Centro, São Paulo", phone: nil, price: 2)
 restaurant.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 puts "Restaurant Bom Prato created"
 puts '-----------------------------'
 
 file = URI.open('https://cdn4.ecycle.com.br/cache/images/eDicas/alimentos/50-600-bom-prato-525.jpg')
-restaurant = Restaurant.create!(name: "Popular", address: "R. Barão de Ladário, 204 - Brás", phone: "(11) 2292-4151", price: 1)
+restaurant = Restaurant.create!(name: "Popular", address: "Rua Barão de Ladário, 204, Brás, São Paulo", phone: "(11) 2292-4151", price: 1)
 puts "Restaurant Popular created"
 puts '-----------------------------'
 restaurant.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1614708902/sesc_bwr69u.png')
-restaurant = Restaurant.create!(name: "Comedoria Sesc Pinheiros", address: "R. Pais Leme, 195 - Pinheiros, São Paulo - SP", phone: nil, price: 10)
+restaurant = Restaurant.create!(name: "Comedoria Sesc Pinheiros", address: "Rua Pais Leme, 195, Pinheiros, São Paulo", phone: nil, price: 10)
 puts "Restaurant Comedoria Sesc Pinheiros created"
 puts '-----------------------------'
 restaurant.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
@@ -42,20 +42,23 @@ puts '-----------------------------'
 puts 'Creating Shelters!'
 puts '-----------------------------'
 
+# latitude e longitude errados, inserir manualmente pelo rails c.
 file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1614709677/acnur_pofhwh.png')
-shelter = Shelter.create!(name: "Acnur", address: "Largo Páteo do Colégio, 148 - Centro Histórico de São Paulo, São Paulo - SP", phone: "(11) 3101-2921")
+shelter = Shelter.create!(name: "Acnur", address: "Largo Páteo do Colégio, 148, Centro Histórico de São Paulo, São Paulo", phone: "(11) 3101-2921")
 puts "Shelter Acnur created"
 puts '-----------------------------'
-shelter.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+shelter.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png') 
 
 file = URI.open('https://ogimg.infoglobo.com.br/mundo/23292355-a4d-377/FT1086A/652/80102016_interSao-Paulo-SP-29-11-2018-PadreMigrantesTrabalho-com-migrantes-do-padre-Pao.jpg')
-shelter = Shelter.create!(name: "Missão Paz São Paulo", address: "Rua Glicério, 225, Liberdade, São Paulo", phone: "(11) 3340-6950")
+shelter = Shelter.create!(name: "Missão Paz São Paulo", address: "Rua Glicério, 225, Liberdade, São Paulo", phone: "(11) 3340-6950", opening_hours: "Não informado", description: "A Missão Paz é uma instituição filantrópica de apoio e acolhimento a imigrantes e refugiados na cidade de São Paulo. Pertencente aos missionários Scalabrinianos, ela atua em favor do público migrante desde os anos trinta do século XX. Ao longo de sua história, ela recebeu italianos, vietnamitas, coreanos, chilenos, bolivianos, paraguaios, peruanos, congoleses, angolanos, nigerianos, colombianos, haitianos, venezuelanos, entre tantos outros povos do mundo. Atualmente, a instituição atende indívuos de mais de 70 nacionalidades.")
+
 puts "Shelter Missão Paz São Paulo created"
 puts '-----------------------------'
 shelter.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
+# latitude e longitude errados, inserir manualmente pelo rails c.
 file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1614709666/caritas_wpgzyf.png')
-shelter = Shelter.create!(name: "Caritas Arquidiocesana de São Paulo", address: "R. José Bonifácio, 107 - 2º andar - Sé, São Paulo", phone: "(11) 94574-6358")
+shelter = Shelter.create!(name: "Caritas Arquidiocesana de São Paulo", address: "Rua José Bonifácio, 107, 2º andar, Sé, São Paulo", phone: "(11) 94574-6358")
 puts "Shelter Caritas Arquidiocesana de São Paulo created"
 puts '-----------------------------'
 shelter.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
