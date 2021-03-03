@@ -1,11 +1,29 @@
 <div class="container">
-  <h2 class='text-center'><%= @shelter.name %><h2>
+<%# ------------------------- TITLE ----------------------------- %>
+  <div class="show-title my-5">
+    <h2><%= @shelter.name %><h2>
+  </div>
+<%# ----------------------- INFO + IMG -------------------------- %>
+  <div class="info-show row">
+    <div class="description-show col-sm-12 col-lg-6 ">
+      <p><%= @shelter.description %></p>
+      <p><%= @shelter.opening_hours %></p>
+      <p><%= @shelter.phone %></p>
+    </div>
+    <div class="col-sm-12 col-lg-6" style="background-size: cover; background-repeat: no-repeat; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @shelter.photo.key, transformation: [{crop: "crop", width: 1000, height: 700}] %>')"></div>
 
+  </div>  
+
+<%# -------------------------- MAPA ----------------------------- %>
+  <div class="map-show">
     <div id="map"
       style="width: 100%; height: 600px;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>   
+  </div>
+
+<%# ------- LINK PARA O MAPA GERAL QUE TEM TODOS OS ABRIGOS E RESTAURANTES -------- %> 
     
   <p><%= link_to "Map", maps_path, class: 'btn btn-success' %></p>
   
