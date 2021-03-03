@@ -25,7 +25,7 @@ class PagesController < ApplicationController
         infoWindow: render_to_string(partial: "info", locals: { shelter: shelter })
       }
     end
-
+  
     @markers += @addresses
   end
 end
