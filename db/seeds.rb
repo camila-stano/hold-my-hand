@@ -20,7 +20,7 @@ puts '-----------------------------'
 
 
 file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1614706687/bomprato_f0ruvk.jpg')
-restaurant = Restaurant.create!(name: "Bom prato", address: "Rua 25 de Março, 166, Centro, São Paulo", phone: nil, price: 2)
+restaurant = Restaurant.create!(name: "Bom prato", address: "Rua 25 de Março, 166, Centro, São Paulo", latitude: -23.547794222490886, longitude: -46.63069957419347, phone: nil, price: 2)
 restaurant.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 puts "Restaurant Bom Prato created"
 puts '-----------------------------'
@@ -49,7 +49,7 @@ puts '-----------------------------'
 shelter.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png') 
 
 file = URI.open('https://ogimg.infoglobo.com.br/mundo/23292355-a4d-377/FT1086A/652/80102016_interSao-Paulo-SP-29-11-2018-PadreMigrantesTrabalho-com-migrantes-do-padre-Pao.jpg')
-shelter = Shelter.create!(name: "Missão Paz São Paulo", address: "Rua Glicério, 225, bairro Liberdade, São Paulo", phone: "(11) 3340-6950")
+shelter = Shelter.create!(name: "Missão Paz São Paulo", address: "Rua Glicério, 225, Liberdade, São Paulo", phone: "(11) 3340-6950")
 puts "Shelter Missão Paz São Paulo created"
 puts '-----------------------------'
 shelter.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
