@@ -15,7 +15,7 @@
   </div>  
 
 <%# -------------------------- MAPA ----------------------------- %>
-  <div class="map-show">
+  <div class="map-show my-5">
     <div id="map"
       style="width: 100%; height: 600px;"
       data-markers="<%= @markers.to_json %>"
@@ -24,7 +24,8 @@
   </div>
 
 <%# ------- LINK PARA O MAPA GERAL QUE TEM TODOS OS ABRIGOS E RESTAURANTES -------- %> 
-    
-  <p><%= link_to "Map", maps_path, class: 'btn btn-success' %></p>
+  <div class="d-flex justify-content-end my-3">    
+    <%= link_to "Veja o mapa completo", maps_path, class: 'btn btn-success' %>
+  </div>
   
 </div>

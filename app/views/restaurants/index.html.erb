@@ -1,21 +1,28 @@
 <div class="container">
   <h1 class='text-center mt-5'>Restaurants</h1>
-
   <div class="d-flex justify-content-center">
+
     <div class="card-deck row d-flex">
       <% @restaurants.each do |restaurant| %>
         <div class="col-sm-12 col-md-6 col-lg-4">
-          <div class="card m-3 w-100">     
-            <%= cl_image_tag restaurant.photo.key, height: 230, width: 300, class: 'card-img-top' %>
+          <div class="card m-3 w-100", style="min-height: 320px;">     
+              
+            <div class='card-img-top' style="height: 200px; background-size: cover; 
+                                             background-repeat: no-repeat; background-image: 
+                                             url('<%= cl_image_path restaurant.photo.key, 
+                                             transformation: {crop: "crop", width: 1000, 
+                                             height: 700} %>')">
+            </div>
+
             <div class="card-body">
               <h5 class="card-title"><%= link_to restaurant.name, restaurant_path(restaurant.id) %></h5>
-              <p class="card-text">Description (podemos adc à tabela) </p>
-              <p class="card-text"><small class="text-muted">R$ <%= restaurant.price %></small></p>
+              <p class="card-text text-justify"><%= "#{restaurant.opening_hours}" %></p>
+              <p class="card-text"><small class="text-muted"> <%= restaurant.address %></small></p>
             </div>
+            
           </div>
         </div>
       <% end %>
     </div>
-    
   </div>
-</div>
+</div> 
