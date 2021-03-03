@@ -30,7 +30,7 @@
 
     <div class="row text-center d-flex align-content-center justify-content-center mt-3 " >
       <div class="col-3 d-flex align-items-center " >
-        <% link_to shelters_path do %>
+        <%= link_to shelters_path do %>
           <i class="fas fa-home" ></i> 
         <% end %>
       </div>
@@ -52,7 +52,9 @@
 
     <div class="row text-center d-flex align-items-center justify-content-center mt-3">
       <div class="col-3 ">
-         <%= link_to "Documents", documents_path, class: 'btn btn-secondary' %>
+        <%= link_to  documents_path do %>
+          <i class="fas fa-passport"></i>
+        <% end %>
       </div>
       <div class="col-8 ">
         <h5>Which documents, and how you can get then!</h5>
@@ -64,7 +66,7 @@
         <h5>Meet others refugees in Brazil!</h5>
       </div>    
       <div class="col-3 ">
-        <button type="button" class="btn btn-secondary">Community</button>
+        <i class="fas fa-comments"></i>
       </div>
     </div>
   </div>
