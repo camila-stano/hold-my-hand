@@ -47,6 +47,9 @@ gem 'rails-i18n', '~> 6.0.0'
 # photos cloud
 gem 'cloudinary', '~> 1.16.0'
 
+#Facebook Login
+gem 'omniauth-facebook'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
