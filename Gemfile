@@ -28,7 +28,7 @@ gem 'redis', '~> 4.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-gem 'devise'
+gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
@@ -46,6 +46,9 @@ gem 'rails-i18n', '~> 6.0.0'
 
 # photos cloud
 gem 'cloudinary', '~> 1.16.0'
+
+#Facebook authentication
+gem 'omniauth-facebook'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
