@@ -1,10 +1,20 @@
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
+
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
-  if (mapElement) { // only build a map if there's a div#map to inject into
+
+  if (mapElement) { // only build a map if there's a div#map to inject 
+  
+    const directions = new MapboxDirections({
+      accessToken: mapElement.dataset.mapboxApiKey,
+      unit: 'metric',
+      profile: 'mapbox/walking'
+    });
+
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     // Creating the map
     const map = new mapboxgl.Map({
@@ -14,6 +24,32 @@ const initMapbox = () => {
     // Add search input to the map
     map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
                                         mapboxgl: mapboxgl }));
+
+    map.addControl(directions, 'top-left');
+
+    // const position = new mapboxgl.GeolocateControl({
+    //   positionOptions: {
+    //       enableHighAccuracy: true
+    //   },
+    //   trackUserLocation: true
+    //  })
+
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+      
+        const current_lat = position.coords.latitude;
+        const current_lng = position.coords.longitude;
+        
+        map.on('load', () => {
+          directions.setOrigin([current_lat, current_lng]); 
+          directions.setDestination([markers]); 
+        });
+
+      });
+    } else {
+      alert("I'm sorry, but geolocation services are not supported by your browser.");
+    }
+    
     // Adding markers to the map
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
@@ -32,6 +68,7 @@ const addMarkersToMap = (map, markers) => {
     element.style.backgroundSize = 'contain';
     element.style.width = '25px';
     element.style.height = '25px';
+    
     new mapboxgl.Marker()
       .setLngLat([ marker.lng, marker.lat ])
       .setPopup(popup) // add this
