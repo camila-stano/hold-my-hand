@@ -22,17 +22,10 @@ const initMapbox = () => {
       style: 'mapbox://styles/marianaapm/ckltkt6s32jgo17o4jhqusk5z'
     });
     // Add search input to the map
- 
-    if (mapElement.dataset.route === 'show') {
-          map.addControl(new MapboxDirections({
-          accessToken: mapboxgl.accessToken,
-          interactive: false,
-          controls: { instructions: false, profileSwitcher: false }
-        }));
-    } else {
-      map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl }));
-    }
+    // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+    //                                     mapboxgl: mapboxgl }));
+
+    map.addControl(directions);
 
 
     if ("geolocation" in navigator) {

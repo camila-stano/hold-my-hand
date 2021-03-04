@@ -29,3 +29,5 @@ class PagesController < ApplicationController
     @markers += @addresses
   end
 end
+
+
