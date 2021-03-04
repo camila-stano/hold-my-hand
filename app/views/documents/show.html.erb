@@ -1,25 +1,36 @@
 <div class="container">
-
-  <div class="card-category-show my-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @document.photo.attached? ? cl_image_path(@document.photo.key) : image_path('') %>)">
-    <%= @document.document_type %>
+<%# ------------------------- TITLE ----------------------------- %>
+  <div class="show-title my-5">
+    <h2><%= @document.document_type %><h2>
+  </div>
+<%# ----------------------- INFO + IMG -------------------------- %>
+  <div class="info-show row">
+    <div class="description-show col-sm-12 col-lg-6 ">
+      <p class = 'document-title'>Public Agency: <span class = 'document-table-data'><%= @document.public_agency%></span></p>
+      <p class = 'document-title'>Adress: <span class = 'document-table-data'><%= @document.address%></span></p>
+      <p class = 'document-title'>Contact: <span class = 'document-table-data'><%= @document.contact%></span></p>
+      <p class = 'document-title'>Opening Hours:  <span class = 'document-table-data'><%= @document.opening_hours%></span></p>
+      <p class = 'document-title'> Required docs:  <span class = 'document-table-data'><%= @document.required_docs%></span></p>
+      <p class = 'document-title'>Website: <span class = 'document-table-data'><%=link_to @document.url_agency, @document.url_agency%></span></p> 
+    </div>
+    <div class="col-sm-12 col-lg-6" style="background-size: cover; background-repeat: no-repeat;
+                                           background-image: url('<%= cl_image_path @document.photo.key,
+                                           transformation: [{crop: "crop", width: 1000, height: 700}] %>')">
+    </div>
   </div>
 
-  <h3 class = 'document-title'>Public Agency:</h3>
-  <p class = 'document-table-data'><%= @document.public_agency%></p>
+<%# -------------------------- MAPA ----------------------------- %>
+  <div class="map-show my-5">
+    <div id="map"
+      style="width: 100%; height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>   
+  </div>
 
-  <h3 class = 'document-title'>Adress:</h3>
-  <p class = 'document-table-data'><%= @document.address%></p>
 
-  <h3 class = 'document-title'>Contact:</h3>
-  <p class = 'document-table-data'><%= @document.contact%></p>
-
-  <h3 class = 'document-title'>Opening Hours</h3>
-  <p class = 'document-table-data'><%= @document.opening_hours%></p>
-
-  <h3 class = 'document-title'> Required docs</h3>
-  <p class = 'document-table-data'><%= @document.required_docs%></p>
-
-  <h3 class = 'document-title'>Website</h3>
-  <p class = 'document-table-data'><%=link_to @document.url_agency, @document.url_agency%></p>
+<%# ------- LINK PARA O MAPA GERAL QUE TEM TODOS OS ABRIGOS E SHELTERS -------- %> 
+  <div class="d-flex justify-content-end my-3">    
+    <%= link_to "Veja o mapa completo", maps_path, class: 'btn btn-success' %>
+  </div>  
 </div>
-
