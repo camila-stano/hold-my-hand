@@ -66,13 +66,13 @@
 <%# DOCUMENTS -------------------------- %>
 <div class="banner-content-darkness d-flex justify-content-around">
   <div class="row d-flex justify-content-around align-content-center w-100 ">
-    <div class="col-4">
+    <div class="col-7 d-flex align-content-center justify-content-around flex-wrap">
+      <h1> LOGIN TO ACCESS THE COMMUNIT </h1>
+    </div>
+    <div class="col-4 text-left">
       <%= link_to new_user_session_path do %>
         <i class="fas fa-comments i-large"></i>
       <% end %>
-    </div>
-    <div class="col-8 d-flex align-content-center justify-content-around flex-wrap">
-      <h1> LOGIN TO ACCESS THE COMMUNIT </h1>
     </div>
   </div>
 </div>
@@ -80,7 +80,7 @@
 <%# LAWYERS -------------------------- %>
 <div class="banner-content-light d-flex justify-content-around">
   <div class="row d-flex justify-content-around align-content-center w-100 ">
-    <div class="col-4 text-center ">
+    <div class="col-4 text-center">
       <%= link_to shelters_path do %>
         <i class="fas fa-comments i-large"></i>
       <% end %>
