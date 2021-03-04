@@ -8,8 +8,6 @@ class PagesController < ApplicationController
     @restaurants = Restaurant.all
     @shelters = Shelter.all
 
-
-
     @markers = @restaurants.geocoded.map do |restaurant|
       {
         lat: restaurant.latitude,
@@ -25,9 +23,18 @@ class PagesController < ApplicationController
         infoWindow: render_to_string(partial: "info", locals: { shelter: shelter })
       }
     end
-  
+
     @markers += @addresses
   end
+
+  def update_position
+    @user = current_user
+    @user.latitude = params['lat'].to_f
+    @user.longitude = params['lng'].to_f
+    @user.save
+  end
+
+  def position_params
+    params.permit(:lat, :lng)
+  end
 end
-
-
