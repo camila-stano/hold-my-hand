@@ -24,11 +24,13 @@ const initMapbox = () => {
     // Add search input to the map
  
     if (mapElement.dataset.route === 'show') {
-     map.addControl(directions);
+      map.addControl(new MapboxDirections({
+        accessToken: mapboxgl.accessToken,
+        controls: {instructions: false}
+    }));
     } else {
       map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
         mapboxgl: mapboxgl }));
-
     }
 
 
