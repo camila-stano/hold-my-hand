@@ -7,5 +7,10 @@ class SheltersController < ApplicationController
 
   def show
     @shelter = Shelter.find(params[:id])
+    @markers = [{ 
+      lat: @shelter.latitude, 
+      lng: @shelter.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { shelter: @shelter }) 
+      }]
   end
 end
