@@ -1,11 +1,31 @@
-<h1> Documents needed </h1>
+<div class="container">
+  <h1 class='text-center mt-5'>Documents</h1>
+  <div class="d-flex justify-content-center">
+    <div class="card-deck row d-flex">
+      <% @documents.each do |document| %>
+        <%= link_to document_path(document) do %>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="card m-3 w-100", style="min-height: 420px;">     
+                
+              <div class='card-img-top' style="height: 200px; background-size: cover; 
+                                              background-repeat: no-repeat; background-image: 
+                                              url('<%= cl_image_path document.photo.key, 
+                                              transformation: {crop: "crop", width: 1000, 
+                                              height: 700} %>')">
+              </div>
 
-<div class="cards">
-  <%@documents.each do |document|%>
-    <%= link_to document_path(document) do %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= document.photo.attached? ? cl_image_path(document.photo.key) : image_path('') %>)">
-        <%= document.document_type %>
-      </div>
-    <% end %>
-  <%end%>
-</div>
+              <div class="card-body">
+                <h5 class="card-title"><%= link_to document.document_type, document_path(document.id) %></h5>
+                <p class="card-text text-justufy"><%= document.public_agency %></p>
+                <p class="card-text text-justify"><%= "Opening hours: #{document.opening_hours}" %></p>
+                <p><%= link_to "...more info", document_path(document.id) %></p>
+                <p class="card-text"><small class="text-muted"> <%= document.address %></small></p>
+              </div>
+              
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div> 
