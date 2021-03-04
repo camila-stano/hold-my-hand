@@ -26,7 +26,8 @@ const initMapbox = () => {
     if (mapElement.dataset.route === 'show') {
       map.addControl(new MapboxDirections({
         accessToken: mapboxgl.accessToken,
-        controls: {instructions: false}
+        interactive: false,
+        controls: {instructions: false, profileSwitcher: false}
     }));
     } else {
       map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
