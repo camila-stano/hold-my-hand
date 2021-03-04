@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
   scope "/:locale" do
     get 'documents/index'
     get 'documents/show'
-    devise_for :users
     root to: 'pages#home'
-
+    devise_for :users, skip: :omniauth_callbacks
+    
     resources :profiles, only: [:show]
 
     resources :restaurants, only: [:index, :show]
