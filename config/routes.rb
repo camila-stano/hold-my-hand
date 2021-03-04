@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  scope "/:locale" do
-    get 'documents/index'
-    get 'documents/show'
-    devise_for :users
+  scope "(:locale)", locale: /en|es|pt-BR/ do
     root to: 'pages#home'
+    devise_for :users
 
     resources :profiles, only: [:show]
 
