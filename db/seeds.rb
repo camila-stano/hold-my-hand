@@ -89,7 +89,7 @@ document = Document.create!(
   public_agency: Faker::FunnyName.name,
   address: Faker::Address.street_name,
   contact: Faker::Internet.email,
-  opening_hours: "#{rand(6..9)}h - #{rand(18..22)}",
+  opening_hours: "#{rand(6..9)}h - #{rand(18..22)h}",
   required_docs: Faker::FunnyName.name,
   url_agency: Faker::Internet.url
 )
