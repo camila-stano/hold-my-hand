@@ -70,7 +70,7 @@
       <h1> HOW TO GET YOURS FIRSTS BRAZILIANS DOCUMENTS </h1>
     </div>
     <div class="col-4 text-left">
-      <%= link_to new_user_session_path do %>
+      <%= link_to documents_path do %>
         <i class="fas fa-passport i-large"></i>
       <% end %>
     </div>
@@ -81,7 +81,7 @@
 <div class="banner-content-light d-flex justify-content-around">
   <div class="row d-flex justify-content-around align-content-center w-100 ">
     <div class="col-4 text-center">
-      <%= link_to shelters_path do %>
+      <%= link_to lawyers_path do %>
         <i class="fas fa-gavel i-large"></i>
       <% end %>
     </div>
@@ -92,8 +92,7 @@
 </div>
 
 <%# POP-UP ------------------------ %>
-<%# <%= render 'shared/pop_up' %>
-
+<%= render 'shared/pop_up' %>
 <script>
   $(document).ready(function() {  
     $('#pop-up-home').modal("show")
