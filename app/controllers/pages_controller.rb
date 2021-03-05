@@ -24,14 +24,14 @@ class PagesController < ApplicationController
       }
     end
 
-    # @user_markers = [{
-    #   lat: session[:user_position][0],
-    #   lng: session[:user_position][1],
-    #   infoWindow: render_to_string(partial: "info_user", locals: { user: session[:user_position] }),
-    #   image_url: helpers.asset_url('png-transparent-computer-icons-map-pin.png') 
-    #   }]
+    @umarker = {
+      lat: session[:user_position][0],
+      lng: session[:user_position][1],
+      infoWindow: render_to_string(partial: "info_user"),
+      image_url: helpers.asset_url('icon_orange.png') 
+      }
 
-    @markers << { lat: session[:user_position][0], lng: session[:user_position][1] }
+    # @markers << { lat: session[:user_position][0], lng: session[:user_position][1] }
 
     @markers += @addresses
   end

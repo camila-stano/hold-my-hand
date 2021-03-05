@@ -20,7 +20,7 @@ puts '-----------------------------'
 
 # latitude e longitude errados, inserir manualmente pelo rails c. latitude: -23.547794222490886, longitude: -46.63069957419347
 file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1614706687/bomprato_f0ruvk.jpg')
-restaurant = Restaurant.create!(name: "Bom prato", address: "Rua 25 de Março, 166, Centro, São Paulo", phone: nil, price: 2)
+restaurant = Restaurant.create!(name: "Bom prato", address: "Rua 25 de Março, 166, Centro, São Paulo", phone: '(11) 3334-2977', price: 2)
 restaurant.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 puts "Restaurant Bom Prato created"
 puts '-----------------------------'
@@ -32,7 +32,7 @@ puts '-----------------------------'
 restaurant.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1614708902/sesc_bwr69u.png')
-restaurant = Restaurant.create!(name: "Comedoria Sesc Pinheiros", address: "Rua Pais Leme, 195, Pinheiros, São Paulo", phone: nil, price: 10)
+restaurant = Restaurant.create!(name: "Comedoria Sesc Pinheiros", address: "Rua Pais Leme, 195, Pinheiros, São Paulo", phone: '(11) 3095-9400', price: 10)
 puts "Restaurant Comedoria Sesc Pinheiros created"
 puts '-----------------------------'
 restaurant.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
@@ -44,13 +44,13 @@ puts '-----------------------------'
 
 # latitude e longitude errados, inserir manualmente pelo rails c.
 file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1614709677/acnur_pofhwh.png')
-shelter = Shelter.create!(name: "Acnur", address: "Largo Páteo do Colégio, 148, Centro Histórico de São Paulo, São Paulo", phone: "(11) 3101-2921")
+shelter = Shelter.create!(name: "Acnur", address: "Largo Páteo do Colégio, 148, Centro Histórico de São Paulo, São Paulo", phone: "(11) 3101-2921", opening_hours: "Não informado", description: "")
 puts "Shelter Acnur created"
 puts '-----------------------------'
 shelter.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png') 
 
 file = URI.open('https://ogimg.infoglobo.com.br/mundo/23292355-a4d-377/FT1086A/652/80102016_interSao-Paulo-SP-29-11-2018-PadreMigrantesTrabalho-com-migrantes-do-padre-Pao.jpg')
-shelter = Shelter.create!(name: "Missão Paz São Paulo", address: "Rua Glicério, 225, Liberdade, São Paulo", phone: "(11) 3340-6950", opening_hours: "Não informado", description: "A Missão Paz é uma instituição filantrópica de apoio e acolhimento a imigrantes e refugiados na cidade de São Paulo. Pertencente aos missionários Scalabrinianos, ela atua em favor do público migrante desde os anos trinta do século XX. Ao longo de sua história, ela recebeu italianos, vietnamitas, coreanos, chilenos, bolivianos, paraguaios, peruanos, congoleses, angolanos, nigerianos, colombianos, haitianos, venezuelanos, entre tantos outros povos do mundo. Atualmente, a instituição atende indívuos de mais de 70 nacionalidades.")
+shelter = Shelter.create!(name: "Missão Paz São Paulo", address: "Rua Glicério, 225, Liberdade, São Paulo", phone: "(11) 3340-6950", opening_hours: "Não informado", description: "Missão Paz is a philanthropic institution that supports and welcomes immigrants and refugees in the city of São Paulo. Belonging to the Scalabrinian missionaries, it has been working for the migrant public since the thirties of the twentieth century.")
 
 puts "Shelter Missão Paz São Paulo created"
 puts '-----------------------------'

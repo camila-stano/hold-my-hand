@@ -53,7 +53,9 @@ const initMapbox = () => {
     
     // Adding markers to the map
     const markers = JSON.parse(mapElement.dataset.markers);
+    const umarker = JSON.parse(mapElement.dataset.umarker);
     addMarkersToMap(map, markers);
+    addUserMarkerToMap(map, umarker);
     // Zoom map to markers
     fitMapToMarkers(map, markers);
   }
@@ -76,6 +78,21 @@ const addMarkersToMap = (map, markers) => {
       .addTo(map);
   });
 };
+
+const addUserMarkerToMap = (map, umarker) => {
+  const popup = new mapboxgl.Popup().setHTML(umarker.infoWindow);
+  const userElement = document.createElement('div');
+  userElement.className = 'umarker';
+  userElement.style.backgroundImage = `url('${umarker.image_url}')`;
+  userElement.style.backgroundSize = 'contain';
+  userElement.style.width = '27px';
+  userElement.style.height = '35px';
+
+  new mapboxgl.Marker(userElement)
+  .setLngLat([ umarker.lng, umarker.lat ])
+  .setPopup(popup) // add this
+  .addTo(map);
+}
 
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
