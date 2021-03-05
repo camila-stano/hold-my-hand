@@ -5,8 +5,8 @@ class PagesController < ApplicationController
   end
 
   def maps
-    @restaurants = Restaurant.near(session[:user_position], 10)
-    @shelters = Shelter.near(session[:user_position], 10)
+    @restaurants = Restaurant.near(session[:user_position], 100)
+    @shelters = Shelter.near(session[:user_position], 100)
 
     @markers = @restaurants.geocoded.map do |restaurant|
       {
