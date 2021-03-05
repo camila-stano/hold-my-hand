@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
         
-  devise :omniauthable, omniauth_providers: [:facebook]
+  # devise :omniauthable, omniauth_providers: [:facebook]
 
   has_one_attached :photo
 

@@ -37,7 +37,7 @@ const initMapbox = () => {
 
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
-      
+        
         const current_lat = position.coords.latitude;
         const current_lng = position.coords.longitude;
         
@@ -45,7 +45,7 @@ const initMapbox = () => {
           directions.setOrigin([current_lng, current_lat]); 
           directions.setDestination([markers[0].lng, markers[0].lat]); 
         });
-
+        
       });
     } else {
       alert("I'm sorry, but geolocation services are not supported by your browser.");
