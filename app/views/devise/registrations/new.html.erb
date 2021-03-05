@@ -60,5 +60,9 @@
 
   <% end %>
 
+<%#------------------------------ SIGN UP WITH FACEBOOK ------------------------------%>
+  <div class="text-center facebook-button text-center rounded mt-3">
+    <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, method: :post, class: 'btn facebook-btn-link' %>
+  </div>
   
 </div>

@@ -49,6 +49,11 @@ gem 'cloudinary', '~> 1.16.0'
 
 #Facebook authentication
 gem 'omniauth-facebook'
+#autorizar método post
+
+gem "omniauth-rails_csrf_protection"
+
+
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
