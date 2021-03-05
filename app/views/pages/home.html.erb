@@ -4,7 +4,7 @@
 <%#---------------------NÃO MEXER NAS LINHAS ACIMA -----------------------%>
 
 <div class="banner">
-  <div class="container">
+  <div class="container" style="height: 710px;">
 <%# TITLE -------------------------- %>
     <div class="box-title">
       <h1>Hold My Hand</h1>
@@ -37,19 +37,16 @@
 <%# LOGIN -------------------------- %>
     <div class="col-12 ">
       <div class="m-5 ">
-        <%= link_to "Crie sua conta", new_user_registration_path, class: 'btn btn-secondary btn-w' %>
+        <%= link_to "Create your account", new_user_registration_path, class: 'btn btn-secondary btn-w' %>
         <% if current_user.present? %>
-          <%= link_to "Faça login", root_path, class: 'btn btn-secondary btn-w' %>
+          <%= link_to "Login", root_path, class: 'btn btn-secondary btn-w' %>
         <% else %>
-          <%= link_to "Faça login", new_user_session_path, class: 'btn btn-secondary btn-w' %>
+          <%= link_to "Login", new_user_session_path, class: 'btn btn-secondary btn-w' %>
         <% end %>
       </div>
     </div>
 
 <%# LAWYER ------------------------ %>
-    <div class ='link-lawyer text-center mb-3'>
-      <%= link_to 'cadastre-se como um advogado', new_lawyer_path %>
-    </div>
   </div>
 </div>
 
@@ -92,6 +89,9 @@
     </div>
     <div class="col-8 d-flex align-content-center justify-content-around flex-wrap">
       <h1>FIND GOOD LAWYERS TO YOUR IMMIGRATION PROCESS</h1>
+    </div>
+    <div class ='link-lawyer text-center mb-3'>
+      <%= link_to 'cadastre-se como um advogado', new_lawyer_path %>
     </div>
   </div>
 </div>
