@@ -1,14 +1,12 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home, :maps ]
+  skip_before_action :authenticate_user!, only: [ :home, :maps, :update_position ]
 
   def home
   end
 
   def maps
-    @restaurants = Restaurant.all
-    @shelters = Shelter.all
-
-
+    @restaurants = Restaurant.near(session[:user_position], 10)
+    @shelters = Shelter.near(session[:user_position], 10)
 
     @markers = @restaurants.geocoded.map do |restaurant|
       {
@@ -25,9 +23,24 @@ class PagesController < ApplicationController
         infoWindow: render_to_string(partial: "info", locals: { shelter: shelter })
       }
     end
-  
+
+    @umarker = {
+      lat: session[:user_position][0],
+      lng: session[:user_position][1],
+      infoWindow: render_to_string(partial: "info_user"),
+      image_url: helpers.asset_url('icon_orange.png') 
+      }
+
+    # @markers << { lat: session[:user_position][0], lng: session[:user_position][1] }
+
     @markers += @addresses
   end
+
+  def update_position
+    session[:user_position] = [params[:lat], params[:lng]]
+  end
+
+  def position_params
+    params.permit(:lat, :lng)
+  end
 end
-
-
