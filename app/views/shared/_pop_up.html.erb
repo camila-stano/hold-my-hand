@@ -22,59 +22,74 @@
             </div>    
           </div>
 
-          <div class="row box m-2  mt-4" >
-            <div class="col-3 d-flex align-items-center " >
-              <%= link_to shelters_path do %>
-                <i class="fas fa-home" ></i> 
-              <% end %>
+          <%= link_to shelters_path do %>
+            <div class="row box m-2  mt-4" >
+              <div class="col-3 d-flex align-items-center " >
+                  <i class="fas fa-home" ></i> 
+              </div>
+              <div class="col-8 ">
+                <h6>Find a place to stay!</h6>
+              </div>    
             </div>
-            <div class="col-8 ">
-              <h6>Find a place to stay!</h6>
-            </div>    
-          </div>
+          <% end %>
 
-          <div class="row box m-2  mt-4">
-            <div class="col-8 ">
-              <h6>Find a place to eat!</h6>
-            </div>    
-            <div class="col-3 ">
-              <%= link_to restaurants_path do %>
-                <i class="fas fa-utensils"></i>
-              <% end %>
+          <%= link_to restaurants_path do %>
+            <div class="row box m-2  mt-4">
+              <div class="col-8 ">
+                <h6>Find a place to eat!</h6>
+              </div>    
+              <div class="col-3 ">
+                  <i class="fas fa-utensils"></i>
+              </div>
             </div>
-          </div>
+          <% end %>
 
-          <div class="row box m-2 mt-4">
-            <div class="col-3 ">
-              <%= link_to maps_path do %>
-                <i class="fas fa-map"></i>
-              <% end %>
+          <%= link_to maps_path do %>
+            <div class="row box m-2 mt-4">
+              <div class="col-3 ">
+                  <i class="fas fa-map"></i>
+              </div>
+              <div class="col-8 ">
+                <h6>Your location!</h6>
+              </div>    
             </div>
-            <div class="col-8 ">
-              <h6>Your location!</h6>
-            </div>    
-          </div>
+          <% end %>
 
-          <div class="row box m-2  mt-4">
-            <div class="col-8 ">
-              <h6>Which documents, and how you can get then!</h6>
-            </div>    
-            <div class="col-3 ">
-              <%= link_to  documents_path do %>
+          <%= link_to  documents_path do %>
+            <div class="row box m-2  mt-4">
+              <div class="col-8 ">
+                <h6>Which documents, and how you can get then!</h6>
+              </div>    
+              <div class="col-3 ">
                 <i class="fas fa-passport"></i>
-              <% end %>
+              </div>
             </div>
-          </div>
+          <% end %>
 
-          <div class="row box m-2  mt-4">
-            <div class="col-3 ">
-              <i class="fas fa-comments"></i>
+          
+        <% if current_user.present? %>
+          <%= link_to root_path do %>
+            <div class="row box m-2  mt-4">
+              <div class="col-3 ">
+                <i class="fas fa-comments"></i>
+              </div>
+              <div class="col-8 ">
+                <h6>Meet others refugees in Brazil!</h6>
+              </div>    
             </div>
-            <div class="col-8 ">
-              <h6>Meet others refugees in Brazil!</h6>
-            </div>    
-          </div>
-        </div>
+          <% end %>
+        <% else %>
+          <%= link_to new_user_session_path do %>
+            <div class="row box m-2  mt-4">
+              <div class="col-3 ">
+                <i class="fas fa-comments"></i>
+              </div>
+              <div class="col-8 ">
+                <h6>Meet others refugees in Brazil!</h6>
+              </div>    
+            </div>
+          <% end %>
+        <% end %>
       </div>
       <%# <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
