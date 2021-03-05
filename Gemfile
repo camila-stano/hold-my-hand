@@ -50,6 +50,9 @@ gem 'cloudinary', '~> 1.16.0'
 #Facebook authentication
 gem 'omniauth-facebook'
 
+#Google authentication
+gem 'omniauth-google-oauth2'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
