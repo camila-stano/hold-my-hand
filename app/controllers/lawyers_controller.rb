@@ -7,6 +7,10 @@ class LawyersController < ApplicationController
   end
 
   def show
+    @markers = [{ 
+      lat: @lawyer.latitude,
+      lng: @lawyer.longitude
+      }]
   end
 
   def new

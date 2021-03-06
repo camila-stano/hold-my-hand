@@ -16,13 +16,32 @@
   </head>
 
   <body>
-  
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-    
-    <%= yield %>
+    <div class="d-flex toggled" id="wrapper">
+      <%= render 'shared/sidebar' %>
+        <div id="page-content-wrapper">
+          <%= render 'shared/navbar' %>
+          <%= render 'shared/flashes' %>
 
-    <%# FOOTER %>
-    <%= render "shared/footer" %>
+          <div class="container-fluid"> 
+              <%= yield %>
+          </div>
+        
+        <%# FOOTER %>
+      <%# render "shared/footer" %>
+      </div>      
+    </div>
+
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
   </body>
+  
 </html>

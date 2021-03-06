@@ -8,19 +8,123 @@
   color: white;
 }
 
+.banner-content-arrow {
+  width: 100vw;
+  height: 40vh;
+  background-color: #16181F;
+  text-align: center;
+}
+
 .banner-content-light {
   width: 100vw;
   height: 70vh;
   background-color: #fdfdfd;
   text-align: center;
   color: rgb(75, 75, 75);
+  align-items: center;
 }
 
 
 .banner-content-darkness {
   width: 100vw;
   height: 70vh;
-  background-color: #C4C4C4;;
+  background-color: #C4C4C4;
   text-align: center;
   color: white;
 }
+
+.banner-content-darkness:hover{
+  background-color: #16181F;
+}
+
+.banner-content-light:hover {
+  background-color: #16181F;
+}
+
+.law-row {
+  width: 100%;
+}
+
+.banner-content-darklaw {
+  width: 100vw;
+  height: 50vh;
+  background-color: #C4C4C4;
+  text-align: center;
+  color: #16181F;
+}
+
+.description-lawyer h5 {
+  font-family: $headers-font;
+  font-size: 25px;
+}
+
+.banner-content-darklaw:hover {
+  background-color: #16181F;
+  text-align: center;
+  color: wheat;
+}
+
+.banner-content-lightlaw {
+  width: 100vw;
+  height: 50vh;
+  background-color: #F8F9FA;
+  text-align: center;
+  color: #16181F;
+}
+
+.banner-content-lightlaw:hover {
+  background-color: #16181F;
+  text-align: center;
+  color: wheat;
+}
+
+
+.description-lawyer {
+  width: 100%;
+  height: 40vh;
+  padding: 20px;
+}
+
+.description-lawyer h4 {
+  text-decoration: none;
+  font-family: $hold-logo;
+  font-size: 36px;
+}
+
+.description-lawyer h6 {
+  text-decoration: none;
+  font-family: $headers-font;
+  text-align: justify;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.description-lawyer p {
+  margin: 0;
+  font-size: 12px;
+}
+
+
+.banner-profile {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  height: 60vh;
+}
+
+.banner-profile h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner-profile p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+
