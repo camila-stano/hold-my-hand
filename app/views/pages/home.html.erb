@@ -1,8 +1,9 @@
     <div data-controller="position">
     </div>
-
 <%#---------------------NÃO MEXER NAS LINHAS ACIMA -----------------------%>
 
+
+<% if current_user.present? %>
 <div class="banner">
   <div class="container">
 <%# TITLE -------------------------- %>
@@ -12,108 +13,205 @@
     </div>
 
 <%# ICONS -------------------------- %>
-    <div class="row d-flex justify-content-around">
-      <div class="col-4 text-center">
+    <div class="row d-flex justify-content-around ">
+      <div class="col-2">
         <%= link_to shelters_path do %>
-          <i class="fas fa-home bg-icon i-med" ></i> 
+          <div class="show-text">
+            <div class="row d-flex justify-content-center">
+                <i class="fas fa-home bg-icon i-med" ></i> 
+            </div> 
+            <div class="row d-flex justify-content-center ">
+              <h5>Find a place to stay!</h5>
+            </div>
+          </div>
         <% end %>
-        <h5>Find a place to stay!</h5>
       </div> 
 
-      <div class="col-4 text-center">
-        <%= link_to maps_path do %>
-          <i class="fas fa-passport bg-icon i-med" ></i> 
-        <% end %>
-        <h5>MAP!</h5>
-      </div> 
-
-      <div class="col-4 text-center">
+      <div class="col-2 ">
         <%= link_to restaurants_path do %>
-          <i class="fas fa-utensils bg-icon i-med" ></i> 
+          <div class="show-text">
+            <div class="row d-flex justify-content-center">
+                <i class="fas fa-utensils bg-icon i-med" ></i> 
+            </div> 
+            <div class="row d-flex justify-content-center">
+              <h5>Where to eat!</h5>
+            </div>
+          </div>
         <% end %>
-        <h5>Where to eat!</h5>
       </div> 
 
-<%# LOGIN -------------------------- %>
-    <div class="col-12 ">
-      <div class="m-5 ">
-        <% if current_user.nil? %>
-          <%= link_to "Create your account", new_user_registration_path, class: 'btn btn-secondary btn-w' %>
-          <% if current_user.present? %>
-            <%= link_to "Login", root_path, class: 'btn btn-secondary btn-w' %>
-          <% else %>
-            <%= link_to "Login", new_user_session_path, class: 'btn btn-secondary btn-w' %>
-          <% end %>
+      <div class="col-2 ">
+        <%= link_to maps_path do %>
+          <div class="show-text">
+            <div class="row d-flex justify-content-center">
+                <i class="fas fa-map-marker-alt bg-icon i-med" ></i> 
+            </div> 
+            <div class="row d-flex justify-content-center">
+              <h5>MAP!</h5>
+            </div>
+          </div>
         <% end %>
+      </div> 
+
+      <div class="col-2 ">
+        <%= link_to lawyers_path do %>
+          <div class="show-text">
+            <div class="row d-flex justify-content-center">
+                <i class="fas fa-gavel bg-icon i-med" ></i> 
+            </div> 
+            <div class="row d-flex justify-content-center">
+              <h5>Find a good lawyer!</h5>
+            </div>
+          </div>
+        <% end %>
+      </div> 
+
+      <div class="col-2 ">
+        <%= link_to documents_path do %>
+          <div class="show-text">
+            <div class="row d-flex justify-content-center">
+                <i class="fas fa-passport bg-icon i-med" ></i> 
+            </div> 
+            <div class="row d-flex justify-content-center">
+              <h5>First documents!</h5>
+            </div>
+          </div>
+        <% end %>
+      </div> 
+
+      <div class="col-2 ">
+        <%= link_to root_path do %> <%# Link para chats quando tiver  %>
+          <div class="show-text">
+            <div class="row d-flex justify-content-center">
+                <i class="fas fa-comments bg-icon i-med" ></i> 
+            </div> 
+            <div class="row d-flex justify-content-center">
+              <h5>Community!</h5>
+            </div>
+          </div>  
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<%# USUARIO LOGADO ------------------- %>
+
+<% else %>
+  <div class="banner">
+    <div class="container">
+  <%# TITLE -------------------------- %>
+      <div class="box-title">
+        <h1>Hold My Hand</h1>
+        <h5> A São Paulo guide for refugees! </h5>
+      </div>
+
+  <%# ICONS -------------------------- %>
+      <div class="row d-flex justify-content-around">
+        <div class="col-4 text-center">
+          <%= link_to shelters_path do %>
+            <i class="fas fa-home bg-icon i-med" ></i> 
+          <% end %>
+          <h5>Find a place to stay!</h5>
+        </div> 
+
+        <div class="col-4 text-center">
+          <%= link_to maps_path do %>
+            <i class="fas fa-passport bg-icon i-med" ></i> 
+          <% end %>
+          <h5>MAP!</h5>
+        </div> 
+
+        <div class="col-4 text-center">
+          <%= link_to restaurants_path do %>
+            <i class="fas fa-utensils bg-icon i-med" ></i> 
+          <% end %>
+          <h5>Where to eat!</h5>
+        </div> 
+
+  <%# LOGIN -------------------------- %>
+      <div class="col-12 ">
+        <div class="m-5 ">
+          <% if current_user.nil? %>
+            <%= link_to "Create your account", new_user_registration_path, class: 'btn btn-secondary btn-w' %>
+            <% if current_user.present? %>
+              <%= link_to "Login", root_path, class: 'btn btn-secondary btn-w' %>
+            <% else %>
+              <%= link_to "Login", new_user_session_path, class: 'btn btn-secondary btn-w' %>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<%#------------------ MORE INFORMATIONS ABOUT ACCESS AFTER LOGIN ------------------------ %>
+  <%#------------------ MORE INFORMATIONS ABOUT ACCESS AFTER LOGIN ------------------------ %>
 
-<div class="banner-content-arrow d-flex justify-content-center ">
-  <div class="row d-flex box-title align-items-center">
-    <div class='col-8'>
-      <h4> You can count on us!!<BR> See more..  </h4>
-    </div>
-    <div class='col-4'>
-      <%= cl_image_tag("giphy_qo8prn", width: 180, height: 180, crop: :fill) %>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-<%# COMMUNIT -------------------------- %>
-<%= link_to shelters_path do %>
-<div class="banner-content-light d-flex justify-content-around">
-  <div class="row d-flex justify-content-around align-content-center w-100 ">
-    <div class="col-4 text-center ">
-        <i class="fas fa-comments i-large"></i>
-    </div>
-    <div class="col-8 d-flex align-content-center justify-content-around flex-wrap">
-      <h1>LOGIN TO ACCESS THE COMMUNIT</h1>
+  <div class="banner-content-arrow d-flex justify-content-center ">
+    <div class="row d-flex box-title align-items-center">
+      <div class='col-8'>
+        <h4> You can count on us!!<BR> See more..  </h4>
+      </div>
+      <div class='col-4'>
+        <%= cl_image_tag("giphy_qo8prn", width: 180, height: 180, crop: :fill) %>
+      </div>
     </div>
   </div>
-</div>
+
+
+
+
+
+  <%# COMMUNIT -------------------------- %>
+  <%= link_to shelters_path do %>
+  <div class="banner-content-light d-flex justify-content-around">
+    <div class="row d-flex justify-content-around align-content-center w-100 ">
+      <div class="col-4 text-center ">
+          <i class="fas fa-comments i-large"></i>
+      </div>
+      <div class="col-8 d-flex align-content-center justify-content-around flex-wrap">
+        <h1>LOGIN TO ACCESS THE COMMUNIT</h1>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <%# DOCUMENTS -------------------------- %>
+  <%= link_to documents_path do %>
+  <div class="banner-content-darkness d-flex justify-content-around">
+    <div class="row d-flex justify-content-around align-content-center w-100 ">
+      <div class="col-7 d-flex align-content-center justify-content-around flex-wrap">
+        <h1> HOW TO GET YOURS FIRSTS BRAZILIANS DOCUMENTS </h1>
+      </div>
+      <div class="col-4 text-left">      
+          <i class="fas fa-passport i-large"></i>      
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <%# LAWYERS -------------------------- %>
+
+  <%= link_to lawyers_path do %>
+  <div class="d-flex justify-content-around banner-content-light">
+    <div class="row align-items-center w-100 ">
+      <div class="col-4 text-center">
+          <i class="fas fa-gavel i-large"></i>
+      </div>
+      <div class="col-8 ">
+        <h1>FIND GOOD LAWYERS TO YOUR IMMIGRATION PROCESS</h1>
+      </div>
+    </div>
+  </div>
+  <% end %>
 <% end %>
 
-<%# DOCUMENTS -------------------------- %>
-<%= link_to documents_path do %>
-<div class="banner-content-darkness d-flex justify-content-around">
-  <div class="row d-flex justify-content-around align-content-center w-100 ">
-    <div class="col-7 d-flex align-content-center justify-content-around flex-wrap">
-      <h1> HOW TO GET YOURS FIRSTS BRAZILIANS DOCUMENTS </h1>
-    </div>
-    <div class="col-4 text-left">      
-        <i class="fas fa-passport i-large"></i>      
-    </div>
-  </div>
-</div>
-<% end %>
-
-<%# LAWYERS -------------------------- %>
-
-<%= link_to lawyers_path do %>
-<div class="d-flex justify-content-around banner-content-light">
-  <div class="row align-items-center w-100 ">
-    <div class="col-4 text-center">
-        <i class="fas fa-gavel i-large"></i>
-    </div>
-    <div class="col-8 ">
-      <h1>FIND GOOD LAWYERS TO YOUR IMMIGRATION PROCESS</h1>
-    </div>
-  </div>
-</div>
-<% end %>
-
-<%# POP-UP ------------------------ %>
-<%# <%= render 'shared/pop_up' %>
-<script>
-  $(document).ready(function() {  
-    $('#pop-up-home').modal("show")
-    console.log("Ready!"); 
-  });
-</script>
+  <%# POP-UP ------------------------ %>
+  <%# <%= render 'shared/pop_up' %>
+  <script>
+    $(document).ready(function() {  
+      $('#pop-up-home').modal("show")
+      console.log("Ready!"); 
+    });
+  </script>

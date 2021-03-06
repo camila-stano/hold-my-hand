@@ -16,7 +16,7 @@ body {
     height: 120px;
     background-color: #637381;
     border-radius: 50%;
-    margin: 20px;
+    margin: 10px;
   }
 }
 
@@ -90,3 +90,13 @@ h1 {
   margin: 0;
   padding: 10px;
 }
+
+.show-text h5 {
+  opacity: 0;
+ }
+
+.show-text:hover h5 {
+ opacity: 1;
+ color: #16181f;
+}
+ 
