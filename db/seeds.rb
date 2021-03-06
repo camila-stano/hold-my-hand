@@ -71,72 +71,66 @@ shelter = Shelter.create!(name: "Caritas Arquidiocesana de São Paulo", address:
 puts "Shelter Caritas Arquidiocesana de São Paulo created"
 puts '-----------------------------'
 shelter.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-  
 
 #-----------------------------------------------DOCUMENTS-----------------------------------------------#
 
-puts '-----------------------------'
-puts 'Creating Documents!'
-puts '-----------------------------'
-
-file = URI.open('https://res.cloudinary.com/ofernandovegano/image/upload/v1614787827/T%C3%ADtulo_eleitoral_qybuhu.jpg')
+file = URI.open('https://res.cloudinary.com/duljyugvt/image/upload/v1615052661/cpf_mkuc5o.jpg')
 document = Document.create!(
-  document_type: 'Título eleitoral',
-  public_agency: Faker::FunnyName.name,
-  address: Faker::Address.street_name,
-  contact: Faker::Internet.email,
-  opening_hours: "#{rand(6..9)}h - #{rand(18..22)}",
-  required_docs: Faker::FunnyName.name,
-  url_agency: Faker::Internet.url
+  document_type: 'CPF - Individual Tax Identification Number',
+  description: "CPF is one of the main documents for persons residing in Brazil, as it allows the access to a series of services, 
+                such as the Public Health System (SUS), registration in public education institutions, opening bank accounts and other financial 
+                operations. Any individual, national or foreigner, can request a CPF.",
+  public_agency: "Receita Federal",
+  address: "Online apply", #Checar se podemos colocar url nesse campo
+  contact: "atendimentorfb.08@rfb.gov.br",
+  opening_hours: "Online process",
+  required_docs: "Adults above 18 years old shall present the original or certified copy of his/her identity card, 
+                  which can be the provisional protocol, the Card/RNE or even the passport. People under 18 years 
+                  old shall present the original or certified copy of his/her identity card and the identity card 
+                  of one of his/her parents or legal guardian.", #Informação extraida do site da Acnur
+  url_agency: "https://servicos.receita.fazenda.gov.br/Servicos/CPF/InscricaoCpfEstrangeiro/default.asp"
 )
 document.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
-puts "Document #1 created"
+puts "Document CPF created"
 puts '-----------------------------'
 
-file = URI.open('https://res.cloudinary.com/ofernandovegano/image/upload/v1614787827/CPF_image_w1djl0.jpg')
+file = URI.open('https://res.cloudinary.com/duljyugvt/image/upload/c_scale,w_826/v1615051972/CTPS3_avomtj.png')
 document = Document.create!(
-  document_type: 'CPF',
-  public_agency: Faker::FunnyName.name,
-  address: Faker::Address.street_name,
-  contact: Faker::Internet.email,
-  opening_hours: "#{rand(6..9)}h - #{rand(18..22)}h",
-  required_docs: Faker::FunnyName.name,
-  url_agency: Faker::Internet.url
+  document_type: 'CTPS - Work permit and Social Security Card',
+  description: "Both asylum seekers and refugees have the right to work in Brazil. The Work Permit and Social 
+                Security Card (Carteira de Trabalho e Previdência Social – CTPS) is the document that verifies all the worker’s 
+                professional life. This document is mandatory for exercising formal professional activities and can be requested 
+                by anyone over 14 years old, national or foreigner, with regular residence in Brazil and a CPF number.",
+  public_agency: "GOV BR",
+  address: "Online apply", #Checar se podemos colocar url nesse campo
+  contact: "",
+  opening_hours: "Online process",
+  required_docs: "CPF - Cadastro de Pessoa Física (Individual Tax Identification Number)",
+  url_agency: "https://servicos.mte.gov.br/#/loginfailed/redirect="
 )
 document.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
-puts "Document #2 created"
+puts "Document CTPS created"
 puts '-----------------------------'
 
-file = URI.open('https://res.cloudinary.com/ofernandovegano/image/upload/v1614787827/RG_image_f4bbjr.webp')
+file = URI.open('https://res.cloudinary.com/duljyugvt/image/upload/v1615052330/sus_ijutdy.png')
 document = Document.create!(
-  document_type: 'Carteira de identidade',
-  public_agency: Faker::FunnyName.name,
-  address: Faker::Address.street_name,
-  contact: Faker::Internet.email,
-  opening_hours: "#{rand(6..9)}h - #{rand(18..22)}",
-  required_docs: Faker::FunnyName.name,
-  url_agency: Faker::Internet.url
+  document_type: 'SUS - Unified Health System',
+  description: "SUS is a public health system that guarantees universal and free access to the entire population of the country, including 
+                refugees and asylum seekers.
+                The services of the SUS range from basic procedures to the most complex, emergency and emergency services, hospital care, 
+                pharmaceutical assistance, among others.",
+  public_agency: "GOV BR",
+  address: "Online", #Checar se podemos colocar url nesse campo
+  contact: "",
+  opening_hours: "Online process",
+  required_docs: "CPF - Cadastro de Pessoa Física (Individual Tax Identification Number)",
+  url_agency: "https://cadastro.acesso.gov.br/nova-conta/cpf?clientid=contas.acesso.gov.br"
 )
 document.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
-puts "Document #3 created"
-puts '-----------------------------'
-
-file = URI.open('https://res.cloudinary.com/ofernandovegano/image/upload/v1614787827/carteira_de_habilita%C3%A7%C3%A3o_image_sdnw3n.jpg')
-document = Document.create!(
-  document_type: 'Carteira de habilitação',
-  public_agency: Faker::FunnyName.name,
-  address: Faker::Address.street_name,
-  contact: Faker::Internet.email,
-  opening_hours: "#{rand(6..9)}h - #{rand(18..22)}",
-  required_docs: Faker::FunnyName.name,
-  url_agency: Faker::Internet.url
-)
-document.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-
-puts "Document #4 created"
+puts "Document #SUS created"
 puts '-----------------------------'
 
 #-----------------------------------------------LAWYERS-----------------------------------------------#
