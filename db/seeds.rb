@@ -72,29 +72,7 @@ puts "Shelter Caritas Arquidiocesana de São Paulo created"
 puts '-----------------------------'
 shelter.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
-<<<<<<< HEAD
-=======
 #-----------------------------------------------DOCUMENTS-----------------------------------------------#
-
-puts '-----------------------------'
-puts 'Creating Documents!'
-puts '-----------------------------'
-
-file = URI.open('https://res.cloudinary.com/ofernandovegano/image/upload/v1614787827/T%C3%ADtulo_eleitoral_qybuhu.jpg')
-document = Document.create!(
-  document_type: 'Título eleitoral',
-  public_agency: Faker::FunnyName.name,
-  address: Faker::Address.street_name,
-  contact: Faker::Internet.email,
-  opening_hours: "#{rand(6..9)}h - #{rand(18..22)}",
-  required_docs: Faker::FunnyName.name,
-  url_agency: Faker::Internet.url
-)
-document.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-
-puts "Document #1 created"
-puts '-----------------------------'
->>>>>>> master
 
 file = URI.open('https://res.cloudinary.com/duljyugvt/image/upload/v1615052661/cpf_mkuc5o.jpg')
 document = Document.create!(
