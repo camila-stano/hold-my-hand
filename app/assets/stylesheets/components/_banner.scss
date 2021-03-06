@@ -13,7 +13,6 @@
   height: 40vh;
   background-color: #16181F;
   text-align: center;
-
 }
 
 .banner-content-light {
@@ -41,3 +40,69 @@
 .banner-content-light:hover {
   background-color: #16181F;
 }
+
+.law-row {
+  width: 100%;
+}
+
+.banner-content-darklaw {
+  width: 100vw;
+  height: 50vh;
+  background-color: #C4C4C4;
+  text-align: center;
+  color: #16181F;
+}
+
+.description-lawyer h5 {
+  font-family: $headers-font;
+  font-size: 25px;
+}
+
+.banner-content-darklaw:hover {
+  background-color: #16181F;
+  text-align: center;
+  color: wheat;
+}
+
+.banner-content-lightlaw {
+  width: 100vw;
+  height: 50vh;
+  background-color: #F8F9FA;
+  text-align: center;
+  color: #16181F;
+}
+
+.banner-content-lightlaw:hover {
+  background-color: #16181F;
+  text-align: center;
+  color: wheat;
+}
+
+
+.description-lawyer {
+  width: 100%;
+  height: 40vh;
+  padding: 20px;
+}
+
+.description-lawyer h4 {
+  text-decoration: none;
+  font-family: $hold-logo;
+  font-size: 36px;
+}
+
+.description-lawyer h6 {
+  text-decoration: none;
+  font-family: $headers-font;
+  text-align: justify;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.description-lawyer p {
+  margin: 0;
+  font-size: 12px;
+}
+
+
+
