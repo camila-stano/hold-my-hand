@@ -7,6 +7,7 @@ class LawyersController < ApplicationController
   end
 
   def show
+    @review = Review.new
     @markers = [{ 
       lat: @lawyer.latitude,
       lng: @lawyer.longitude

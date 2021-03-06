@@ -24,6 +24,21 @@
       <div class="description-show-lawyer col-sm-12 col-lg-6 mt-5">
         <div class='text-center'>
           <h4><%= 'Reviews' %></h4>
+
+          <% @lawyer.reviews.each do |review| %>
+          <div class="card my-3 ">    
+            <div class="card-header">
+              <p class="card-text d-flex justify-content-between"><i> <%= current_user.first_name %></i><%= '⭐' * review.rating %></p>
+            </div>
+            <% if review.content.present? %>
+              <div class="card-body">
+                <p class="card-text"><%= review.content %></p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+
+          <%= link_to 'Leave a review', new_lawyer_review_path(@lawyer), class: 'btn btn-outline-danger' %>
         </div>
       </div>
 
