@@ -1,61 +1,59 @@
-<div class="navbar sticky-top navbar-expand-sm navbar-light navbar-lewagon">
-  <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample" 
-          aria-expanded="false" aria-controls="collapseExample">
-    <i class="fas fa-bars"></i>
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+  <button class="btn" id="menu-toggle"><i class="fas fa-bars"></i></button>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
   </button>
-  
-  <h2><strong><%= link_to "Hold My Hand", root_path, class: "navbar-brand" %></strong></h2>
 
-<%#-------------------------------ÍCONES BANDEIRINHAS------------------------------------------%>
-  <div class = 'language-choice-container'>
-    <div class='language-icons'>
-      <ul class = 'language-choice-list mr-4'>
-    
-        <%= link_to root_path(locale: :en) do %>
-          <%= cl_image_tag("https://res.cloudinary.com/dn6lyapiu/image/upload/v1614787101/united-states_mznig2.svg", 
-                          width: 25, height: 25, crop: :thumb) %>
-        <% end %>
-        <%= link_to root_path(locale: :es) do %>
-          <%= cl_image_tag("https://res.cloudinary.com/dn6lyapiu/image/upload/v1614787874/spain_tmtxoi.svg", 
-                          width: 25, height: 25, crop: :thumb) %>
-        <% end %>
-          <%= link_to root_path(locale: :"pt-BR") do %>
-          <%= cl_image_tag("https://res.cloudinary.com/dn6lyapiu/image/upload/v1614787871/brazil_ln0unu.svg", 
-                          width: 25, height: 25, crop: :thumb) %>
-        <% end %>
+  <h2 id="logo-nav"><%= link_to "Hold My Hand", root_path, class: "navbar-brand" %></h2>
 
-      </ul>
-    </div>
-  </div>
-<%#-----------------------------------------AVATAR----------------------------------------------%>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item d-flex align-items-center">
-          <p><%= current_user.first_name %></p>
-        </li>
-        <li class="nav-item dropdown">
-          <%= render "shared/avatar", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Profile", profile_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Edit Registration", edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+
+<%#---------------------------------ÍCONES DE IDIOMA-------------------------------------------------%>
+      <div class = 'language-choice-container'>
+        <div class='language-icons'>
+          <ul class = 'language-choice-list mr-5'>
+        
+            <%= link_to root_path(locale: :en) do %>
+              <%= cl_image_tag("https://res.cloudinary.com/dn6lyapiu/image/upload/v1614787101/united-states_mznig2.svg", 
+                              width: 25, height: 25, crop: :thumb) %>
+            <% end %>
+            <%= link_to root_path(locale: :es) do %>
+              <%= cl_image_tag("https://res.cloudinary.com/dn6lyapiu/image/upload/v1614787874/spain_tmtxoi.svg", 
+                              width: 25, height: 25, crop: :thumb) %>
+            <% end %>
+              <%= link_to root_path(locale: :"pt-BR") do %>
+              <%= cl_image_tag("https://res.cloudinary.com/dn6lyapiu/image/upload/v1614787871/brazil_ln0unu.svg", 
+                              width: 25, height: 25, crop: :thumb) %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+<%#---------------------------------------------------AVATAR-DROPDOWN------------------------------------%>
+  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item d-flex align-items-center user-nav">
+              <%= "Welcome #{current_user.first_name}" %>
+            </li>
+            <li class="nav-item dropdown">
+              <%= render "shared/avatar", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <%= link_to "Profile", profile_path(current_user), class: "dropdown-item" %>
+                <%= link_to "Edit Registration", edit_user_registration_path(current_user), class: "dropdown-item" %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </ul>
   </div>
-</div>
-
-<%#------------------------------------"SEGUNDA" NAVBAR -------------------------------%>
-<div class="collapse" id="collapseExample">
-  <div class="card card-body">
-
-
-
-  </div>
-</div>
+</nav>
