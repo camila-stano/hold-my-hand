@@ -13,7 +13,7 @@
   height: 40vh;
   background-color: #16181F;
   text-align: center;
-  
+
 }
 
 .banner-content-light {
@@ -22,13 +22,22 @@
   background-color: #fdfdfd;
   text-align: center;
   color: rgb(75, 75, 75);
+  align-items: center;
 }
 
 
 .banner-content-darkness {
   width: 100vw;
   height: 70vh;
-  background-color: #C4C4C4;;
+  background-color: #C4C4C4;
   text-align: center;
   color: white;
+}
+
+.banner-content-darkness:hover{
+  background-color: #16181F;
+}
+
+.banner-content-light:hover {
+  background-color: #16181F;
 }
