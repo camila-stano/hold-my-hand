@@ -7,10 +7,12 @@
   <div class="info-show row">
     <div class="description-show col-sm-12 col-lg-6 ">
       <p><%= @restaurant.description %></p>
-      <p><%= @restaurant.opening_hours %></p>
-      <p><%= @restaurant.price %></p>
-      <p><%= @restaurant.phone %></p>
+      <p><%= "Open: #{@restaurant.opening_hours}" %></p>
+      <p><%= "Average price: #{@restaurant.price}" %></p>
+      <p><%= "Phone #{@restaurant.phone}" %></p>
+      <p><%= "Address: #{@restaurant.address}" %></p>
     </div>
+    
     <div class="col-sm-12 col-lg-6" style="background-size: cover; background-repeat: no-repeat;
                                            background-image: url('<%= cl_image_path @restaurant.photo.key,
                                            transformation: [{crop: "crop", width: 1000, height: 700}] %>')">

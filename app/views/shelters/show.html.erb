@@ -7,8 +7,9 @@
   <div class="info-show row">
     <div class="description-show col-sm-12 col-lg-6 ">
       <p><%= @shelter.description %></p>
-      <p><%= @shelter.opening_hours %></p>
-      <p><%= @shelter.phone %></p>
+      <p><%= "Open: #{@shelter.opening_hours}" %></p>
+      <p><%= "Phone: #{@shelter.phone}" %></p>
+      <p><%= "Address: #{@shelter.address}" %></p>
     </div>
     <div class="col-sm-12 col-lg-6" style="background-size: cover; background-repeat: no-repeat; background-image: url('<%= cl_image_path @shelter.photo.key, transformation: [{crop: "crop", width: 1000, height: 700}] %>')"></div>
 
