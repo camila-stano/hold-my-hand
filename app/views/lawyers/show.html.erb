@@ -1,7 +1,19 @@
-<div class="container mt-5">
-  <h3><%= @lawyer.name %></h3>
-  <p><%= @lawyer.area %></p>
-  <p><%= @lawyer.oab %></p>
-  <p><%= @lawyer.address %></p>
-  <p><%= @lawyer.phone %></p>
-</div>
+
+  <div class="banner-content-darklaw d-flex justify-content-center ">
+    <div class="row law-row d-flex align-items-center">
+      <div class='col-3 description-lawyer'>
+        <%= cl_image_tag @lawyer.photo.key, transformation: [{width: 750, height: 750, 
+                                                            gravity: "face", radius: "max", 
+                                                            crop: "crop"}, {width: 200, crop: "scale"}
+                                                          ], class: "avatar-law mb-2" %>
+        <h5>★★★★★</h5>
+      </div>
+      <div class='col-9 description-lawyer'>
+        <h4><%= @lawyer.name %></h4>
+        <p><%= "OAB/SP: #{@lawyer.oab} " %></p>
+        <p><%= "#{@lawyer.area} specialist" %></p>
+        <h6><%= @lawyer.description %></h6>
+        <p><%= "Address: #{@lawyer.address}" %></p>
+      </div>
+    </div>
+  </div>
