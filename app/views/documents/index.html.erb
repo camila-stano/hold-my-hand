@@ -1,12 +1,12 @@
 <div class="container">
-  <h1 class='text-center mt-5'>Documents</h1>
-  <h5 class="text-center"> Which you need to start your life in Brasil</h5>
+  <h1 class='text-center mt-3'>Documents</h1>
+  <h5 class="text-center subtitle"> Which you need to start your life in Brasil</h5>
   <div class="d-flex justify-content-center">
     <div class="card-deck row d-flex">
       <% @documents.each do |document| %>
         <%= link_to document_path(document) do %>
           <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="card m-3 w-100", style="min-height: 420px;">     
+            <div class="card m-3 w-100", style="min-height: 380px;">     
                 
               <div class='card-img-top' style="height: 200px; background-size: cover; 
                                               background-repeat: no-repeat; background-image: 
@@ -15,14 +15,13 @@
                                               height: 700} %>')">
               </div>
 
-              <div class="card-body">
+              <div class="card-body card-relative">
                 <h5 class="card-title"><%= link_to document.document_type, document_path(document.id) %></h5>
-                <p class="card-text text-justufy"><%= document.public_agency %></p>
-                <p class="card-text text-justify"><%= "Opening hours: #{document.opening_hours}" %></p>
-                <p><%= link_to "...more info", document_path(document.id) %></p>
-                <p class="card-text"><small class="text-muted"> <%= document.address %></small></p>
+                <div class="card-fixed">
+                  <p><%= link_to "More info", document_path(document.id), class: "btn btn-secondary btn-sm" %></p>
+                  <p class="card-text"><small class="text-muted"> <%= document.address %></small></p>
+                </div>
               </div>
-              
             </div>
           </div>
         <% end %>
@@ -30,3 +29,5 @@
     </div>
   </div>
 </div> 
+<%# <p class="card-text text-justufy"><%= document.public_agency </p>%>
+<%# <p class="card-text text-justify"><%= "Opening hours: #{document.opening_hours}" </p>%> 

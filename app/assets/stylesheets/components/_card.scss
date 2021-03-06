@@ -75,3 +75,23 @@ $width-card: 300px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.card-title a {
+  color: rgb(44, 44, 44);
+  font-weight: lighter;
+  font-size: 18px;
+}
+
+.card-title a:hover {
+  opacity: 0.6;
+  font-weight: lighter;
+  font-size: 18px;
+}
+
+.card-absolute {
+  position: relative;
+}
+
+.card-fixed {
+  position: absolute;
+  bottom: 20px;
+}
