@@ -67,24 +67,7 @@ puts '-----------------------------'
 shelter.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   
 
-puts '-----------------------------'
-puts 'Creating Documents!'
-puts '-----------------------------'
-
-# file = URI.open('https://res.cloudinary.com/ofernandovegano/image/upload/v1614787827/T%C3%ADtulo_eleitoral_qybuhu.jpg')
-# document = Document.create!(
-#   document_type: 'Título eleitoral',
-#   public_agency: Faker::FunnyName.name,
-#   address: Faker::Address.street_name,
-#   contact: Faker::Internet.email,
-#   opening_hours: "#{rand(6..9)}h - #{rand(18..22)}",
-#   required_docs: Faker::FunnyName.name,
-#   url_agency: Faker::Internet.url
-# )
-# document.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-
-# puts "Document #1 created"
-# puts '-----------------------------'
+-
 
 file = URI.open('https://res.cloudinary.com/ofernandovegano/image/upload/v1614787827/CPF_image_w1djl0.jpg')
 document = Document.create!(
@@ -121,7 +104,7 @@ puts '-----------------------------'
 
 file = URI.open('https://res.cloudinary.com/ofernandovegano/image/upload/v1614787827/carteira_de_habilita%C3%A7%C3%A3o_image_sdnw3n.jpg')
 document = Document.create!(
-  document_type: 'Carteira de habilitação',
+  document_type: 'SUS - Unified Health System',
   public_agency: "GOV BR",
   address: "Online",#Checar se podemos colocar url nesse campo
   contact: "",
