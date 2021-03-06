@@ -1,7 +1,45 @@
-<div class="container mt-5">
-  <ul>
-    <% @lawyers.each do |lawyer| %>
-      <li><%= link_to lawyer.name, lawyer_path(lawyer.id) %></li>
+ <% @lawyers.each_with_index do |lawyer, index| %>
+  <% if index.even? %>
+    <%= link_to lawyer_path(lawyer.id) do %>
+      <div class="banner-content-darklaw d-flex justify-content-center ">
+        <div class="row law-row d-flex align-items-center">
+          <div class='col-3 description-lawyer'>
+            <%= cl_image_tag lawyer.photo.key, transformation: [{width: 750, height: 750, 
+                                                                gravity: "face", radius: "max", 
+                                                                crop: "crop"}, {width: 200, crop: "scale"}
+                                                              ], class: "avatar-law mb-2" %>
+            <h5>★★★★★</h5>
+          </div>
+          <div class='col-9 description-lawyer'>
+            <h4><%= lawyer.name %></h4>
+            <p><%= "OAB/SP: #{lawyer.oab} " %></p>
+            <p><%= "#{lawyer.area} specialist" %></p>
+            <h6><%= lawyer.description %></h6>
+            <p><%= "Address: #{lawyer.address}" %></p>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </ul>
-</div>
+  <% else %>
+    <%= link_to lawyer_path(lawyer.id) do %>
+      <div class="banner-content-lightlaw d-flex justify-content-center ">
+        <div class="row law-row  d-flex align-items-center">
+          <div class='col-9 description-lawyer'>
+            <h4><%= lawyer.name %></h4>
+            <p><%= "OAB/SP: #{lawyer.oab} " %></p>
+            <p><%= "#{lawyer.area} specialist" %></p>
+            <h6><%= lawyer.description %></h6>
+            <p><%= "Address: #{lawyer.address}" %></p>
+          </div>
+          <div class='col-3 description-lawyer'>
+            <%= cl_image_tag lawyer.photo.key, transformation: [{width: 750, height: 750, 
+                                                                gravity: "face", radius: "max", 
+                                                                crop: "crop"}, {width: 200, crop: "scale"}
+                                                              ], class: "avatar-law" %>
+            <h5>★★★★★</h5>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
