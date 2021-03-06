@@ -1,86 +1,135 @@
-<div class="bg-light border-right" id="sidebar-wrapper">
-  <div class="sidebar-heading"> </div>
+  <div class="bg-light border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading"> </div>
 
-  <% if user_signed_in? %>
-    <div class='text-center mt-2'>
+    <% if user_signed_in? %>
+      <div class='text-center mt-2'>
+          <%= cl_image_tag ('default-profile-icon-16_jww5gh'), transformation: [
+          {width: 750, height: 750, gravity: "auto", radius: "max", crop: "crop"}, {width: 200, crop: "scale"}
+          ], class: "avatar-large" %>    
+      </div>
+
+      <div class="list-group list-group-flush text-center mt-4">
+
+        <%= link_to profile_path(current_user) do  %>   
+          <div class="item-sidebar d-inline-flex align-items-center">
+            <div class='d-inline-flex align-items-center'>
+              <div class='mx-4'><i class="fas fa-user"></i></div>
+              <%= link_to "Check your profile", profile_path(current_user), class: 'my-2 py-2' %>
+            </div>
+          </div>
+        <% end %>
+        
+        <%= link_to maps_path do  %>   
+          <div class="item-sidebar d-inline-flex align-items-center">
+            <div class='d-inline-flex align-items-center'>
+              <div class='mx-4'><i class="fas fa-map-marker-alt"></i></div>
+              <%= link_to "Real-time map", maps_path, class: 'my-2 py-2' %>
+            </div>
+          </div>
+        <% end %>
+        
+        <%= link_to shelters_path do  %>   
+          <div class="item-sidebar d-inline-flex align-items-center">
+            <div class='d-inline-flex align-items-center'>
+              <div class='mx-4'><i class="fas fa-home"></i></div>
+              <%= link_to "Find a shelter", shelters_path, class: 'my-2 py-2' %>
+            </div>
+          </div>
+        <% end %>
+        
+        <%= link_to restaurants_path do  %>   
+          <div class="item-sidebar d-inline-flex align-items-center">
+            <div class='d-inline-flex align-items-center'>
+              <div class='mx-4'><i class="fas fa-utensils"></i></div>
+              <%= link_to "Find a restaurant", restaurants_path, class: 'my-2 py-2' %> 
+            </div>
+          </div>
+        <% end %>
+        
+        <%= link_to lawyers_path do  %>   
+          <div class="item-sidebar d-inline-flex align-items-center">
+            <div class='d-inline-flex align-items-center'>
+              <div class='mx-4'><i class="fas fa-gavel"></i></div>
+              <%= link_to "Find a lawyer", lawyers_path, class: 'my-2 py-2' %> 
+            </div>
+          </div>
+        <% end %>
+
+        <%= link_to documents_path do  %>   
+          <div class="item-sidebar d-inline-flex align-items-center">
+            <div class='d-inline-flex align-items-center'>
+              <div class='mx-4'><i class="fas fa-passport"></i></div>
+              <%= link_to "Get your documents", documents_path, class: 'my-2 py-2' %> 
+            </div>
+          </div>
+        <% end %>
+
+        <%= link_to documents_path do  %>   
+          <div class="item-sidebar d-inline-flex align-items-center">
+            <div class='d-inline-flex align-items-center'>
+              <div class='mx-4'><i class="fas fa-comments"></i></div>
+              <%= link_to "Our community", shelters_path, class: 'my-2 py-2' %> 
+            </div>
+         </div>
+        <% end %>
+        
+      </div>
+
+    <% else %>
+
+      <div class='text-center mt-2'>
         <%= cl_image_tag ('default-profile-icon-16_jww5gh'), transformation: [
         {width: 750, height: 750, gravity: "auto", radius: "max", crop: "crop"}, {width: 200, crop: "scale"}
         ], class: "avatar-large" %>    
-    </div>
+      </div>
+    
+      <div class="list-group list-group-flush text-center mt-4">
 
-    <div class="list-group list-group-flush text-center mt-4">
-      <div class='d-inline-flex align-items-center mx-3 border-bottom'>
-        <div class='mx-4'><i class="fas fa-user"></i></div>
-        <%= link_to "Check your profile", profile_path(current_user), class: 'my-2 py-2' %>
-      </div>
-      
-      <div class='d-inline-flex align-items-center mx-3 border-bottom'>
-        <div class='mx-4'><i class="fas fa-map-marker-alt"></i></div>
-        <%= link_to "Real-time map", maps_path, class: 'my-2 py-2' %>
-      </div>
-      
-      <div class='d-inline-flex align-items-center mx-3 border-bottom'>
-        <div class='mx-4'><i class="fas fa-home"></i></div>
-        <%= link_to "Find a shelter", shelters_path, class: 'my-2 py-2' %>
-      </div>
-      
-      <div class='d-inline-flex align-items-center mx-3 border-bottom'>
-        <div class='mx-4'><i class="fas fa-utensils"></i></div>
-        <%= link_to "Find a restaurant", shelters_path, class: 'my-2 py-2' %> 
-      </div>
-      
-      <div class='d-inline-flex align-items-center mx-3 border-bottom'>
-        <div class='mx-4'><i class="fas fa-gavel"></i></div>
-        <%= link_to "Find a lawyer", lawyers_path, class: 'my-2 py-2' %> 
-      </div>
+        <%= link_to new_user_registration_path do  %>   
+          <div class="item-sidebar d-inline-flex align-items-center">
+            <div class='d-inline-flex align-items-center'>
+              <div class='mx-4'><i class="fas fa-sign-in-alt"></i></div>
+              <%= link_to "Create an account", new_user_registration_path, class: 'my-2 py-2' %>
+            </div>
+          </div>
+        <% end %>
 
-      <div class='d-inline-flex align-items-center mx-3 border-bottom'>
-        <div class='mx-4'><i class="fas fa-passport"></i></div>
-        <%= link_to "Get your documents", documents_path, class: 'my-2 py-2' %> 
-      </div>
-      
-      <div class='d-inline-flex align-items-center mx-3 border-bottom'>
-        <div class='mx-4'><i class="fas fa-comments"></i></div>
-        <%= link_to "Our community", shelters_path, class: 'my-2 py-2' %> 
-      </div>
-      
-    </div>
+        <%= link_to new_user_session_path do  %>   
+          <div class="item-sidebar d-inline-flex align-items-center">
+            <div class='d-inline-flex align-items-center'>
+              <div class='mx-4'><i class="fas fa-user"></i></div>
+              <%= link_to "Log to see more", new_user_session_path, class: 'my-2 py-2' %>
+            </div>
+          </div>
+        <% end %>  
+        
+        <%= link_to maps_path do  %>   
+          <div class="item-sidebar d-inline-flex align-items-center">
+            <div class='d-inline-flex align-items-center'>
+              <div class='mx-4'><i class="fas fa-map-marker-alt"></i></div>
+              <%= link_to "Real-time map", maps_path, class: 'my-2 py-2' %>
+            </div>
+          </div>
+        <% end %>  
+        
+        <%= link_to shelters_path do  %>   
+          <div class="item-sidebar d-inline-flex align-items-center">
+            <div class='d-inline-flex align-items-center'>
+              <div class='mx-4'><i class="fas fa-home"></i></div>
+              <%= link_to "Find a shelter", shelters_path, class: 'my-2 py-2' %>
+            </div>
+          </div>
+        <% end %>
+        
+        <%= link_to restaurants_path do  %>   
+          <div class="item-sidebar d-inline-flex align-items-center">
+            <div class='d-inline-flex align-items-center'>
+              <div class='mx-4'><i class="fas fa-utensils"></i></div>
+              <%= link_to "Find a restaurant", restaurants_path, class: 'my-2 py-2' %> 
+            </div>
+          </div>
+        <% end %>
 
-  <% else %>
-
-    <div class='text-center mt-2'>
-      <%= cl_image_tag ('default-profile-icon-16_jww5gh'), transformation: [
-      {width: 750, height: 750, gravity: "auto", radius: "max", crop: "crop"}, {width: 200, crop: "scale"}
-      ], class: "avatar-large" %>    
-    </div>
-  
-    <div class="list-group list-group-flush text-center mt-4">
-
-      <div class='d-inline-flex align-items-center mx-3 border-bottom'>
-        <div class='mx-4'><i class="fas fa-sign-in-alt"></i></div>
-        <%= link_to "Create an account", new_user_registration_path, class: 'my-2 py-2' %>
       </div>
-
-      <div class='d-inline-flex align-items-center mx-3 border-bottom'>
-        <div class='mx-4'><i class="fas fa-user"></i></div>
-        <%= link_to "Log to see more", new_user_session_path, class: 'my-2 py-2' %>
-      </div>
-      
-      <div class='d-inline-flex align-items-center mx-3 border-bottom'>
-        <div class='mx-4'><i class="fas fa-map-marker-alt"></i></div>
-        <%= link_to "Real-time map", maps_path, class: 'my-2 py-2' %>
-      </div>
-      
-      <div class='d-inline-flex align-items-center mx-3 border-bottom'>
-        <div class='mx-4'><i class="fas fa-home"></i></div>
-        <%= link_to "Find a shelter", shelters_path, class: 'my-2 py-2' %>
-      </div>
-      
-      <div class='d-inline-flex align-items-center mx-3 border-bottom'>
-        <div class='mx-4'><i class="fas fa-utensils"></i></div>
-        <%= link_to "Find a restaurant", shelters_path, class: 'my-2 py-2' %> 
-      </div>
-
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>

@@ -29,16 +29,40 @@ margin-left: 0;
 }
 
 @media (min-width: 768px) {
-#sidebar-wrapper {
-	margin-left: 0;
+	#sidebar-wrapper {
+		margin-left: 0;
+	}
+
+	#page-content-wrapper {
+		min-width: 0;
+		width: 100%;
+	}
+
+	#wrapper.toggled #sidebar-wrapper {
+		margin-left: -15rem;
+	}
 }
 
-#page-content-wrapper {
-	min-width: 0;
-	width: 100%;
+.item-sidebar {
+	text-decoration: none;
+	color: black;
+	border-bottom: 1px solid rgb(198, 198, 198);
+	padding: 0 10px;
 }
 
-#wrapper.toggled #sidebar-wrapper {
-	margin-left: -15rem;
+.item-sidebar:hover {
+	border-bottom: 0;
+	background-color: #C4C4C4;
+	text-decoration: none;
+	color: white;	
 }
+
+.item-sidebar a {
+	text-decoration: none;
+	color: #16181F;
+	margin: 0;
+}
+
+.container-fluid {
+	padding: 0;
 }
