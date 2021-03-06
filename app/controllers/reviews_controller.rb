@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     @review.lawyer = @lawyer
 
     if @review.save
-      redirect_to lawyer_path(@lawyer)
+      redirect_to lawyer_path
     else
       render :new
     end
