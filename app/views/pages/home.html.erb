@@ -37,64 +37,75 @@
 <%# LOGIN -------------------------- %>
     <div class="col-12 ">
       <div class="m-5 ">
-        <%= link_to "Crie sua conta", new_user_registration_path, class: 'btn btn-secondary btn-w' %>
+        <%= link_to "Create your account", new_user_registration_path, class: 'btn btn-secondary btn-w' %>
         <% if current_user.present? %>
-          <%= link_to "Faça login", root_path, class: 'btn btn-secondary btn-w' %>
+          <%= link_to "Login", root_path, class: 'btn btn-secondary btn-w' %>
         <% else %>
-          <%= link_to "Faça login", new_user_session_path, class: 'btn btn-secondary btn-w' %>
+          <%= link_to "Login", new_user_session_path, class: 'btn btn-secondary btn-w' %>
         <% end %>
       </div>
     </div>
+  </div>
+</div>
+<%#------------------ MORE INFORMATIONS ABOUT ACCESS AFTER LOGIN ------------------------ %>
 
-<%# LAWYER ------------------------ %>
-    <div class ='link-lawyer text-center mb-3'>
-      <%= link_to 'cadastre-se como um advogado', new_lawyer_path %>
+<div class="banner-content-arrow d-flex justify-content-center ">
+  <div class="row d-flex box-title align-items-center">
+    <div class='col-8'>
+      <h4> You can count on us!!<BR> See more..  </h4>
+    </div>
+    <div class='col-4'>
+      <%= cl_image_tag("giphy_qo8prn", width: 180, height: 180, crop: :fill) %>
     </div>
   </div>
 </div>
 
-<%# MORE INFORMATIONS ABOUT ACCESS AFTER LOGIN ------------------------ %>
+
+
+
+
 <%# COMMUNIT -------------------------- %>
+<%= link_to shelters_path do %>
 <div class="banner-content-light d-flex justify-content-around">
   <div class="row d-flex justify-content-around align-content-center w-100 ">
     <div class="col-4 text-center ">
-      <%= link_to shelters_path do %>
         <i class="fas fa-comments i-large"></i>
-      <% end %>
     </div>
     <div class="col-8 d-flex align-content-center justify-content-around flex-wrap">
       <h1>LOGIN TO ACCESS THE COMMUNIT</h1>
     </div>
   </div>
 </div>
+<% end %>
 
 <%# DOCUMENTS -------------------------- %>
+<%= link_to documents_path do %>
 <div class="banner-content-darkness d-flex justify-content-around">
   <div class="row d-flex justify-content-around align-content-center w-100 ">
     <div class="col-7 d-flex align-content-center justify-content-around flex-wrap">
       <h1> HOW TO GET YOURS FIRSTS BRAZILIANS DOCUMENTS </h1>
     </div>
-    <div class="col-4 text-left">
-      <%= link_to documents_path do %>
-        <i class="fas fa-passport i-large"></i>
-      <% end %>
+    <div class="col-4 text-left">      
+        <i class="fas fa-passport i-large"></i>      
     </div>
   </div>
 </div>
+<% end %>
 
 <%# LAWYERS -------------------------- %>
-<div class="banner-content-light d-flex justify-content-around">
-  <div class="row d-flex justify-content-around align-content-center w-100 ">
+
+<%= link_to lawyers_path do %>
+<div class="d-flex justify-content-around banner-content-light">
+  <div class="row align-items-center w-100 ">
     <div class="col-4 text-center">
-      <%= link_to lawyers_path do %>
         <i class="fas fa-gavel i-large"></i>
-      <% end %>
     </div>
-    <div class="col-8 d-flex align-content-center justify-content-around flex-wrap">
+    <div class="col-8 ">
       <h1>FIND GOOD LAWYERS TO YOUR IMMIGRATION PROCESS</h1>
     </div>
   </div>
 </div>
+<% end %>
 
 <%# POP-UP ------------------------ %>
 <%# <%= render 'shared/pop_up' %>

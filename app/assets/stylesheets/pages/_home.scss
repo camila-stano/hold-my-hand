@@ -48,30 +48,41 @@ h1 {
 
 
 h5 {
-  color: #16181f;
   font-weight: bold;
 }
 
-.box-title > h5{
-  padding: 20px;
+.box-title h1 {
+  font-size: 56px;
+  padding: 0;
+  padding-top: 15px;
+  color: black;
+}
+
+.box-title h4 {
+  font-size: 36px;
+  font-family: $hold-new;
+  padding: 0;
+  color: white;
+}
+
+.box-title h5{
+  padding: 0px;
   text-align: center;
   height: auto;
   margin: 0 auto;
   position: relative;
-
+  padding-bottom: 15px;
 }
 
 .btn-w {
-  width: 150px;
+  width: 250px;
 }
 
 a {
-  color: #16181f;
   text-decoration: none;
 }
 
 a:hover {
-  color: rgb(136, 136, 136);
   text-decoration: none;
 }
 

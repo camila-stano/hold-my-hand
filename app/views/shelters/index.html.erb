@@ -6,14 +6,14 @@
       <% @shelters.each do |shelter| %>
         <div class="col-sm-12 col-md-6 col-lg-4">
           <div class="card m-3 w-100", style="min-height: 420px;">     
-              
-            <div class='card-img-top' style="height: 200px; background-size: cover; 
-                                             background-repeat: no-repeat; background-image: 
-                                             url('<%= cl_image_path shelter.photo.key, 
-                                             transformation: {crop: "crop", width: 1000, 
-                                             height: 700} %>')">
-            </div>
-
+            <%= link_to shelter_path(shelter) do %>
+              <div class='card-img-top' style="height: 200px; background-size: cover; 
+                                              background-repeat: no-repeat; background-image: 
+                                              url('<%= cl_image_path shelter.photo.key, 
+                                              transformation: {crop: "crop", width: 1000, 
+                                              height: 700} %>')">
+              </div>
+            <% end %>
             <div class="card-body">
               <h5 class="card-title"><%= link_to shelter.name, shelter_path(shelter.id) %></h5>
               <p class="card-text text-justify"><%= "#{shelter.description&.slice(0,80)}..." %>
