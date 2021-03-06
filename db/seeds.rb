@@ -71,64 +71,67 @@ puts '-----------------------------'
 puts 'Creating Documents!'
 puts '-----------------------------'
 
-file = URI.open('https://res.cloudinary.com/ofernandovegano/image/upload/v1614787827/T%C3%ADtulo_eleitoral_qybuhu.jpg')
-document = Document.create!(
-  document_type: 'Título eleitoral',
-  public_agency: Faker::FunnyName.name,
-  address: Faker::Address.street_name,
-  contact: Faker::Internet.email,
-  opening_hours: "#{rand(6..9)}h - #{rand(18..22)}",
-  required_docs: Faker::FunnyName.name,
-  url_agency: Faker::Internet.url
-)
-document.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+# file = URI.open('https://res.cloudinary.com/ofernandovegano/image/upload/v1614787827/T%C3%ADtulo_eleitoral_qybuhu.jpg')
+# document = Document.create!(
+#   document_type: 'Título eleitoral',
+#   public_agency: Faker::FunnyName.name,
+#   address: Faker::Address.street_name,
+#   contact: Faker::Internet.email,
+#   opening_hours: "#{rand(6..9)}h - #{rand(18..22)}",
+#   required_docs: Faker::FunnyName.name,
+#   url_agency: Faker::Internet.url
+# )
+# document.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
-puts "Document #1 created"
-puts '-----------------------------'
+# puts "Document #1 created"
+# puts '-----------------------------'
 
 file = URI.open('https://res.cloudinary.com/ofernandovegano/image/upload/v1614787827/CPF_image_w1djl0.jpg')
 document = Document.create!(
-  document_type: 'CPF',
-  public_agency: Faker::FunnyName.name,
-  address: Faker::Address.street_name,
-  contact: Faker::Internet.email,
-  opening_hours: "#{rand(6..9)}h - #{rand(18..22)}h",
-  required_docs: Faker::FunnyName.name,
-  url_agency: Faker::Internet.url
+  document_type: 'Cadastro de Pessoa Física - CPF (Individual Tax Identification Number)',
+  public_agency: "Receita Federal",
+  address: "Can apply online", #Checar se podemos colocar url nesse campo
+  contact: "atendimentorfb.08@rfb.gov.br",
+  opening_hours: "Online process",
+  required_docs: "Adults above 18 years old shall present the original or certified copy of his/her identity card, 
+                  which can be the provisional protocol, the Card/RNE or even the passport. People under 18 years 
+                  old shall present the original or certified copy of his/her identity card and the identity card 
+                  of one of his/her parents or legal guardian.", #Informação extraida do site da Acnur
+  url_agency: "https://servicos.receita.fazenda.gov.br/Servicos/CPF/InscricaoCpfEstrangeiro/default.asp"
 )
 document.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
-puts "Document #2 created"
+puts "Document CPF created"
 puts '-----------------------------'
 
 file = URI.open('https://res.cloudinary.com/ofernandovegano/image/upload/v1614787827/RG_image_f4bbjr.webp')
 document = Document.create!(
-  document_type: 'Carteira de identidade',
-  public_agency: Faker::FunnyName.name,
-  address: Faker::Address.street_name,
-  contact: Faker::Internet.email,
-  opening_hours: "#{rand(6..9)}h - #{rand(18..22)}",
-  required_docs: Faker::FunnyName.name,
-  url_agency: Faker::Internet.url
+  document_type: 'Carteira de Trabalho e Previdência Social - CTPS (Work permit and Social Security Card)',
+  public_agency: "GOV BR",
+  address: "Online",#Checar se podemos colocar url nesse campo
+  contact: "",
+  opening_hours: "Online process",
+  required_docs: "CPF - Cadastro de Pessoa Física (Individual Tax Identification Number)",
+  url_agency: "https://servicos.mte.gov.br/#/loginfailed/redirect="
 )
 document.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
-puts "Document #3 created"
+puts "Document CTPS created"
 puts '-----------------------------'
 
 file = URI.open('https://res.cloudinary.com/ofernandovegano/image/upload/v1614787827/carteira_de_habilita%C3%A7%C3%A3o_image_sdnw3n.jpg')
 document = Document.create!(
   document_type: 'Carteira de habilitação',
-  public_agency: Faker::FunnyName.name,
-  address: Faker::Address.street_name,
-  contact: Faker::Internet.email,
-  opening_hours: "#{rand(6..9)}h - #{rand(18..22)}",
-  required_docs: Faker::FunnyName.name,
-  url_agency: Faker::Internet.url
+  public_agency: "GOV BR",
+  address: "Online",#Checar se podemos colocar url nesse campo
+  contact: "",
+  opening_hours: "Online process",
+  required_docs: "CPF - Cadastro de Pessoa Física (Individual Tax Identification Number)",
+  url_agency: "https://cadastro.acesso.gov.br/nova-conta/cpf?clientid=contas.acesso.gov.br"
 )
 document.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
-puts "Document #4 created"
+puts "Document #SUS created"
 puts '-----------------------------'
 
 puts '-----------------------------'
