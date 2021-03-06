@@ -37,11 +37,13 @@
 <%# LOGIN -------------------------- %>
     <div class="col-12 ">
       <div class="m-5 ">
-        <%= link_to "Create your account", new_user_registration_path, class: 'btn btn-secondary btn-w' %>
-        <% if current_user.present? %>
-          <%= link_to "Login", root_path, class: 'btn btn-secondary btn-w' %>
-        <% else %>
-          <%= link_to "Login", new_user_session_path, class: 'btn btn-secondary btn-w' %>
+        <% if current_user.nil? %>
+          <%= link_to "Create your account", new_user_registration_path, class: 'btn btn-secondary btn-w' %>
+          <% if current_user.present? %>
+            <%= link_to "Login", root_path, class: 'btn btn-secondary btn-w' %>
+          <% else %>
+            <%= link_to "Login", new_user_session_path, class: 'btn btn-secondary btn-w' %>
+          <% end %>
         <% end %>
       </div>
     </div>
