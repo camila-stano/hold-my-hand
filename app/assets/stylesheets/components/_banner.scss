@@ -64,6 +64,14 @@
   color: wheat;
 }
 
+.banner-content-darklaw-show {
+  width: 100vw;
+  height: 50vh;
+  background-color: #16181F;
+  text-align: center;
+  color: wheat;
+}
+
 .banner-content-lightlaw {
   width: 100vw;
   height: 50vh;
@@ -127,4 +135,19 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
+.banner-review {
+  width: 100%;
+  height: 30vh;
+  background-color: #16181F;
+  text-align: center;
+  color: wheat;
+}
 
+.review-content h4 {
+  font-family: $hold-logo;
+  font-size: 36px;
+}
+
+.review-content h5 {
+  font-size: 25px;
+}

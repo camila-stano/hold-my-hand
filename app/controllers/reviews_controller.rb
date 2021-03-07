@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
       ratings += rating 
     end
 
-    @total_rating = (ratings / @reviews.count).to_f
+    @total_rating = (ratings / @reviews.count)
   end
 
   private

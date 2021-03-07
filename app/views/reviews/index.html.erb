@@ -1,37 +1,51 @@
-<div class="banner-content-darklaw d-flex justify-content-center ">
+<div class="banner-review d-flex justify-content-center ">
   <div class="row law-row d-flex align-items-center">
-    <div class='col-4 description-lawyer'>
-      <h4><%= @lawyer.name %></h4>
-      <h2><%= "Total rating: #{@total_rating}" %></h2>
-
-
+    <div class='col-2'>
+      <div class='review-content'>
+      </div>
     </div>
-    <div class='col-4 description-lawyer'>
-      <%= cl_image_tag @lawyer.photo.key, transformation: [{width: 750, height: 750, 
-                                                          gravity: "face", radius: "max", 
-                                                          crop: "crop"}, {width: 200, crop: "scale"}
-                                                        ], class: "avatar-law mb-2" %>
-      
-      <% case @total_rating %>
-      <% when 1 %>
-      <h5>★☆☆☆☆</h5>
-      <% when 2 %>
-      <h5>★★☆☆☆</h5>
-      <% when 3 %>
-      <h5>★★★☆☆</h5>
-      <% when 4 %>
-      <h5>★★★★☆</h5>
-      <% when 5 %>
-      <h5>★★★★★</h5>
-      <% else %>
-      <h5>☆☆☆☆☆</h5>
-      <% end %>
+    <div class='col-8 review-content'>
+        <h4><%= "Now you can see all the reviews of #{@lawyer.name}" %></h4>
+        <h5>
+        <% case @total_rating %>
+          <% when 1 %>
+          <h5>★☆☆☆☆</h5>
+          <% when 2 %>
+          <h5>★★☆☆☆</h5>
+          <% when 3 %>
+          <h5>★★★☆☆</h5>
+          <% when 4 %>
+          <h5>★★★★☆</h5>
+          <% when 5 %>
+          <h5>★★★★★</h5>
+          <% else %>
+          <h5>☆☆☆☆☆</h5>
+          <% end %>
+        </h5>      
     </div>
-    <div class='col-4 description-lawyer'>
-      <h4><%= @lawyer.name %></h4>
-      <h2><%= "Total rating: #{@total_rating}" %></h2>
-
-
+    <div class='col-2 review-content d-flex align-items-end' style="height: 30vh;">
+        <div class='btn-back'>
+        <%= link_to "Back to lawyer page", lawyer_path(@lawyer), class: 'btn mb-3' %> 
+      </div>
     </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @lawyer.reviews.each do |review| %>
+      <div class="col-6">
+        <div class="card m-3 ">    
+          <div class="card-header">
+            <p class="card-text d-flex justify-content-between review-card"><i> <%= current_user.first_name %></i><%= '⭐' * review.rating %></p>
+          </div>
+          <% if review.content.present? %>
+            <div class="card-body">
+              <p class="card-text"><%= review.content %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -1,5 +1,5 @@
 
-  <div class="banner-content-darklaw d-flex justify-content-center ">
+  <div class="banner-content-darklaw-show d-flex justify-content-center ">
     <div class="row law-row d-flex align-items-center">
       <div class='col-3 description-lawyer'>
         <%= cl_image_tag @lawyer.photo.key, transformation: [{width: 750, height: 750, 
@@ -45,13 +45,16 @@
             </div>
             <% if review.content.present? %>
               <div class="card-body">
-                <p class="card-text"><%= review.content %></p>
+                <p class="card-text text-justify"><%= "#{review.content.slice(0,140)}.. "%>
+                <% if review.content.length > 140 %>
+                <span><%= link_to " keep reading", lawyer_reviews_path(@lawyer) %></span></p>
+                <% end %>
               </div>
             <% end %>
           </div>
-        <% end %>
-          <%= link_to 'Leave a review', new_lawyer_review_path(@lawyer), class: 'btn btn-outline-danger' %>
-          <%= link_to 'See all', lawyer_reviews_path(@lawyer), class: 'btn btn-outline-danger' %>
+          <% end %>
+          <%= link_to 'Leave a review', new_lawyer_review_path(@lawyer), class: 'btn btn-outline-danger mb-5' %>
+          <%= link_to 'See all reviews', lawyer_reviews_path(@lawyer), class: 'btn btn-outline-danger mb-5' %>
         </div>
       </div>
 
