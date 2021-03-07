@@ -1,0 +1,11 @@
+.outer{
+  writing-mode: tb-rl;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #637381;
+}
+.inner{
+  transform: rotate(180deg);
+  text-align: center;
+}
