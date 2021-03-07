@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :shelters, only: [:index, :show]
     
     resources :lawyers, except: [:edit, :update, :destroy] do
-      resources :reviews, only: [:new, :create]
+      resources :reviews, only: [:index, :new, :create]
     end
     resources :schools, only: [:index, :show]
     resources :documents, only: [:index, :show]

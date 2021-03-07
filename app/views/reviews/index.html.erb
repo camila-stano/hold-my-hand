@@ -1,0 +1,37 @@
+<div class="banner-content-darklaw d-flex justify-content-center ">
+  <div class="row law-row d-flex align-items-center">
+    <div class='col-4 description-lawyer'>
+      <h4><%= @lawyer.name %></h4>
+      <h2><%= "Total rating: #{@total_rating}" %></h2>
+
+
+    </div>
+    <div class='col-4 description-lawyer'>
+      <%= cl_image_tag @lawyer.photo.key, transformation: [{width: 750, height: 750, 
+                                                          gravity: "face", radius: "max", 
+                                                          crop: "crop"}, {width: 200, crop: "scale"}
+                                                        ], class: "avatar-law mb-2" %>
+      
+      <% case @total_rating %>
+      <% when 1 %>
+      <h5>★☆☆☆☆</h5>
+      <% when 2 %>
+      <h5>★★☆☆☆</h5>
+      <% when 3 %>
+      <h5>★★★☆☆</h5>
+      <% when 4 %>
+      <h5>★★★★☆</h5>
+      <% when 5 %>
+      <h5>★★★★★</h5>
+      <% else %>
+      <h5>☆☆☆☆☆</h5>
+      <% end %>
+    </div>
+    <div class='col-4 description-lawyer'>
+      <h4><%= @lawyer.name %></h4>
+      <h2><%= "Total rating: #{@total_rating}" %></h2>
+
+
+    </div>
+  </div>
+</div>
