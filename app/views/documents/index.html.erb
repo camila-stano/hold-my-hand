@@ -1,33 +1,51 @@
-<div class="container">
-  <h1 class='text-center mt-3'>Documents</h1>
-  <h5 class="text-center subtitle"> Which you need to start your life in Brasil</h5>
-  <div class="d-flex justify-content-center">
-    <div class="card-deck row d-flex">
-      <% @documents.each do |document| %>
-        <%= link_to document_path(document) do %>
-          <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="card m-3 w-100", style="min-height: 380px;">     
-                
-              <div class='card-img-top' style="height: 200px; background-size: cover; 
-                                              background-repeat: no-repeat; background-image: 
-                                              url('<%= cl_image_path document.photo.key, 
-                                              transformation: {crop: "crop", width: 1000, 
-                                              height: 700} %>')">
-              </div>
 
-              <div class="card-body card-relative">
-                <h5 class="card-title"><%= link_to document.document_type, document_path(document.id) %></h5>
-                <div class="card-fixed">
-                  <p><%= link_to "More info", document_path(document.id), class: "btn btn-secondary btn-sm" %></p>
-                  <p class="card-text"><small class="text-muted"> <%= document.address %></small></p>
-                </div>
-              </div>
-            </div>
+    <% cpf = @documents.find(56) %>
+      <div class="banner-document-light d-flex justify-content-center">
+        <div class="row d-flex align-items-center">
+          <div class='col-3 description-document '>
+            <%= cl_image_tag cpf.photo.key, transformation: [{width: 750, height: 750}
+                                                              ], class: "document-img" %>
           </div>
-        <% end %>
-      <% end %>
+          <div class='col-9 description-document  text-justify'>
+            <h4><%= cpf.document_type %></h4>
+            <h6><%= cpf.description %></h6>
+            <h6><strong>Required documents:</strong> <%= cpf.required_docs %></h6>
+            <a href="<% cpf.url_agency %>" class="btn btn-secondary btn-sm"> Online Apply</a>
+            <p></p>
+          </div>
+        </div>
+      </div>
+
+    <% sus = @documents.find(58) %>
+    <div class="banner-document-darkness d-flex justify-content-center">
+      <div class="row d-flex align-items-center">
+        <div class='col-3 description-document '>
+          <%= cl_image_tag sus.photo.key, transformation: [{width: 750, height: 750}
+                                                            ], class: "document-img" %>
+        </div>
+        <div class='col-9 description-document  text-justify'>
+          <h4><%= sus.document_type %></h4>
+          <h6><%= sus.description %></h6>
+          <h6><strong>Required documents:</strong> <%= sus.required_docs %></h6>
+          <a href="<% sus.url_agency %>" class="btn btn-secondary btn-sm"> Online Apply</a>
+          <p></p>
+        </div>
+      </div>
     </div>
-  </div>
-</div> 
-<%# <p class="card-text text-justufy"><%= document.public_agency </p>%>
-<%# <p class="card-text text-justify"><%= "Opening hours: #{document.opening_hours}" </p>%> 
+
+    <% ctps = @documents.find(57) %>    
+    <div class="banner-document-light d-flex justify-content-center">
+      <div class="row d-flex align-items-center">
+        <div class='col-3 description-document '>
+          <%= cl_image_tag ctps.photo.key, transformation: [{width: 750, height: 750}
+                                                            ], class: "document-img" %>
+        </div>
+        <div class='col-9 description-document  text-justify'>
+          <h4><%= ctps.document_type %></h4>
+          <h6><%= ctps.description %></h6>
+          <h6><strong>Required documents:</strong> <%= ctps.required_docs %></h6>
+          <a href="<% ctps.url_agency %>" class="btn btn-secondary btn-sm"> Online Apply</a>
+          <p></p>
+        </div>
+      </div>
+    </div>
