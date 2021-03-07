@@ -3,3 +3,14 @@
   font-weight: 300;
   color: #16181F;
 }
+.outer{
+  writing-mode: tb-rl;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #637381;
+}
+.inner{
+  transform: rotate(180deg);
+  text-align: center;
+}
