@@ -16,11 +16,20 @@ class ReviewsController < ApplicationController
     @review.user = current_user
 
     if @review.save
-      redirect_to lawyer_path(@lawyer)
+      redirect_to lawyer_path(@lawyer), notice: 'Thank you for your review!'
     else
       render :new
     end
   end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+  end 
 
   def rating
     @reviews = Review.where(lawyer: @lawyer)
