@@ -27,7 +27,7 @@ window.$ = window.jQuery = jQuery;
 
 // External imports
 import "bootstrap";
-import { initMapbox } from '../plugins/init_mapbox';
+import { initMapbox, checkExist } from '../plugins/init_mapbox';
 import { initMenu } from '../plugins/init_menu';
 import { initHomeUser } from '../plugins/init_home_user';
 
