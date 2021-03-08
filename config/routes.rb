@@ -9,8 +9,10 @@ Rails.application.routes.draw do
 
     resources :restaurants, only: [:index, :show]
     resources :shelters, only: [:index, :show]
-
-    resources :lawyers, except: [:edit, :update, :destroy]
+    
+    resources :lawyers, except: [:edit, :update, :destroy], shallow: true do
+      resources :reviews, except: [:show]
+    end
     resources :schools, only: [:index, :show]
     resources :documents, only: [:index, :show]
     resources :communications, only: [:index, :show]
