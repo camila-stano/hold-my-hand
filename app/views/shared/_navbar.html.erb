@@ -36,8 +36,8 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? %>
-            <li class="nav-item d-flex align-items-center user-nav">
-              <%= "Welcome #{current_user.first_name}" %>
+            <li class="nav-item d-flex align-items-center user-nav mr-2">
+              <%= t '.welcome' + " #{current_user.first_name}" %>
             </li>
             <li class="nav-item dropdown">
               <%= render "shared/avatar", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
