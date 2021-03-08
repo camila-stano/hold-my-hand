@@ -1,51 +1,37 @@
-
-    <% cpf = @documents.find(56) %>
-      <div class="banner-document-light d-flex justify-content-center">
+<% @documents.each_with_index do |document, index| %>
+  <% if index.even? %>
+      <div class="banner-document-light banner-documents d-flex justify-content-center">
         <div class="row d-flex align-items-center">
           <div class='col-3 description-document '>
-            <%= cl_image_tag cpf.photo.key, transformation: [{width: 750, height: 750}
+            <%= cl_image_tag document.photo.key, transformation: [{width: 750, height: 750}
                                                               ], class: "document-img" %>
           </div>
           <div class='col-9 description-document  text-justify'>
-            <h4><%= cpf.document_type %></h4>
-            <h6><%= cpf.description %></h6>
-            <h6><strong>Required documents:</strong> <%= cpf.required_docs %></h6>
-            <a href="<% cpf.url_agency %>" class="btn btn-secondary btn-sm"> Online Apply</a>
+            <h4><%= document.document_type %></h4>
+            <h6><%= document.description %></h6>
+            <h6><strong>Required documents:</strong> <%= document.required_docs %></h6>
+            <a href="<% document.url_agency %>" class="btn btn-secondary btn-sm"> Online Apply</a>
             <p></p>
           </div>
         </div>
       </div>
 
-    <% sus = @documents.find(58) %>
-    <div class="banner-document-darkness d-flex justify-content-center">
+  <% else %>
+    <div class="banner-document-darkness banner-documents d-flex justify-content-center">
       <div class="row d-flex align-items-center">
         <div class='col-3 description-document '>
-          <%= cl_image_tag sus.photo.key, transformation: [{width: 750, height: 750}
+          <%= cl_image_tag document.photo.key, transformation: [{width: 750, height: 750}
                                                             ], class: "document-img" %>
         </div>
         <div class='col-9 description-document  text-justify'>
-          <h4><%= sus.document_type %></h4>
-          <h6><%= sus.description %></h6>
-          <h6><strong>Required documents:</strong> <%= sus.required_docs %></h6>
-          <a href="<% sus.url_agency %>" class="btn btn-secondary btn-sm"> Online Apply</a>
+          <h4><%= document.document_type %></h4>
+          <h6><%= document.description %></h6>
+          <h6><strong>Required documents:</strong> <%= document.required_docs %></h6>
+          <a href="<% document.url_agency %>" class="btn btn-secondary btn-sm"> Online Apply</a>
           <p></p>
         </div>
       </div>
     </div>
 
-    <% ctps = @documents.find(57) %>    
-    <div class="banner-document-light d-flex justify-content-center">
-      <div class="row d-flex align-items-center">
-        <div class='col-3 description-document '>
-          <%= cl_image_tag ctps.photo.key, transformation: [{width: 750, height: 750}
-                                                            ], class: "document-img" %>
-        </div>
-        <div class='col-9 description-document  text-justify'>
-          <h4><%= ctps.document_type %></h4>
-          <h6><%= ctps.description %></h6>
-          <h6><strong>Required documents:</strong> <%= ctps.required_docs %></h6>
-          <a href="<% ctps.url_agency %>" class="btn btn-secondary btn-sm"> Online Apply</a>
-          <p></p>
-        </div>
-      </div>
-    </div>
+  <% end %>
+<% end %>
