@@ -3,43 +3,6 @@ body {
   font-family: $headers-font;
 }
 
-@media only screen and (min-width: 360px) {
-  .i-med {
-    font-size: 70px;
-    padding: 10px;
-    width: 10vh;
-    color: #16181f;
-  }
-
-  .bg-icon {
-    width: 120px;
-    height: 120px;
-    background-color: #637381;
-    border-radius: 50%;
-    margin: 20px;
-  }
-}
-
-@media only screen and (min-width: 600px) {
-  .i-med {
-    font-size: 115px;
-    padding: 10px;
-    width: 10vh;
-    color: #16181f;
-    line-height: 1.25;
-  }
-
-  .bg-icon {
-    width: 170px;
-    height: 170px;
-    background-color: #637381;
-    border-radius: 50%;
-  }
-}
-
-.i-large {
-  font-size: 15vw;
-}
 
 h1 {
   font-family: $hold-logo;
@@ -90,3 +53,13 @@ h1 {
   margin: 0;
   padding: 10px;
 }
+
+.show-text h5 {
+  opacity: 0;
+ }
+
+.show-text:hover h5 {
+ opacity: 1;
+ color: #16181f;
+}
+ 

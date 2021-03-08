@@ -77,4 +77,23 @@ $width-card: 300px;
 
 .review-card p {
   font-size: 24px;
+.card-title a {
+  color: rgb(44, 44, 44);
+  font-weight: lighter;
+  font-size: 18px;
+}
+
+.card-title a:hover {
+  opacity: 0.6;
+  font-weight: lighter;
+  font-size: 18px;
+}
+
+.card-absolute {
+  position: relative;
+}
+
+.card-fixed {
+  position: absolute;
+  bottom: 20px;
 }

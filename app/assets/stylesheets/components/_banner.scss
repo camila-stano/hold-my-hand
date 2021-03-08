@@ -113,26 +113,54 @@
 }
 
 
-.banner-profile {
-  background-size: cover;
-  background-position: center;
-  padding: 150px 0;
-  height: 60vh;
+// .banner-profile {
+//   background-size: cover;
+//   background-position: center;
+//   padding: 150px 0;
+//   height: 60vh;
+// }
+
+// .banner-profile h1 {
+//   margin: 0;
+//   color: white;
+//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+//   font-size: 32px;
+//   font-weight: bold;
+// }
+
+// .banner-profile p {
+//   font-size: 20px;
+//   color: white;
+//   opacity: .7;
+//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+// }
+
+.document-img {
+  border-radius: 10px;
+  width: 260px;
+  height: 180px ;
 }
 
-.banner-profile h1 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
+.banner-document-light {
+  width: 100vw;
+  height: 330px;
+  padding: 10px 100px 10px 50px;
+  background-color: #fdfdfd;
+  text-align: center;
+  color: rgb(110, 110, 110);
 }
 
-.banner-profile p {
-  font-size: 20px;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+.banner-document-darkness {
+  width: 100vw;
+  height: 330px;
+  padding: 10px 100px 10px 50px;
+  background-color: rgb(179, 179, 179);
+  text-align: center;
+  color: #fdfdfd;
+}
+
+.banner-profile-description {
+  height: 91vh;
 }
 
 .banner-review {
@@ -150,4 +178,8 @@
 
 .review-content h5 {
   font-size: 25px;
+}
+.banner-profile-avatar {
+  height: 91vh;
+  background-color: #C4C4C4;
 }
