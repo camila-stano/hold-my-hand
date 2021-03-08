@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :set_lawyer
+  before_action :set_lawyer, only: [:index, :new,:create, :rating]
+  before_action :set_review, only: [:edit, :update, :destroy]
 
   def index
     @reviews = Review.where(lawyer: @lawyer)
@@ -26,9 +27,17 @@ class ReviewsController < ApplicationController
   end
 
   def update
+    @review.update(review_params)
+    if @review.save
+      redirect_to lawyer_reviews_path(@review.lawyer_id)
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @review.destroy
+    redirect_to lawyer_reviews_path(@review.lawyer_id)
   end 
 
   def rating
@@ -50,5 +59,9 @@ class ReviewsController < ApplicationController
 
   def set_lawyer
     @lawyer = Lawyer.find(params[:lawyer_id])
+  end
+
+  def set_review
+    @review = Review.find(params[:id])
   end
 end

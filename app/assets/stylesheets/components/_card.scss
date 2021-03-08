@@ -77,6 +77,8 @@ $width-card: 300px;
 
 .review-card p {
   font-size: 24px;
+}
+
 .card-title a {
   color: rgb(44, 44, 44);
   font-weight: lighter;
@@ -96,4 +98,23 @@ $width-card: 300px;
 .card-fixed {
   position: absolute;
   bottom: 20px;
+}
+
+.card-review {
+  position: absolute;
+}
+
+.card-btn-review {
+  position: relative;
+  left: 22rem;
+  bottom: 0.6rem;
+  opacity: 0.5;
+}
+
+.btn-review:hover {
+  position: relative;
+  left: 20rem;
+  bottom: 0.6rem;
+  color: black;
+  opacity: 1;
 }

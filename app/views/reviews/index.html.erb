@@ -35,13 +35,30 @@
   <div class="row">
     <% @lawyer.reviews.each do |review| %>
       <div class="col-6">
-        <div class="card m-3 ">    
+        <div class="card m-3">    
           <div class="card-header">
-            <p class="card-text d-flex justify-content-between review-card"><i> <%= current_user.first_name %></i><%= '⭐' * review.rating %></p>
+            <p class="card-text d-flex justify-content-between review-card"><i> <%= current_user.first_name %></i><%= '★' * review.rating %></p>
           </div>
           <% if review.content.present? %>
             <div class="card-body">
+              <div class="card-review">
+                <div class="card-btn-review">
+                  <%= link_to "Edit", edit_review_path(review.id), class: 'btn btn-review btn-sm' %>
+                  <%= link_to "Delete", review_path(review.id), method: :delete, class: 'btn btn-review btn-sm' %>
+                </div>
+              </div>
+              <BR>
               <p class="card-text"><%= review.content %></p>
+              </div>
+            </div>
+          <% else %>
+            <div class="card-body">
+              <div class="card-review">
+                <div class="card-review card-btn-review">
+                  <%= link_to "Edit", edit_review_path(review.id), class: 'btn btn-review btn-sm' %>
+                  <%= link_to "Delete", review_path(review.id), method: :delete, class: 'btn btn-review btn-sm' %>
+                </div>
+             </div>
             </div>
           <% end %>
         </div>
