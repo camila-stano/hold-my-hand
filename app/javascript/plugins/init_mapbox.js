@@ -18,7 +18,7 @@ const initMapbox = () => {
 
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const markers = JSON.parse(mapElement.dataset.markers);
-    console.log('found markers')
+    console.log(markers);
     // Creating the map
     const map = new mapboxgl.Map({
       container: 'map',
@@ -40,12 +40,17 @@ const initMapbox = () => {
 
          // Adding markers to the map
       addMarkersToMap(map, markers);
-    
+        console.log(markers)
       if (mapElement.dataset.umarker) {
         const umarker = JSON.parse(mapElement.dataset.umarker);
-        addUserMarkerToMap(map, umarker);
-        // Zoom map to markers
-        fitMapToMarkers(map, umarker);
+        console.log(umarker)
+        if (umarker.lng !== null) {
+          addUserMarkerToMap(map, umarker);
+          // Zoom map to markers
+          fitMapToUMarker(map, umarker);
+        } else {
+          fitMapToMarkers(map, markers);
+        }
       }
     }
 
@@ -107,13 +112,13 @@ const addUserMarkerToMap = (map, umarker) => {
   .addTo(map);
 };
 
-// const fitMapToMarkers = (map, markers) => {
-//   const bounds = new mapboxgl.LngLatBounds();
-//   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-//   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
-// };
+const fitMapToMarkers = (map, markers) => {
+  const bounds = new mapboxgl.LngLatBounds();
+  markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+  map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+};
 
-const fitMapToMarkers = (map, umarker) => {
+const fitMapToUMarker = (map, umarker) => {
   const bounds = new mapboxgl.LngLatBounds();
   bounds.extend([ umarker.lng, umarker.lat ]);
   map.fitBounds(bounds, { padding: 20, maxZoom: 13, duration: 1000 });
