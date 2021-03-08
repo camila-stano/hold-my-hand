@@ -42,5 +42,4 @@ document.addEventListener('turbolinks:load', () => {
   initHomeUser();
 })
 
-
 import "controllers"

@@ -6,16 +6,19 @@ import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-direct
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
+  
 
   if (mapElement) { // only build a map if there's a div#map to inject 
-  
-    const directions = new MapboxDirections({
+    console.log('created directions')
+    var directions = new MapboxDirections({
       accessToken: mapElement.dataset.mapboxApiKey,
       unit: 'metric',
       profile: 'mapbox/walking'
     });
 
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+    const markers = JSON.parse(mapElement.dataset.markers);
+    console.log('found markers')
     // Creating the map
     const map = new mapboxgl.Map({
       container: 'map',
@@ -24,24 +27,40 @@ const initMapbox = () => {
     // Add search input to the map
  
     if (mapElement.dataset.route === 'show') {
+          console.log('checked show routes')
           map.addControl(new MapboxDirections({
           accessToken: mapboxgl.accessToken,
           interactive: false,
           controls: { instructions: false, profileSwitcher: false }
         }));
     } else {
+      console.log('not show')
       map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
         mapboxgl: mapboxgl }));
+
+         // Adding markers to the map
+      addMarkersToMap(map, markers);
+    
+      if (mapElement.dataset.umarker) {
+        const umarker = JSON.parse(mapElement.dataset.umarker);
+        addUserMarkerToMap(map, umarker);
+        // Zoom map to markers
+        fitMapToMarkers(map, umarker);
+      }
     }
 
 
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
+        console.log('geolocation')
         
         const current_lat = position.coords.latitude;
         const current_lng = position.coords.longitude;
-        
+
+        setTimeout(1000);
+
         map.on('load', () => {
+          console.log('load directions')
           directions.setOrigin([current_lng, current_lat]); 
           directions.setDestination([markers[0].lng, markers[0].lat]); 
         });
@@ -51,18 +70,11 @@ const initMapbox = () => {
       alert("I'm sorry, but geolocation services are not supported by your browser.");
     }
     
-    // Adding markers to the map
-    const markers = JSON.parse(mapElement.dataset.markers);
-    const umarker = JSON.parse(mapElement.dataset.umarker);
-    addMarkersToMap(map, markers);
-    addUserMarkerToMap(map, umarker);
-    // Zoom map to markers
-    fitMapToMarkers(map, umarker);
-    // checkExist(map, markers);
   }
 };
 
 const addMarkersToMap = (map, markers) => {
+  console.log('adding markers')
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // add this
     // Create a HTML element for your custom marker
