@@ -1,4 +1,24 @@
 pt-BR:
   pages:
     home:
-     sub-logo: "Um guia de São Paulo para refugiados"
+      sub-logo: "Um guia de São Paulo para refugiados"
+      let-us-take-you: "DEIXE-NOS TE GUIAR"
+      find-a-place-to-stay: "Ache um lugar para dormir!"
+      where-to-eat: "Onde comer!"
+      map: "Mapa!"
+      find-a-good-lawyer: "Encontre um bom advogado!"
+      first-documents: "Primeiros documentos!"
+      community: "Comunidade!"
+      select-option: "SELECIONE UMA OPÇÃO"
+      Create-your-account: "Crie sua conta"
+      You-can-count-on-us: "Pode contar com a gente!"
+      see-more: "veja mais..."
+      login-to-access-the-community: "FAÇA LOGIN PARA ACESSAR A COMUNIDADE"
+      how-to-get-your-first-brazilian-documents: "COME OBTER SEUS PRIMEIROS DOCUMENTOS BRASILEIROS"
+      find-good-lawyers-to-your-imigration-process: "ENCONTRE BONS ADVOGADOS PARA SEU PROCESSO DE IMIGRAÇÃO"
+  shared:
+    navbar:
+      welcome: "Bem-vindo"
+      profile: "perfil"
+      edit-registration: "Editar cadastro"
+      logout: "Sair da conta"

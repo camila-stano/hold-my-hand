@@ -16,7 +16,6 @@ en:
       login-to-access-the-community: "LOGIN TO ACCESS THE COMMUNIT"
       how-to-get-your-first-brazilian-documents: "HOW TO GET YOURS FIRSTS BRAZILIANS DOCUMENTS"
       find-good-lawyers-to-your-imigration-process: "FIND GOOD LAWYERS TO YOUR IMMIGRATION PROCESS"
-
   documents:
       btn-value: "Online Apply"
       cpf-title: "CPF - Individual Tax Identification Number"
@@ -28,7 +27,9 @@ en:
       ctps-title: "CTPS - Work permit and Social Security Card"
       ctps-description: "Both asylum seekers and refugees have the right to work in Brazil. The Work Permit and Social Security Card (Carteira de Trabalho e Previdência Social – CTPS) is the document that verifies all the worker’s professional life. This document is mandatory for exercising formal professional activities and can be requested by anyone over 14 years old, national or foreigner, with regular residence in Brazil and a CPF number."
       ctps-required: "Required documents: CPF - Cadastro de Pessoa Física (Individual Tax Identification Number)"
-    
   shared:
     navbar:
       welcome: "Welcome"
+      profile: "Profile"
+      edit-registration: "Edit registration"
+      logout: "Logout"
