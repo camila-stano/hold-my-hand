@@ -34,8 +34,6 @@ class PagesController < ApplicationController
     # @markers << { lat: session[:user_position][0], lng: session[:user_position][1] }
 
     @markers += @addresses
-    puts '============================='
-    p @markers
   end
 
   def update_position
