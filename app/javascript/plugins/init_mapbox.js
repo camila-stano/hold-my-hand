@@ -58,6 +58,7 @@ const initMapbox = () => {
     addUserMarkerToMap(map, umarker);
     // Zoom map to markers
     fitMapToMarkers(map, umarker);
+    // checkExist(map, markers);
   }
 };
 
@@ -92,7 +93,7 @@ const addUserMarkerToMap = (map, umarker) => {
   .setLngLat([ umarker.lng, umarker.lat ])
   .setPopup(popup) // add this
   .addTo(map);
-}
+};
 
 // const fitMapToMarkers = (map, markers) => {
 //   const bounds = new mapboxgl.LngLatBounds();
@@ -104,7 +105,17 @@ const fitMapToMarkers = (map, umarker) => {
   const bounds = new mapboxgl.LngLatBounds();
   bounds.extend([ umarker.lng, umarker.lat ]);
   map.fitBounds(bounds, { padding: 20, maxZoom: 13, duration: 1000 });
+  
 };
+
+// const checkExist = () => { 
+//   const myInterval = setInterval(() => {
+//   const elements = document.querySelectorAll('markers');
+//   if (elements) {
+//     clearInterval(myInterval);
+//     }
+//   }, 30);
+// };
 
 
 export { initMapbox };
