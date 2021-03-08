@@ -100,21 +100,56 @@ $width-card: 300px;
   bottom: 20px;
 }
 
-.card-review {
+// -------------------------------- REVIEWS -------------------------------------- //
+
+.cards-review {
+  position: relative;
+  transition-delay: 2s;
+}
+
+.cards-review a{
+  text-decoration: none;
+  color: #16181F;
+}
+
+.cards-review .btn-edit-delete-container{
+  color: wheat;
+  opacity: 0;
+}
+
+.cards-review:hover .btn-edit-delete-container{
+  opacity: 0.8;
+  transition: opacity .15s ease-in-out;
+
+}
+
+.btn-edit-delete-container{
   position: absolute;
+  right: 0.6rem;
+  bottom: 0.5rem;
 }
 
-.card-btn-review {
-  position: relative;
-  left: 22rem;
-  bottom: 0.6rem;
-  opacity: 0.5;
+.btn-edit{
+  border-radius: 5px;
+  background-color: #D9DADB;
 }
 
-.btn-review:hover {
-  position: relative;
-  left: 20rem;
-  bottom: 0.6rem;
-  color: black;
+.btn-edit:hover{
+  background-color: wheat;
   opacity: 1;
+}
+
+.btn-delete{
+  border-radius: 5px;
+  background-color: #D9DADB;
+}
+
+.btn-delete:hover{
+  background-color:wheat;
+  opacity: 1;
+}
+
+.btn-review-index{
+  font-size: 10px;
+  padding: 0.25rem 0.25rem;
 }

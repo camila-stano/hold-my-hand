@@ -32,36 +32,45 @@
 </div>
 
 <div class="container">
-  <div class="row">
-    <% @lawyer.reviews.each do |review| %>
-      <div class="col-6">
-        <div class="card m-3">    
-          <div class="card-header">
-            <p class="card-text d-flex justify-content-between review-card"><i> <%= current_user.first_name %></i><%= '★' * review.rating %></p>
-          </div>
+  <div class="row d-flex">
+    <% @lawyer.reviews.last(3).each do |review| %>
+      <div class="col-6 cards-review">
+        <%= link_to do %>
           <% if review.content.present? %>
-            <div class="card-body">
-              <div class="card-review">
-                <div class="card-btn-review">
-                  <%= link_to "Edit", edit_review_path(review.id), class: 'btn btn-review btn-sm' %>
-                  <%= link_to "Delete", review_path(review.id), method: :delete, class: 'btn btn-review btn-sm' %>
-                </div>
+            <div class="card m-3">    
+              <div class="card-header">
+                <p class="card-text d-flex justify-content-between review-card"><i> <%= current_user.first_name %></i><%= '⭐' * review.rating %></p>
               </div>
-              <BR>
-              <p class="card-text"><%= review.content %></p>
+              <div class="card-body">
+
+                <div class="btn-edit-delete-container"> 
+                  <% if current_user == review.user %>
+                    <div class="edit-delete-btn">
+                      <%=link_to 'Editar', edit_review_path(review.id), class: 'btn btn-edit btn-review-index' %>
+                      <%=link_to 'Deletar', review_path(review.id), method: :delete, class: 'btn btn-delete btn-review-index mr-2' %>
+                    </div>
+                  <%end%>
+                </div>
+
+                <p class="card-text text-justify"><%= review.content %></p>
               </div>
             </div>
           <% else %>
-            <div class="card-body">
-              <div class="card-review">
-                <div class="card-review card-btn-review">
-                  <%= link_to "Edit", edit_review_path(review.id), class: 'btn btn-review btn-sm' %>
-                  <%= link_to "Delete", review_path(review.id), method: :delete, class: 'btn btn-review btn-sm' %>
+            <div class="card m-3">    
+              <div class="card-header">
+                <p class="card-text d-flex justify-content-between review-card"><i> <%= current_user.first_name %></i><%= '⭐' * review.rating %></p>
+                <div class="btn-edit-delete-container">
+                  <% if current_user == review.user %>
+                    <div class="edit-delete-btn">
+                      <%=link_to 'Editar', edit_review_path(review.id), class: 'btn btn-edit btn-review-index' %>
+                      <%=link_to 'Deletar', review_path(review.id), method: :delete, class: 'btn btn-delete btn-review-index mr-2' %>
+                    </div>
+                  <%end%>
                 </div>
-             </div>
+              </div>
             </div>
           <% end %>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>
