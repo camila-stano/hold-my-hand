@@ -1,22 +1,57 @@
-<div class="banner-profile" 
-     style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dn6lyapiu/image/upload/v1615052787/sergio-souza-z0PeMSs-Q2E-unsplash_nrcvu7.jpg);">
-  <div class="container">
-    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
-  </div>
-</div>
-<div class="container">
-  <div class='text-center mt-5'>
-    <% if current_user.photo.present? %>
-      <%= cl_image_tag current_user.photo.key, transformation: [
-      {width: 550, height: 550, gravity: "face", radius: "max", crop: "crop"}, {width: 200, crop: "scale"}
-      ], class: "avatar-large" %>
-    <% else %>
-      <%= image_tag "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-    <% end %>
+<div class="row">
+  <div class="col-4 banner-profile-avatar d-flex justify-content-center align-items-center border">
+    <div class= "m-2">
+      <div class="d-flex justify-content-center">
+        <% if current_user.photo.present? %>
+          <%= cl_image_tag current_user.photo.key, transformation: [
+          {width: 550, height: 550, gravity: "face", radius: "max", crop: "crop"}, {width: 200, crop: "scale"}
+          ], class: "avatar-large" %>
+        <% else %>
+          <%= image_tag "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
+      </div>
+      <div class="text-center m-1">
+        <h1><%= current_user.first_name %></h1>
+        <h1><%= current_user.last_name %></h1>
+      </div>
+      <div class="gameficacao-profile text-center">
+        <h2>*--*--*--*--*</h2>
+      </div>
+    </div>
   </div>
 
-<%= current_user.first_name %>
+  <div class="col-8 banner-profile-description">
+    <div class="row description-profile m-5">
+      <div class="col-1 text-center">
+        <h2><i class="fas fa-globe-africa"></i> </h2>
+        <h2><i class="fas fa-language"></i></h2>
+        <h2><i class="fas fa-venus-mars"></i></h2>
+        <h2><i class="fas fa-map-pin"></i> </h2>
+      </div>
+      <div class="col-10">
+        <h2><span><%= current_user.origin %></span></h2>
+        <h2><span><%= current_user.language %></span></h2>
+        <h2><span><%= current_user.gender %></span></h2>
+        <h2><span><%= current_user.address %></span></h2>
+      </div>
+    </div>
+  </div>
 
 </div>
+
+    <%# t.string "email", default: "", null: false
+
+    t.integer "age"
+
+    t.string "current_address"
+    t.string "gender"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
+    t.string "provider"
+    t.string "uid"
+    t.string "facebook_picture_url"
+    t.string "token"
+    t.datetime "token_expiry"
+
+    %>
