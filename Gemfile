@@ -53,8 +53,6 @@ gem 'omniauth-facebook'
 
 gem "omniauth-rails_csrf_protection"
 
-
-
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
