@@ -23,21 +23,26 @@ class PagesController < ApplicationController
         infoWindow: render_to_string(partial: "info", locals: { shelter: shelter })
       }
     end
+    
+    if session[:user_position]
 
-    @umarker = {
-      lat: session[:user_position][0],
-      lng: session[:user_position][1],
-      infoWindow: render_to_string(partial: "info_user"),
-      image_url: helpers.asset_url('icon_orange.png') 
-      }
+      @umarker = {
+        lat: session[:user_position][0],
+        lng: session[:user_position][1],
+        infoWindow: render_to_string(partial: "info_user"),
+        image_url: helpers.asset_url('icon_orange.png') 
+        }
 
+    end
     # @markers << { lat: session[:user_position][0], lng: session[:user_position][1] }
 
     @markers += @addresses
   end
 
   def update_position
-    session[:user_position] = [params[:lat], params[:lng]]
+    
+    session[:user_position] = [params[:lat], params[:lng]] if params[:lat] && params[:lng]
+    
   end
 
   def position_params
