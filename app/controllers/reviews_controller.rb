@@ -27,17 +27,25 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    @review.update(review_params)
-    if @review.save
-      redirect_to lawyer_reviews_path(@review.lawyer_id)
+    if current_user == @review.user
+      @review.update(review_params)
+      if @review.save
+        redirect_to lawyer_reviews_path(@review.lawyer_id)
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to lawyer_reviews_path(@review.lawyer_id), alert: "You can't edit this review"
     end
   end
 
   def destroy
-    @review.destroy
-    redirect_to lawyer_reviews_path(@review.lawyer_id)
+    if current_user == @review.user
+      @review.destroy
+      redirect_to lawyer_reviews_path(@review.lawyer_id)
+    else
+      redirect_to lawyer_reviews_path(@review.lawyer_id), alert: "You can't edit this review"
+    end
   end 
 
   def rating

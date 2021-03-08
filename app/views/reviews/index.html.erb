@@ -33,7 +33,7 @@
 
 <div class="container">
   <div class="row d-flex">
-    <% @lawyer.reviews.last(3).each do |review| %>
+    <% @lawyer.reviews.each do |review| %>
       <div class="col-6 cards-review">
         <%= link_to do %>
           <% if review.content.present? %>
