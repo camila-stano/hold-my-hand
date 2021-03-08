@@ -11,40 +11,50 @@
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 
 <%#---------------------------------ÍCONES DE IDIOMA-------------------------------------------------%>
-      <div class = 'language-choice-container'>
-        <div class='language-icons'>
-          <ul class = 'language-choice-list mr-5'>
-        
-            <%= link_to root_path(locale: :en) do %>
-              <%= cl_image_tag("https://res.cloudinary.com/dn6lyapiu/image/upload/v1614787101/united-states_mznig2.svg", 
-                              width: 25, height: 25, crop: :thumb) %>
-            <% end %>
-            <%= link_to root_path(locale: :es) do %>
-              <%= cl_image_tag("https://res.cloudinary.com/dn6lyapiu/image/upload/v1614787874/spain_tmtxoi.svg", 
-                              width: 25, height: 25, crop: :thumb) %>
-            <% end %>
-              <%= link_to root_path(locale: :"pt-BR") do %>
-              <%= cl_image_tag("https://res.cloudinary.com/dn6lyapiu/image/upload/v1614787871/brazil_ln0unu.svg", 
-                              width: 25, height: 25, crop: :thumb) %>
-            <% end %>
-          </ul>
-        </div>
-      </div>
+  <div class = 'language-choice-container'>
+    <ul class = 'language-choice-list'>
+  
+      <%= link_to root_path(locale: :en) do %>
+        <%= cl_image_tag("https://res.cloudinary.com/dn6lyapiu/image/upload/v1614787101/united-states_mznig2.svg", 
+                        width: 25, height: 25, crop: :thumb) %>
+      <% end %>
+      <%= link_to root_path(locale: :es) do %>
+        <%= cl_image_tag("https://res.cloudinary.com/dn6lyapiu/image/upload/v1614787874/spain_tmtxoi.svg", 
+                        width: 25, height: 25, crop: :thumb) %>
+      <% end %>
+        <%= link_to root_path(locale: :"pt-BR") do %>
+        <%= cl_image_tag("https://res.cloudinary.com/dn6lyapiu/image/upload/v1614787871/brazil_ln0unu.svg", 
+                        width: 25, height: 25, crop: :thumb) %>
+      <% end %>
+    </ul>
+  </div>
 
 <%#---------------------------------------------------AVATAR-DROPDOWN------------------------------------%>
-  
+      <% if user_signed_in? %>
+
+      <div class = 'welcome-name d-flex justify-content-end align-items-center'>
+        <p class= "user-nav text-right mr-2 nav-item ">
+          <%= t '.welcome' %> <%= current_user.first_name %>
+        </p>
+      </div>
+
+
+      <%end%>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? %>
-            <li class="nav-item d-flex align-items-center user-nav mr-2">
-              <%= t '.welcome' + " #{current_user.first_name}" %>
-            </li>
             <li class="nav-item dropdown">
               <%= render "shared/avatar", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <%= link_to "Profile", profile_path(current_user), class: "dropdown-item" %>
-                <%= link_to "Edit Registration", edit_user_registration_path, class: "dropdown-item" %>
-                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                <%= link_to profile_path(current_user), class: "dropdown-item" do %>
+                  <%= t '.profile' %>
+                <% end %>
+                <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
+                  <%= t '.edit-registration' %>
+                <% end %>
+                <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+                  <%= t '.logout' %>
+                <% end %>
               </div>
             </li>
           <% else %>
