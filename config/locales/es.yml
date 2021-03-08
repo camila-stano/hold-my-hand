@@ -2,3 +2,23 @@ es:
   pages:
     home:
       sub-logo: "¡Una guía de São Paulo para refugiados!"
+      let-us-take-you: "DÉJANOS GUIARTE"
+      find-a-place-to-stay: "Encuentra un lugar para dormir!"
+      where-to-eat: "Dónde comer!"
+      map: "Mapa!"
+      find-a-good-lawyer: "Encuentra un buen abogado!"
+      first-documents: "Primeiros documentos!"
+      community: "Comunidad!"
+      select-option: "SELECIONE UNA OPCIÓN"
+      Create-your-account: "Crea tu cuenta"
+      You-can-count-on-us: "puedes contar con nosotros!"
+      see-more: "vea mas..."
+      login-to-access-the-community: "INICIAR SESSIÓN PARA ACCEDER A LA COMUNIDAD"
+      how-to-get-your-first-brazilian-documents: "VEN A CONSEGUIR TUS PRIMEROS DOCUMENTOS BRASILEÑOS"
+      find-good-lawyers-to-your-imigration-process: "ENCUENTRE BUENOS ABOGADOS PARA SU PROCESO DE INMIGRACIÓN"
+  shared:
+    navbar:
+      welcome: "Bienvenido"
+      profile: "Perfil"
+      edit-registration: "Editar cuenta"
+      logout: "Cerrar sesión"
