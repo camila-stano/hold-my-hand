@@ -28,12 +28,18 @@ window.$ = window.jQuery = jQuery;
 // External imports
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
+import { initMenu } from '../plugins/init_menu';
+import { initHomeUser } from '../plugins/init_home_user';
+
+
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initMenu();
+  initHomeUser();
 })
 
 

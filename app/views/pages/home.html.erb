@@ -10,95 +10,94 @@
     </div>
     <div class="col-11">
     <%# TITLE -------------------------- %>
-      <div class="box-title">
+      <div class="box-title mt-5">
         <h1>Hold My Hand</h1>
         <h5> A São Paulo guide for refugees! </h5>
       </div>
-    <br>
-    <br>
+  
     <%# ICONS -------------------------- %>
-      <div class="row d-flex justify-content-around">
-        
-        <div class="col-2">
+      <div class="row d-flex justify-content-around mt-5">
+       
+        <div class="col-2 home-icon">
           <%= link_to shelters_path do %>
             <div class="show-text">
               <div class="row d-flex justify-content-center">
                   <i class="fas fa-home bg-icon i-med" ></i> 
               </div> 
               <div class="row d-flex justify-content-center ">
-                <h5>Find a place to stay!</h5>
+                <h5 style="display:none;">Find a place to stay!</h5>
               </div>
             </div>
           <% end %>
         </div> 
 
-        <div class="col-2 ">
+        <div class="col-2 home-icon">
           <%= link_to restaurants_path do %>
             <div class="show-text">
               <div class="row d-flex justify-content-center">
                   <i class="fas fa-utensils bg-icon i-med" ></i> 
               </div> 
               <div class="row d-flex justify-content-center">
-                <h5>Where to eat!</h5>
+                <h5 style="display:none;">Where to eat!</h5>
               </div>
             </div>
           <% end %>
         </div> 
 
-        <div class="col-2 ">
+        <div class="col-2 home-icon">
           <%= link_to maps_path do %>
             <div class="show-text">
               <div class="row d-flex justify-content-center">
                   <i class="fas fa-map-marker-alt bg-icon i-med" ></i> 
               </div> 
               <div class="row d-flex justify-content-center">
-                <h5>MAP!</h5>
+                <h5 style="display:none;">MAP!</h5>
               </div>
             </div>
           <% end %>
         </div> 
 
-        <div class="col-2 ">
+        <div class="col-2 home-icon">
           <%= link_to lawyers_path do %>
             <div class="show-text">
               <div class="row d-flex justify-content-center">
                   <i class="fas fa-gavel bg-icon i-med" ></i> 
               </div> 
               <div class="row d-flex justify-content-center">
-                <h5>Find a good lawyer!</h5>
+                <h5 style="display:none;">Find a good lawyer!</h5>
               </div>
             </div>
           <% end %>
         </div> 
 
-        <div class="col-2 ">
+        <div class="col-2 home-icon">
           <%= link_to documents_path do %>
             <div class="show-text">
               <div class="row d-flex justify-content-center">
                   <i class="fas fa-passport bg-icon i-med" ></i> 
               </div> 
               <div class="row d-flex justify-content-center">
-                <h5>First documents!</h5>
+                <h5 style="display:none;">First documents!</h5>
               </div>
             </div>
           <% end %>
         </div> 
 
-        <div class="col-2 ">
+        <div class="col-2 home-icon">
           <%= link_to root_path do %> <%# Link para chats quando tiver  %>
             <div class="show-text">
               <div class="row d-flex justify-content-center">
                   <i class="fas fa-comments bg-icon i-med" ></i> 
               </div> 
               <div class="row d-flex justify-content-center">
-                <h5>Community!</h5>
+                <h5 style="display:none;">Community!</h5>
               </div>
             </div>  
           <% end %>
         </div>
         
         <div class="row w-100 d-flex justify-content-center m-5">
-          <h2>ICONE DESCRIPITION</h2>
+          <h2 id="icon-label">ICONE DESCRIPITION</h2>
         </div>
       </div>
     </div>
