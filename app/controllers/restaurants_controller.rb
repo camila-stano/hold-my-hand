@@ -13,5 +13,6 @@ class RestaurantsController < ApplicationController
       infoWindow: render_to_string(partial: "info_window", locals: { restaurant: @restaurant }) 
       }]
 
+
   end
 end

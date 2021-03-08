@@ -6,16 +6,18 @@ import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-direct
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
+  
 
   if (mapElement) { // only build a map if there's a div#map to inject 
-  
-    const directions = new MapboxDirections({
+    var directions = new MapboxDirections({
       accessToken: mapElement.dataset.mapboxApiKey,
       unit: 'metric',
       profile: 'mapbox/walking'
     });
 
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+    const markers = JSON.parse(mapElement.dataset.markers);
+
     // Creating the map
     const map = new mapboxgl.Map({
       container: 'map',
@@ -24,14 +26,29 @@ const initMapbox = () => {
     // Add search input to the map
  
     if (mapElement.dataset.route === 'show') {
+          
           map.addControl(new MapboxDirections({
           accessToken: mapboxgl.accessToken,
           interactive: false,
           controls: { instructions: false, profileSwitcher: false }
         }));
+  
     } else {
       map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
         mapboxgl: mapboxgl }));
+
+         // Adding markers to the map
+      addMarkersToMap(map, markers);
+      if (mapElement.dataset.umarker) {
+        const umarker = JSON.parse(mapElement.dataset.umarker);
+        if (umarker.lng !== null) {
+          addUserMarkerToMap(map, umarker);
+          // Zoom map to markers
+          fitMapToUMarker(map, umarker);
+        } else {
+          fitMapToMarkers(map, markers);
+        }
+      }
     }
 
 
@@ -40,8 +57,12 @@ const initMapbox = () => {
         
         const current_lat = position.coords.latitude;
         const current_lng = position.coords.longitude;
-        
+
+        markers.push({ lat: current_lat, lng: current_lng });
+        fitMapToMarkers(map, markers)
+
         map.on('load', () => {
+          
           directions.setOrigin([current_lng, current_lat]); 
           directions.setDestination([markers[0].lng, markers[0].lat]); 
         });
@@ -51,13 +72,6 @@ const initMapbox = () => {
       alert("I'm sorry, but geolocation services are not supported by your browser.");
     }
     
-    // Adding markers to the map
-    const markers = JSON.parse(mapElement.dataset.markers);
-    const umarker = JSON.parse(mapElement.dataset.umarker);
-    addMarkersToMap(map, markers);
-    addUserMarkerToMap(map, umarker);
-    // Zoom map to markers
-    fitMapToMarkers(map, umarker);
   }
 };
 
@@ -92,19 +106,19 @@ const addUserMarkerToMap = (map, umarker) => {
   .setLngLat([ umarker.lng, umarker.lat ])
   .setPopup(popup) // add this
   .addTo(map);
-}
+};
 
-// const fitMapToMarkers = (map, markers) => {
-//   const bounds = new mapboxgl.LngLatBounds();
-//   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-//   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
-// };
+const fitMapToMarkers = (map, markers) => {
+  const bounds = new mapboxgl.LngLatBounds();
+  markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+  map.fitBounds(bounds, { padding: 20, maxZoom: 13, duration: 0 });
+};
 
-const fitMapToMarkers = (map, umarker) => {
+const fitMapToUMarker = (map, umarker) => {
   const bounds = new mapboxgl.LngLatBounds();
   bounds.extend([ umarker.lng, umarker.lat ]);
   map.fitBounds(bounds, { padding: 20, maxZoom: 13, duration: 1000 });
+  
 };
-
 
 export { initMapbox };

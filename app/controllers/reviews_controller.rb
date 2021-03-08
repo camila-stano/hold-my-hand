@@ -56,7 +56,11 @@ class ReviewsController < ApplicationController
       ratings += rating 
     end
 
-    @total_rating = (ratings / @reviews.count)
+
+    if @reviews.count != 0 && @reviews.count != nil 
+      @total_rating = (ratings / @reviews.count)
+    end 
+    
   end
 
   private
