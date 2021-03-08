@@ -75,6 +75,10 @@ $width-card: 300px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.review-card p {
+  font-size: 24px;
+}
+
 .card-title a {
   color: rgb(44, 44, 44);
   font-weight: lighter;
@@ -94,4 +98,58 @@ $width-card: 300px;
 .card-fixed {
   position: absolute;
   bottom: 20px;
+}
+
+// -------------------------------- REVIEWS -------------------------------------- //
+
+.cards-review {
+  position: relative;
+  transition-delay: 2s;
+}
+
+.cards-review a{
+  text-decoration: none;
+  color: #16181F;
+}
+
+.cards-review .btn-edit-delete-container{
+  color: wheat;
+  opacity: 0;
+}
+
+.cards-review:hover .btn-edit-delete-container{
+  opacity: 0.8;
+  transition: opacity .15s ease-in-out;
+
+}
+
+.btn-edit-delete-container{
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.5rem;
+}
+
+.btn-edit{
+  border-radius: 5px;
+  background-color: #D9DADB;
+}
+
+.btn-edit:hover{
+  background-color: wheat;
+  opacity: 1;
+}
+
+.btn-delete{
+  border-radius: 5px;
+  background-color: #D9DADB;
+}
+
+.btn-delete:hover{
+  background-color:wheat;
+  opacity: 1;
+}
+
+.btn-review-index{
+  font-size: 10px;
+  padding: 0.25rem 0.25rem;
 }

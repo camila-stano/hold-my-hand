@@ -1,14 +1,39 @@
  <% @lawyers.each_with_index do |lawyer, index| %>
   <% if index.even? %>
     <%= link_to lawyer_path(lawyer.id) do %>
-      <div class="banner-content-darklaw d-flex justify-content-center ">
+      <div class="banner-content-darklaw d-flex justify-content-center pb-5 ">
         <div class="row law-row d-flex align-items-center">
           <div class='col-3 description-lawyer'>
             <%= cl_image_tag lawyer.photo.key, transformation: [{width: 750, height: 750, 
                                                                 gravity: "face", radius: "max", 
                                                                 crop: "crop"}, {width: 200, crop: "scale"}
-                                                              ], class: "avatar-law mb-2" %>
-            <h5>★★★★★</h5>
+                                                              ], class: "avatar-law mb-2" %> 
+            <%if lawyer.reviews.present? %>
+              <% ratings = 0 %>
+              <% lawyer.reviews.each do |review| %>
+                <% next if review.rating.nil?  %>
+                <% ratings += review.rating  %>
+              <% end %>
+              
+              <% if lawyer.reviews.count != 0 && lawyer.reviews.count != nil %>
+                <% total_rating = (ratings / lawyer.reviews.count) %>
+              <% end %>
+            <% end %>
+
+            <% case total_rating %>
+            <% when 1 %>
+              <h5>★☆☆☆☆</h5>
+            <% when 2 %>
+              <h5>★★☆☆☆</h5>
+            <% when 3 %>
+              <h5>★★★☆☆</h5>
+            <% when 4 %>
+              <h5>★★★★☆</h5>
+            <% when 5 %>
+              <h5>★★★★★</h5>
+            <% else %>
+              <h5>☆☆☆☆☆</h5>
+            <% end %>
           </div>
           <div class='col-9 description-lawyer'>
             <h4><%= lawyer.name %></h4>
@@ -22,7 +47,7 @@
     <% end %>
   <% else %>
     <%= link_to lawyer_path(lawyer.id) do %>
-      <div class="banner-content-lightlaw d-flex justify-content-center ">
+      <div class="banner-content-lightlaw d-flex justify-content-center pb-5">
         <div class="row law-row  d-flex align-items-center">
           <div class='col-9 description-lawyer'>
             <h4><%= lawyer.name %></h4>
@@ -36,7 +61,32 @@
                                                                 gravity: "face", radius: "max", 
                                                                 crop: "crop"}, {width: 200, crop: "scale"}
                                                               ], class: "avatar-law" %>
-            <h5>★★★★★</h5>
+            <%if lawyer.reviews.present? %>
+              <% ratings = 0 %>
+              <% lawyer.reviews.each do |review| %>
+                <% next if review.rating.nil?  %>
+                <% ratings += review.rating  %>
+              <% end %>
+              
+              <% if lawyer.reviews.count != 0 && lawyer.reviews.count != nil %>
+                <% total_rating = (ratings / lawyer.reviews.count) %>
+              <% end %>
+            <% end %>
+
+            <% case total_rating %>
+            <% when 1 %>
+              <h5>★☆☆☆☆</h5>
+            <% when 2 %>
+              <h5>★★☆☆☆</h5>
+            <% when 3 %>
+              <h5>★★★☆☆</h5>
+            <% when 4 %>
+              <h5>★★★★☆</h5>
+            <% when 5 %>
+              <h5>★★★★★</h5>
+            <% else %>
+              <h5>☆☆☆☆☆</h5>
+            <% end %>
           </div>
         </div>
       </div>

@@ -10,6 +10,17 @@
   color: #637381;
 }
 
+.btn-back a {
+  text-decoration: none;
+  color: wheat;
+}
+
+.btn-back a:hover {
+  text-decoration: none;
+  background-color: wheat;
+  color: #16181F;
+}
+
 .facebook-button{
   background-color: #1877F2;
   color: white;
@@ -26,3 +37,4 @@
 .facebook-btn-link:hover{
   color: rgb(219, 214, 214);
 }
+
