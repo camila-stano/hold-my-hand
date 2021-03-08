@@ -122,7 +122,7 @@ document = Document.create!(
                 The services of the SUS range from basic procedures to the most complex, emergency and emergency services, hospital care, 
                 pharmaceutical assistance, among others.",
   public_agency: "GOV BR",
-  address: "Online", #Checar se podemos colocar url nesse campo
+  address: "Online apply", #Checar se podemos colocar url nesse campo
   contact: "",
   opening_hours: "Online process",
   required_docs: "CPF - Cadastro de Pessoa Física (Individual Tax Identification Number)",
