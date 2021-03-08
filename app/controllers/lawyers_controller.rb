@@ -10,7 +10,7 @@ class LawyersController < ApplicationController
     @review = Review.new
     @markers = [{ 
       lat: @lawyer.latitude,
-      lng: @lawyer.longitude
+      lng: @lawyer.longitude,
       }]
     rating
   end

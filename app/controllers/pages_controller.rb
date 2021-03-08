@@ -5,8 +5,8 @@ class PagesController < ApplicationController
   end
 
   def maps
-    @restaurants = Restaurant.near(session[:user_position], 100)
-    @shelters = Shelter.near(session[:user_position], 100)
+    @restaurants = session[:user_position] ? Restaurant.near(session[:user_position], 100) : Restaurant.all
+    @shelters = session[:user_position] ? Shelter.near(session[:user_position], 100) : Shelter.all
 
     @markers = @restaurants.geocoded.map do |restaurant|
       {
@@ -24,24 +24,23 @@ class PagesController < ApplicationController
       }
     end
     
-    if session[:user_position]
-
       @umarker = {
-        lat: session[:user_position][0],
-        lng: session[:user_position][1],
-        infoWindow: render_to_string(partial: "info_user"),
-        image_url: helpers.asset_url('icon_orange.png') 
-        }
+      lat: session[:user_position] ? session[:user_position][0] : nil,
+      lng: session[:user_position] ? session[:user_position][1] : nil,
+      infoWindow: render_to_string(partial: "info_user"),
+      image_url: helpers.asset_url('icon_orange.png') 
+      }
 
-    end
     # @markers << { lat: session[:user_position][0], lng: session[:user_position][1] }
 
     @markers += @addresses
+    puts '============================='
+    p @markers
   end
 
   def update_position
     
-    session[:user_position] = [params[:lat], params[:lng]] if params[:lat] && params[:lng]
+    session[:user_position] = [params[:lat], params[:lng]] 
     
   end
 
