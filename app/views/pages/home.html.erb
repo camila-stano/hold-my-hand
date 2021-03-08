@@ -142,7 +142,9 @@
       <div class="col-12 ">
         <div class="m-5 ">
           <% if current_user.nil? %>
-            <%= link_to <% t '.Create-your-account'%>, new_user_registration_path, class: 'btn btn-secondary btn-w' %>
+            <%= link_to new_user_registration_path, class: 'btn btn-secondary btn-w' do %>
+              <%= t '.Create-your-account' %>
+            <%end%>
             <% if current_user.present? %>
               <%= link_to "Login", root_path, class: 'btn btn-secondary btn-w' %>
             <% else %>
