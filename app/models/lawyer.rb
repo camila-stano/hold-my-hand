@@ -1,5 +1,5 @@
 class Lawyer < ApplicationRecord
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_one_attached :photo
 
   validates :description, length: { maximum: 350,
