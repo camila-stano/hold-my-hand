@@ -16,18 +16,18 @@
   </head>
 
   <body>
-    <div class="d-flex toggled" id="wrapper">
-      <%= render 'shared/sidebar' %>
-        <div id="page-content-wrapper">
+    <%# <div class="d-flex toggled" id="wrapper"> %>
+      <%# <%= render 'shared/sidebar' %> 
+        <%# <div id="page-content-wrapper"> %>
           <%= render 'shared/navbar' %>
           <%= render 'shared/flashes' %>
 
           <div class="container-fluid"> 
               <%= yield %>
           </div>
-        
-      </div>      
-    </div>
+    
+      <%# </div>       %>
+    <%# </div> %> 
 
     <%#--------------- FOOTER ---------------%>
     <%= render "shared/footer" %>
