@@ -143,13 +143,13 @@ nav.main-menu.expanded {
 	width: 250px;
 	overflow: hidden;
 	opacity: 1;
+	height: 100vh;
 }
 .main-menu {
-
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	height: 100%;
+	height: 100vh;
 	left: 0;
 	width: 55px;
 	overflow: hidden;
@@ -188,7 +188,7 @@ nav.main-menu.expanded {
 	// text-shadow: 1px 1px 1px #fff;
 }
 
-.ajuste a{
+.row-sidebar a{
   display: flex;
 	align-items: center;
 	padding: 5px 0;
@@ -262,6 +262,7 @@ nav.main-menu li > div.active > a,
 	// width: 100vw !important;
 	margin-left: 0 !important;
 	margin-right: 0 !important;
+	height: 100vh;
 }
 /* Darker element side menu Start*/
 // .darkerli {
