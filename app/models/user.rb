@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
 
   has_one_attached :photo
+  mas_many :messages
 
   reverse_geocoded_by :latitude, :longitude
   after_validation :reverse_geocode
