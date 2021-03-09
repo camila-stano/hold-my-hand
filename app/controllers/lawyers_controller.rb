@@ -39,7 +39,7 @@ class LawyersController < ApplicationController
 
       if @lawyer.reviews.count != 0 && @lawyer.reviews.count != nil 
         @total_rating = (ratings / @lawyer.reviews.count)
-      end 
+      end
     end
   end
 
