@@ -1,37 +1,54 @@
 <div class="container-sidebar">
   <div class="row">
     <div class="col-1 sidebar">
-      <nav class="main-menu">
-        <div>
-          <a class="logo" href="http://startific.com">
-          </a>
-        </div>
+     <%# <%= render "sared/sidebar" %> 
+        <nav class="main-menu-yellow">
+
 
         <div class="scrollbar" id="style-1">
           <ul>
-            <li>
-              <a href="http://startific.com"> <i class="fa fa-home fa-lg"></i><span class="nav-text">Home</span></a>
+            <li class="mt-3">
+              <%= link_to profile_path(current_user) do %>
+                <i class="fa fa-user fa-lg"></i><span class="nav-text">Check your profile</span></a>
+              <% end  %> 
+            </li>         
+
+            <li class="mt-4">
+              <%= link_to shelters_path do %>
+                <i class="fa fa-home fa-lg"></i><span class="nav-text">Find a shelter</span></a>
+              <% end  %> 
             </li>
-            <li>
-              <a href="http://startific.com"><i class="fa fa-user fa-lg"></i> <span class="nav-text">Login</span></a>
+
+            <li class="mt-3">
+              <%= link_to restaurants_path do %>
+                <i class="fa fa-utensils fa-lg"></i><span class="nav-text">Find a restaurant</span></a>
+              <% end  %> 
             </li>
-            <li>
-              <a href="http://startific.com"><i class="fa fa-envelope-o fa-lg"></i><span class="nav-text">Contact</span></a>
+
+            <li class="mt-3">
+              <%= link_to maps_path do %>
+                <i class="fa fa-map-marker-alt fa-lg"></i><span class="nav-text">Real-time map</span></a>
+              <% end  %> 
             </li>
-            <li class="darkerlishadow">
-              <a href="http://startific.com"><i class="fa fa-clock-o fa-lg"></i><span class="nav-text">News</span></a>
+
+            <li class="mt-3">
+              <%= link_to documents_path do %>
+                <i class="fa fa-passport fa-lg"></i><span class="nav-text">Get your documents</span></a>
+              <% end  %> 
             </li>
-            <li class="darkerli">
-              <a href="http://startific.com"><i class="fa fa-desktop fa-lg"></i><span class="nav-text">Technology</span></a>
+
+            <li class="mt-3">
+              <%= link_to lawyers_path do %>
+                <i class="fa fa-gavel fa-lg"></i><span class="nav-text">Find a lawyer</span></a>
+              <% end  %> 
             </li>
-            <li class="darkerli">
-              <a href="http://startific.com"><i class="fa fa-plane fa-lg"></i><span class="nav-text">Travel</span></a>
+
+            <li class="mt-3">
+              <%= link_to root_path do %>
+                <i class="fa fa-comments fa-lg"></i><span class="nav-text">Our community</span></a>
+              <% end  %> 
             </li>
-          </ul>
-          <ul class="logout">
-            <li>
-              <a href="http://startific.com"><i class="fa fa-lightbulb-o fa-lg"></i><span class="nav-text">BLOG</span></a>
-            </li>
+
           </ul>
         </div>
       </nav>
@@ -66,11 +83,4 @@
       </div>
     </div>
   </div>
-                <%# testessssssss %>
-                <div class = 'd-flex justify-content-end border'>
-                  <p class=" user-nav text-right mr-2 border ">
-                    <%= t '.welcome' %> <%= current_user.first_name %>
-                  </p>
-                </div>
-  <%# ---------------------------------------- %>
 </div> 
