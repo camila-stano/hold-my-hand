@@ -58,16 +58,29 @@
 // }
 
 // .item-sidebar a {
-// 	text-decoration: none;
-// 	color: #16181F;
-// 	margin: 0;
-// }
+	// 	text-decoration: none;
+	// 	color: #16181F;
+	// 	margin: 0;
+	// }
+	
+	// .container-fluid {
+		// 	padding: 0;
+		// }
+		
+		// ----------------------------------------------------------------
+		
+// Background-colors  
+.yellow {
+	background: #ffc317;
+}
 
-// .container-fluid {
-// 	padding: 0;
-// }
 
-// ----------------------------------------------------------------
+
+
+
+
+
+
 
 
 /* ScrolBar  */
@@ -110,14 +123,14 @@
 	top: 12px;
 	font-size: 20px;
 }
-.main-menu-yellow:hover,
-nav.main-menu-yellow.expanded {
+.main-menu:hover,
+nav.main-menu.expanded {
 	width: 250px;
 	overflow: hidden;
 	opacity: 1;
 }
-.main-menu-yellow {
-	background: #ffc317;
+.main-menu {
+
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -132,15 +145,18 @@ nav.main-menu-yellow.expanded {
 	opacity: 1;
 	z-index: 5;
 }
-.main-menu-yellow > ul {
+
+
+
+.main-menu > ul {
 	// margin: 7px 0;
 }
-.main-menu-yellow li > div {
+.main-menu li > div {
 	position: relative;
 	display: block;
 	width: 250px;
 }
-.main-menu-yellow li > div > a {
+.main-menu li > div > a {
 	position: relative;
 	width: 255px;
 	// display: table;
@@ -162,32 +178,15 @@ nav.main-menu-yellow.expanded {
 	align-items: center;
 	padding: 5px 0;
 }
-
-.main-menu-yellow .nav-icon {
-	// position: relative;
-	// display: table-cell;
-	// width: 55px;
-	// height: 36px;
-	// text-align: center;
-	// vertical-align: middle;
-	// font-size: 18px;
-}
-.main-menu-yellow .nav-text {
+.main-menu .nav-text {
 	display: flex;
 	align-content: center; 
 	font-size: 15px;
 	
 }
-.main-menu-yellow .share {
+.main-menu .share {
 }
 
-.no-touch .scrollable.hover {
-	// overflow-y: hidden;
-}
-.no-touch .scrollable.hover:hover {
-	// overflow-y: auto;0
-	// overflow: visible;
-}
 /* Logo Hover Property */
 .settings:hover,
 settings:focus {
@@ -224,8 +223,8 @@ nav li {
 	padding: 0;
 	// text-transform: uppercase;
 }
-.main-menu-yellow li > div:hover > a,
-nav.main-menu-yellow li > div.active > a,
+.main-menu li > div:hover > a,
+nav.main-menu li > div.active > a,
 .dropdown-menu > li > div > a:hover,
 .dropdown-menu > li > div > a:focus,
 .dropdown-menu > .active > a,
@@ -238,10 +237,10 @@ nav.main-menu-yellow li > div.active > a,
 	// text-shadow: 0px 0px 0px;
 }
 // .area {
-// 	// float: left;
-// 	background: #e2e2e2;
-// 	width: 100%;
-// 	height: 100%;
+	// 	// float: left;
+	// 	background: #e2e2e2;
+	// 	width: 100%;
+	// 	height: 100%;
 // }
 
 .container-sidebar{
@@ -255,17 +254,34 @@ nav.main-menu-yellow li > div.active > a,
 // 	// text-transform: capitalize;
 // }
 // .darkerlishadow {
-// 	background-color: #ededed;
-// 	// text-transform: capitalize;
-// 	-webkit-box-shadow: inset 0px 5px 5px -4px rgba(50, 50, 50, 0.55);
-// 	-moz-box-shadow: inset 0px 5px 5px -4px rgba(50, 50, 50, 0.55);
-// 	box-shadow: inset 0px 5px 5px -4px rgba(50, 50, 50, 0.55);
-// }
-// .darkerlishadowdown {
-// 	background-color: #ededed;
-// 	// text-transform: capitalize;
-// 	-webkit-box-shadow: inset 0px -4px 5px -4px rgba(50, 50, 50, 0.55);
-// 	-moz-box-shadow: inset 0px -4px 5px -4px rgba(50, 50, 50, 0.55);
-// 	box-shadow: inset 0px -4px 5px -4px rgba(50, 50, 50, 0.55);
-// }
-/* Darker element side menu End*/
+	// 	background-color: #ededed;
+	// 	// text-transform: capitalize;
+	// 	-webkit-box-shadow: inset 0px 5px 5px -4px rgba(50, 50, 50, 0.55);
+	// 	-moz-box-shadow: inset 0px 5px 5px -4px rgba(50, 50, 50, 0.55);
+	// 	box-shadow: inset 0px 5px 5px -4px rgba(50, 50, 50, 0.55);
+	// }
+	// .darkerlishadowdown {
+		// 	background-color: #ededed;
+		// 	// text-transform: capitalize;
+		// 	-webkit-box-shadow: inset 0px -4px 5px -4px rgba(50, 50, 50, 0.55);
+		// 	-moz-box-shadow: inset 0px -4px 5px -4px rgba(50, 50, 50, 0.55);
+		// 	box-shadow: inset 0px -4px 5px -4px rgba(50, 50, 50, 0.55);
+		// }
+		/* Darker element side menu End*/
+.no-touch .scrollable.hover {
+	// overflow-y: hidden;
+}
+.no-touch .scrollable.hover:hover {
+	// overflow-y: auto;0
+	// overflow: visible;
+}
+
+.main-menu .nav-icon {
+// 	position: relative;
+// 	display: table-cell;
+// 	width: 55px;
+// 	height: 36px;
+// 	text-align: center;
+// 	vertical-align: middle;
+// 	font-size: 18px;
+}
