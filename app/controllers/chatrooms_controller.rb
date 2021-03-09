@@ -3,8 +3,20 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
   end
-
+  
   def index
     @chatrooms = Chatroom.all
+    @last_message = Message.last
   end
+
+  def new
+    @chatroom = Chatroom.new
+  end
+
+  direct_index
+  end
+
+  direct_show
+  end
+
 end
