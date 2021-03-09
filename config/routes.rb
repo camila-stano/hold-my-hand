@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     resources :documents, only: [:index, :show]
     resources :communications, only: [:index, :show]
     resources :messages, only: [:index, :new, :create]
+    resources :chatrooms, only: [:index]
+    resources :chatrooms, only: :show do
+      resources :messages, only: :create
+    end
 
     get '/maps', to: 'pages#maps', as: :maps
     

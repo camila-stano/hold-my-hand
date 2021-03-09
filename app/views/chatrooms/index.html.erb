@@ -1,0 +1,15 @@
+
+<div class="container">
+
+  <h1 class = 'mt-3'>Chatrooms</h1>
+  <ul>
+  <%@chatrooms.each do |chatroom|%>
+    <li>
+      <%= link_to chatroom_path(chatroom) do %> 
+        <%= chatroom.name %>
+      <%end%>
+    </li>
+  <%end%>
+  </ul>
+  
+</div>
