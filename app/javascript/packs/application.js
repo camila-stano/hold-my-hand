@@ -30,6 +30,7 @@ import "bootstrap";
 import { initMapbox, checkExist } from '../plugins/init_mapbox';
 import { initMenu } from '../plugins/init_menu';
 import { initHomeUser } from '../plugins/init_home_user';
+import { initChatroomCable } from '../channels/chatroom_channel';
 
 
 
@@ -40,6 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initMenu();
   initHomeUser();
+  initChatroomCable();
 })
 
 import "controllers"
