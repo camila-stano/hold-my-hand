@@ -70,18 +70,33 @@
 		// ----------------------------------------------------------------
 		
 // Background-colors  
-.yellow {
-	background: #ffc317;
+.sidebar-yellow {
+	background-color: $hmh-yellow;
 }
 
+.sidebar-red {
+	background: $hmh-red;
+}
 
+.sidebar-orange {
+	background: $hmh-orange;
+}
 
+.sidebar-green {
+	background: $hmh-green;
+}
 
+.sidebar-dark-green {
+	background: $hmh-dark-green;
+}
 
+.sidebar-blue {
+	background: $hmh-blue;
+}
 
-
-
-
+.sidebar-dark-blue {
+	background: $hmh-dark-blue;
+}
 
 /* ScrolBar  */
 .scrollbar {
