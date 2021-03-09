@@ -15,6 +15,11 @@ class MessagesController < ApplicationController
     end
   end
 
+
+  def view_more_messages
+    @number_messages += 8
+  end
+
   private
 
   def message_params
