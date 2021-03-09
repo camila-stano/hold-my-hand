@@ -7,47 +7,61 @@
 
         <div class="scrollbar" id="style-1">
           <ul>
-            <li class="mt-3">
-              <%= link_to profile_path(current_user) do %>
-                <i class="fa fa-user fa-lg"></i><span class="nav-text">Check your profile</span></a>
-              <% end  %> 
-            </li>         
+            <%= link_to profile_path(current_user) do %>
+              <li class="mt-3">
+                <div class="ajuste">
+                  <i class="fa fa-user fa-lg"></i><span class="nav-text">Check your profile</span></a>
+                </div>
+              </li>   
+            <% end %> 
 
-            <li class="mt-4">
-              <%= link_to shelters_path do %>
-                <i class="fa fa-home fa-lg"></i><span class="nav-text">Find a shelter</span></a>
-              <% end  %> 
-            </li>
+            <%= link_to shelters_path do %>
+              <li class="mt-3">
+                <div class="ajuste">
+                  <i class="fa fa-home fa-lg"></i><span class="nav-text">Find a shelter</span></a>
+                </div>
+              </li>
+            <% end  %> 
 
-            <li class="mt-3">
-              <%= link_to restaurants_path do %>
+            <%= link_to restaurants_path do %>
+              <li class="mt-3">
+                <div class="ajuste">
                 <i class="fa fa-utensils fa-lg"></i><span class="nav-text">Find a restaurant</span></a>
-              <% end  %> 
-            </li>
+              </div>
+              </li>
+            <% end  %> 
 
+            <%= link_to maps_path do %>
             <li class="mt-3">
-              <%= link_to maps_path do %>
+              <div class="ajuste">
                 <i class="fa fa-map-marker-alt fa-lg"></i><span class="nav-text">Real-time map</span></a>
-              <% end  %> 
+              </div>
             </li>
+            <% end  %> 
 
+            <%= link_to documents_path do %>
             <li class="mt-3">
-              <%= link_to documents_path do %>
+              <div class="ajuste">
                 <i class="fa fa-passport fa-lg"></i><span class="nav-text">Get your documents</span></a>
-              <% end  %> 
+              </div>
             </li>
+            <% end  %> 
 
+            <%= link_to lawyers_path do %>
             <li class="mt-3">
-              <%= link_to lawyers_path do %>
+              <div class="ajuste">
                 <i class="fa fa-gavel fa-lg"></i><span class="nav-text">Find a lawyer</span></a>
-              <% end  %> 
+              </div>
             </li>
+            <% end  %> 
 
+            <%= link_to root_path do %>
             <li class="mt-3">
-              <%= link_to root_path do %>
+              <div class="ajuste">
                 <i class="fa fa-comments fa-lg"></i><span class="nav-text">Our community</span></a>
-              <% end  %> 
+              </div>
             </li>
+            <% end  %> 
 
           </ul>
         </div>

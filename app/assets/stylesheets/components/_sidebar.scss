@@ -72,13 +72,13 @@
 
 /* ScrolBar  */
 .scrollbar {
-	height: 90%;
+	height: 100%;
 	width: 100%;
 	overflow-y: hidden;
 	overflow-x: hidden;
 }
 .scrollbar:hover {
-	height: 90%;
+	height: 100%;
 	width: 100%;
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -88,7 +88,7 @@
 	border-radius: 2px;
 }
 #style-1::-webkit-scrollbar {
-	width: 5px;
+	width: 3px; // borda scrollbar
 	background-color: #f7f7f7;
 }
 #style-1::-webkit-scrollbar-thumb {
@@ -99,6 +99,7 @@
 /* Scrollbar End */
 .fa-lg {
 	font-size: 1em;
+	line-height: .5em;
 }
 .fa {
 	position: relative;
@@ -132,17 +133,17 @@ nav.main-menu-yellow.expanded {
 	z-index: 5;
 }
 .main-menu-yellow > ul {
-	margin: 7px 0;
+	// margin: 7px 0;
 }
-.main-menu-yellow li {
+.main-menu-yellow li > div {
 	position: relative;
 	display: block;
 	width: 250px;
 }
-.main-menu-yellow li > a {
+.main-menu-yellow li > div > a {
 	position: relative;
 	width: 255px;
-	display: table;
+	// display: table;
 	// border-collapse: collapse;
 	// border-spacing: 0;
 	color: white;
@@ -155,45 +156,42 @@ nav.main-menu-yellow.expanded {
 	// border-top: 1px solid #f2f2f2;
 	// text-shadow: 1px 1px 1px #fff;
 }
+
+.ajuste a{
+  display: flex;
+	align-items: center;
+	padding: 5px 0;
+}
+
 .main-menu-yellow .nav-icon {
-	position: relative;
-	display: table-cell;
-	width: 55px;
-	height: 36px;
-	text-align: center;
-	vertical-align: middle;
-	font-size: 18px;
+	// position: relative;
+	// display: table-cell;
+	// width: 55px;
+	// height: 36px;
+	// text-align: center;
+	// vertical-align: middle;
+	// font-size: 18px;
 }
 .main-menu-yellow .nav-text {
-	position: relative;
-	display: table-cell;
-	vertical-align: middle;
-	width: 190px;
-	font-family: "Titillium Web", sans-serif;
+	display: flex;
+	align-content: center; 
+	font-size: 15px;
+	
 }
 .main-menu-yellow .share {
 }
-.main-menu-yellow .fb-like {
-	left: 180px;
-	position: absolute;
-	top: 15px;
-}
-.main-menu-yellow > ul.logout {
-	position: absolute;
-	left: 0;
-	bottom: 0;
-}
+
 .no-touch .scrollable.hover {
-	overflow-y: hidden;
+	// overflow-y: hidden;
 }
 .no-touch .scrollable.hover:hover {
-	overflow-y: auto;
-	overflow: visible;
+	// overflow-y: auto;0
+	// overflow: visible;
 }
 /* Logo Hover Property */
 .settings:hover,
 settings:focus {
-	background: url(https://s17.postimg.org/74cl7s05b/logo_hover.jpg);
+	// background: url(https://s17.postimg.org/74cl7s05b/logo_hover.jpg);
 	-webkit-transition: all 0.2s ease-in-out, width 0, height 0, top 0, left 0;
 	-moz-transition: all 0.2s ease-in-out, width 0, height 0, top 0, left 0;
 	-o-transition: all 0.2s ease-in-out, width 0, height 0, top 0, left 0;
@@ -201,7 +199,7 @@ settings:focus {
 }
 .settings:active,
 settings:focus {
-	background: url(https://s3.postimg.org/bqfooag4z/startific.jpg);
+	// background: url(https://s3.postimg.org/bqfooag4z/startific.jpg);
 	-webkit-transition: all 0.1s ease-in-out, width 0, height 0, top 0, left 0;
 	-moz-transition: all 0.1s ease-in-out, width 0, height 0, top 0, left 0;
 	-o-transition: all 0.1s ease-in-out, width 0, height 0, top 0, left 0;
@@ -210,7 +208,7 @@ settings:focus {
 a:hover,
 a:focus {
 	text-decoration: none;
-	border-left: 0px solid #f7f7f7;
+	// border-left: 0px solid #f7f7f7;
 }
 nav {
 	-webkit-user-select: none;
@@ -224,50 +222,50 @@ nav li {
 	outline: 0;
 	margin: 0;
 	padding: 0;
-	text-transform: uppercase;
+	// text-transform: uppercase;
 }
-/* Darker element side menu Start*/
-.darkerli {
-	background-color: #ededed;
-	text-transform: capitalize;
-}
-.darkerlishadow {
-	background-color: #ededed;
-	text-transform: capitalize;
-	-webkit-box-shadow: inset 0px 5px 5px -4px rgba(50, 50, 50, 0.55);
-	-moz-box-shadow: inset 0px 5px 5px -4px rgba(50, 50, 50, 0.55);
-	box-shadow: inset 0px 5px 5px -4px rgba(50, 50, 50, 0.55);
-}
-.darkerlishadowdown {
-	background-color: #ededed;
-	text-transform: capitalize;
-	-webkit-box-shadow: inset 0px -4px 5px -4px rgba(50, 50, 50, 0.55);
-	-moz-box-shadow: inset 0px -4px 5px -4px rgba(50, 50, 50, 0.55);
-	box-shadow: inset 0px -4px 5px -4px rgba(50, 50, 50, 0.55);
-}
-/* Darker element side menu End*/
-.main-menu-yellow li:hover > a,
-nav.main-menu-yellow li.active > a,
-.dropdown-menu > li > a:hover,
-.dropdown-menu > li > a:focus,
+.main-menu-yellow li > div:hover > a,
+nav.main-menu-yellow li > div.active > a,
+.dropdown-menu > li > div > a:hover,
+.dropdown-menu > li > div > a:focus,
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus,
-.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
-.dashboard-page nav.dashboard-menu ul li.active a {
+.no-touch .dashboard-page nav.dashboard-menu ul li > div:hover a,
+.dashboard-page nav.dashboard-menu ul li > div.active a {
 	color: #fff;
-	background-color: #00bbbb;
-	text-shadow: 0px 0px 0px;
+	background-color: #CE7E01;
+	// text-shadow: 0px 0px 0px;
 }
-.area {
-	float: left;
-	background: #e2e2e2;
-	width: 100%;
-	height: 100%;
-}
+// .area {
+// 	// float: left;
+// 	background: #e2e2e2;
+// 	width: 100%;
+// 	height: 100%;
+// }
 
 .container-sidebar{
 	// width: 100vw !important;
 	margin-left: 0 !important;
 	margin-right: 0 !important;
 }
+/* Darker element side menu Start*/
+// .darkerli {
+// 	background-color: #ededed;
+// 	// text-transform: capitalize;
+// }
+// .darkerlishadow {
+// 	background-color: #ededed;
+// 	// text-transform: capitalize;
+// 	-webkit-box-shadow: inset 0px 5px 5px -4px rgba(50, 50, 50, 0.55);
+// 	-moz-box-shadow: inset 0px 5px 5px -4px rgba(50, 50, 50, 0.55);
+// 	box-shadow: inset 0px 5px 5px -4px rgba(50, 50, 50, 0.55);
+// }
+// .darkerlishadowdown {
+// 	background-color: #ededed;
+// 	// text-transform: capitalize;
+// 	-webkit-box-shadow: inset 0px -4px 5px -4px rgba(50, 50, 50, 0.55);
+// 	-moz-box-shadow: inset 0px -4px 5px -4px rgba(50, 50, 50, 0.55);
+// 	box-shadow: inset 0px -4px 5px -4px rgba(50, 50, 50, 0.55);
+// }
+/* Darker element side menu End*/
