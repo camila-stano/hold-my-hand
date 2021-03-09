@@ -16,11 +16,13 @@ Rails.application.routes.draw do
     resources :schools, only: [:index, :show]
     resources :documents, only: [:index, :show]
     resources :communications, only: [:index, :show]
-    resources :chatrooms, only: [:index]
+    resources :chatrooms, only: [:index, :new, :create]
     resources :chatrooms, only: :show do
       resources :messages, only: :create
     end
-
+    resources :chatrooms, only: [:index, :new, :create]
+    get '/direct', to: 'chatrooms#direct_index', as: :directs
+    get '/direct', to: 'chatrooms#direct_show', as: :direct
     get '/maps', to: 'pages#maps', as: :maps
     
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

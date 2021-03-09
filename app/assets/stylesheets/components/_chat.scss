@@ -22,5 +22,16 @@
   margin-left: 2rem;
 }
 .chat-date-hour {
-  font-size: 0.5rem;
+  font-size: 0.6rem;
+}
+.nickname {
+  font-size: 0.85rem;
+}
+#messages {
+  overflow: scroll;
+  max-height: 50vh;
+  background-color: rgb(243, 243, 243);
+}
+#h1-chat-group {
+  font-size: 2rem;
 }
