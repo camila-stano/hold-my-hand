@@ -98,6 +98,11 @@
 	background: $hmh-dark-blue;
 }
 
+// padding sidebar
+.sidebar {
+	padding: 0px;
+}
+
 /* ScrolBar  */
 .scrollbar {
 	height: 100%;
@@ -143,13 +148,15 @@ nav.main-menu.expanded {
 	width: 250px;
 	overflow: hidden;
 	opacity: 1;
-	height: 100vh;
+	min-height: 100vh;
+	height: 100%;
 }
 .main-menu {
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	height: 100vh;
+	min-height: 100vh;
+	height: 100%;
 	left: 0;
 	width: 55px;
 	overflow: hidden;
@@ -193,6 +200,7 @@ nav.main-menu.expanded {
 	align-items: center;
 	padding: 5px 0;
 }
+
 .main-menu .nav-text {
 	display: flex;
 	align-content: center; 
