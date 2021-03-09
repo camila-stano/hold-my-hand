@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     resources :profiles, only: [:show]
 
     resources :restaurants, only: [:index, :show]
-    resources :shelters, only: [:index, :show]
+    resources :shelters, only: [:index, :show] do
+      get '/map', to: 'shelters#map', as: :map
+    end
     
     resources :lawyers, except: [:edit, :update, :destroy], shallow: true do
       resources :reviews, except: [:show]
