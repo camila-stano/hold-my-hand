@@ -1,0 +1,2 @@
+class Direct < ApplicationRecord
+end

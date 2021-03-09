@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :schools, only: [:index, :show]
     resources :documents, only: [:index, :show]
     resources :communications, only: [:index, :show]
+    resources :messages, only: [:index, :new, :create]
 
     get '/maps', to: 'pages#maps', as: :maps
     

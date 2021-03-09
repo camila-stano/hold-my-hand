@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_130134) do
+ActiveRecord::Schema.define(version: 2021_03_09_135221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,13 @@ ActiveRecord::Schema.define(version: 2021_03_09_130134) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "directs", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "documents", force: :cascade do |t|
     t.string "document_type"
     t.string "public_agency"
@@ -71,14 +78,6 @@ ActiveRecord::Schema.define(version: 2021_03_09_130134) do
     t.float "longitude"
     t.boolean "available", default: false
     t.string "email"
-  end
-
-  create_table "messages", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.text "content"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -159,7 +158,6 @@ ActiveRecord::Schema.define(version: 2021_03_09_130134) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "messages", "users"
   add_foreign_key "reviews", "lawyers"
   add_foreign_key "reviews", "users"
 end
