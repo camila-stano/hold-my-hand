@@ -11,28 +11,43 @@
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
 
-      <%= f.input :password,
-                  hint: "leave it blank if you don't want to change it",
-                  required: false,
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  required: false,
-                  input_html: { autocomplete: "new-password" } %>
       <%= f.input :current_password,
                   hint: "we need your current password to confirm your changes",
                   required: true,
                   input_html: { autocomplete: "current-password" } %>
-      <%= f.input :age,
-                  placeholder: 'Age',
+      <div class="row">
+        <div class="col-6 form-sigin-l">
+          <%= f.input :password,
+                      hint: "leave it blank if you don't want to change it",
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+        </div>
+        <div class="col-6 form-sigin-r">
+          <%= f.input :password_confirmation,
+                      required: false,
+                      input_html: { autocomplete: "new-password" } %>
+        </div>
+      </div>
+      <%= f.input :nickname,
+                  placeholder: 'Nickname',
                   label: false %>
       <%= f.input :gender,
                   placeholder: 'How would you want to be treated?',
                   collection:User::GENDER,
                   hint: ('How would you want to be treated?'),
                   label: false %>
-      <%= f.input :language,
-                  placeholder: 'Language',
-                  label: false %>    
+      <div class="row">
+        <div class="col-6 form-sigin-l">   
+          <%= f.input :age,
+                      placeholder: 'Age',
+                      label: false %>
+        </div>
+        <div class="col-6 form-sigin-r">
+          <%= f.input :language,
+                      placeholder: 'Language',
+                      label: false %>
+        </div>
+      </div>
       <%= f.input :current_address,
                   placeholder: 'Current Address',
                   label: false %>
@@ -44,11 +59,11 @@
 
 
     <div class="row align-items-center mt-3">
-      <div class='col-sm-12 col-lg-6 d-flex justify-content-end'>
-        <%= f.button :submit, "Update", class: 'btn btn-outline-primary btn-form rounded' %>
+      <div class='col-sm-12 col-lg-6 d-flex justify-content-end btn-form-l'>
+        <%= f.button :submit, "Update", class: 'btn btn-outline-primary btn-form rounded w-100' %>
       </div>
-      <div class='col-sm-12 col-lg-6 d-flex justify-content-left'>      
-        <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-outline-primary btn-form rounded' %>
+      <div class='col-sm-12 col-lg-6 d-flex justify-content-left btn-form-r'>      
+        <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-outline-primary btn-form rounded w-100' %>
       </div>
     </div>
   <% end %>

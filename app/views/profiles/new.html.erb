@@ -1,0 +1,37 @@
+<div class="container form-container my-5">
+  <h2 class='text-center title-form'>Sign up</h2>
+
+  <%= simple_form_for @profile, url: profiles_path, method: :post do |f| %>
+
+  <div class="form-inputs">
+    
+    <%= f.input :nickname,
+                placeholder: 'Nickname',
+                label: false %>
+    <%= f.input :age,
+                placeholder: 'Age',
+                label: false %>
+    <%= f.input :gender,
+                placeholder: 'How would you want to be treated?',
+                collection:User::GENDER,
+                hint: ('How would you want to be treated?'),
+                label: false %>
+    <%= f.input :language,
+                placeholder: 'Language',
+                label: false %>    
+    <%= f.input :current_address,
+                placeholder: 'Current Address',
+                label: false %>
+    <%= f.input :photo, as: :file, 
+                label: false,
+                placeholder: 'Profile Picture' %>
+  </div>
+ 
+    <div class="row align-items-center mt-3">
+      <div class='col-12'>
+        <%= f.button :submit, "Update your profile", class: 'btn btn-outline-primary btn-form rounded w-100' %>
+      </div>
+    </div>
+
+  <% end %>
+  </div>

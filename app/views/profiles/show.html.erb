@@ -7,62 +7,104 @@
       </nav>
     </div>
   <%# CONTENT ------------------------------- %>
-    <div class="col-10"><div class="row">
-      <div class="col-4 banner-profile-avatar d-flex justify-content-center align-items-center border">
-        <div class= "m-2">
-          <div class="d-flex justify-content-center">
-            <% if current_user.photo.present? %>
-              <%= cl_image_tag current_user.photo.key, transformation: [
-              {width: 550, height: 550, gravity: "face", radius: "max", crop: "crop"}, {width: 200, crop: "scale"}
-              ], class: "avatar-large" %>
-            <% else %>
-              <%= image_tag "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% end %>
-          </div>
-          <div class="text-center m-1">
-            <h1><%= current_user.first_name %></h1>
-            <h1><%= current_user.last_name %></h1>
-          </div>
-          <div class="gameficacao-profile text-center">
-            <h2>*--*--*--*--*</h2>
-          </div>
-        </div>
+    <div class="col-10">
+<%# ----------------------------------------------PROFILE---------------------------------------------- %>
+  <div class="col-3 banner-profile-avatar d-flex justify-content-center align-items-center">
+    <div class= "m-2">
+      <div class="d-flex justify-content-center">
+        <% if @profile.photo.present? %>
+          <%= cl_image_tag @profile.photo.key, transformation: [
+          {width: 550, height: 550, gravity: "face", radius: "max", crop: "crop"}, {width: 200, crop: "scale"}
+          ], class: "avatar-large" %>
+        <% else %>
+          <%= image_tag "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg", class: 'avatar-large' %>
+        <% end %>
       </div>
 
-      <div class="col-8 banner-profile-description">
-        <div class="row description-profile m-5">
-          <div class="col-1 text-center">
-            <h2><i class="fas fa-globe-africa"></i> </h2>
-            <h2><i class="fas fa-language"></i></h2>
-            <h2><i class="fas fa-venus-mars"></i></h2>
-            <h2><i class="fas fa-map-pin"></i> </h2>
-            <h2><i class="fas fa-at"></i></h2>
-            <br>
-            <br>
-          </div>
-          <div class="col-10">
-            <h2><%= current_user.origin %></h2>
-            <h2><%= current_user.language %></h2>
-            <h2><%= current_user.gender %></h2>
-            <h2><%= current_user.current_address %></h2>
-            <h2><%= current_user.email %></h2>
-            <%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-secondary" %>
-            <br>
-            <br>
-          </div>
-        </div>
-
-        <div class="row password m-5">
-          <div class="col-1 text-center">
-            <h2><i class="fas fa-lock"></i> </h2>
-          </div>  
-          <div class="col-10">
-            <h2>Access</h2>
-            <%= link_to "Change your password", edit_user_registration_path, class: "btn btn-secondary" %>
-          </div>  
-          
-        </div>
+      <div class="text-center m-3 profile-name">
+        <h5><%= @profile.first_name %> <%= @profile.last_name %></h5>
+        <% if current_user == @profile %>
+          <br><%= link_to "Tell more about yourself", new_profile_path, class: 'btn btn-outline-dark' %>
+        <% end %>
       </div>
     </div>
   </div>
+
+<%# ----------------------------------------------BADGES---------------------------------------------- %>
+
+<div class="col-1 banner-profile text-center">
+  <% if @profile.gender.present? %>
+    <% if @profile.gender == 'Woman' %>
+    <br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615334630/HOLD%20MY%20HAND/woman_user_avatar_account_female_256px_j874k5.png', width: 70, height: 70) %>
+    <% elsif @profile.gender == 'Men' %>
+    <br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335285/HOLD%20MY%20HAND/man_avatar_user_account_confirm_approve_complete_256px_b6lvp3.png', width: 70, height: 70) %>
+    <% else %>
+    <% end %>
+  <% end %>
+    <br><br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335286/HOLD%20MY%20HAND/team_group_people_management_business_work_employees_256px_zxwnnm.png', width: 70, height: 70) %>
+    <br><br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335285/HOLD%20MY%20HAND/international_global_earth_conversation_chat_communication_256px_caumqa.png', width: 70, height: 70) %>
+
+  <h1><br><i class="fas fa-certificate"></i></h1>
+  <h1><br><i class="fas fa-certificate"></i></h1>
 </div>
+
+<%# ----------------------------------------------ABOUT---------------------------------------------- %>
+  <div class="col-8 banner-profile-description">
+
+    <div class="row m-3 mt-5 d-flex justify-content-end">    
+      <% if current_user != @profile %>
+        <%= link_to "Talk to #{@profile.first_name}", profiles_path(@profile), class: 'btn btn-outline-dark mr-3' %>
+      <% end %> 
+    </div>
+
+    <div class="row m-3 mt-2">
+      <% if current_user.origin.present? %>
+        <div class="col-1 text-center">
+          <h2><i class="fas fa-globe-africa"></i> </h2>
+        </div>
+        <div class="col-10">
+          <h2><%= current_user.origin %></h2>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="row m-3">
+      <% if current_user.language.present? %>
+        <div class="col-1 text-center">
+          <h2><i class="fas fa-language"></i></h2>
+        </div>
+        <div class="col-10">
+          <h2><%= current_user.language %></h2>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="row m-3">
+      <% if current_user.gender.present? %>
+        <div class="col-1 text-center">
+          <h2><i class="fas fa-venus-mars"></i></h2>
+        </div>
+        <div class="col-10">
+          <h2><%= current_user.gender %></h2>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="row m-3">
+      <% if current_user.current_address.present? %>
+        <div class="col-1 text-center">
+          <h2><i class="fas fa-map-pin"></i> </h2>
+        </div>
+        <div class="col-10">
+          <h2><%= current_user.current_address %></h2>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="row m-3">
+      <div class="col-1 text-center">
+      </div>
+      <div class="col-10">
+        <%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-secondary" %>
+
+      </div>

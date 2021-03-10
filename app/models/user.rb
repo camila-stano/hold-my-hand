@@ -7,6 +7,9 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
+  validates :first_name, :last_name, :origin, presence: true
+  validates :nickname, uniqueness: true
+
   reverse_geocoded_by :latitude, :longitude
   after_validation :reverse_geocode
 

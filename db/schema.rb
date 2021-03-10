@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_031501) do
+ActiveRecord::Schema.define(version: 2021_03_10_010220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -154,15 +154,20 @@ ActiveRecord::Schema.define(version: 2021_03_09_031501) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "gender"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
     t.string "provider"
     t.string "uid"
     t.string "facebook_picture_url"
     t.string "token"
     t.datetime "token_expiry"
-    t.float "latitude"
-    t.float "longitude"
-    t.string "address"
     t.string "nickname"
+    t.text "about"
+    t.boolean "document", default: false
+    t.boolean "studying_pt", default: false
+    t.boolean "got_job", default: false
+    t.date "arrived"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
