@@ -52,25 +52,32 @@ puts '-----------------------------'
 
 # latitude: -23.548229765611094, longitude: -46.63260980923216
 file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1614709677/acnur_pofhwh.png')
+map_file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615313692/HOLD%20MY%20HAND/ACNUR_ucayby.png')
 shelter = Shelter.create!(name: "Acnur", address: "Largo Páteo do Colégio, 148, Centro Histórico de São Paulo, São Paulo", phone: "(11) 3101-2921", opening_hours: "Não informado", description: "UNHCR, the UN Refugee Agency, is a global organization dedicated to saving lives, protecting rights and building a better future for refugees, forcibly displaced communities and stateless people.", link: "https://www.unhcr.org/")
 puts "Shelter Acnur created"
 puts '-----------------------------'
 shelter.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png') 
+shelter.map.attach(io: map_file, filename: 'nes.png', content_type: 'image/png')
 
 # latitude: -23.554524021420384, longitude: -46.62781280302922
 file = URI.open('https://ogimg.infoglobo.com.br/mundo/23292355-a4d-377/FT1086A/652/80102016_interSao-Paulo-SP-29-11-2018-PadreMigrantesTrabalho-com-migrantes-do-padre-Pao.jpg')
+map_file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615314635/HOLD%20MY%20HAND/Miss%C3%A3o_Paz_SP_tkbxgi.png')
 shelter = Shelter.create!(name: "Missão Paz São Paulo", address: "Rua Glicério, 225, Liberdade, São Paulo", phone: "(11) 3340-6950", opening_hours: "Não informado", description: "Missão Paz is a philanthropic institution that supports and welcomes immigrants and refugees in the city of São Paulo. Belonging to the Scalabrinian missionaries, it has been working for the migrant public since the thirties of the twentieth century.", link: "http://www.missaonspaz.org/")
 
 puts "Shelter Missão Paz São Paulo created"
 puts '-----------------------------'
 shelter.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+shelter.map.attach(io: map_file, filename: 'nes.png', content_type: 'image/png')
 
 # latitude: -23.548844148671385, longitude: -46.63525810117761
 file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1614709666/caritas_wpgzyf.png')
+map_file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615316224/HOLD%20MY%20HAND/CARITAS_ltazz5.png')
 shelter = Shelter.create!(name: "Caritas Arquidiocesana de São Paulo", address: "Rua José Bonifácio, 107, 2º andar, Sé, São Paulo", phone: "(11) 94574-6358", description: "Caritas Internationalis is confederation of over 160 members who are working at the grassroots in almost every country of the world. When a crisis hits, Caritas is already on the ground. The diverse members give us our strength – from small groups of volunteers to some of the biggest global charities. Inspired by Catholic faith, Caritas is the helping hand of the Church – reaching out to the poor, vulnerable and excluded, regardless of race or religion, to build a world based on justice and fraternal love.", link: "http://caritas.org.br/")
 puts "Shelter Caritas Arquidiocesana de São Paulo created"
 puts '-----------------------------'
 shelter.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+shelter.map.attach(io: map_file, filename: 'nes.png', content_type: 'image/png')
+
 
 #-----------------------------------------------DOCUMENTS-----------------------------------------------#
 

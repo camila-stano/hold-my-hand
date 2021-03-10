@@ -13,4 +13,8 @@ class SheltersController < ApplicationController
       infoWindow: render_to_string(partial: "info_window", locals: { shelter: @shelter }) 
       }]
   end
+
+  def map
+    @shelter = Shelter.find(params[:shelter_id])
+  end
 end

@@ -39,10 +39,12 @@
           <h4><%= 'Reviews' %></h4>
 
           <% @lawyer.reviews.last(3).each do |review| %>
-          <div class="card m-3 ">    
-            <div class="card-header">
-              <p class="card-text d-flex justify-content-between review-card"><i> <%= current_user.first_name %></i><%= '⭐' * review.rating %></p>
-            </div>
+          <div class="card m-3 ">
+            <%= link_to profile_path(review.user_id) do %>    
+              <div class="card-header" style="text_decoration: none; color: black;">
+                <p class="card-text d-flex justify-content-between review-card"><i> <%= current_user.first_name %></i><%= '⭐' * review.rating %></p>
+              </div>
+            <% end %>
             <% if review.content.present? %>
               <div class="card-body">
                 <p class="card-text text-justify"><%= "#{review.content.slice(0,140)}.. "%>

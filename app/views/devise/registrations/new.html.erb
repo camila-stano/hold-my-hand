@@ -11,41 +11,39 @@
                 label: false,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                placeholder: 'Password',
-                label: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                placeholder: 'Confirm password',
-                label: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :first_name,
-                placeholder: 'First_name',
-                label: false %>
-    <%= f.input :last_name,
-                placeholder: 'Last_name',
-                label: false %>
-    <%= f.input :age,
-                placeholder: 'Age',
-                label: false %>
-        <%= f.input :nickname,
+    <div class="row">
+      <div class="col-6 form-sigin-l">
+      <%= f.input :password,
+                  required: true,
+                  placeholder: 'Password',
+                  label: false,
+                  input_html: { autocomplete: "new-password" } %>
+      </div>
+      <div class="col-6 form-sigin-r">
+        <%= f.input :password_confirmation,
+                    required: true,
+                    placeholder: 'Confirm password',
+                    label: false,
+                    input_html: { autocomplete: "new-password" } %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 form-sigin-l">
+        <%= f.input :first_name,
+                    placeholder: 'First_name',
+                    label: false %>
+      </div>
+      <div class="col-6 form-sigin-r">
+        <%= f.input :last_name,
+                    placeholder: 'Last_name',
+                    label: false %>
+      </div>
+    </div>
+    <%= f.input :nickname,
                 placeholder: 'Nickname',
-                label: false %>
-    <%= f.input :gender,
-                placeholder: 'How would you want to be treated?',
-                collection:User::GENDER,
-                hint: ('How would you want to be treated?'),
                 label: false %>
     <%= f.input :origin,
                 placeholder: 'Origin',
-                label: false %>
-    <%= f.input :language,
-                placeholder: 'Language',
-                label: false %>    
-    <%= f.input :current_address,
-                placeholder: 'Current Address',
                 label: false %>
     <%= f.input :photo, as: :file, 
                 label: false,
@@ -53,19 +51,19 @@
   </div>
  
     <div class="row align-items-center mt-3">
-      <div class='col-sm-12 col-lg-6 d-flex justify-content-end'>
-        <%= f.button :submit, "Sign up", class: 'btn btn-outline-primary btn-form rounded' %>
+      <div class='col-sm-12 col-lg-6 d-flex justify-content-end btn-form-l'>
+        <%= f.button :submit, "Sign up", class: 'btn btn-outline-primary rounded w-100' %>
       </div>
-      <div class='col-sm-12 col-lg-6 d-flex justify-content-left'>      
-        <%= link_to "Log in", new_session_path(resource_name), class: 'btn btn-outline-primary btn-form rounded' %>
+      <div class='col-sm-12 col-lg-6 d-flex justify-content-left btn-form-r'>      
+        <%= link_to "Log in", new_session_path(resource_name), class: 'btn btn-outline-primary rounded w-100' %>
       </div>
     </div>
 
   <% end %>
 
 <%#------------------------------ SIGN UP WITH FACEBOOK ------------------------------%>
-  <div class="text-center facebook-button text-center rounded mt-3">
-    <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, method: :post, class: 'btn facebook-btn-link' %>
-  </div>
+
+    <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, method: :post, class: 'btn btn-primary rounded mt-3 w-100' %>
+
   
 </div>

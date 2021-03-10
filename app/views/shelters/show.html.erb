@@ -11,6 +11,8 @@
       <p><%= "Phone: #{@shelter.phone}" %></p>
       <p><%= "Address: #{@shelter.address}" %></p>
       <p><%= "Official site: " %><%= link_to "#{@shelter.link}", @shelter.link, target: :_blank %></p>
+
+      <%= link_to 'Are you at GRU Airport and need help with your first steps? Click here!', shelter_map_path(@shelter.id), class: 'btn btn-outline-warning'  %>
     </div>
     <div class="col-sm-12 col-lg-6" style="background-size: cover; background-repeat: no-repeat; background-image: url('<%= cl_image_path @shelter.photo.key, transformation: [{crop: "crop", width: 1000, height: 700}] %>')"></div>
 
