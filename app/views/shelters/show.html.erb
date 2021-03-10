@@ -1,37 +1,48 @@
-<div class="container">
-<%# ------------------------- TITLE ----------------------------- %>
-  <div class="show-title my-5">
-    <h2><%= @shelter.name %><h2>
-  </div>
-<%# ----------------------- INFO + IMG -------------------------- %>
-  <div class="info-show row">
-    <div class="description-show col-sm-12 col-lg-6 ">
-      <p><%= @shelter.description %></p>
-      <p><%= "Open: #{@shelter.opening_hours}" %></p>
-      <p><%= "Phone: #{@shelter.phone}" %></p>
-      <p><%= "Address: #{@shelter.address}" %></p>
-      <p><%= "Official site: " %><%= link_to "#{@shelter.link}", @shelter.link, target: :_blank %></p>
-
-      <%= link_to 'Are you at GRU Airport and need help with your first steps? Click here!', shelter_map_path(@shelter.id), class: 'btn btn-outline-warning'  %>
+<div class="container-sidebar">
+  <div class="row">
+  <%# SIDEBAR ------------------------------- %>
+    <div class="col-1 sidebar">
+      <nav class="main-menu sidebar-yellow">
+        <%= render "shared/sidebar" %> 
+      </nav>
     </div>
-    <div class="col-sm-12 col-lg-6" style="background-size: cover; background-repeat: no-repeat; background-image: url('<%= cl_image_path @shelter.photo.key, transformation: [{crop: "crop", width: 1000, height: 700}] %>')"></div>
+  <%# CONTEÚDO ------------------------------- %>
+    <div class="col-11">
+  <%# ------------------------- TITLE ----------------------------- %>
+      <div class="show-title my-5">
+        <h2><%= @shelter.name %><h2>
+      </div>
+  <%# ----------------------- INFO + IMG -------------------------- %>
+      <div class="info-show row">
+        <div class="description-show col-sm-12 col-lg-6 ">
+          <p><%= @shelter.description %></p>
+          <p><%= "Open: #{@shelter.opening_hours}" %></p>
+          <p><%= "Phone: #{@shelter.phone}" %></p>
+          <p><%= "Address: #{@shelter.address}" %></p>
+          <p><%= "Official site: " %><%= link_to "#{@shelter.link}", @shelter.link, target: :_blank %></p>
 
-  </div>  
+          <%= link_to 'Are you at GRU Airport and need help with your first steps? Click here!', shelter_map_path(@shelter.id), class: 'btn btn-outline-warning'  %>
+        </div>
+        <div class="col-sm-12 col-lg-6" style="background-size: cover; background-repeat: no-repeat; background-image: url('<%= cl_image_path @shelter.photo.key, transformation: [{crop: "crop", width: 1000, height: 700}] %>')"></div>
 
-<%# -------------------------- MAPA ----------------------------- %>
+      </div>  
 
-  <div class="map-show my-5 d-flex justify-content-center">
-    <div id="map"
-      style="width: 90%; height: 520px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-      data-route='show'>      
-    </div>   
+  <%# -------------------------- MAPA ----------------------------- %>
+
+      <div class="map-show my-5 d-flex justify-content-center">
+        <div id="map"
+          style="width: 90%; height: 520px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+          data-route='show'>      
+        </div>   
+      </div>
+
+  <%# ------- LINK PARA O MAPA GERAL QUE TEM TODOS OS ABRIGOS E RESTAURANTES -------- %> 
+      <div class="d-flex justify-content-end my-3">    
+        <%= link_to "Veja o mapa completo", maps_path, class: 'btn btn-success' %>
+      </div>
+      
+    </div>
   </div>
-
-<%# ------- LINK PARA O MAPA GERAL QUE TEM TODOS OS ABRIGOS E RESTAURANTES -------- %> 
-  <div class="d-flex justify-content-end my-3">    
-    <%= link_to "Veja o mapa completo", maps_path, class: 'btn btn-success' %>
-  </div>
-  
 </div>
