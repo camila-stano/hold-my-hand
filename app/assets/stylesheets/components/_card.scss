@@ -88,7 +88,7 @@ $width-card: 300px;
 .card-title a:hover {
   opacity: 0.6;
   font-weight: normal;
-  font-size: 27px;
+  font-size: 23px;
 }
 
 .card-absolute {
@@ -159,10 +159,12 @@ $width-card: 300px;
 
 .card-shelter {
   background-color: $hmh-orange;
+  border-radius: 0;
 }
 
 .card-text {
   color: rgb(243, 243, 243);
+  font-size: 0.85rem;
 }
 
 .line {
