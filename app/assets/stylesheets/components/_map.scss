@@ -47,3 +47,12 @@
   background-color: $hmh-blue;
   padding: 50px;
 }
+
+.mapbox-directions-route-summary {
+  background-color: $hmh-blue;
+}
+
+.directions-control.directions-control-directions {
+  background-color: $hmh-dark-blue;
+  opacity:0.8;
+}
