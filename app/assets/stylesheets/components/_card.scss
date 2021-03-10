@@ -81,15 +81,15 @@ $width-card: 300px;
 
 .card-title a {
   color: rgb(250, 250, 250);
-  font-weight: bold;
-  font-size: 18px;
+  font-weight: normal;
+  font-size: 23px;
 }
 
 .card-title a:hover {
   opacity: 0.6;
-  font-weight: bold;
-  font-size: 18px;
-}
+  font-weight: normal;
+  font-size: 27px;
+}3
 
 .card-absolute {
   position: relative;
@@ -165,3 +165,11 @@ $width-card: 300px;
   color: rgb(243, 243, 243);
 }
 
+.line {
+  background-color: $hmh-orange;
+  height: 6px;
+  width: 40vw;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
