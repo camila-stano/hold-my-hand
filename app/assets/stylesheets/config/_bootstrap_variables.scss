@@ -11,11 +11,12 @@ $font-size-base: 1rem;
 
 // Colors
 $body-color: $gray;
-$primary:    $blue;
-$success:    $green;
-$info:       $yellow;
-$danger:     $red;
-$warning:    $orange;
+$primary:    $hmh-blue;
+$secondary:  $hmh-dark-blue;
+$success:    $hmh-green;
+$info:       $hmh-yellow;
+$danger:     $hmh-red;
+
 
 // Buttons & inputs' radius
 $border-radius:    8px;
@@ -23,3 +24,4 @@ $border-radius-lg: 8px;
 $border-radius-sm: 8px;
 
 // Override other variables below!
+

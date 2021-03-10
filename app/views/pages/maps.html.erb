@@ -1,12 +1,25 @@
-<div class="container">
-  <div class="map-index my-5 d-flex justify-content-center">
-
-    <div id="map"
-      style="width: 100%; height: 500px;"
-      data-markers="<%= @markers.to_json %>"
-      data-umarker="<%= @umarker.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+<div class="container-sidebar">  
+  <div class="row">
+  <%# SIDEBAR ------------------------------- %>
+    <div class="col-1 sidebar">
+      <nav class="main-menu sidebar-dark-blue">
+        <%= render "shared/sidebar" %> 
+      </nav>
     </div>
-
-  </div>  
+  <%# CONTENT ------------------------------- %>
+    <div class="col-10">
+          <h1 class='text-center mt-3'>You are here!</h1>
+      <div class="d-flex justify-content-center">
+        <div class="line-blue"></div>
+      </div>
+        <div class="map-index m-4 d-flex justify-content-center ">
+          <div id="map"
+            style="width: 100%; height: 500px;"
+            data-markers="<%= @markers.to_json %>"
+            data-umarker="<%= @umarker.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>  
+    </div>
+  </div>
 </div>

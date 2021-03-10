@@ -1,6 +1,14 @@
-<div class="row">
+<div class="container-sidebar">
+  <div class="row">
+  <%# SIDEBAR ------------------------------- %>
+    <div class="col-1 sidebar">
+      <nav class="main-menu sidebar-blue">
+        <%= render "shared/sidebar" %> 
+      </nav>
+    </div>
+  <%# CONTENT ------------------------------- %>
+    <div class="col-10">
 <%# ----------------------------------------------PROFILE---------------------------------------------- %>
-
   <div class="col-3 banner-profile-avatar d-flex justify-content-center align-items-center">
     <div class= "m-2">
       <div class="d-flex justify-content-center">
@@ -98,20 +106,5 @@
       </div>
       <div class="col-10">
         <%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-secondary" %>
+
       </div>
-    </div>
-
-    <div class="row m-3">
-    
-      <div class="col-1 text-center">
-        <h2><i class="fas fa-lock"></i> </h2>
-      </div>  
-      <div class="col-10">
-        <h2>Access</h2>
-        <%= link_to "Change your password", edit_user_registration_path, class: "btn btn-secondary" %>
-      </div>  
-      
-    </div>
-  </div>
-
-</div>
