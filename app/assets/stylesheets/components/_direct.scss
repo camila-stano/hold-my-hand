@@ -10,9 +10,8 @@
   background-color: rgb(157, 157, 229);
   flex-direction:column;
 }
-
 .direct-chat {
-  width: 55%;
+  width: 50%;
   border-radius: 15px;
   box-shadow: 0 2px rgb(250, 250, 183), -0.4em 0 .4em gray;
 }
@@ -33,7 +32,11 @@
 }
 #h1-direct {
   font-size: 2rem;
+  padding: 0;
 }
 #big-container-directs {
   margin: 0 auto;
+}
+.hr-direct {
+  margin: 3px 0;
 }
