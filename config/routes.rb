@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :profiles, only: [:show, :new, :create]
 
     resources :restaurants, only: [:index, :show]
+    
     resources :shelters, only: [:index, :show] do
       get '/map', to: 'shelters#map', as: :map
     end
@@ -15,15 +16,19 @@ Rails.application.routes.draw do
     resources :lawyers, except: [:edit, :update, :destroy], shallow: true do
       resources :reviews, except: [:show]
     end
+
     resources :schools, only: [:index, :show]
     resources :documents, only: [:index, :show]
     resources :communications, only: [:index, :show]
-    resources :messages, only: [:index, :new, :create]
-    resources :chatrooms, only: [:index]
+    resources :chatrooms, only: [:index, :new, :create]
+
     resources :chatrooms, only: :show do
       resources :messages, only: :create
     end
 
+    resources :chatrooms, only: [:index, :new, :create]
+    get '/direct', to: 'chatrooms#direct_index', as: :directs
+    get '/direct', to: 'chatrooms#direct_show', as: :direct
     get '/maps', to: 'pages#maps', as: :maps
     
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
