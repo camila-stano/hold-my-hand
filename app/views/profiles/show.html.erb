@@ -43,16 +43,16 @@
   </div>
 
 <%# ----------------------------------------------INFOS------------------------------------------------ %>
-  <div class="col-8 banner-profile-description">
+  <div class="col-8 banner-profile-description d-flex align-items-center">
 
-    <div class="row">
+    <div class="row w-100">
       <div class="col-4">
-        <div class="row m-3 mt-2 icon-description">
+        <div class="row m-3 icon-description">
           <% if current_user.origin.present? %>
             <div class="col-1 text-center">
               <h3><i class="fas fa-globe-africa"></i> </h3>
             </div>
-            <div class="col-3">
+            <div class="col-9">
               <h3><%= current_user.origin %></h3>
             </div>
           <% end %>
@@ -63,7 +63,7 @@
             <div class="col-1 text-center">
               <h3><i class="fas fa-language"></i></h3>
             </div>
-            <div class="col-3">
+            <div class="col-9">
               <h3><%= current_user.language %></h3>
             </div>
           <% end %>
@@ -74,39 +74,65 @@
             <div class="col-1 text-center">
               <h3><i class="fas fa-venus-mars"></i></h3>
             </div>
-            <div class="col-3">
+            <div class="col-9">
               <h3><%= current_user.gender %></h3>
             </div>
           <% end %>
         </div>
 
         <div class="row m-3 icon-description">
-          <% if current_user.current_address.present? %>
+          <% if @profile.current_address.present? %>
             <div class="col-1 text-center">
               <h3><i class="fas fa-map-pin"></i> </h3>
             </div>
-            <div class="col-3">
-              <h3><%= current_user.current_address %></h3>
+            <div class="col-9">
+              <h3><%= @profile.current_address %></h3>
             </div>
           <% end %>
         </div>
 
+        <div class="row m-3 icon-description">
+          <% if @profile.arrived.present? %>
+            <div class="col-1 text-center">
+              <h3><i class="fas fa-calendar-alt"></i></h3>
+            </div>
+            <div class="col-9">
+              <h3><%= "Since #{@profile.arrived} in Brazil" %></h3>
+            </div>
+          <% end %>
+        </div>
+        
+
         <% if current_user == @profile %>
           <div class="row m-3 icon-description">
-            <%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-outline-dark btn-sm w-100" %>
-          </div>
-
-          <div class="row m-3 icon-description">
-            <%= link_to "Change your password", edit_user_registration_path, class: "btn btn-outline-dark btn-sm w-100" %>
           </div>
         <% end %>
       </div>
 
 <%#----------------------------------------------ABOUT-----------------------------------------  %>
 
-      <div class="col-6 mt-3">
+      <div class="col-7">
         <div class="profile-name text-center">
           <h5>About</h5>
+        </div>
+
+        <div class="form-about w-100 mt-4 text-justify">
+        <% if current_user == @profile %>
+            <% if @profile.about.present? %>
+              <%= @profile.about %>
+            <% else %>
+              <%= render "shared/form_about" %>
+            <% end %>
+          <% else %>
+            <% if @profile.about.present? %>
+              <%= @profile.about %>
+            <% else %>
+            <div class='text-center', style="color: gray; font-size: 18px; opacity: 0.5;">
+            <h5><%= "This person didn't add information about herself yet! Send a message encouraging her to do this." %><br></h5>
+            <h1 style="color: gray;"><i class="far fa-comments"></i></h1>
+            </div>
+            <% end %>
+          <% end %>
         </div>
       </div>  
     

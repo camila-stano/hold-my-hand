@@ -8,17 +8,26 @@
     <%= f.input :nickname,
                 placeholder: 'Nickname',
                 label: false %>
-    <%= f.input :age,
-                placeholder: 'Age',
-                label: false %>
-    <%= f.input :gender,
-                placeholder: 'How would you want to be treated?',
-                collection:User::GENDER,
-                hint: ('How would you want to be treated?'),
-                label: false %>
+    <div class="row">
+      <div class="col-6 form-sigin-l">
+        <%= f.input :gender,
+                    placeholder: 'How would you want to be treated?',
+                    collection:User::GENDER,
+                    hint: ('How would you want to be treated?'),
+                    label: false %>
+      </div>
+      <div class="col-6 form-sigin-r">
+        <%= f.input :age,
+                    placeholder: 'Age',
+                    label: false %>
+      </div>
+    </div>
     <%= f.input :language,
                 placeholder: 'Language',
-                label: false %>    
+                label: false %> 
+    <%= f.input :arrived,
+                hint: ('Since when are you in Brazil?'),
+                label: false %>       
     <%= f.input :current_address,
                 placeholder: 'Current Address',
                 label: false %>
