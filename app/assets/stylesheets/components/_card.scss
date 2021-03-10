@@ -80,14 +80,14 @@ $width-card: 300px;
 }
 
 .card-title a {
-  color: rgb(44, 44, 44);
-  font-weight: lighter;
+  color: rgb(250, 250, 250);
+  font-weight: bold;
   font-size: 18px;
 }
 
 .card-title a:hover {
   opacity: 0.6;
-  font-weight: lighter;
+  font-weight: bold;
   font-size: 18px;
 }
 
@@ -156,7 +156,12 @@ $width-card: 300px;
 
 //  SHELTERS
 
-.border-red {
 
-  border: red solid 1px
-} 
+.card-shelter {
+  background-color: $hmh-orange;
+}
+
+.card-text {
+  color: rgb(243, 243, 243);
+}
+
