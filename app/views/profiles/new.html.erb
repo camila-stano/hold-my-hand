@@ -1,7 +1,7 @@
 <div class="container form-container my-5">
   <h2 class='text-center title-form'>Sign up</h2>
 
-  <%= simple_form_for @profile, profiles_path, method: :post do |f| %>
+  <%= simple_form_for @profile, url: profiles_path, method: :post do |f| %>
 
   <div class="form-inputs">
     
@@ -28,9 +28,10 @@
   </div>
  
     <div class="row align-items-center mt-3">
-      <div class='col-sm-12 col-lg-6 d-flex justify-content-end'>
-        <%= f.button :submit, "Sign up", class: 'btn btn-outline-primary btn-form rounded' %>
+      <div class='col-12'>
+        <%= f.button :submit, "Update your profile", class: 'btn btn-outline-primary btn-form rounded w-100' %>
       </div>
     </div>
 
   <% end %>
+  </div>
