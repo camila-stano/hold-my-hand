@@ -1,3 +1,37 @@
-.chat-container{
+.chat-container {
   width: 50%;
+}
+.message-chat-to-right {
+  display: flex;
+  margin-left: auto;
+  background-color: rgb(157, 157, 229);
+  flex-direction:column;
+}
+.message-chat-to-left {
+  display: flex;
+  margin-right: auto;
+  background-color: rgb(190, 240, 190);
+  flex-direction:column;
+}
+
+.message-group-chat {
+  width: 85%;
+}
+.text-message {
+  margin-bottom: 0;
+  margin-left: 2rem;
+}
+.chat-date-hour {
+  font-size: 0.6rem;
+}
+.nickname {
+  font-size: 0.85rem;
+}
+#messages {
+  overflow-y: scroll;
+  max-height: 50vh;
+  background-color: rgb(243, 243, 243);
+}
+#h1-chat-group {
+  font-size: 2rem;
 }
