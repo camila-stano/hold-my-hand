@@ -29,17 +29,24 @@
   <div class="col-1 banner-profile text-center">
     <% if @profile.gender.present? %>
       <% if @profile.gender == 'Woman' %>
-      <br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615334630/HOLD%20MY%20HAND/woman_user_avatar_account_female_256px_j874k5.png', width: 70, height: 70) %>
+        <br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615334630/HOLD%20MY%20HAND/woman_user_avatar_account_female_256px_j874k5.png', width: 70, height: 70) %>
       <% elsif @profile.gender == 'Men' %>
-      <br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335285/HOLD%20MY%20HAND/man_avatar_user_account_confirm_approve_complete_256px_b6lvp3.png', width: 70, height: 70) %>
-      <% else %>
+        <br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335285/HOLD%20MY%20HAND/man_avatar_user_account_confirm_approve_complete_256px_b6lvp3.png', width: 70, height: 70) %>
       <% end %>
     <% end %>
       <br><br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335286/HOLD%20MY%20HAND/team_group_people_management_business_work_employees_256px_zxwnnm.png', width: 70, height: 70) %>
+    
+    <% if @profile.studying_pt.present? %>
       <br><br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335285/HOLD%20MY%20HAND/international_global_earth_conversation_chat_communication_256px_caumqa.png', width: 70, height: 70) %>
+    <% end %>
+
+    <% if @profile.got_job.present? %>
+      <br><br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335286/HOLD%20MY%20HAND/prize_medal_award_reward_star_256px_mv6cib.png', width: 70, height: 70) %>
+    <% end %>
 
     <h1><br><i class="fas fa-certificate"></i></h1>
     <h1><br><i class="fas fa-certificate"></i></h1>
+
   </div>
 
 <%# ----------------------------------------------INFOS------------------------------------------------ %>
@@ -118,11 +125,18 @@
 
         <div class="form-about w-100 mt-4 text-justify">
         <% if current_user == @profile %>
+
             <% if @profile.about.present? %>
               <%= @profile.about %>
+              <%= link_to 'edit', profiles_path, class:'btn' %>
             <% else %>
               <%= render "shared/form_about" %>
             <% end %>
+
+            <% if link_to 'edit', profiles_path %>
+              <%= render "shared/form_about" %>
+            <% end %>
+
           <% else %>
             <% if @profile.about.present? %>
               <%= @profile.about %>

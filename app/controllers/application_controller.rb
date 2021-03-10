@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
     devise_parameter_sanitizer.permit(:account_update, keys: [:age, :language, :current_address, 
                                                               :gender, :photo, :nickname, :origin, :about,
-                                                              :arrived])
+                                                              :arrived, :got_job, :studying_pt, :document])
   end
 
   def default_url_options

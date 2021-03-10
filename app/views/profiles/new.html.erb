@@ -31,6 +31,15 @@
     <%= f.input :current_address,
                 placeholder: 'Current Address',
                 label: false %>
+    <%= f.input :got_job,
+                hint: ('Got a Job? Mark here'),
+                label: false %>
+    <%= f.input :studying_pt,
+                hint: ('Doing Portuguese classes? Mark here'),
+                label: false %>
+    <%= f.input :document,
+                hint: ('Got your first brazilian document? Mark here'),
+                label: false %>
     <%= f.input :photo, as: :file, 
                 label: false,
                 placeholder: 'Profile Picture' %>
