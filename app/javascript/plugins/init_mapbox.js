@@ -30,7 +30,7 @@ const initMapbox = () => {
           map.addControl(new MapboxDirections({
           accessToken: mapboxgl.accessToken,
           interactive: false,
-          controls: { instructions: false, profileSwitcher: false }
+          // controls: { instructions: false, profileSwitcher: false }
         }));
   
     } else {
