@@ -26,8 +26,9 @@
   <% if @profile.gender.present? %>
     <% if @profile.gender == 'Woman' %>
     <br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615334630/HOLD%20MY%20HAND/woman_user_avatar_account_female_256px_j874k5.png', width: 70, height: 70) %>
-    <% elsif @profile.gender == 'Man' %>
+    <% elsif @profile.gender == 'Men' %>
     <br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335285/HOLD%20MY%20HAND/man_avatar_user_account_confirm_approve_complete_256px_b6lvp3.png', width: 70, height: 70) %>
+    <% else %>
     <% end %>
   <% end %>
     <br><br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335286/HOLD%20MY%20HAND/team_group_people_management_business_work_employees_256px_zxwnnm.png', width: 70, height: 70) %>
