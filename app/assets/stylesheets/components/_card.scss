@@ -80,15 +80,15 @@ $width-card: 300px;
 }
 
 .card-title a {
-  color: rgb(44, 44, 44);
-  font-weight: lighter;
-  font-size: 18px;
+  color: rgb(250, 250, 250);
+  font-weight: normal;
+  font-size: 23px;
 }
 
 .card-title a:hover {
   opacity: 0.6;
-  font-weight: lighter;
-  font-size: 18px;
+  font-weight: normal;
+  font-size: 23px;
 }
 
 .card-absolute {
@@ -152,4 +152,30 @@ $width-card: 300px;
 .btn-review-index{
   font-size: 10px;
   padding: 0.25rem 0.25rem;
+}
+
+//  SHELTERS
+
+
+.card-shelter {
+  background-color: $hmh-orange;
+  border-radius: 0;
+}
+
+.card-text {
+  color: rgb(243, 243, 243);
+  font-size: 0.85rem;
+}
+
+.line {
+  background-color: $hmh-orange;
+  height: 6px;
+  width: 40vw;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.card-title {
+  color: white;
+
 }
