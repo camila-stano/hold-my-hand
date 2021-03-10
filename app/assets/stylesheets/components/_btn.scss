@@ -47,13 +47,6 @@
 .facebook-btn-link:hover{
   color: rgb(219, 214, 214);
 }
-.btn-see-more{
-  display: flex;
-  margin: 0 auto;
-  padding: 0.25rem 0.45rem;
-  font-size: 0.55rem;
-  border-radius: 50%;
-}
 .send-message-chat{
   display: flex;
   margin-left: auto;
@@ -62,5 +55,9 @@
   // padding: 0.3rem 0.7rem;
   font-size: 0.7rem;
 
+}
+.send-direct{
+  display: flex;
+  margin-left: auto;
 }
 
