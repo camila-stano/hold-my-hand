@@ -1,24 +1,27 @@
 .form-actions {
   width: 100%;
 }
-
 .title-form {
   font-family: $hold-logo;
   font-size: 35px;
 }
-
 .forgot-password {
   font-size: 15px;
   margin-top: 15px;
   text-align: center;
 }
-
 .form-sigin-l {
   padding-left: 14px;
   padding-right: 2px;
 }
-
 .form-sigin-r {
   padding-left: 2px;
   padding-right: 14px;
+}
+.chatroom-index-form {
+  border: 1px dashed rgb(123, 123, 228);
+  padding: 15px 20px;
+  display: flex;
+  margin: 0 auto;
+  border-radius: 10px;
 }
