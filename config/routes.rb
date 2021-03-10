@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     root to: 'pages#home'
     devise_for :users, skip: :omniauth_callbacks
     
-    resources :profiles, only: [:show]
+    resources :profiles, only: [:show, :new, :create]
 
     resources :restaurants, only: [:index, :show]
     resources :shelters, only: [:index, :show] do
