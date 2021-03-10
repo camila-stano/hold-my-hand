@@ -1,0 +1,52 @@
+<div class="container d-flex justify-content-center row" id = 'big-container-directs'>
+  <div class="col-7">
+
+    <h1 class = 'mt-3 mb-1' id = 'h1-direct'>Chat:<%#= name of the person you are chating %></h1>
+    <div id="directs" class = 'mb-3' data-direct-id="<%= @direct.id %>">
+      <% @direct.messages.each do |direct| %>
+          <% if direct.user == current_user %>
+            <div class="direct-to-right direct-chat mb-2 mr-3">
+            <%else%>
+            <div class="direct-to-left direct-chat mb-2 ml-3">
+          <% end %>
+        <div class="direct-container ml-3" id="direct-<%= direct.id %>">
+            <i class="author">
+              <span class = 'nickname-direct'><%= direct.user.nickname %></span>
+              <small class = 'chat-date-hour'><%= direct.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+            </i>
+            <p class = 'text-direct mb-2'><%= direct.content %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <%= simple_form_for [ @direct, @message ], remote: true do |f| %>
+      <%= f.input :content,
+                  label: false,
+                  as: :text,
+                  input_html: { 'rows': 3},
+                  placeholder: "write your message here!" %>
+      <%= f.submit "Send message", class: 'btn btn-success mt-3 mb-5 mr-3 btn-create send-direct' %>
+    <% end %>
+  </div>
+  <div class="col-3 mt-3">
+    <div>
+    <%@directs.each do |direct|%>
+      <div>
+        <% if current_user.photo.present? %>
+          <%= cl_image_tag current_user.photo.key, :transformation=>[
+          {:width=>550, :height=>550, :gravity=>"face", :radius=>"max", :crop=>"crop"}, {:width=>200, :crop=>"scale"}
+          ], class: "avatar-message-direct", 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+          <%= image_tag "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg", class: "avatar-message-direct", 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
+        <%=link_to direct_path(direct, anchor: "direct-#{@last_direct.id - 4}") do %> 
+          <%# change to person name %>
+          <%= direct.name %>
+        <%end%>
+        <hr class = 'hr-direct'>
+      </div>
+    <%end%>
+    </div>
+  </div>
+</div>
