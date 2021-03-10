@@ -28,7 +28,7 @@
   font-size: 0.85rem;
 }
 #messages {
-  overflow: scroll;
+  overflow-y: scroll;
   max-height: 50vh;
   background-color: rgb(243, 243, 243);
 }

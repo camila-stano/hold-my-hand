@@ -1,0 +1,39 @@
+.direct-to-right {
+  display: flex;
+  margin-left: auto;
+  background-color: rgb(190, 240, 190);
+  flex-direction:column;
+}
+.direct-to-left {
+  display: flex;
+  margin-right: auto;
+  background-color: rgb(157, 157, 229);
+  flex-direction:column;
+}
+
+.direct-chat {
+  width: 55%;
+  border-radius: 15px;
+  box-shadow: 0 2px rgb(250, 250, 183), -0.4em 0 .4em gray;
+}
+.text-direct {
+  margin-bottom: 0;
+  margin-left: 2rem;
+}
+.direct-date-hour {
+  font-size: 0.6rem;
+}
+.nickname-direct {
+  font-size: 0.85rem;
+}
+#directs {
+  overflow-y: scroll;
+  max-height: 50vh;
+  background-color: rgb(243, 243, 243);
+}
+#h1-direct {
+  font-size: 2rem;
+}
+#big-container-directs {
+  margin: 0 auto;
+}

@@ -13,10 +13,4 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.new
   end
 
-  direct_index
-  end
-
-  direct_show
-  end
-
 end
