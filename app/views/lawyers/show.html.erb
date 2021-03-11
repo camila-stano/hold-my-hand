@@ -1,74 +1,103 @@
 
-  <div class="banner-content-darklaw-show d-flex justify-content-center pb-5">
-    <div class="row law-row d-flex align-items-center">
-      <div class='col-3 description-lawyer'>
-        <%= cl_image_tag @lawyer.photo.key, transformation: [{width: 750, height: 750, 
-                                                            gravity: "face", radius: "max", 
-                                                            crop: "crop"}, {width: 200, crop: "scale"}
-                                                          ], class: "avatar-law mb-2" %>
-        <% case @total_rating %>
-        <% when 1 %>
-          <h5>★☆☆☆☆</h5>
-        <% when 2 %>
-          <h5>★★☆☆☆</h5>
-        <% when 3 %>
-          <h5>★★★☆☆</h5>
-        <% when 4 %>
-          <h5>★★★★☆</h5>
-        <% when 5 %>
-          <h5>★★★★★</h5>
-        <% else %>
-          <h5>☆☆☆☆☆</h5>
-        <% end %>
-      </div>
-      <div class='col-9 description-lawyer'>
-        <h4><%= @lawyer.name %></h4>
-        <p><%= "OAB/SP: #{@lawyer.oab} " %></p>
-        <p><%= "#{@lawyer.area} specialist" %></p>
-        <h6><%= @lawyer.description %></h6>
-        <p><%= "Address: #{@lawyer.address}" %></p>
-      </div>
+<div class="container-sidebar">
+  <div class="row">
+  <%# SIDEBAR ------------------------------- %>
+    <div class="col-1 sidebar">
+      <nav class="main-menu sidebar-green">
+        <%= render "shared/sidebar" %> 
+      </nav>
     </div>
-  </div>
-
-
- <div class="info-show row">
-
-      <div class="description-show-lawyer col-sm-12 col-lg-6 mt-5">
-        <div class='text-center'>
-          <h4><%= 'Reviews' %></h4>
-
-          <% @lawyer.reviews.last(3).each do |review| %>
-          <div class="card m-3 ">
-            <%= link_to profile_path(review.user_id) do %>    
-              <div class="card-header" style="text_decoration: none; color: black;">
-                <p class="card-text d-flex justify-content-between review-card"><i> <%= current_user.first_name %></i><%= '⭐' * review.rating %></p>
-              </div>
+  <%# CONTENT ------------------------------- %>
+    <div class="col-11">
+  <%# ------------------------- TITLE ----------------------------- %>
+      <div class="banner-lawyer-darkness d-flex justify-content-center pb-5 m-3  ">
+        <div class="row law-row d-flex align-items-center">
+          <div class='col-sm-12 col-lg-3 description-lawyer'>
+            <%= cl_image_tag @lawyer.photo.key, transformation: [{width: 750, height: 750, 
+                                                                gravity: "face", radius: "max", 
+                                                                crop: "crop"}, {width: 200, crop: "scale"}
+                                                              ], class: "avatar-law mb-2" %> 
+            <%if @lawyer.reviews.present? %>
+              <% ratings = 0 %>
+              <% @lawyer.reviews.each do |review| %>
+                <% next if review.rating.nil?  %>
+                <% ratings += review.rating  %>
+              <% end %>
+              
+              <% if @lawyer.reviews.count != 0 && @lawyer.reviews.count != nil %>
+                <% total_rating = (ratings / @lawyer.reviews.count) %>
+              <% end %>
             <% end %>
-            <% if review.content.present? %>
-              <div class="card-body">
-                <p class="card-text text-justify"><%= "#{review.content.slice(0,140)}.. "%>
-                <% if review.content.length > 140 %>
-                <span><%= link_to " keep reading", lawyer_reviews_path(@lawyer) %></span></p>
-                <% end %>
-              </div>
+
+            <% case total_rating %>
+            <% when 1 %>
+              <h5>★☆☆☆☆</h5>
+            <% when 2 %>
+              <h5>★★☆☆☆</h5>
+            <% when 3 %>
+              <h5>★★★☆☆</h5>
+            <% when 4 %>
+              <h5>★★★★☆</h5>
+            <% when 5 %>
+              <h5>★★★★★</h5>
+            <% else %>
+              <h5>☆☆☆☆☆</h5>
             <% end %>
           </div>
-          <% end %>
-          <%= link_to 'Leave a review', new_lawyer_review_path(@lawyer), class: 'btn btn-outline-danger mb-5' %>
-          <%= link_to 'See all reviews', lawyer_reviews_path(@lawyer), class: 'btn btn-outline-danger mb-5' %>
+          <div class='col-sm-12 col-lg-9 description-lawyer'>
+            <h4><%= @lawyer.name %></h4>
+            <p><%= "OAB/SP: #{@lawyer.oab} " %></p>
+            <p><%= "#{@lawyer.area} specialist" %></p>
+            <h6><%= @lawyer.description %></h6>
+            <p class="infos-lawyer"><%= "Address: #{@lawyer.address}" %></p>
+            <p class="infos-lawyer"><%= "Phone: #{@lawyer.phone}" %></p>
+            <p class="infos-lawyer"><%= "Email: #{@lawyer.email}" %></p>
+            <%= link_to "MAP", anchor: "show-map" %>
+          </div>
         </div>
       </div>
 
-    
-    <div class="map-show my-5 col-sm-12 col-lg-6">
-    <div id="map"
-      style="width: 90%; height: 520px; box-shadow: none;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-      data-route='show'>
-    </div>  
+      <div class="info-show row">
+        <div class="description-show-lawyer col-12 mt-3">
+          <div class='text-center'>
+            <h4><%= 'Reviews' %></h4>
+            <%= link_to 'Leave a review', new_lawyer_review_path(@lawyer), class: 'btn btn-success mb-3' %>
+            <%= link_to 'See all reviews', lawyer_reviews_path(@lawyer), class: 'btn btn-success mb-3' %>
+            <div class="row d-flex justify-content-center">
+              <% @lawyer.reviews.last(4).each do |review| %>
+              <div class="card col-5 m-3 ">
+                <%= link_to profile_path(review.user_id) do %>    
+                  <div class="card-header" style="text_decoration: none; color: black;">
+                    <p class="card-tex-lawyer d-flex justify-content-between review-card"><i> <%= current_user.first_name %></i><%= '⭐' * review.rating %></p>
+                  </div>
+                <% end %>
+                <% if review.content.present? %>
+                  <div class="card-body">
+                    <p class="card-text-lawyer text-justify"><%= "#{review.content.slice(0,140)}.. "%>
+                    <% if review.content.length > 140 %>
+                    <span><%= link_to " keep reading", lawyer_reviews_path(@lawyer) %></span></p>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>  
+        <div class="d-flex justify-content-center w-100 my-3" id="show-map">
+          <h4 style="font-family: 'Unica One', 'cursive'; font-size: 36px;">Map to lawyer</h4>
+
+        </div>
+        <div class="map-show col-12 d-flex justify-content-center mb-5">
+        <div id="map"
+          style="width: 90%; height: 520px; box-shadow: none;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+          data-route='show'>
+        </div>  
+        </div>
+      </div>
     </div>
-    
   </div>
+</div>
 

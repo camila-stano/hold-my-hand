@@ -70,7 +70,7 @@
 .banner-lawyer-darkness {
   width: 83,33vw;
   min-height: 330px;
-  padding: 10px 100px 10px 50px;
+  padding: 10px 30px ;
   background-color: $hmh-dark-green;
   text-align: center;
   color: #fdfdfd;
@@ -99,6 +99,9 @@
   font-size: 12px;
 }
 
+.infos-lawyer p {
+  font-size: 14px; font-weight: bold;
+}
 
 // .banner-profile {
 //   background-size: cover;
