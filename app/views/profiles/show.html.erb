@@ -24,9 +24,9 @@
           <div class="text-center m-3 profile-name">
             <h5><%= @profile.first_name %> <%= @profile.last_name %></h5>
             <% if current_user == @profile %>
-              <br><%= link_to "Tell more about yourself", new_profile_path, class: 'btn btn-outline-dark' %>
+              <br><%= link_to "Tell more about yourself", new_profile_path, class: 'btn btn-outline-primary' %>
             <% else %>
-              <%= link_to "Talk to #{@profile.first_name}", profiles_path(@profile), class: 'btn btn-outline-dark' %>
+              <br><%= link_to "Talk to #{@profile.first_name}", profiles_path(@profile), class: 'btn btn-outline-primary' %>
             <% end %>
           </div>
         </div>
@@ -34,27 +34,33 @@
 
 <%# ----------------------------------------------BADGES---------------------------------------------- %>
 
-    <div class="col-1 banner-profile text-center">
+    <div class="col-1 banner-profile text-center d-flex flex-column pt-4 align-items-center">
+      <% x = 5 %>
       <% if @profile.gender.present? %>
         <% if @profile.gender == 'Woman' %>
           <br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615334630/HOLD%20MY%20HAND/woman_user_avatar_account_female_256px_j874k5.png', width: 70, height: 70) %>
+          <% x -= 1 %>
         <% elsif @profile.gender == 'Men' %>
           <br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335285/HOLD%20MY%20HAND/man_avatar_user_account_confirm_approve_complete_256px_b6lvp3.png', width: 70, height: 70) %>
+          <% x -= 1 %>        
         <% end %>
       <% end %>
-        <br><br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335286/HOLD%20MY%20HAND/team_group_people_management_business_work_employees_256px_zxwnnm.png', width: 70, height: 70) %>
       
       <% if @profile.studying_pt.present? %>
         <br><br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335285/HOLD%20MY%20HAND/international_global_earth_conversation_chat_communication_256px_caumqa.png', width: 70, height: 70) %>
+        <% x -= 1 %>
       <% end %>
 
       <% if @profile.got_job.present? %>
         <br><br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335286/HOLD%20MY%20HAND/prize_medal_award_reward_star_256px_mv6cib.png', width: 70, height: 70) %>
+        <% x -= 1 %>
+      <% end %>
+      
+      <% x.times do %>
+      <h1><br><i class="fas fa-certificate"></i></h1>
       <% end %>
 
-      <h1><br><i class="fas fa-certificate"></i></h1>
-      <h1><br><i class="fas fa-certificate"></i></h1>
-
+      <%# cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335286/HOLD%20MY%20HAND/team_group_people_management_business_work_employees_256px_zxwnnm.png', width: 70, height: 70) %>
     </div>
 
 <%# ----------------------------------------------INFOS------------------------------------------------ %>
@@ -63,23 +69,23 @@
       <div class="row w-100">
         <div class="col-5">
           <div class="row m-3 icon-description">
-            <% if current_user.origin.present? %>
+            <% if @profile.origin.present? %>
               <div class="col-1 text-center">
                 <h3><i class="fas fa-globe-africa"></i> </h3>
               </div>
               <div class="col-9">
-                <h3><%= current_user.origin %></h3>
+                <h3><%= @profile.origin %></h3>
               </div>
             <% end %>
           </div>
 
           <div class="row m-3 icon-description">
-            <% if current_user.language.present? %>
+            <% if @profile.language.present? %>
               <div class="col-1 text-center">
                 <h3><i class="fas fa-language"></i></h3>
               </div>
               <div class="col-9">
-                <h3><%= current_user.language %></h3>
+                <h3><%= @profile.language %></h3>
               </div>
             <% end %>
           </div>
@@ -90,18 +96,18 @@
                 <h3><i class="fas fa-calendar-alt"></i></h3>
               </div>
               <div class="col-9">
-                <h3><%= "Since #{@profile.arrived} in Brazil" %></h3>
+                <h3><%= "Since #{@profile.arrived.strftime('%B %d, %Y')} in Brazil" %></h3>
               </div>
             <% end %>
           </div>
 
           <div class="row m-3 icon-description">
-            <% if current_user.gender.present? %>
+            <% if @profile.gender.present? %>
               <div class="col-1 text-center">
                 <h3><i class="fas fa-venus-mars"></i></h3>
               </div>
               <div class="col-9">
-                <h3><%= current_user.gender %></h3>
+                <h3><%= @profile.gender %></h3>
               </div>
             <% end %>
           </div>
@@ -129,31 +135,32 @@
   <%#----------------------------------------------ABOUT-----------------------------------------  %>
 
         <div class="col-7">
-          <div class="profile-name text-center">
-            <h5>About</h5>
+          <div class="about-profile-name text-center">
+            <h4>About</h4>
           </div>
 
           <div class="form-about w-100 mt-4 text-justify">
             <% if current_user == @profile %>
 
               <% if @profile.about.present? %>
-                <%= @profile.about %>
+                <p class="content-about"><%= @profile.about %></p>
                 <button class="btn-edit-about">Edit</button>
+
+                  <div id="myDIV">
+                    <%= render "shared/form_about" %>
+                  </div>
+
               <% else %>
                 <%= render "shared/form_about" %>
               <% end %>
-
-              <%# if link_to 'edit', profiles_path %>
-                <%# render "shared/form_about" %>
-              <%# end %>
 
             <% else %>
               <% if @profile.about.present? %>
                 <%= @profile.about %>
               <% else %>
-              <div class='text-center', style="color: gray; font-size: 18px; opacity: 0.5;">
-                <h5><%= "This person didn't add information about herself yet! Send a message encouraging her to do this." %><br></h5>
-                <h1 style="color: gray;"><i class="far fa-comments"></i></h1>
+              <div class='text-center', style="color: $hmh-orange; font-size: 18px; opacity: 0.5;">
+                <h5 class='message-about'><%= "This person didn't add information about herself yet! Send a message encouraging her to do this." %><br></h5>
+                <h1 style="color: $hmh-orange"><i class="far fa-comments"></i></h1>
               </div>
               <% end %>
             <% end %>

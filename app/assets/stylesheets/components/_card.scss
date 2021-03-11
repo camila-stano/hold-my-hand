@@ -107,6 +107,10 @@ $width-card: 300px;
   transition-delay: 2s;
 }
 
+.cards-review p {
+  color: black;
+}
+
 .cards-review a{
   text-decoration: none;
   color: #16181F;
@@ -163,8 +167,8 @@ $width-card: 300px;
 }
 
 .card-text {
-  color: rgb(243, 243, 243);
-  font-size: 0.85rem;
+  color: $hmh-dark-blue;
+  font-size: 1rem;
 }
 
 .line {

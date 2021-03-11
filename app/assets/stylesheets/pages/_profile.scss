@@ -1,6 +1,8 @@
 .profile-name h5 {
   font-family: $hold-logo;
   font-size: 28px;
+  color: whitesmoke;
+  font-weight: normal;
 }
 
 .banner-profile {
@@ -11,9 +13,40 @@
 
 .icon-description h3 {
   font-size: 17px;
+  color: $hmh-dark-blue;
 }
 
 .form-about-input textarea {
   height: 100px;
 }
 
+.about-profile-name h4 {
+  font-family: $hold-logo;
+  font-size: 28px;
+  color: $hmh-dark-blue;
+  font-weight: bold;
+}
+
+.banner-about {
+  background-color: $hmh-blue;
+  padding: 15px;
+  color: whitesmoke;
+}
+
+#myDIV {
+  display: none;
+  margin-top: 15px;
+}
+
+.btn-edit-about {
+  text-decoration: none;
+  border: 0;
+  background-color: $hmh-orange;
+  width: 100%;
+  font-size: 15px;
+  color: whitesmoke;
+}
+
+.content-about {
+  color: $hmh-dark-blue;
+}

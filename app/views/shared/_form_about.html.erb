@@ -4,13 +4,14 @@
     
     <%= f.input :about,
                 placeholder: 'Tell everyone something about you',
-                label: false %>
+                label: false,
+                hint: ('max 500')  %>
 
   </div>
  
     <div class="row align-items-center mt-2">
       <div class='col-12'>
-        <%= f.button :submit, "Send", class: 'btn btn-outline-dark btn-sm rounded w-100' %>
+        <%= f.button :submit, "Send", class: 'btn btn-primary btn-sm rounded w-100' %>
       </div>
     </div>
 

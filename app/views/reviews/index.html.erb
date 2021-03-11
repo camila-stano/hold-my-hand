@@ -31,8 +31,9 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row d-flex">
+ <div class="container-reviews">
+
+  <div class="grid  js-masonry container-reviews">
     <% @lawyer.reviews.each do |review| %>
       <div class="col-6 cards-review">
         <%= link_to do %>
@@ -59,17 +60,17 @@
             </div>
           <% else %>
             <div class="card m-3">
-            <%= link_to profile_path(review.user_id) do %>    
-              <div class="card-header">
-                <p class="card-text d-flex justify-content-between review-card"><i> <%= current_user.first_name %></i><%= '⭐' * review.rating %></p>
+              <%= link_to profile_path(review.user_id) do %>    
+                <div class="card-header">
+                  <p class="card-text d-flex justify-content-between review-card"><i> <%= current_user.first_name %></i><%= '⭐' * review.rating %></p>
                 <div class="btn-edit-delete-container">
               <% end %>
-                  <% if current_user == review.user %>
-                    <div class="edit-delete-btn">
-                      <%=link_to 'Editar', edit_review_path(review.id), class: 'btn btn-edit btn-review-index' %>
-                      <%=link_to 'Deletar', review_path(review.id), method: :delete, class: 'btn btn-delete btn-review-index mr-2' %>
-                    </div>
-                  <%end%>
+                <% if current_user == review.user %>
+                  <div class="edit-delete-btn">
+                    <%=link_to 'Editar', edit_review_path(review.id), class: 'btn btn-edit btn-review-index' %>
+                    <%=link_to 'Deletar', review_path(review.id), method: :delete, class: 'btn btn-delete btn-review-index mr-2' %>
+                  </div>
+                <%end%>
                 </div>
               </div>
             </div>
@@ -78,4 +79,5 @@
       </div>
     <% end %>
   </div>
+
 </div>
