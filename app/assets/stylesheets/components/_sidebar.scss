@@ -101,6 +101,9 @@
 // padding sidebar
 .sidebar {
 	padding: 0px;
+	position: sticky;
+	left: 0;
+	z-index: 5;
 }
 
 /* ScrolBar  */
@@ -145,18 +148,16 @@
 }
 .main-menu:hover,
 nav.main-menu.expanded {
+	position: sticky;
 	width: 250px;
 	overflow: hidden;
 	opacity: 1;
-	min-height: 100vh;
-	height: 100%;
 }
+
 .main-menu {
-	position: absolute;
+	position: sticky;
 	top: 0;
 	bottom: 0;
-	min-height: 100vh;
-	height: 100%;
 	left: 0;
 	width: 55px;
 	overflow: hidden;
@@ -166,6 +167,7 @@ nav.main-menu.expanded {
 	box-shadow: 1px 0 15px rgba(0, 0, 0, 0.07);
 	opacity: 1;
 	z-index: 5;
+	height: 100vh;
 }
 
 

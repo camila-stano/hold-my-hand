@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
   def index
     @reviews = Review.where(lawyer: @lawyer)
     rating
+    render layout: "nofooter"
   end
 
   def new

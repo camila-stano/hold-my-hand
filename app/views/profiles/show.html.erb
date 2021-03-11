@@ -1,5 +1,5 @@
 <div class="container-sidebar">
-  <div class="row">
+  <div class="row content-col-profile">
   <%# SIDEBAR ------------------------------- %>
     <div class="col-1 sidebar">
       <nav class="main-menu sidebar-blue">
@@ -7,104 +7,169 @@
       </nav>
     </div>
   <%# CONTENT ------------------------------- %>
-    <div class="col-10">
+    <div class="col-11 d-flex">
 <%# ----------------------------------------------PROFILE---------------------------------------------- %>
-  <div class="col-3 banner-profile-avatar d-flex justify-content-center align-items-center">
-    <div class= "m-2">
-      <div class="d-flex justify-content-center">
-        <% if @profile.photo.present? %>
-          <%= cl_image_tag @profile.photo.key, transformation: [
-          {width: 550, height: 550, gravity: "face", radius: "max", crop: "crop"}, {width: 200, crop: "scale"}
-          ], class: "avatar-large" %>
-        <% else %>
-          <%= image_tag "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg", class: 'avatar-large' %>
-        <% end %>
-      </div>
+      <div class="col-3 banner-profile-avatar d-flex justify-content-center align-items-center">
+        <div class= "m-2">
+          <div class="d-flex justify-content-center">
+            <% if @profile.photo.present? %>
+              <%= cl_image_tag @profile.photo.key, transformation: [
+              {width: 550, height: 550, gravity: "face", radius: "max", crop: "crop"}, {width: 200, crop: "scale"}
+              ], class: "avatar-large" %>
+            <% else %>
+              <%= image_tag "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg", class: 'avatar-large' %>
+            <% end %>
+          </div>
 
-      <div class="text-center m-3 profile-name">
-        <h5><%= @profile.first_name %> <%= @profile.last_name %></h5>
-        <% if current_user == @profile %>
-          <br><%= link_to "Tell more about yourself", new_profile_path, class: 'btn btn-outline-dark' %>
-        <% end %>
+          <div class="text-center m-3 profile-name">
+            <h5><%= @profile.first_name %> <%= @profile.last_name %></h5>
+            <% if current_user == @profile %>
+              <br><%= link_to "Tell more about yourself", new_profile_path, class: 'btn btn-primary' %>
+            <% else %>
+              <br><%= link_to "Talk to #{@profile.first_name}", profiles_path(@profile), class: 'btn btn-primary' %>
+            <% end %>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
 <%# ----------------------------------------------BADGES---------------------------------------------- %>
 
-<div class="col-1 banner-profile text-center">
-  <% if @profile.gender.present? %>
-    <% if @profile.gender == 'Woman' %>
-    <br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615334630/HOLD%20MY%20HAND/woman_user_avatar_account_female_256px_j874k5.png', width: 70, height: 70) %>
-    <% elsif @profile.gender == 'Men' %>
-    <br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335285/HOLD%20MY%20HAND/man_avatar_user_account_confirm_approve_complete_256px_b6lvp3.png', width: 70, height: 70) %>
-    <% else %>
-    <% end %>
-  <% end %>
-    <br><br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335286/HOLD%20MY%20HAND/team_group_people_management_business_work_employees_256px_zxwnnm.png', width: 70, height: 70) %>
-    <br><br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335285/HOLD%20MY%20HAND/international_global_earth_conversation_chat_communication_256px_caumqa.png', width: 70, height: 70) %>
+    <div class="col-1 banner-profile text-center d-flex flex-column pt-4 align-items-center">
+      <% x = 5 %>
+      <% if @profile.gender.present? %>
+        <% if @profile.gender == 'Woman' %>
+          <br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615334630/HOLD%20MY%20HAND/woman_user_avatar_account_female_256px_j874k5.png', width: 70, height: 70) %>
+          <% x -= 1 %>
+        <% elsif @profile.gender == 'Men' %>
+          <br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335285/HOLD%20MY%20HAND/man_avatar_user_account_confirm_approve_complete_256px_b6lvp3.png', width: 70, height: 70) %>
+          <% x -= 1 %>        
+        <% end %>
+      <% end %>
+      
+      <% if @profile.studying_pt.present? %>
+        <br><br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335285/HOLD%20MY%20HAND/international_global_earth_conversation_chat_communication_256px_caumqa.png', width: 70, height: 70) %>
+        <% x -= 1 %>
+      <% end %>
 
-  <h1><br><i class="fas fa-certificate"></i></h1>
-  <h1><br><i class="fas fa-certificate"></i></h1>
+      <% if @profile.got_job.present? %>
+        <br><br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335286/HOLD%20MY%20HAND/prize_medal_award_reward_star_256px_mv6cib.png', width: 70, height: 70) %>
+        <% x -= 1 %>
+      <% end %>
+      
+      <% x.times do %>
+      <h1><br><i class="fas fa-certificate"></i></h1>
+      <% end %>
+
+      <%# cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335286/HOLD%20MY%20HAND/team_group_people_management_business_work_employees_256px_zxwnnm.png', width: 70, height: 70) %>
+    </div>
+
+<%# ----------------------------------------------INFOS------------------------------------------------ %>
+    <div class="col-8 banner-profile-description d-flex align-items-center">
+
+      <div class="row w-100">
+        <div class="col-5">
+          <div class="row m-3 icon-description">
+            <% if @profile.origin.present? %>
+              <div class="col-1 text-center">
+                <h3><i class="fas fa-globe-africa"></i> </h3>
+              </div>
+              <div class="col-9">
+                <h3><%= @profile.origin %></h3>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="row m-3 icon-description">
+            <% if @profile.language.present? %>
+              <div class="col-1 text-center">
+                <h3><i class="fas fa-language"></i></h3>
+              </div>
+              <div class="col-9">
+                <h3><%= @profile.language %></h3>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="row m-3 icon-description">
+            <% if @profile.arrived.present? %>
+              <div class="col-1 text-center">
+                <h3><i class="fas fa-calendar-alt"></i></h3>
+              </div>
+              <div class="col-9">
+                <h3><%= "Since #{@profile.arrived.strftime('%B %d, %Y')} in Brazil" %></h3>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="row m-3 icon-description">
+            <% if @profile.gender.present? %>
+              <div class="col-1 text-center">
+                <h3><i class="fas fa-venus-mars"></i></h3>
+              </div>
+              <div class="col-9">
+                <h3><%= @profile.gender %></h3>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="row m-3 icon-description">
+            <% if @profile.current_address.present? %>
+              <div class="col-1 text-center">
+                <h3><i class="fas fa-map-pin"></i> </h3>
+              </div>
+              <div class="col-9">
+                <h3><%= @profile.current_address %></h3>
+              </div>
+            <% end %>
+          </div>
+
+
+          
+
+          <% if current_user == @profile %>
+            <div class="row m-3 icon-description">
+            </div>
+          <% end %>
+        </div>
+
+  <%#----------------------------------------------ABOUT-----------------------------------------  %>
+
+        <div class="col-7">
+          <div class="about-profile-name text-center">
+            <h4>About</h4>
+          </div>
+
+          <div class="form-about w-100 mt-4 text-justify">
+            <% if current_user == @profile %>
+
+              <% if @profile.about.present? %>
+                <p class="content-about"><%= @profile.about %></p>
+                <button class="btn-edit-about">Edit</button>
+
+                  <div id="myDIV">
+                    <%= render "shared/form_about" %>
+                  </div>
+
+              <% else %>
+                <%= render "shared/form_about" %>
+              <% end %>
+
+            <% else %>
+              <% if @profile.about.present? %>
+                <%= @profile.about %>
+              <% else %>
+              <div class='text-center', style="color: $hmh-orange; font-size: 18px; opacity: 0.5;">
+                <h5 class='message-about'><%= "This person didn't add information about herself yet! Send a message encouraging her to do this." %><br></h5>
+                <h1 style="color: $hmh-orange"><i class="far fa-comments"></i></h1>
+              </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>  
+    
+<%#----------------------------------------------FECHANDO DIVS-----------------------------------------  %>
+
+      </div>
+    </div>
+  </div>
 </div>
-
-<%# ----------------------------------------------ABOUT---------------------------------------------- %>
-  <div class="col-8 banner-profile-description">
-
-    <div class="row m-3 mt-5 d-flex justify-content-end">    
-      <% if current_user != @profile %>
-        <%= link_to "Talk to #{@profile.first_name}", profiles_path(@profile), class: 'btn btn-outline-dark mr-3' %>
-      <% end %> 
-    </div>
-
-    <div class="row m-3 mt-2">
-      <% if current_user.origin.present? %>
-        <div class="col-1 text-center">
-          <h2><i class="fas fa-globe-africa"></i> </h2>
-        </div>
-        <div class="col-10">
-          <h2><%= current_user.origin %></h2>
-        </div>
-      <% end %>
-    </div>
-
-    <div class="row m-3">
-      <% if current_user.language.present? %>
-        <div class="col-1 text-center">
-          <h2><i class="fas fa-language"></i></h2>
-        </div>
-        <div class="col-10">
-          <h2><%= current_user.language %></h2>
-        </div>
-      <% end %>
-    </div>
-
-    <div class="row m-3">
-      <% if current_user.gender.present? %>
-        <div class="col-1 text-center">
-          <h2><i class="fas fa-venus-mars"></i></h2>
-        </div>
-        <div class="col-10">
-          <h2><%= current_user.gender %></h2>
-        </div>
-      <% end %>
-    </div>
-
-    <div class="row m-3">
-      <% if current_user.current_address.present? %>
-        <div class="col-1 text-center">
-          <h2><i class="fas fa-map-pin"></i> </h2>
-        </div>
-        <div class="col-10">
-          <h2><%= current_user.current_address %></h2>
-        </div>
-      <% end %>
-    </div>
-
-    <div class="row m-3">
-      <div class="col-1 text-center">
-      </div>
-      <div class="col-10">
-        <%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-secondary" %>
-
-      </div>
