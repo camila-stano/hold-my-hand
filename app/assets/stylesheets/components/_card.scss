@@ -107,6 +107,10 @@ $width-card: 300px;
   transition-delay: 2s;
 }
 
+.cards-review p {
+  color: black;
+}
+
 .cards-review a{
   text-decoration: none;
   color: #16181F;
@@ -163,7 +167,12 @@ $width-card: 300px;
 }
 
 .card-text {
-  color: rgb(243, 243, 243);
+  color: $hmh-dark-blue;
+  font-size: 1rem;
+}
+
+.card-text-lawyer {
+  color: $hmh-dark-green;
   font-size: 0.85rem;
 }
 

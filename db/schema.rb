@@ -164,14 +164,14 @@ ActiveRecord::Schema.define(version: 2021_03_10_171328) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "gender"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
     t.string "provider"
     t.string "uid"
     t.string "facebook_picture_url"
     t.string "token"
     t.datetime "token_expiry"
-    t.float "latitude"
-    t.float "longitude"
-    t.string "address"
     t.string "nickname"
     t.text "about"
     t.boolean "document", default: false

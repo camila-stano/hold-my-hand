@@ -9,34 +9,33 @@
   <div class="col-10">
     <% @documents.each_with_index do |document, index| %>
       <% if index.even? %>
-        <div class="banner-document-light banner-documents d-flex justify-content-center">
+        <div class="banner-document-light banner-documents d-flex justify-content-center m-3">
           <div class="row d-flex align-items-center">
-            <div class='col-3 description-document '>
-              <%= cl_image_tag document.photo.key, transformation: [{width: 750, height: 750}
-                                                                ], class: "document-img" %>
-            </div>
-            <div class='col-9 description-document  text-justify'>
+            <div class='col-md-12 col-lg-7 description-document  text-justify'>
               <h4><%= document.document_type %></h4>
               <h6><%= document.description %></h6>
               <h6><strong>Required documents:</strong> <%= document.required_docs %></h6>
               <a href="<% document.url_agency %>" class="btn btn-secondary btn-sm"> Online Apply</a>
               <p></p>
+            </div>
+            <div class='col-md-12 col-lg-5 description-document mb-4'>
+              <%= cl_image_tag document.photo.key, transformation: [{width: 750, height: 750}
+                                                                ], class: "document-img" %>
             </div>
           </div>
         </div>
       <% else %>
-        <div class="banner-document-darkness banner-documents d-flex justify-content-center">
+        <div class="banner-document-darkness banner-documents d-flex justify-content-center m-3">
           <div class="row d-flex align-items-center">
-            <div class='col-3 description-document '>
+            <div class='col-md-12 col-lg-5 description-document mb-4'>
               <%= cl_image_tag document.photo.key, transformation: [{width: 750, height: 750}
                                                                 ], class: "document-img" %>
             </div>
-            <div class='col-9 description-document  text-justify'>
+            <div class='col-md-12 col-lg-7 description-document  text-justify'>
               <h4><%= document.document_type %></h4>
               <h6><%= document.description %></h6>
               <h6><strong>Required documents:</strong> <%= document.required_docs %></h6>
               <a href="<% document.url_agency %>" class="btn btn-secondary btn-sm"> Online Apply</a>
-              <p></p>
             </div>
           </div>
         </div>

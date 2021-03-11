@@ -58,35 +58,23 @@
   font-size: 25px;
 }
 
-.banner-content-darklaw:hover {
-  background-color: #16181F;
+.banner-lawyer-light {
+  width: 83,33vw;
+  min-height: 330px;
+  padding: 10px 30px ;
+  background-color: $hmh-green;
   text-align: center;
-  color: wheat;
+  color: #fdfdfd;
 }
 
-.banner-content-darklaw-show {
-  width: 100vw;
-  height: 50vh;
-  background-color: #16181F;
+.banner-lawyer-darkness {
+  width: 83,33vw;
+  min-height: 330px;
+  padding: 10px 30px ;
+  background-color: $hmh-dark-green;
   text-align: center;
-  color: wheat;
+  color: #fdfdfd;
 }
-
-.banner-content-lightlaw {
-  width: 100vw;
-  height: 50vh;
-  background-color: #F8F9FA;
-  text-align: center;
-  color: #16181F;
-}
-
-.banner-content-lightlaw:hover {
-  background-color: #16181F;
-  text-align: center;
-  color: wheat;
-}
-
-
 .description-lawyer {
   width: 100%;
   height: 40vh;
@@ -103,7 +91,6 @@
   text-decoration: none;
   font-family: $headers-font;
   text-align: justify;
-  margin: 1rem;
   padding: 1rem;
 }
 
@@ -112,6 +99,9 @@
   font-size: 12px;
 }
 
+.infos-lawyer p {
+  font-size: 14px; font-weight: bold;
+}
 
 // .banner-profile {
 //   background-size: cover;
@@ -142,19 +132,19 @@
 }
 
 .banner-document-light {
-  width: 100vw;
-  height: 330px;
-  padding: 10px 100px 10px 50px;
-  background-color: #fdfdfd;
+  width: 83,33vw;
+  min-height: 330px;
+  padding: 10px 30px ;
+  background-color: $hmh-blue;
   text-align: center;
-  color: rgb(110, 110, 110);
+  color: #fdfdfd;
 }
 
 .banner-document-darkness {
-  width: 100vw;
-  height: 330px;
+  width: 83,33vw;
+  min-height: 330px;
   padding: 10px 100px 10px 50px;
-  background-color: rgb(179, 179, 179);
+  background-color: $hmh-blue;
   text-align: center;
   color: #fdfdfd;
 }
@@ -180,14 +170,14 @@
   font-size: 25px;
 }
 .banner-profile-avatar {
-  height: 91vh;
-  background-color: #C4C4C4;
+  height: 100vh;
+  background-color: $hmh-dark-blue;
 }
 
 
 //<-----------------------------Banner Lawyers ----------------------------->
 
 .banner-documents:hover{
-  background-color: #16181F;
-  color: wheat;
+  // background-color: #16181F;
+  // color: wheat;
 }

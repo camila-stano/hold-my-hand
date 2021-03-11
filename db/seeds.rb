@@ -23,25 +23,25 @@ puts 'Creating Restaurants!'
 puts '-----------------------------'
 
 # latitude: -23.547794222490886, longitude: -46.63069957419347
-file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1614706687/bomprato_f0ruvk.jpg')
-restaurant = Restaurant.create!(name: "Bom prato", address: "Rua 25 de Março, 166, Centro, São Paulo", phone: '(11) 3334-2977', price: 2)
-restaurant.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+# file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1614706687/bomprato_f0ruvk.jpg')
+restaurant = Restaurant.create!(name: "Bom prato", address: "Rua 25 de Março, 166, Centro, São Paulo", phone: '(11) 3334-2977', price: 2, opening_hours: "Das 10:30h às 14:00h")
+# restaurant.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 puts "Restaurant Bom Prato created"
 puts '-----------------------------'
 
 # latitude: -23.540053644785395, longitude -46.61847401652173
-file = URI.open('https://cdn4.ecycle.com.br/cache/images/eDicas/alimentos/50-600-bom-prato-525.jpg')
-restaurant = Restaurant.create!(name: "Popular", address: "Rua Barão de Ladário, 204, Brás, São Paulo", phone: "(11) 2292-4151", price: 1)
+# file = URI.open('https://cdn4.ecycle.com.br/cache/images/eDicas/alimentos/50-600-bom-prato-525.jpg')
+restaurant = Restaurant.create!(name: "Popular", address: "Rua Barão de Ladário, 204, Brás, São Paulo", phone: "(11) 2292-4151", price: 1, opening_hours: "Das 11:00h às 13:30h")
 puts "Restaurant Popular created"
 puts '-----------------------------'
-restaurant.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+# restaurant.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 # latitude: -23.56729892520476, longitude: -46.69768310488062
-file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1614708902/sesc_bwr69u.png')
-restaurant = Restaurant.create!(name: "Comedoria Sesc Pinheiros", address: "Rua Pais Leme, 195, Pinheiros, São Paulo", phone: '(11) 3095-9400', price: 10)
+# file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1614708902/sesc_bwr69u.png')
+restaurant = Restaurant.create!(name: "Comedoria Sesc Pinheiros", address: "Rua Pais Leme, 195, Pinheiros, São Paulo", phone: '(11) 3095-9400', price: 10, opening_hours: "Das 11:30h às 14:30h")
 puts "Restaurant Comedoria Sesc Pinheiros created"
 puts '-----------------------------'
-restaurant.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+# restaurant.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
 #-----------------------------------------------SHELTERS-----------------------------------------------#
