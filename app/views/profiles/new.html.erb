@@ -41,13 +41,15 @@
                 hint: ('Got your first brazilian document? Mark here'),
                 label: false %>
     <%= f.input :photo, as: :file, 
-                label: false,
-                placeholder: 'Profile Picture' %>
+                placeholder: 'Profile Picture',
+                input_html: { class: 'd-none' }, 
+                label_html: { class: 'upload-photo'},
+                label: 'Choose a profile photo' %>
   </div>
  
     <div class="row align-items-center mt-3">
       <div class='col-12'>
-        <%= f.button :submit, "Update your profile", class: 'btn btn-outline-primary btn-form rounded w-100' %>
+        <%= f.button :submit, "Update your profile", class: 'btn btn-success btn-form w-100' %>
       </div>
     </div>
 

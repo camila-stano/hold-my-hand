@@ -65,18 +65,29 @@
             <%= link_to 'See all reviews', lawyer_reviews_path(@lawyer), class: 'btn btn-success mb-3' %>
             <div class="row d-flex justify-content-center">
               <% @lawyer.reviews.last(4).each do |review| %>
-              <div class="card col-5 m-3 ">
-                <%= link_to profile_path(review.user_id) do %>    
-                  <div class="card-header" style="text_decoration: none; color: black;">
-                    <p class="card-tex-lawyer d-flex justify-content-between review-card"><i> <%= current_user.first_name %></i><%= '⭐' * review.rating %></p>
-                  </div>
-                <% end %>
-                <% if review.content.present? %>
-                  <div class="card-body">
-                    <p class="card-text-lawyer text-justify"><%= "#{review.content.slice(0,140)}.. "%>
+                <div class="card cards-review col-5 m-3">
+                  <%= link_to profile_path(review.user_id) do %>    
+                    <div class="card-header" style="text_decoration: none; color: black;">
+                      <p class="card-text d-flex justify-content-between review-card"><i> <%= current_user.first_name %></i><%= '⭐' * review.rating %></p>
+                    </div>
+                  <% end %>
+                  <% if review.content.present? %>
+                    <div class="card-body">
+
+                      <div class="btn-edit-delete-container"> 
+                        <% if current_user == review.user %>
+                          <div class="edit-delete-btn">
+                            <%=link_to 'Editar', edit_review_path(review.id), class: 'btn btn-edit btn-review-index' %>
+                            <%=link_to 'Deletar', review_path(review.id), method: :delete, class: 'btn btn-delete btn-review-index mr-2' %>
+                          </div>
+                        <%end%>
+                      </div>
+
+                    <p class="card-text text-justify"><%= "#{review.content.slice(0,140)}.. "%>
                     <% if review.content.length > 140 %>
                     <span><%= link_to " keep reading", lawyer_reviews_path(@lawyer) %></span></p>
                     <% end %>
+
                   </div>
                 <% end %>
               </div>

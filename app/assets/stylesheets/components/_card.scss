@@ -173,7 +173,15 @@ $width-card: 300px;
 
 .card-text-lawyer {
   color: $hmh-dark-green;
-  font-size: 0.85rem;
+  font-size: 1rem;
+  margin: 0;
+}
+
+
+.card-text-lawyer p {
+  color: $hmh-dark-green;
+  font-size: 1rem;
+  margin: 0;
 }
 
 .line {
@@ -186,5 +194,8 @@ $width-card: 300px;
 }
 .card-title {
   color: white;
+}
 
+.card {
+  padding: 0;
 }
