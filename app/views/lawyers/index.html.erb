@@ -11,7 +11,7 @@
       <% @lawyers.each_with_index do |lawyer, index| %>
         <% if index.even? %>
           <%= link_to lawyer_path(lawyer.id) do %>
-            <div class="banner-content-darklaw d-flex justify-content-center pb-5 ">
+            <div class="banner-lawyer-light d-flex justify-content-center pb-5 m-3  ">
               <div class="row law-row d-flex align-items-center">
                 <div class='col-3 description-lawyer'>
                   <%= cl_image_tag lawyer.photo.key, transformation: [{width: 750, height: 750, 
@@ -51,13 +51,14 @@
                   <p><%= "#{lawyer.area} specialist" %></p>
                   <h6><%= lawyer.description %></h6>
                   <p><%= "Address: #{lawyer.address}" %></p>
+                  <p>Know more</p>
                 </div>
               </div>
             </div>
           <% end %>
         <% else %>
           <%= link_to lawyer_path(lawyer.id) do %>
-            <div class="banner-content-lightlaw d-flex justify-content-center pb-5">
+            <div class="banner-lawyer-darkness d-flex justify-content-center pb-5 m-3">
               <div class="row law-row  d-flex align-items-center">
                 <div class='col-9 description-lawyer'>
                   <h4><%= lawyer.name %></h4>
