@@ -1,13 +1,9 @@
 <div class="container d-flex justify-content-center row" id = 'big-container-directs'>
   <div class="col-7">
     <h1 class = 'mt-3 mb-1 ml-3' id = 'h1-direct'>
-      <%other_user = @chatroom.users.reject{|user| user == current_user}.first%>
-      <% if other_user.photo.present? %>
-        <%= other_user.photo %>
-      <% else %>
-        <%= image_tag "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg", class: "avatar-message-direct", 'aria-haspopup': true, 'aria-expanded': false %>
-      <% end %>
-      <%= other_user.nickname %>
+      <% talking_user = @chatroom.users.reject{|user| user == current_user}.first %>
+      <%= render "directs/avatar/talking_user", talking_user: talking_user %>
+      <%= talking_user.nickname %>
     </h1>
     <div id="messages" class = 'mb-3' data-chatroom-id="<%= @chatroom.id %>">
       <% @chatroom.messages.each do |message| %>
@@ -18,25 +14,28 @@
   </div>
 
   <div class="col-3 mt-3">
+  <div class="search-person-to-talk">
+    <%= form_tag profiles_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find someone to talk"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+    <div>
+    <%@chatrooms.each do |direct|%>
+      <% direct_user = direct.chatroom.chat_members.reject{|direct| direct.user == current_user}.first.user %>
       <div>
-      <%@chatrooms.each do |direct|%>
-        <% direct_user = direct.chatroom.chat_members.reject{|direct| direct.user == current_user}.first.user %>
-        <div>
-          <% if direct_user.photo.present? %>
-            <%= cl_image_tag current_user.photo.key, :transformation=>[
-            {:width=>550, :height=>550, :gravity=>"face", :radius=>"max", :crop=>"crop"}, {:width=>200, :crop=>"scale"}
-            ], class: "avatar-message-direct", 'aria-haspopup': true, 'aria-expanded': false %>
-          <% else %>
-            <%= image_tag "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg", class: "avatar-message-direct", 'aria-haspopup': true, 'aria-expanded': false %>
-          <% end %>
-          <%=link_to direct_path(direct) do %> 
-            <%# change to person name %>
-            <%= direct_user.nickname %>
-          <%end%>
-          <hr class = 'hr-direct'>
-        </div>
-      <%end%>
+        <%= render "directs/avatar/talking_user", talking_user: direct_user %>
+        <%=link_to direct_path(direct) do %> 
+          <%= direct_user.nickname %>
+        <%end%>
+        <hr class = 'hr-direct'>
       </div>
+    <%end%>
+    </div>
   </div>
 
 </div>

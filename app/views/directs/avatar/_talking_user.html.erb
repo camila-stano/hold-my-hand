@@ -1,0 +1,12 @@
+<%if talking_user.facebook_picture_url %>
+  <% avatar_url = talking_user.facebook_picture_url || "http://placehold.it/30x30" %>
+  <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+<%else%>
+  <% if talking_user.photo.attached? %>
+    <%= cl_image_tag talking_user.photo.key, :transformation=>[
+    {:width=>550, :height=>550, :gravity=>"face", :radius=>"max", :crop=>"crop"}, {:width=>200, :crop=>"scale"}
+    ], class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+  <% else %>
+    <%= image_tag "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+  <% end %>
+<%end%>
