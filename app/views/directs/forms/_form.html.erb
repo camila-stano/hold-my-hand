@@ -1,0 +1,8 @@
+<%= simple_form_for [ direct, message ] do |f| %>
+  <%= f.input :content,
+              label: false,
+              as: :text,
+              input_html: { 'rows': 3},
+              placeholder: "write your message here!" %>
+  <%= f.submit "Send message", class: 'btn btn-success mt-3 mb-5 mr-3 btn-create send-direct' %>
+<% end %>
