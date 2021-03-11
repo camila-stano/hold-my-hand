@@ -1,36 +1,40 @@
 <div class="container-sidebar">
   <div class="row">
+
   <%# SIDEBAR ------------------------------- %>
     <div class="col-1 sidebar">
-      <nav class="main-menu sidebar-yellow">
+      <nav class="main-menu sidebar-green">
         <%= render "shared/sidebar" %> 
       </nav>
     </div>
-  <%# CONTENT ------------------------------- %>
-    <div class="col-10">
-      <h1 class='text-center mt-5'>Restaurants</h1>
-      <div class="d-flex justify-content-center">
 
-        <div class="card-deck row d-flex">
+  <%# CONTENT ------------------------------- %>
+    <div class="col-11">
+      <h1 class='text-center mt-3'>Restaurants</h1>
+      <div class="d-flex justify-content-center">
+        <div class="line-dark-green"></div>
+      </div>
+      <div class="col-12 border" style="height: 300px; background-size: cover; 
+                                                  background-repeat: no-repeat; border: white 2px solid; background-image: 
+                                                  url('<%= asset_path( 'prato_brasileiro.jpg' ) %>')">
+   
+      </div>
+        <div class="row">
           <% @restaurants.each do |restaurant| %>
-            <div class="col-sm-12 col-md-6 col-lg-4">
-              <div class="card m-3 w-100", style="min-height: 320px;">     
-                <%= link_to restaurant_path(restaurant) do %>  
-                  <div class='card-img-top' style="height: 200px; background-size: cover; 
-                                                  background-repeat: no-repeat; background-image: 
-                                                  url('<%= cl_image_path restaurant.photo.key, 
-                                                  transformation: {crop: "crop", width: 1000, 
-                                                  height: 700} %>')">
+              <div class="col-sm-12 col-md-6 col-lg-4" style="">
+                <%= link_to restaurant_path(restaurant) do %>
+                  <div class="card mt-3 w-100" style="height: 170px; background-color: #243500; padding: 7px;">     
+                    <div class="card-body" style="padding: 7px;">
+                      <h5 class="card-title text-center"><%= restaurant.name %></h5>
+                      <p class="card-text text-center"><%= "#{restaurant.opening_hours}" %></p>
+                      <p class="card-text text-center "><small class=""> <%= restaurant.address %></small></p>
+                      <div class="d-flex justify-content-center">
+                        <p style="background-color: #578000; padding: 3px 10px; color: white; font-size: 0.85rem;">Know more and MAP!</p>
+                      </div>
+                    </div>
                   </div>
                 <% end %>
-                <div class="card-body">
-                  <h5 class="card-title"><%= link_to restaurant.name, restaurant_path(restaurant.id) %></h5>
-                  <p class="card-text text-justify"><%= "#{restaurant.opening_hours}" %></p>
-                  <p class="card-text"><small class="text-muted"> <%= restaurant.address %></small></p>
-                </div>
-                
               </div>
-            </div>
           <% end %>
         </div>
       </div>

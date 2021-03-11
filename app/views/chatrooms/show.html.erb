@@ -1,40 +1,22 @@
 <div class="container d-flex justify-content-center">
   <div class="chat-container">
-
     <h1 class = 'mt-3' id = 'h1-chat-group'>Chat:<%= @chatroom.name %></h1>
     <div id="messages" class = 'mb-3' data-chatroom-id="<%= @chatroom.id %>">
       <% @chatroom.messages.each do |message| %>
-        <div class="message-container ml-3" id="message-<%= message.id %>">
-          <% if message.user == current_user %>
-            <div class="message-to-right message-group-chat">
-            <%else%>
-            <div class="message-to-left message-group-chat">
-          <% end %>
-            <i class="author">
-              <% if current_user.photo.present? %>
-                <%= cl_image_tag current_user.photo.key, :transformation=>[
-                {:width=>550, :height=>550, :gravity=>"face", :radius=>"max", :crop=>"crop"}, {:width=>200, :crop=>"scale"}
-                ], class: "avatar-message", 'aria-haspopup': true, 'aria-expanded': false %>
-              <% else %>
-                <%= image_tag "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg", class: "avatar-message", 'aria-haspopup': true, 'aria-expanded': false %>
-              <% end %>
-              <span class = 'nickname'><%= message.user.nickname %></span>
-              <small class = 'chat-date-hour'><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-            </i>
-            <p class = 'text-message mb-2'><%= message.content %></p>
-          </div>
-        </div>
+        <%= render 'messages/chatroom_message', message: message %>
       <% end %>
     </div>
-
-    <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-      <%= f.input :content,
-                  label: false,
-                  as: :text,
-                  input_html: { 'rows': 3},
-                  placeholder: "write your message here!" %>
-      <%= f.submit "Send message", class: 'btn btn-success mt-3 mb-5 mr-3 btn-create send-message-chat' %>
+    <% if @chatroom.users.include? current_user %>
+      <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+        <%= f.input :content,
+                    label: false,
+                    as: :text,
+                    input_html: { 'rows': 3},
+                    placeholder: "write your message here!" %>
+        <%= f.submit "Send message", class: 'btn btn-success mt-3 mb-5 mr-3 btn-create send-message-chat' %>
+      <% end %>
+    <% else %>  
+      <%= button_to 'Participar da conversa', chatroom_add_member_path(@chatroom) %>
     <% end %>
-
   </div>
 </div>
