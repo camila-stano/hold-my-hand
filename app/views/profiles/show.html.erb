@@ -55,7 +55,12 @@
         <br><br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615335286/HOLD%20MY%20HAND/prize_medal_award_reward_star_256px_mv6cib.png', width: 70, height: 70) %>
         <% x -= 1 %>
       <% end %>
-      
+
+      <% if @profile.document.present? %>
+        <br><br><%= cl_image_tag('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615492956/HOLD%20MY%20HAND/png-transparent-computer-icons-badge-logo-insegna-badge-miscellaneous-text-logo_lxtuwc.png', width: 70, height: 70) %>
+        <% x -= 1 %>
+      <% end %>
+
       <% x.times do %>
       <h1><br><i class="fas fa-certificate"></i></h1>
       <% end %>

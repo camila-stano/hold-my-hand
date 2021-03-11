@@ -18,14 +18,14 @@
   <%# ----------------------- INFO + IMG -------------------------- %>
       <div class="info-show row mt-2">
         <div class="description-show col-sm-12 col-lg-7" style="padding: 2vw;">
-          <p><strong><%= @restaurant.description %></strong></p>
+          <p><%= @restaurant.description %></p>
           <p><strong>Average price: </strong><%= "R$ #{@restaurant.price}" %></p>
           <p><strong>Open: </strong><%= @restaurant.opening_hours %></p>
           <p><strong>Phone: </strong><%= @restaurant.phone %></p>
           <p style="background-color: #578000; padding: 1px 3px; color: white;"><strong>Address: </strong><%= @restaurant.address %></p>
           <%# <p><strong>Official site: </strong><%= link_to "#{@restaurant.link}", @restaurant.link, target: :_blank %></p> 
 
-          <%= link_to 'Are you at GRU Airport and need help with your first steps? Click here!', shelter_map_path(@restaurant.id), class: 'btn btn-primary w-100', style: "background-color: #243500;" %>
+          <%# link_to 'Are you at GRU Airport and need help with your first steps? Click here!', shelter_map_path(@restaurant.id), class: 'btn btn-primary w-100', style: "background-color: #243500;" %>
         </div>
         <div class='col-sm-12 col-lg-5 d-flex justify-content-center align-items-center w-100' style="">
                     <img src="<%= asset_path( 'prato_brasileiro.jpg' ) %>" style="max-height: 600px; max-width: 500px; padding: 20px;" alt="">
