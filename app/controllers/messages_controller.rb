@@ -7,12 +7,17 @@ class MessagesController < ApplicationController
     if @message.save
       ChatroomChannel.broadcast_to(
         @chatroom,
-        render_to_string(partial: "message", locals: { message: @message })
+        if @chatroom.direct
+          render_to_string(partial: "javascript_message_to_send", locals: { message: @message })
+        else
+          render_to_string(partial: "chatroom_message", locals: { message: @message })
+        end
       )
       # redirect_to chatroom_path(@chatroom, anchor: "message-#{@message.id}") #Isso quebra o ajax e faz a página recarregar
     else
       render "chatrooms/show"
     end
+      redirect_to direct_path(@chatroom)
   end
 
   private
