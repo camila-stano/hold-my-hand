@@ -1,7 +1,6 @@
 class DirectsController < ApplicationController
-  def show
-    @chatroom = Chatroom.find(params[:id])
-    @chatrooms = ChatMember.includes(:chatroom).where(chatrooms: {direct: true}).where(user: current_user) 
+  def index
+    @chatrooms = current_user.chatrooms.where(direct: true)
     @message = Message.new
   end
 
