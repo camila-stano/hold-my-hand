@@ -29,7 +29,7 @@
     <% direct_user = direct.chatroom.chat_members.reject{|direct| direct.user == current_user}.first.user %>
     <div>
       <%= render "directs/avatar/talking_user", talking_user: direct_user %>
-      <%=link_to direct_path(direct) do %> 
+      <%=link_to direct_path(direct.chatroom_id) do %> 
         <%= direct_user.nickname %>
       <%end%>
       <hr class = 'hr-direct'>
