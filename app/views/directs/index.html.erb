@@ -1,0 +1,19 @@
+<div class="row" data-controller='direct'>
+  <div class="col-3 mt-3" >
+    <div class="nav flex-column nav-pills direct-column">
+      <h4 class = 'h4-chatroom'> Conversas </h4>
+        <% @chatrooms.each do |direct| %>
+          <% direct_user = direct.chat_members.reject{|direct| direct.user == current_user}.first.user %>
+          <a class="nav-link" data-action='click->direct#show' data-direct-target='direct' data-direct-chat-value="#{direct.id}" >
+            <%= render "chatrooms/avatar/talking_user", talking_user: direct_user %>
+            <%= direct_user.nickname %>
+          </a>
+        <% end %>
+    </div>
+  </div>
+  <div class="col-9">
+    <div class="tab-content" data-direct-target='containerDirect'>
+      <p>conteúdo</p>
+    </div>
+  </div>
+</div>

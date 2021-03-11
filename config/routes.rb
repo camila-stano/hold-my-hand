@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     root to: 'pages#home'
     devise_for :users, skip: :omniauth_callbacks
     
-    resources :profiles, except: [:index, :delete]
+    resources :profiles, except: [:delete]
 
     resources :restaurants, only: [:index, :show]
     
@@ -27,9 +27,9 @@ Rails.application.routes.draw do
       post '/add_member', to: 'chatrooms#add_member', as: :add_member
     end
     
-    resources :directs, only: :show
+    resources :directs, only: [:index, :show]
     resources :chatrooms, only: [:index, :new, :create]
-    post '/create_direct', to: 'directs#create_direct', as: :create_direct
+    post ':id/create_direct', to: 'directs#create_direct', as: :create_direct
     get '/maps', to: 'pages#maps', as: :maps
     
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
