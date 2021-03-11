@@ -142,19 +142,19 @@
 }
 
 .banner-document-light {
-  width: 100vw;
+  width: 83,33vw;
   height: 330px;
-  padding: 10px 100px 10px 50px;
-  background-color: #fdfdfd;
+  padding: 10px 30px ;
+  background-color: $hmh-blue;
   text-align: center;
-  color: rgb(110, 110, 110);
+  color: #fdfdfd;
 }
 
 .banner-document-darkness {
-  width: 100vw;
+  width: 83,33vw;
   height: 330px;
   padding: 10px 100px 10px 50px;
-  background-color: rgb(179, 179, 179);
+  background-color: $hmh-blue;
   text-align: center;
   color: #fdfdfd;
 }
@@ -188,6 +188,6 @@
 //<-----------------------------Banner Lawyers ----------------------------->
 
 .banner-documents:hover{
-  background-color: #16181F;
-  color: wheat;
+  // background-color: #16181F;
+  // color: wheat;
 }
