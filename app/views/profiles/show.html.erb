@@ -53,7 +53,7 @@
 
     <div class="row m-3 mt-5 d-flex justify-content-end">    
       <% if current_user != @profile %>
-        <%= link_to "Talk to #{@profile.first_name}", profiles_path(@profile), class: 'btn btn-outline-dark mr-3' %>
+        <%= link_to "Talk to #{@profile.first_name}", create_direct_path({user_id: @profile.id}), method: :post, class: 'btn btn-outline-dark mr-3' %>
       <% end %> 
     </div>
 
