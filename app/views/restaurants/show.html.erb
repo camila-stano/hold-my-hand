@@ -1,38 +1,54 @@
-<div class="container">
-<%# ------------------------- TITLE ----------------------------- %>
-  <div class="show-title my-5">
-    <h2><%= @restaurant.name %><h2>
-  </div>
-<%# ----------------------- INFO + IMG -------------------------- %>
-  <div class="info-show row">
-    <div class="description-show col-sm-12 col-lg-6 ">
-      <p><%= @restaurant.description %></p>
-      <p><%= "Open: #{@restaurant.opening_hours}" %></p>
-      <p><%= "Average price: #{@restaurant.price}" %></p>
-      <p><%= "Phone #{@restaurant.phone}" %></p>
-      <p><%= "Address: #{@restaurant.address}" %></p>
+<div class="container-sidebar">
+  <div class="row">
+  <%# SIDEBAR ------------------------------- %>
+    <div class="col-1 sidebar">
+      <nav class="main-menu sidebar-green">
+        <%= render "shared/sidebar" %> 
+      </nav>
     </div>
-    
-    <div class="col-sm-12 col-lg-6" style="background-size: cover; background-repeat: no-repeat;
-                                           background-image: url('<%= cl_image_path @restaurant.photo.key,
-                                           transformation: [{crop: "crop", width: 1000, height: 700}] %>')">
+  <%# CONTENT ------------------------------- %>
+    <div class="col-11">
+  <%# ------------------------- TITLE ----------------------------- %>
+      <div class="show-title mt-5">
+        <h2><%= @restaurant.name %><h2>
+        <div class="d-flex justify-content-center">
+          <div class="line-dark-green"></div>
+        </div>
+      </div>
+  <%# ----------------------- INFO + IMG -------------------------- %>
+      <div class="info-show row mt-2">
+        <div class="description-show col-sm-12 col-lg-7" style="padding: 2vw;">
+          <p><strong><%= @restaurant.description %></strong></p>
+          <p><strong>Average price: </strong><%= "R$ #{@restaurant.price}" %></p>
+          <p><strong>Open: </strong><%= @restaurant.opening_hours %></p>
+          <p><strong>Phone: </strong><%= @restaurant.phone %></p>
+          <p style="background-color: #578000; padding: 1px 3px; color: white;"><strong>Address: </strong><%= @restaurant.address %></p>
+          <%# <p><strong>Official site: </strong><%= link_to "#{@restaurant.link}", @restaurant.link, target: :_blank %></p> 
+
+          <%= link_to 'Are you at GRU Airport and need help with your first steps? Click here!', shelter_map_path(@restaurant.id), class: 'btn btn-primary w-100', style: "background-color: #243500;" %>
+        </div>
+        <div class='col-sm-12 col-lg-5 d-flex justify-content-center align-items-center w-100' style="">
+                    <img src="<%= asset_path( 'prato_brasileiro.jpg' ) %>" style="max-height: 600px; max-width: 500px; padding: 20px;" alt="">
+        </div>
+        
+      </div>  
+
+  <%# -------------------------- MAPA ----------------------------- %>
+
+      <div class="map-show my-4 d-flex justify-content-center">
+        <div id="map"
+          style="width: 100%; height: 520px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+          data-route='show'>      
+        </div>   
+      </div>
+
+  <%# ------- LINK PARA O MAPA GERAL QUE TEM TODOS OS ABRIGOS E RESTAURANTES -------- %> 
+      <div class="d-flex justify-content-end my-3">    
+        <%= link_to "Veja o mapa completo", maps_path, class: 'btn btn-primary' %>
+      </div>
+      
     </div>
   </div>
-
-<%# -------------------------- MAPA ----------------------------- %>
-
-  <div class="map-show my-5 d-flex justify-content-center">
-    <div id="map"
-      style="width: 90%; height: 520px; box-shadow: none;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-      data-route='show'>
-    </div>   
-  </div>
-
-<%# ------- LINK PARA O MAPA GERAL QUE TEM TODOS OS ABRIGOS E RESTAURANTES -------- %> 
-  <div class="d-flex justify-content-end my-3">    
-    <%= link_to "Veja o mapa completo", maps_path, class: 'btn btn-success' %>
-  </div>  
 </div>
-

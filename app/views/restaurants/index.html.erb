@@ -23,8 +23,8 @@
           <% @restaurants.each do |restaurant| %>
               <div class="col-sm-12 col-md-6 col-lg-4" style="">
                 <%= link_to restaurant_path(restaurant) do %>
-                  <div class="card mt-3 w-100" style="height: 150px; background-color: #243500; padding: 10px;">     
-                    <div class="card-body">
+                  <div class="card mt-3 w-100" style="height: 170px; background-color: #243500; padding: 7px;">     
+                    <div class="card-body" style="padding: 7px;">
                       <h5 class="card-title text-center"><%= restaurant.name %></h5>
                       <p class="card-text text-center"><%= "#{restaurant.opening_hours}" %></p>
                       <p class="card-text text-center "><small class=""> <%= restaurant.address %></small></p>
