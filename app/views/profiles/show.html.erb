@@ -24,9 +24,9 @@
           <div class="text-center m-3 profile-name">
             <h5><%= @profile.first_name %> <%= @profile.last_name %></h5>
             <% if current_user == @profile %>
-              <br><%= link_to "Tell more about yourself", new_profile_path, class: 'btn btn-outline-primary' %>
+              <br><%= link_to "Tell more about yourself", new_profile_path, class: 'btn btn-primary' %>
             <% else %>
-              <br><%= link_to "Talk to #{@profile.first_name}", profiles_path(@profile), class: 'btn btn-outline-primary' %>
+              <br><%= link_to "Talk to #{@profile.first_name}", profiles_path(@profile), class: 'btn btn-primary' %>
             <% end %>
           </div>
         </div>
