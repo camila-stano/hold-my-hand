@@ -143,7 +143,7 @@
 
 .banner-document-light {
   width: 83,33vw;
-  height: 330px;
+  min-height: 330px;
   padding: 10px 30px ;
   background-color: $hmh-blue;
   text-align: center;
@@ -152,7 +152,7 @@
 
 .banner-document-darkness {
   width: 83,33vw;
-  height: 330px;
+  min-height: 330px;
   padding: 10px 100px 10px 50px;
   background-color: $hmh-blue;
   text-align: center;
