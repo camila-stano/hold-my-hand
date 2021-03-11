@@ -35,7 +35,7 @@
 
   <div class="grid  js-masonry container-reviews">
     <% @lawyer.reviews.each do |review| %>
-      <div class="col-6 cards-review">
+      <div class="col-6 cards-review grid-item">
         <%= link_to do %>
           <% if review.content.present? %>
             <div class="card m-3">
