@@ -5,6 +5,10 @@ class DirectsController < ApplicationController
     @message = Message.new
   end
 
+  def index
+    @chatrooms = ChatMember.includes(:chatroom).where(chatrooms: {direct: true}).where(user: current_user) 
+  end
+
   def create_direct
     @user = User.find(params[:user_id])
     if Chatroom.where( name: ["chat-#{@user.id}-#{current_user.id}","chat-#{current_user.id}-#{@user. id}"]).empty?
