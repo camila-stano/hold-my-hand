@@ -94,6 +94,19 @@
               </div>
             <% end %>
           </div>
+          
+
+          <div class="row m-3 icon-description">
+            <% if @profile.language.present? %>
+              <div class="col-1 text-center">
+                <h3><i class="fas fa-birthday-cake"></i></h3>
+              </div>
+              <div class="col-9">
+                <h3><%= "#{@profile.age} years old" %></h3>
+              </div>
+            <% end %>
+          </div>
+          
 
           <div class="row m-3 icon-description">
             <% if @profile.arrived.present? %>
