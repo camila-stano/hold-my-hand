@@ -10,19 +10,19 @@
     </div>
     <div class="col-11">
     <%# TITLE -------------------------- %>
-      <div class="box-title mt-5">
+      <div class="box-title mt-3">
         <%= image_tag 'logo.png', width: 400  %>
         <h5> <%= t '.sub-logo' %> </h5>
       </div>
   
     <%# ICONS -------------------------- %>
-      <div class="row d-flex justify-content-center flex-wrap mt-5">
+      <div class="row d-flex justify-content-center flex-wrap mt-3">
        
         <div class=" home-icon mx-4">
           <%= link_to shelters_path do %>
             <div class="show-text">
               <div class="row d-flex justify-content-center">
-                  <i class="fas fa-home bg-icon i-med" ></i> 
+                  <i class="fas fa-home bg-icon-dark-blue bg-icon-yellow-h i-med-user" ></i>
               </div> 
               <div class="row d-flex justify-content-center ">
                 <h5 style="display:none;"><%= t '.find-a-place-to-stay' %></h5>
@@ -35,7 +35,7 @@
           <%= link_to restaurants_path do %>
             <div class="show-text">
               <div class="row d-flex justify-content-center">
-                  <i class="fas fa-utensils bg-icon i-med" ></i> 
+                  <i class="fas fa-utensils bg-icon-dark-blue bg-icon-green-h i-med-user" ></i> 
               </div> 
               <div class="row d-flex justify-content-center">
                 <h5 style="display:none;"><%= t '.where-to-eat' %></h5>
@@ -48,7 +48,7 @@
           <%= link_to maps_path do %>
             <div class="show-text">
               <div class="row d-flex justify-content-center">
-                  <i class="fas fa-map-marker-alt bg-icon i-med" ></i> 
+                  <i class="fas fa-map-marker-alt bg-icon-dark-blue bg-icon-orange-h i-med-user" ></i> 
               </div> 
               <div class="row d-flex justify-content-center">
                 <h5 style="display:none;"><%= t '.map' %></h5>
@@ -61,7 +61,7 @@
           <%= link_to lawyers_path do %>
             <div class="show-text">
               <div class="row d-flex justify-content-center">
-                  <i class="fas fa-gavel bg-icon i-med" ></i> 
+                  <i class="fas fa-gavel bg-icon-dark-blue bg-icon-dark-green-h i-med-user" ></i> 
               </div> 
               <div class="row d-flex justify-content-center">
                 <h5 style="display:none;"><%= t '.find-a-good-lawyer' %></h5>
@@ -74,7 +74,7 @@
           <%= link_to documents_path do %>
             <div class="show-text">
               <div class="row d-flex justify-content-center">
-                  <i class="fas fa-passport bg-icon i-med" ></i> 
+                  <i class="fas fa-passport bg-icon-dark-blue bg-icon-blue-h i-med-user" ></i> 
               </div> 
               <div class="row d-flex justify-content-center">
                 <h5 style="display:none;"><%= t '.first-documents' %></h5>
@@ -87,7 +87,7 @@
           <%= link_to root_path do %> <%# Link para chats quando tiver  %>
             <div class="show-text">
               <div class="row d-flex justify-content-center">
-                  <i class="fas fa-comments bg-icon i-med" ></i> 
+                  <i class="fas fa-comments bg-icon-dark-blue bg-icon-red-h i-med-user" ></i> 
               </div> 
               <div class="row d-flex justify-content-center">
                 <h5 style="display:none;"><%= t '.community' %></h5>
@@ -97,7 +97,7 @@
         </div>
         
         <div class="row w-100 d-flex justify-content-center m-5">
-          <h2 id="icon-label"> <%= t '.select-option'%> </h2>
+          <h2 id="icon-label" class="user-choose"> <%= t '.select-option'%> </h2>
         </div>
       </div>
     </div>
