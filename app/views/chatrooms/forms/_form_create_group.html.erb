@@ -13,12 +13,14 @@
       <div class='col-12'>
         <p class = 'mb-0'>Group picture</p>
         <%= f.input :photo, as: :file, 
-                    label: false,
+                    label: 'group photo',
+                    input_html: { class: 'd-none' }, 
+                    label_html: { class: 'upload-photo'},
                     class: 'btn btn-outline-secondary btn-photo' %>
       </div>
   
       <div class='col-12'>
-        <%= f.button :submit, "Create group", class: 'btn btn-outline-primary rounded w-100' %>
+        <%= f.button :submit, "Create group", class: 'btn btn-secondary rounded w-100' %>
       </div>
     </div>
   </div>
