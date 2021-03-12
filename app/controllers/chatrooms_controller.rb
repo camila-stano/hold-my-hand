@@ -1,7 +1,7 @@
 class ChatroomsController < ApplicationController
   
   def index
-    @chatrooms = Chatroom.all
+    @chatrooms = Chatroom.where(direct: false)
     @last_message = Message.last #ajusta para pegar a última mensagem do site e não a última mensagem de todas
     @chatroom = Chatroom.new
   end
@@ -9,7 +9,7 @@ class ChatroomsController < ApplicationController
   def show
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
-    @chatrooms = Chatroom.all
+    @chatrooms = Chatroom.where(direct: false)
     @last_message = Message.last #ajusta para pegar a última mensagem do site e não a última mensagem de todas
   end
   
