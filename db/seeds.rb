@@ -54,7 +54,7 @@ puts '-----------------------------'
 
 file = URI.open('https://res.cloudinary.com/duljyugvt/image/upload/v1615339360/acnur_logo_hqmxgb.png')
 map_file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615313692/HOLD%20MY%20HAND/ACNUR_ucayby.png')
-shelter = Shelter.create!(name: "Acnur", address: "Largo Páteo do Colégio, 148, Centro Histórico de São Paulo, São Paulo", phone: "(11) 3101-2921", opening_hours: "Não informado", description: "UNHCR, the UN Refugee Agency, is a global organization dedicated to saving lives, protecting rights and building a better future for refugees, forcibly displaced communities and stateless people.", link: "https://www.unhcr.org/")
+shelter = Shelter.create!(name: "Acnur", address: "Largo Páteo do Colégio, 148, Centro Histórico de São Paulo, São Paulo", phone: "(11) 3101-2921", opening_hours: "08am - 10pm", description: "UNHCR, the UN Refugee Agency, is a global organization dedicated to saving lives, protecting rights and building a better future for refugees, forcibly displaced communities and stateless people.", link: "https://www.unhcr.org/")
 puts "Shelter Acnur created"
 puts '-----------------------------'
 shelter.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png') 
@@ -64,7 +64,7 @@ shelter.map.attach(io: map_file, filename: 'nes.png', content_type: 'image/png')
 
 file = URI.open('https://res.cloudinary.com/duljyugvt/image/upload/v1615339251/miss%C3%A3o_paz_xlebge.png')
 map_file = URI.open('https://res.cloudinary.com/dn6lyapiu/image/upload/v1615314635/HOLD%20MY%20HAND/Miss%C3%A3o_Paz_SP_tkbxgi.png')
-shelter = Shelter.create!(name: "Missão Paz São Paulo", address: "Rua Glicério, 225, Liberdade, São Paulo", phone: "(11) 3340-6950", opening_hours: "Não informado", description: "Missão Paz is a philanthropic institution that supports and welcomes immigrants and refugees in the city of São Paulo. Belonging to the Scalabrinian missionaries, it has been working for the migrant public since the thirties of the twentieth century.", link: "http://www.missaonspaz.org/")
+shelter = Shelter.create!(name: "Missão Paz São Paulo", address: "Rua Glicério, 225, Liberdade, São Paulo", phone: "(11) 3340-6950", opening_hours: "08am - 10pm", description: "Missão Paz is a philanthropic institution that supports and welcomes immigrants and refugees in the city of São Paulo. Belonging to the Scalabrinian missionaries, it has been working for the migrant public since the thirties of the twentieth century.", link: "http://www.missaonspaz.org/")
 
 puts "Shelter Missão Paz São Paulo created"
 puts '-----------------------------'
