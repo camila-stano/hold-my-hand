@@ -21,13 +21,14 @@
 
 .btn-back a {
   text-decoration: none;
-  color: wheat;
+  color: whitesmoke;
+  font-size: 14px;
 }
 
 .btn-back a:hover {
   text-decoration: none;
-  background-color: wheat;
-  color: #16181F;
+  background-color: $hmh-green;
+  color: white;
 }
 
 .facebook-button{

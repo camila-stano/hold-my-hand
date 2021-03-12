@@ -22,7 +22,7 @@
           <%= link_to shelters_path do %>
             <div class="show-text">
               <div class="row d-flex justify-content-center">
-                  <i class="fas fa-home bg-icon i-med" ></i> 
+                  <%= image_tag "icone-casa.png", width: 195, class: 'bg-icon' %>
               </div> 
               <div class="row d-flex justify-content-center ">
                 <h5 style="display:none;"><%= t '.find-a-place-to-stay' %></h5>
@@ -118,7 +118,7 @@
       <div class="row d-flex justify-content-around">
         <div class="col-4 text-center">
           <%= link_to shelters_path do %>
-            <i class="fas fa-home bg-icon i-med" ></i> 
+            <%= image_tag "icone-casa.png", width: 195, class: 'bg-icon' %>
           <% end %>
           <h5><%= t '.find-a-place-to-stay' %></h5>
         </div> 
