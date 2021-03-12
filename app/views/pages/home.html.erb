@@ -8,7 +8,7 @@
     <div class="col-1 outer">
       <h1 class="inner"> <%= t '.let-us-take-you' %> <h1>
     </div>
-    <div class="col-11 background-home">
+    <div class="col-11">
     <%# TITLE -------------------------- %>
       <div class="box-title mt-3">
         <%= image_tag 'logo.png', width: 400  %>
@@ -18,7 +18,7 @@
     <%# ICONS -------------------------- %>
       <div class="row d-flex justify-content-center flex-wrap mt-3">
        
-        <div class="home-icon mx-4">
+        <div class=" home-icon mx-4">
           <%= link_to shelters_path do %>
             <div class="show-text">
               <div class="row d-flex justify-content-center">
@@ -31,7 +31,7 @@
           <% end %>
         </div> 
 
-        <div class="home-icon mx-4">
+        <div class=" home-icon mx-4">
           <%= link_to restaurants_path do %>
             <div class="show-text">
               <div class="row d-flex justify-content-center">
@@ -115,27 +115,26 @@
       </div>
 
   <%# ICONS -------------------------- %>
-      <div class="row d-flex justify-content-around">
-
+      <div class="row d-flex justify-content-around mt-3">
         <div class="col-4 text-center">
-          <%= link_to maps_path do %>
-            <%= image_tag 'gps.png', class: "bg-icon bg-icon-blue i-med" %> 
+          <%= link_to shelters_path do %>
+            <i class="fas fa-home bg-icon bg-icon-dark-blue i-med" ></i> 
+          <h5 class="text-btn-home-orange"><%= t '.find-a-place-to-stay' %></h5>
           <% end %>
-          <h5><%= t '.map' %></h5>
         </div> 
 
         <div class="col-4 text-center">
-          <%= link_to shelters_path do %>
-            <%= image_tag "icone-casa.png", class: 'bg-icon bg-icon-orange' %>
-          <h5 class="text-icon-orange"><%= t '.find-a-place-to-stay' %></h5>
+          <%= link_to maps_path do %>
+            <i class="fas fa-map-marker-alt bg-icon bg-icon-dark-blue i-med" ></i>
+          <h5 class="text-btn-home-orange"><%= t '.map' %></h5>
           <% end %>
         </div> 
 
         <div class="col-4 text-center">
           <%= link_to restaurants_path do %>
-            <%= image_tag 'restaurant.png', class: "bg-icon bg-icon-green i-med" %> 
+            <i class="fas fa-utensils bg-icon bg-icon-dark-blue i-med" ></i> 
+          <h5 class="text-btn-home-orange"><%= t '.where-to-eat' %></h5>
           <% end %>
-          <h5><%= t '.where-to-eat' %></h5>
         </div> 
       </div>
 
@@ -156,27 +155,12 @@
       </div>
     </div>
   </div>
-
   <%#------------------ MORE INFORMATIONS ABOUT ACCESS AFTER LOGIN ------------------------ %>
-
-  <div class="banner-content-arrow d-flex justify-content-center ">
-    <div class="row d-flex box-title align-items-center">
-      <div class='col-8'>
-        <h4> <%= t '.you-can-count-on-us' %> <BR> <%= t '.see-more' %>  </h4>
-      </div>
-      <div class='col-4'>
-        <%= cl_image_tag("giphy_qo8prn", width: 180, height: 180, crop: :fill) %>
-      </div>
-    </div>
-  </div>
-
-
-
 
 
   <%# COMMUNIT -------------------------- %>
   <%= link_to shelters_path do %>
-  <div class="banner-content-light d-flex justify-content-around">
+  <div class="banner-orange d-flex justify-content-around">
     <div class="row d-flex justify-content-around align-content-center w-100 ">
       <div class="col-4 text-center ">
           <i class="fas fa-comments i-large"></i>
@@ -190,7 +174,7 @@
 
   <%# DOCUMENTS -------------------------- %>
   <%= link_to documents_path do %>
-  <div class="banner-content-darkness d-flex justify-content-around">
+  <div class="banner-blue d-flex justify-content-around">
     <div class="row d-flex justify-content-around align-content-center w-100 ">
       <div class="col-7 d-flex align-content-center justify-content-around flex-wrap">
         <h1><%= t '.how-to-get-your-first-brazilian-documents' %> </h1>
@@ -205,7 +189,7 @@
   <%# LAWYERS -------------------------- %>
 
   <%= link_to lawyers_path do %>
-  <div class="d-flex justify-content-around banner-content-light">
+  <div class="banner-green d-flex justify-content-around">
     <div class="row align-items-center w-100 ">
       <div class="col-4 text-center">
           <i class="fas fa-gavel i-large"></i>
