@@ -1,8 +1,21 @@
-<div class="container form-container my-5">
-    <h2 class='text-center title-form'>Leave a Review</h2>
-    <%= simple_form_for [@lawyer, @review] do |f| %>
-      <%= f.input :content %>
-      <%= f.input :rating, collection: [0, 1, 2, 3, 4, 5] %>
-      <%= f.submit class: 'btn btn-dark mb-3' %>
-    <% end %>
+<div class="container-sidebar">
+  <div class="row content-col-profile">
+  <%# SIDEBAR ------------------------------- %>
+    <div class="col-1 sidebar">
+      <nav class="main-menu sidebar-green">
+        <%= render "shared/sidebar" %> 
+      </nav>
+    </div>
+  <%# CONTENT ------------------------------- %>
+    <div class="col-11 d-flex">
+      <div class="container form-container my-5">
+          <h2 class='text-center title-form mb-4'>Leave a Review</h2>
+          <%= simple_form_for [@lawyer, @review] do |f| %>
+            <%= f.input :content %>
+            <%= f.input :rating, collection: [0, 1, 2, 3, 4, 5] %>
+            <%= f.submit class: 'btn btn-primary btn-sm mb-3 w-100' %>
+          <% end %>
+      </div>
+    </div>
+  </div>
 </div>

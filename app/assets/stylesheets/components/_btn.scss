@@ -21,13 +21,14 @@
 
 .btn-back a {
   text-decoration: none;
-  color: wheat;
+  color: whitesmoke;
+  font-size: 14px;
 }
 
 .btn-back a:hover {
   text-decoration: none;
-  background-color: wheat;
-  color: #16181F;
+  background-color: $hmh-green;
+  color: white;
 }
 
 .facebook-button{
@@ -112,4 +113,24 @@
   padding: 3px 10px; 
   color: white; 
   font-size: 0.85rem;
+}
+
+.upload-photo {
+  padding: 3px 10px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 15px;
+  width: 100%;
+  background: $hmh-orange;
+  color: white;
+  text-align: center;
+}
+
+.cancel-btn {
+  color: $hmh-green;
+  font-size: 12px;
+}
+
+.cancel-btn:hover {
+  color: $hmh-dark-green;
 }

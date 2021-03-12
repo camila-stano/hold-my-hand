@@ -1,5 +1,19 @@
-<div class="container text-center">
-  <% if @shelter.map.attached? %>
-    <%= cl_image_tag @shelter.map.key, class: 'img-fluid w-50 my-5' %>
-  <% end %>
+
+<div class="container-sidebar">
+  <div class="row">
+  <%# SIDEBAR ------------------------------- %>
+    <div class="col-1 sidebar">
+      <nav class="main-menu sidebar-yellow">
+        <%= render "shared/sidebar" %> 
+      </nav>
+    </div>
+  <%# CONTENT ------------------------------- %>
+    <div class="col-11">
+      <div class="container text-center">
+        <% if @shelter.map.attached? %>
+          <%= cl_image_tag @shelter.map.key, class: 'img-fluid w-50 my-3' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

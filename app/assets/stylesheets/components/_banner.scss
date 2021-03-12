@@ -3,7 +3,7 @@
 .banner {
   width: 100vw;
   min-height: 100vh;
-  background-color: #C4C4C4;
+  background-color: whitesmoke;
   text-align: center;
   color: white;
 }
@@ -154,11 +154,12 @@
 }
 
 .banner-review {
-  width: 100%;
+  width: 97.3%;
   height: 30vh;
-  background-color: #16181F;
+  background-color: $hmh-dark-green;
   text-align: center;
-  color: wheat;
+  color: whitesmoke;
+  margin: 15.5px;
 }
 
 .review-content h4 {
