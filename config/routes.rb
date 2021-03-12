@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     end
 
     resources :schools, only: [:index, :show]
-    resources :documents, only: [:index, :show]
+    resources :documents, only: [:index]
     resources :communications, only: [:index, :show]
     resources :chatrooms, only: [:index, :new, :create]
 

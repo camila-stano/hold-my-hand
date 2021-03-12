@@ -57,7 +57,7 @@
               <% else %>
                 <%= image_tag "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <% end %>
-              <%= link_to chatroom_path(chatroom, anchor: "message-#{@last_message.id}") do %> 
+              <%= link_to chatroom_path(chatroom) do %> 
                 <span class="ml-2"><%= chatroom.name %></span>
               <%end%>
             </div>
