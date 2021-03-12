@@ -16,6 +16,6 @@ class DirectsController < ApplicationController
       ChatMember.create(chatroom: @chatroom, user: current_user)
       ChatMember.create(chatroom: @chatroom, user: @user)
     end
-    redirect_to @chatroom
+    redirect_to direct_path(@chatroom)
   end
 end

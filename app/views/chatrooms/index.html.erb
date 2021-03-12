@@ -10,7 +10,7 @@
       <div>
       <%@chatrooms.each do |chatroom|%>
         <div>
-          <%= link_to chatroom_path(chatroom, anchor: "message-#{@last_message.id}") do %> 
+          <%= link_to chatroom_path(chatroom) do %> 
             <%= chatroom.name %>
           <%end%>
         </div>

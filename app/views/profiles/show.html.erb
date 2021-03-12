@@ -26,7 +26,7 @@
             <% if current_user == @profile %>
               <br><%= link_to "Tell more about yourself", new_profile_path, class: 'btn btn-primary' %>
             <% else %>
-              <br><%= link_to "Talk to #{@profile.first_name}", profiles_path(@profile), class: 'btn btn-primary' %>
+              <br><%= link_to "Talk to #{@profile.first_name}", create_direct_path({user_id: @profile.id}), method: :post, class: 'btn btn-primary' %>
             <% end %>
           </div>
         </div>
