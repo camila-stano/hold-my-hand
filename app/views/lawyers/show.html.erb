@@ -68,7 +68,7 @@
                 <div class="card cards-review col-5 m-3">
                   <%= link_to profile_path(review.user_id) do %>    
                     <div class="card-header" style="text_decoration: none; color: black;">
-                      <p class="card-text d-flex justify-content-between review-card"><i> <%= current_user.first_name %></i><%= '⭐' * review.rating %></p>
+                      <p class="card-text d-flex justify-content-between review-card"><i> <%= review.user.first_name %></i><%= '⭐' * review.rating %></p>
                     </div>
                   <% end %>
                   <% if review.content.present? %>
