@@ -52,7 +52,7 @@
                   <div class="card m-3">
                   <%= link_to profile_path(review.user_id) do %>
                     <div class="card-header card-header-review">
-                      <p class="card-text d-flex justify-content-between review-card"><i> <%= current_user.first_name %></i><%= '⭐' * review.rating %></p>
+                      <p class="card-text d-flex justify-content-between review-card"><i> <%= @profile.first_name %></i><%= '⭐' * review.rating %></p>
                     </div>
                   <% end %>
                     <div class="card-body" id="card-review-text">
@@ -73,7 +73,7 @@
                   <div class="card m-3">
                     <%= link_to profile_path(review.user_id) do %>    
                       <div class="card-header card-header-review">
-                        <p class="card-text d-flex justify-content-between review-card"><i> <%= current_user.first_name %></i><%= '⭐' * review.rating %></p>
+                        <p class="card-text d-flex justify-content-between review-card"><i> <%= @profile.first_name %></i><%= '⭐' * review.rating %></p>
                       <div class="btn-edit-delete-container">
                     <% end %>
                       <% if current_user == review.user %>
