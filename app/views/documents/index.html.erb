@@ -13,9 +13,10 @@
           <div class="row d-flex align-items-center">
             <div class='col-md-12 col-lg-7 description-document  text-justify'>
               <h4><%= document.document_type %></h4>
-              <h6><%= document.description %></h6>
-              <h6><strong>Required documents:</strong> <%= document.required_docs %></h6>
-              <a href="<% document.url_agency %>" class="btn btn-secondary btn-sm"> Online Apply</a>
+              <p style="font-size: 14px"><%= document.description %></p>
+              <p style="font-size: 14px"><strong>Required documents:</strong> <%= document.required_docs %></p>
+              <span class = 'btn btn-secondary' ><%=link_to "Online apply", document.url_agency, style: "color: white"%></span></p>
+
               <p></p>
             </div>
             <div class='col-md-12 col-lg-5 description-document mb-4'>
@@ -33,9 +34,9 @@
             </div>
             <div class='col-md-12 col-lg-7 description-document  text-justify'>
               <h4><%= document.document_type %></h4>
-              <h6><%= document.description %></h6>
-              <h6><strong>Required documents:</strong> <%= document.required_docs %></h6>
-              <a href="<% document.url_agency %>" class="btn btn-secondary btn-sm"> Online Apply</a>
+              <p style="font-size: 14px"><%= document.description %></p>
+              <p style="font-size: 14px"><strong>Required documents:</strong> <%= document.required_docs %></p>
+              <span class = 'btn btn-secondary' ><%=link_to "Online apply", document.url_agency, style: "color: white"%></span></p>
             </div>
           </div>
         </div>
