@@ -38,7 +38,6 @@ class MessagesController < ApplicationController
     else
       render "chatrooms/show"
     end
-      redirect_to direct_path(@chatroom)
   end
 
 
