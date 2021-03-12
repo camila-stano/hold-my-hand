@@ -17,7 +17,6 @@
       <div class="col-12 border" style="height: 300px; background-size: cover; 
                                                   background-repeat: no-repeat; border: white 2px solid; background-image: 
                                                   url('<%= asset_path( 'prato_brasileiro.jpg' ) %>')">
-   
       </div>
         <div class="row">
           <% @restaurants.each do |restaurant| %>
@@ -26,8 +25,8 @@
                   <div class="card mt-3 w-100" style="height: 170px; background-color: #243500; padding: 7px;">     
                     <div class="card-body" style="padding: 7px;">
                       <h5 class="card-title text-center"><%= restaurant.name %></h5>
-                      <p class="card-text text-center"><%= "#{restaurant.opening_hours}" %></p>
-                      <p class="card-text text-center "><small class=""> <%= restaurant.address %></small></p>
+                      <p class="card-text-restaurants text-center"><%= "#{restaurant.opening_hours}" %></p>
+                      <p class="card-text-restaurants text-center "><small class=""> <%= restaurant.address %></small></p>
                       <div class="d-flex justify-content-center">
                         <p style="background-color: #578000; padding: 3px 10px; color: white; font-size: 0.85rem;">Find out more about it and MAP!</p>
                       </div>

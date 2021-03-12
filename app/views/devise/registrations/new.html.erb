@@ -44,28 +44,22 @@
                 label: false %>
     <%= f.input :origin,
                 placeholder: 'Origin',
-                label: false %>
-    
-    
+                label: false %>    
     <%= f.input :photo, as: :file, 
-                label: false %>
-                
+                placeholder: 'Profile Picture',
+                input_html: { class: 'd-none' }, 
+                label_html: { class: 'upload-photo'},
+                label: 'Choose a profile photo' %>           
   </div>
- 
-    <div class="row align-items-center mt-3">
-      <div class='col-sm-12 col-lg-6 d-flex justify-content-end btn-form-l'>
-        <%= f.button :submit, "Sign up", class: 'btn btn-outline-primary rounded w-100' %>
-      </div>
-      <div class='col-sm-12 col-lg-6 d-flex justify-content-left btn-form-r'>      
-        <%= link_to "Log in", new_session_path(resource_name), class: 'btn btn-outline-primary rounded w-100' %>
-      </div>
-    </div>
-
+  <hr>
+  
+  <%= f.button :submit, "Sign up", class: 'btn btn-success w-100' %>
+  <%= link_to "Already have an account? Log in!", new_session_path(resource_name), class: 'btn cancel-btn w-100' %>
+  
   <% end %>
-
+  
 <%#------------------------------ SIGN UP WITH FACEBOOK ------------------------------%>
-
-    <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, method: :post, class: 'btn btn-primary rounded mt-3 w-100' %>
-
+  <hr>
+  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, method: :post, class: 'btn btn-secondary btn-sm mt-3 w-100' %>
   
 </div>

@@ -3,12 +3,13 @@
   font-weight: 300;
   color: #16181F;
 }
+
 .outer{
   writing-mode: tb-rl;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #637381;
+  background-color: $hmh-orange;
 }
 .inner{
   transform: rotate(180deg);
@@ -17,4 +18,12 @@
 
 .grota {
   font-family: "Grota Rounded"
+}
+
+.background-home {
+  background-color: whitesmoke;
+}
+
+.container-fluid {
+  padding: 0;
 }

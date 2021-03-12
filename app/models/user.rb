@@ -12,7 +12,6 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :origin, presence: true
   validates :nickname, uniqueness: true
   validates :nickname, length: { maximum: 18 }
-  validates :about, length: { maximum: 500 }
 
   reverse_geocoded_by :latitude, :longitude
   after_validation :reverse_geocode

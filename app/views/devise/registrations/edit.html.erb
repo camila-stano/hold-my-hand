@@ -1,72 +1,83 @@
-<div class="container form-container my-5">
-  <h2 class='text-center title-form'>Edit <%= resource_name.to_s.humanize %></h2>
-
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= f.error_notification %>
-
-    <div class="form-inputs">
-      <%= f.input :email, required: true, autofocus: true %>
-
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-      <% end %>
-
-      <%= f.input :current_password,
-                  hint: "we need your current password to confirm your changes",
-                  required: true,
-                  input_html: { autocomplete: "current-password" } %>
-      <div class="row">
-        <div class="col-6 form-sigin-l">
-          <%= f.input :password,
-                      hint: "leave it blank if you don't want to change it",
-                      required: false,
-                      input_html: { autocomplete: "new-password" } %>
-        </div>
-        <div class="col-6 form-sigin-r">
-          <%= f.input :password_confirmation,
-                      required: false,
-                      input_html: { autocomplete: "new-password" } %>
-        </div>
-      </div>
-      <%= f.input :nickname,
-                  placeholder: 'Nickname',
-                  label: false %>
-      <%= f.input :gender,
-                  placeholder: 'How would you want to be treated?',
-                  collection:User::GENDER,
-                  hint: ('How would you want to be treated?'),
-                  label: false %>
-      <div class="row">
-        <div class="col-6 form-sigin-l">   
-          <%= f.input :age,
-                      placeholder: 'Age',
-                      label: false %>
-        </div>
-        <div class="col-6 form-sigin-r">
-          <%= f.input :language,
-                      placeholder: 'Language',
-                      label: false %>
-        </div>
-      </div>
-      <%= f.input :current_address,
-                  placeholder: 'Current Address',
-                  label: false %>
-      <%= f.input :photo, as: :file, 
-                  label: false,
-                  placeholder: 'Profile Picture' %>
+<div class="container-sidebar">
+  <div class="row content-col-profile">
+  <%# SIDEBAR ------------------------------- %>
+    <div class="col-1 sidebar">
+      <nav class="main-menu sidebar-green">
+        <%= render "shared/sidebar" %> 
+      </nav>
     </div>
+  <%# CONTENT ------------------------------- %>
+    <div class="col-11">
+      <div class='container-form'>
+        <h2 class='text-center title-form'>Edit <%= resource_name.to_s.humanize %></h2>
+
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs">
+            <%= f.input :email, required: true, autofocus: true %>
+
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+            <% end %>
+
+            <%= f.input :current_password,
+                        hint: "we need your current password to confirm your changes",
+                        required: true,
+                        input_html: { autocomplete: "current-password" } %>
+            <div class="row">
+              <div class="col-6 form-sigin-l">
+                <%= f.input :password,
+                            hint: "leave it blank if you don't want to change it",
+                            required: false,
+                            input_html: { autocomplete: "new-password" } %>
+              </div>
+              <div class="col-6 form-sigin-r">
+                <%= f.input :password_confirmation,
+                            required: false,
+                            input_html: { autocomplete: "new-password" } %>
+              </div>
+            </div>
+            <%= f.input :nickname,
+                        placeholder: 'Nickname',
+                        label: false %>
+            <%= f.input :gender,
+                        placeholder: 'How would you want to be treated?',
+                        collection:User::GENDER,
+                        hint: ('How would you want to be treated?'),
+                        label: false %>
+            <div class="row">
+              <div class="col-6 form-sigin-l">   
+                <%= f.input :age,
+                            placeholder: 'Age',
+                            label: false %>
+              </div>
+              <div class="col-6 form-sigin-r">
+                <%= f.input :language,
+                            placeholder: 'Language',
+                            label: false %>
+              </div>
+            </div>
+            <%= f.input :current_address,
+                        placeholder: 'Current Address',
+                        label: false %>
+
+            <%= f.input :photo, as: :file, 
+                        placeholder: 'Profile Picture',
+                        input_html: { class: 'd-none' }, 
+                        label_html: { class: 'upload-photo'},
+                        label: 'Choose a profile photo' %>
+          </div>
 
 
+          <%= f.button :submit, "Update", class: 'btn btn-success mt-1 w-100' %>
+          <div class='text-center'>
+            <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn cancel-btn' %>
+          </div>
 
-    <div class="row align-items-center mt-3">
-      <div class='col-sm-12 col-lg-6 d-flex justify-content-end btn-form-l'>
-        <%= f.button :submit, "Update", class: 'btn btn-outline-primary btn-form rounded w-100' %>
-      </div>
-      <div class='col-sm-12 col-lg-6 d-flex justify-content-left btn-form-r'>      
-        <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-outline-primary btn-form rounded w-100' %>
+        <% end %>
+  
       </div>
     </div>
-  <% end %>
+  </div>
 </div>
-
-

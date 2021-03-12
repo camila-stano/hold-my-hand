@@ -105,6 +105,7 @@ $width-card: 300px;
 .cards-review {
   position: relative;
   transition-delay: 2s;
+  padding: 0;
 }
 
 .cards-review p {
@@ -134,23 +135,29 @@ $width-card: 300px;
 }
 
 .btn-edit{
-  border-radius: 5px;
-  background-color: #D9DADB;
+  border-radius: 0;
+  background-color: $hmh-green;
+  opacity: 0.7;
+  color: whitesmoke !important;
 }
 
 .btn-edit:hover{
-  background-color: wheat;
+  background-color: $hmh-dark-green;
   opacity: 1;
+  color: whitesmoke;
 }
 
-.btn-delete{
-  border-radius: 5px;
-  background-color: #D9DADB;
+.btn-delete {
+  border-radius: 0;
+  background-color: $hmh-green;
+  opacity: 0.7;
+  color: whitesmoke !important;
 }
 
 .btn-delete:hover{
-  background-color:wheat;
+  background-color: $hmh-dark-green;
   opacity: 1;
+  color: whitesmoke !important;
 }
 
 .btn-review-index{
@@ -173,7 +180,15 @@ $width-card: 300px;
 
 .card-text-lawyer {
   color: $hmh-dark-green;
-  font-size: 0.85rem;
+  font-size: 1rem;
+  margin: 0;
+}
+
+
+.card-text-lawyer p {
+  color: $hmh-dark-green;
+  font-size: 1rem;
+  margin: 0;
 }
 
 .line {
@@ -184,7 +199,24 @@ $width-card: 300px;
   justify-content: center;
   margin-bottom: 10px;
 }
+
 .card-title {
   color: white;
-
 }
+
+.card {
+  padding: 0;
+}
+
+.card-body p {
+  color: whitesmoke;
+}
+
+#card-review-text p {
+  color: black;
+}
+
+#card-review-text a {
+  color: $hmh-green
+}
+

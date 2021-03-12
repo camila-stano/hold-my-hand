@@ -1,83 +1,96 @@
-<div class="banner-review d-flex justify-content-center ">
-  <div class="row law-row d-flex align-items-center">
-    <div class='col-2'>
-      <div class='review-content'>
+<div class="container-sidebar">
+  <div class="row content-col-profile">
+  <%# SIDEBAR ------------------------------- %>
+    <div class="col-1 sidebar">
+      <nav class="main-menu sidebar-green">
+        <%= render "shared/sidebar" %> 
+      </nav>
+    </div>
+  <%# CONTENT ------------------------------- %>
+    <div class="col-11">
+
+      <div class="banner-review d-flex justify-content-center ">
+        <div class="row law-row d-flex align-items-center">
+          <div class='col-2'>
+            <div class='review-content'>
+            </div>
+          </div>
+          <div class='col-8 review-content'>
+              <h4><%= "Now you can see all the reviews of #{@lawyer.name}" %></h4>
+              <h5>
+              <% case @total_rating %>
+                <% when 1 %>
+                <h5>★☆☆☆☆</h5>
+                <% when 2 %>
+                <h5>★★☆☆☆</h5>
+                <% when 3 %>
+                <h5>★★★☆☆</h5>
+                <% when 4 %>
+                <h5>★★★★☆</h5>
+                <% when 5 %>
+                <h5>★★★★★</h5>
+                <% else %>
+                <h5>☆☆☆☆☆</h5>
+                <% end %>
+              </h5>      
+          </div>
+          <div class='col-2 review-content d-flex align-items-end' style="height: 30vh;">
+              <div class='btn-back'>
+              <%= link_to "Back to lawyer page", lawyer_path(@lawyer), class: 'btn mb-3' %> 
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class='col-8 review-content'>
-        <h4><%= "Now you can see all the reviews of #{@lawyer.name}" %></h4>
-        <h5>
-        <% case @total_rating %>
-          <% when 1 %>
-          <h5>★☆☆☆☆</h5>
-          <% when 2 %>
-          <h5>★★☆☆☆</h5>
-          <% when 3 %>
-          <h5>★★★☆☆</h5>
-          <% when 4 %>
-          <h5>★★★★☆</h5>
-          <% when 5 %>
-          <h5>★★★★★</h5>
-          <% else %>
-          <h5>☆☆☆☆☆</h5>
-          <% end %>
-        </h5>      
-    </div>
-    <div class='col-2 review-content d-flex align-items-end' style="height: 30vh;">
-        <div class='btn-back'>
-        <%= link_to "Back to lawyer page", lawyer_path(@lawyer), class: 'btn mb-3' %> 
-      </div>
-    </div>
-  </div>
-</div>
 
- <div class="container-reviews">
+      <div class="container-reviews">
 
-  <div class="grid  js-masonry container-reviews">
-    <% @lawyer.reviews.each do |review| %>
-      <div class="col-6 cards-review grid-item">
-        <%= link_to do %>
-          <% if review.content.present? %>
-            <div class="card m-3">
-            <%= link_to profile_path(review.user_id) do %>
-              <div class="card-header">
-                <p class="card-text d-flex justify-content-between review-card"><i> <%= current_user.first_name %></i><%= '⭐' * review.rating %></p>
-              </div>
-            <% end %>
-              <div class="card-body">
-
-                <div class="btn-edit-delete-container"> 
-                  <% if current_user == review.user %>
-                    <div class="edit-delete-btn">
-                      <%=link_to 'Editar', edit_review_path(review.id), class: 'btn btn-edit btn-review-index' %>
-                      <%=link_to 'Deletar', review_path(review.id), method: :delete, class: 'btn btn-delete btn-review-index mr-2' %>
+        <div class="grid  js-masonry container-reviews">
+          <% @lawyer.reviews.each do |review| %>
+            <div class="col-6 cards-review grid-item">
+              <%= link_to do %>
+                <% if review.content.present? %>
+                  <div class="card m-3">
+                  <%= link_to profile_path(review.user_id) do %>
+                    <div class="card-header card-header-review">
+                      <p class="card-text d-flex justify-content-between review-card"><i> <%= current_user.first_name %></i><%= '⭐' * review.rating %></p>
                     </div>
-                  <%end%>
-                </div>
+                  <% end %>
+                    <div class="card-body" id="card-review-text">
 
-                <p class="card-text text-justify"><%= review.content %></p>
-              </div>
-            </div>
-          <% else %>
-            <div class="card m-3">
-              <%= link_to profile_path(review.user_id) do %>    
-                <div class="card-header">
-                  <p class="card-text d-flex justify-content-between review-card"><i> <%= current_user.first_name %></i><%= '⭐' * review.rating %></p>
-                <div class="btn-edit-delete-container">
-              <% end %>
-                <% if current_user == review.user %>
-                  <div class="edit-delete-btn">
-                    <%=link_to 'Editar', edit_review_path(review.id), class: 'btn btn-edit btn-review-index' %>
-                    <%=link_to 'Deletar', review_path(review.id), method: :delete, class: 'btn btn-delete btn-review-index mr-2' %>
+                      <div class="btn-edit-delete-container"> 
+                        <% if current_user == review.user %>
+                          <div class="edit-delete-btn">
+                            <%=link_to 'Editar', edit_review_path(review.id), class: 'btn btn-edit btn-review-index' %>
+                            <%=link_to 'Deletar', review_path(review.id), method: :delete, class: 'btn btn-delete btn-review-index mr-2' %>
+                          </div>
+                        <%end%>
+                      </div>
+
+                      <p class="card-text text-justify"><%= review.content %></p>
+                    </div>
                   </div>
-                <%end%>
-                </div>
-              </div>
+                <% else %>
+                  <div class="card m-3">
+                    <%= link_to profile_path(review.user_id) do %>    
+                      <div class="card-header card-header-review">
+                        <p class="card-text d-flex justify-content-between review-card"><i> <%= current_user.first_name %></i><%= '⭐' * review.rating %></p>
+                      <div class="btn-edit-delete-container">
+                    <% end %>
+                      <% if current_user == review.user %>
+                        <div class="edit-delete-btn">
+                          <%=link_to 'Editar', edit_review_path(review.id), class: 'btn btn-edit btn-review-index' %>
+                          <%=link_to 'Deletar', review_path(review.id), method: :delete, class: 'btn btn-delete btn-review-index mr-2' %>
+                        </div>
+                      <%end%>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
             </div>
           <% end %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+        </div>
 
-</div>
+      </div>
+    </div>
+  </div>

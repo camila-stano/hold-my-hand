@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-
-  <h2 id="logo-nav"><%= link_to "Hold My Hand", root_path, class: "navbar-brand" %></h2>
+  <%= link_to root_path do  %>
+    <%= image_tag 'logo.png', width: 120 %>
+  <% end %>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
