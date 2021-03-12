@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="col-3 mt-3">
+    <div class="nav flex-column nav-pills direct-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <h4 class = 'h4-chatroom'> Conversas </h4>
+      <% active_direct = @chatrooms.first %>
+        <% direct_user = active_direct.chat_members.reject{|direct| direct.user == current_user}.first.user %>
+        <a class="nav-link active open-tab" id="v-pills-<%= direct_user.nickname %>-tab" data-toggle="pill" href="#v-pills-<%= direct_user.nickname %>" role="tab" aria-controls="v-pills-<%= direct_user.nickname %>" aria-selected="true">
+          <%= render "chatrooms/avatar/talking_user", talking_user: direct_user %>
+          <%= direct_user.nickname %>
+        </a>
+      <% @chatrooms.drop(1).each do |direct| %>
+        <% direct_user = direct.chat_members.reject{|direct| direct.user == current_user}.first.user %>
+        <a class="nav-link open-tab" id="v-pills-<%= direct_user.nickname %>-tab" data-toggle="pill" href="#v-pills-<%= direct_user.nickname %>" role="tab" aria-controls="v-pills-<%= direct_user.nickname %>" aria-selected="false">
+          <%= render "chatrooms/avatar/talking_user", talking_user: direct_user %>
+          <%= direct_user.nickname %>
+        </a>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-9">
+    <div class="tab-content" id="v-pills-tabContent">
+      <% active_direct = @chatrooms.first %>
+        <% direct_user = active_direct.chat_members.reject{|direct| direct.user == current_user}.first.user %>
+        <div class="tab-pane fade show active" id="v-pills-<%= direct_user.nickname %>" role="tabpanel" aria-labelledby="v-pills-<%= direct_user.nickname %>-tab">
+          <div class="chat-container">
+            <h1 class = 'mt-3' id = 'h1-chat-group'>
+              <%= render "chatrooms/avatar/talking_user", talking_user: direct_user %>
+              <%= direct_user.nickname %>
+            </h1>
+            <div id="messages" class = 'mb-3' data-chatroom-id="<%= active_direct.id %>" data-user-id="<%= current_user.id %>">
+              <% active_direct.messages.each do |message| %>
+                <div class="<%= message.user == current_user ? 'direct-to-right' : 'direct-to-left' %> direct-chat mb-2 mr-3">
+                  <%= render 'messages/direct_message', message: message %>
+                </div>
+              <% end %>
+            </div>
+            <% if active_direct.users.include? current_user %>
+              <%= simple_form_for [ active_direct, @message ], remote: true do |f| %>
+                <%= f.input :content,
+                      label: false,
+                      as: :text,
+                      input_html: { 'rows': 3},
+                      placeholder: "write your message here!" %>
+                <%= f.submit "Send message", class: 'btn btn-success mt-3 mb-5 mr-3 btn-create send-message-chat' %>
+              <% end %>
+            <% else %>
+              <%= button_to 'Participar da conversa', chatroom_add_member_path(direct) %>
+            <% end %>
+          </div>
+        </div>
+      <% @chatrooms.drop(1).each do |direct| %>
+        <% direct_user = direct.chat_members.reject{|direct| direct.user == current_user}.first.user %>
+        <div class="tab-pane fade" id="v-pills-<%= direct_user.nickname %>" role="tabpanel" aria-labelledby="v-pills-<%= direct_user.nickname %>-tab">
+          <div class="chat-container">
+            <h1 class = 'mt-3' id = 'h1-chat-group'>
+              <%= render "chatrooms/avatar/talking_user", talking_user: direct_user %>
+              <%= direct_user.nickname %>
+            </h1>
+            <div id="messages" class = 'mb-3' data-chatroom-id="<%= direct.id %>" data-user-id="<%= current_user.id %>">
+              <% direct.messages.each do |message| %>
+                <div class="<%= message.user == current_user ? 'direct-to-right' : 'direct-to-left' %> direct-chat mb-2 mr-3">
+                  <%= render 'messages/direct_message', message: message %>
+                </div>
+              <% end %>
+            </div>
+            <% if direct.users.include? current_user %>
+              <%= simple_form_for [ direct, @message ], remote: true do |f| %>
+                <%= f.input :content,
+                      label: false,
+                      as: :text,
+                      input_html: { 'rows': 3},
+                      placeholder: "write your message here!" %>
+                <%= f.submit "Send message", class: 'btn btn-success mt-3 mb-5 mr-3 btn-create send-message-chat' %>
+              <% end %>
+            <% else %>
+              <%= button_to 'Participar da conversa', chatroom_add_member_path(direct) %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

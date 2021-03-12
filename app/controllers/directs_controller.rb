@@ -6,11 +6,12 @@ class DirectsController < ApplicationController
   end
 
   def create_direct
-    raise
     @user = User.find(params[:user_id])
-    @chatroom = Chatroom.create!(name: "chat-#{@user.id}-#{current_user.id}", direct: true)
-    ChatMember.create(chatroom: @chatroom, user: current_user)
-    ChatMember.create(chatroom: @chatroom, user: @user)
+    if Chatroom.where( name: ["chat-#{@user.id}-#{current_user.id}","chat-#{current_user.id}-#{@user. id}"]).empty?
+      @chatroom = Chatroom.create!(name: "chat-#{@user.id}-#{current_user.id}", direct: true)
+      ChatMember.create(chatroom: @chatroom, user: current_user)
+      ChatMember.create(chatroom: @chatroom, user: @user)
+    end
     redirect_to @chatroom
   end
 end
