@@ -8,7 +8,7 @@
     <div class="col-1 outer">
       <h1 class="inner"> <%= t '.let-us-take-you' %> <h1>
     </div>
-    <div class="col-11">
+    <div class="col-11 background-home">
     <%# TITLE -------------------------- %>
       <div class="box-title mt-5">
         <%= image_tag 'logo.png', width: 400  %>
@@ -18,7 +18,7 @@
     <%# ICONS -------------------------- %>
       <div class="row d-flex justify-content-center flex-wrap mt-5">
        
-        <div class=" home-icon mx-4">
+        <div class="home-icon mx-4">
           <%= link_to shelters_path do %>
             <div class="show-text">
               <div class="row d-flex justify-content-center">
@@ -31,7 +31,7 @@
           <% end %>
         </div> 
 
-        <div class=" home-icon mx-4">
+        <div class="home-icon mx-4">
           <%= link_to restaurants_path do %>
             <div class="show-text">
               <div class="row d-flex justify-content-center">
@@ -116,23 +116,24 @@
 
   <%# ICONS -------------------------- %>
       <div class="row d-flex justify-content-around">
-        <div class="col-4 text-center">
-          <%= link_to shelters_path do %>
-            <%= image_tag "icone-casa.png", width: 195, class: 'bg-icon' %>
-          <% end %>
-          <h5><%= t '.find-a-place-to-stay' %></h5>
-        </div> 
 
         <div class="col-4 text-center">
           <%= link_to maps_path do %>
-            <i class="fas fa-passport bg-icon i-med" ></i> 
+            <%= image_tag 'gps.png', class: "bg-icon bg-icon-blue i-med" %> 
           <% end %>
           <h5><%= t '.map' %></h5>
         </div> 
 
         <div class="col-4 text-center">
+          <%= link_to shelters_path do %>
+            <%= image_tag "icone-casa.png", class: 'bg-icon bg-icon-orange' %>
+          <h5 class="text-icon-orange"><%= t '.find-a-place-to-stay' %></h5>
+          <% end %>
+        </div> 
+
+        <div class="col-4 text-center">
           <%= link_to restaurants_path do %>
-            <i class="fas fa-utensils bg-icon i-med" ></i> 
+            <%= image_tag 'restaurant.png', class: "bg-icon bg-icon-green i-med" %> 
           <% end %>
           <h5><%= t '.where-to-eat' %></h5>
         </div> 
@@ -155,6 +156,7 @@
       </div>
     </div>
   </div>
+
   <%#------------------ MORE INFORMATIONS ABOUT ACCESS AFTER LOGIN ------------------------ %>
 
   <div class="banner-content-arrow d-flex justify-content-center ">
