@@ -1,41 +1,46 @@
-<div class="container d-flex justify-content-center row" id = 'big-container-directs'>
-  <div class="col-7">
-    <h1 class = 'mt-3 mb-1 ml-3' id = 'h1-direct'>
-      <% talking_user = @chatroom.users.reject{|user| user == current_user}.first %>
-      <%= render "directs/avatar/talking_user", talking_user: talking_user %>
-      <%= talking_user.nickname %>
-    </h1>
-    <div id="messages" class = 'mb-3' data-chatroom-id="<%= @chatroom.id %>">
-      <% @chatroom.messages.each do |message| %>
-        <%= render 'messages/direct_message', message: message %>
-      <% end %>
+<div class="container-sidebar">
+  <div class="row">
+  <%# SIDEBAR ------------------------------- %>
+    <div class="col-1 sidebar">
+      <nav class="main-menu sidebar-orange">
+        <%= render "shared/sidebar" %> 
+      </nav>
     </div>
-    <%= render 'directs/forms/form', direct: @chatroom, message: @message %>
-  </div>
+  <%# CONTENT ------------------------------- %>
+    <div class="col-11">
+      <div class="container d-flex justify-content-center row" id = 'big-container-directs'>
+        <div class="col-8">
+          <h1 class = 'mt-3 mb-1 ml-3' id = 'h1-direct'>
+            <% talking_user = @chatroom.users.reject{|user| user == current_user}.first %>
+            <%= render "directs/avatar/talking_user", talking_user: talking_user %>
+            <%= talking_user.nickname %>
+          </h1>
+          <div id="messages" class = 'mb-3' data-chatroom-id="<%= @chatroom.id %>">
+            <% @chatroom.messages.each do |message| %>
+              <%= render 'messages/direct_message', message: message %>
+            <% end %>
+          </div>
+          <%= render 'directs/forms/form', direct: @chatroom, message: @message %>
+        </div>
 
-  <div class="col-3 mt-3">
-  <div class="search-person-to-talk">
-    <%= form_tag profiles_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find someone to talk"
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-  <div>
-  <%@chatrooms.each do |direct|%>
-    <% direct_user = direct.chatroom.chat_members.reject{|direct| direct.user == current_user}.first.user %>
-    <div>
-      <%= render "directs/avatar/talking_user", talking_user: direct_user %>
-      <%=link_to direct_path(direct.chatroom_id) do %> 
-        <%= direct_user.nickname %>
-      <%end%>
-      <hr class = 'hr-direct'>
+        <div class="col-3" style='margin-top: 4rem;'>
+        <div>
+        <%@chatrooms.each do |direct|%>
+          <% direct_user = direct.chatroom.chat_members.reject{|direct| direct.user == current_user}.first.user %>
+          <div>
+            <span class='mr-2'>
+              <%= render "directs/avatar/talking_user", talking_user: direct_user %>
+            </span>
+            <%=link_to direct_path(direct.chatroom_id) do %> 
+              <%= direct_user.nickname %>
+            <%end%>
+            <hr class = 'hr-direct'>
+          </div>
+        <%end%>
+        </div>
+        </div>
+
+      </div>
     </div>
-  <%end%>
   </div>
-  </div>
-
 </div>

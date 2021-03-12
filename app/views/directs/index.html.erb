@@ -1,19 +1,38 @@
-<div class="row" data-controller='direct'>
-  <div class="col-3 mt-3" >
-    <div class="nav flex-column nav-pills direct-column">
-      <h4 class = 'h4-chatroom'> Conversas </h4>
-        <% @chatrooms.each do |direct| %>
-          <% direct_user = direct.chat_members.reject{|direct| direct.user == current_user}.first.user %>
-          <a class="nav-link" data-action='click->direct#show' data-direct-target='direct' data-direct-chat-value="#{direct.id}" >
-            <%= render "chatrooms/avatar/talking_user", talking_user: direct_user %>
-            <%= direct_user.nickname %>
-          </a>
-        <% end %>
+<div class="container-sidebar">
+  <div class="row">
+  <%# SIDEBAR ------------------------------- %>
+    <div class="col-1 sidebar">
+      <nav class="main-menu sidebar-orange">
+        <%= render "shared/sidebar" %> 
+      </nav>
     </div>
-  </div>
-  <div class="col-9">
-    <div class="tab-content" data-direct-target='containerDirect'>
-      <p>conteúdo</p>
+  <%# CONTENT ------------------------------- %>
+    <div class="col-11">
+      <div class="container d-flex justify-content-center row" id = 'big-container-directs'>
+        <div class="col-8">
+          <div class="choose-someone-to-talk">
+            <h2>Choose someone to talk</h2>
+          </div>
+        </div>
+
+        <div class="col-3" style='margin-top: 4rem;'>
+        <div>
+        <%@chatrooms.each do |direct|%>
+          <% direct_user = direct.chatroom.chat_members.reject{|direct| direct.user == current_user}.first.user %>
+          <div>
+            <span class='mr-2'>
+              <%= render "directs/avatar/talking_user", talking_user: direct_user %>
+            </span>
+            <%=link_to direct_path(direct.chatroom_id) do %> 
+              <%= direct_user.nickname %>
+            <%end%>
+            <hr class = 'hr-direct'>
+          </div>
+        <%end%>
+        </div>
+        </div>
+
+      </div>
     </div>
   </div>
 </div>

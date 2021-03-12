@@ -1,14 +1,18 @@
 .direct-to-right {
   display: flex;
   margin-left: auto;
-  background-color: rgb(190, 240, 190);
+  background-color: $hmh-blue;
   flex-direction:column;
+  opacity: 0.75;
+  color: whitesmoke;
 }
 .direct-to-left {
   display: flex;
   margin-right: auto;
-  background-color: rgb(157, 157, 229);
+  background-color: $hmh-dark-blue;
   flex-direction:column;
+  opacity: 0.75;
+  color: whitesmoke;
 }
 .direct-chat {
   width: 50%;
@@ -39,4 +43,11 @@
 }
 .hr-direct {
   margin: 3px 0;
+}
+.choose-someone-to-talk{
+  display: flex;
+  height: 100vh;
+}
+.choose-someone-to-talk h2{
+  margin: auto;
 }
