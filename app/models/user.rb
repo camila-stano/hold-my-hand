@@ -8,7 +8,8 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_many :chat_members
   has_many :chatrooms, through: :chat_members
-
+  has_many :reviews
+  
   validates :first_name, :last_name, :origin, presence: true
   validates :nickname, uniqueness: true
   validates :nickname, length: { maximum: 18 }
