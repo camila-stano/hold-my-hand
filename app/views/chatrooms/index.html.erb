@@ -18,9 +18,8 @@
       </div>
     </div>
     <div class="col-2 chatroom-index-form">
-      <% last_message = @chatrooms.includes(:messages).includes(:users).where(chatrooms: {direct: true}).where(users: {id: current_user.id}).order(messages: {created_at: :desc}) %>
-      <% raise %>
-      <%button_to direct_path(last_message)%>
+      <%# last_message = @chatrooms.includes(:messages).includes(:users).where(chatrooms: {direct: true}).where(users: {id: current_user.id}).order(messages: {created_at: :desc}) %>
+      <%#button_to direct_path(last_message)%>
       <%= render 'chatrooms/forms/form_create_group' %>
 
     </div>
