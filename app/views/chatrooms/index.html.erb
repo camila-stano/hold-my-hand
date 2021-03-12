@@ -26,8 +26,8 @@
                           <div class='text-center'>
 
                             <%if chatroom.photo.present?%>
-                              <%= cl_image_tag current_user.photo.key, :transformation=>[
-                              {:width=>550, :height=>550, :gravity=>"face", :radius=>"max", :crop=>"crop"}, {:width=>200, :crop=>"scale"}
+                              <%= cl_image_tag chatroom.photo.key, :transformation=>[
+                              {:width=>550, :height=>550, :crop=>"fill"}, {:width=>200, :crop=>"scale"}
                               ], class: "chatroom-img"%>
                             <%else%>
                               <%= image_tag "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg", class: "avatar dropdown-toggle" %>

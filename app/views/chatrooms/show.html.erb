@@ -53,7 +53,9 @@
           <%@chatrooms.each do |chatroom|%>
             <div class = 'chatroom-show-all-groups'>
               <% if chatroom.photo.present? %>
-                <%= chatroom.photo.key %>
+                <%= cl_image_tag chatroom.photo.key, :transformation=>[
+                              {:width=>550, :height=>550, :crop=>"fill"}, {:width=>200, :crop=>"scale"}
+                              ], class: "avatar"%>
               <% else %>
                 <%= image_tag "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg", class: "avatar"%>
               <% end %>
