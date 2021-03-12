@@ -33,10 +33,27 @@
     line-height: 1.25;
   }
 
+  .i-med-user {
+    font-size: 90px;
+    padding: 10px;
+    width: 50px;
+    color: #C4C4C4;
+    line-height: 1.5;
+  }
+
+  .i-med-user:hover {
+    font-size: 90px;
+    padding: 10px;
+    width: 10vh;
+    color: #637381;
+    line-height: 1.5;
+  }
+
   .bg-icon {
     width: 170px;
     height: 170px;
     background-color: $hmh-yellow;
+    padding: 15px;
     border-radius: 50%;
   }
 
@@ -51,18 +68,122 @@
   font-size: 15vw;
 }
 
-.bg-icon-orange:hover {
+// BACKGROUND HOVER
+.bg-icon-orange-h:hover {
   background-color: $hmh-orange;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  color: whitesmoke;
 }
 
-.bg-icon-blue:hover {
+.bg-icon-blue-h:hover {
   background-color: $hmh-blue;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  color: whitesmoke;
 }
 
-.bg-icon-green:hover {
+.bg-icon-dark-blue-h:hover {
+  background-color: $hmh-dark-blue;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  color: whitesmoke;
+}
+
+.bg-icon-green-h:hover {
   background-color: $hmh-green;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  color: whitesmoke;
 }
 
-.text-icon-orange:hover {
-  color: $hmh-orange;
+.bg-icon-dark-green-h:hover {
+  background-color: $hmh-dark-green;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  color: whitesmoke;
+}
+
+.bg-icon-red-h:hover {
+  background-color: $hmh-red;
+  width: 170px;
+  height: 170px; 
+  border-radius: 50%;
+  color: whitesmoke;
+}
+
+.bg-icon-yellow-h:hover {
+  background-color: $hmh-yellow;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  color: whitesmoke;
+}
+
+
+// BACKGROUND 
+.bg-icon-orange {
+  background-color: $hmh-orange;
+  width: 170px;
+  height: 170px;
+  padding: 15px;
+  border-radius: 50%;
+  color: whitesmoke;
+}
+
+.bg-icon-blue {
+  background-color: $hmh-blue;
+  width: 170px;
+  height: 170px;
+  padding: 15px;
+  border-radius: 50%;
+  color: whitesmoke;
+}
+
+.bg-icon-dark-blue {
+  background-color: $hmh-dark-blue;
+  width: 170px;
+  height: 170px;
+  padding: 15px;
+  border-radius: 50%;
+  color: whitesmoke;
+}
+
+.bg-icon-green {
+  background-color: $hmh-green;
+  width: 170px;
+  height: 170px;
+  padding: 15px;
+  border-radius: 50%;
+  color: whitesmoke;
+}
+
+.bg-icon-dark-green {
+  background-color: $hmh-dark-green;
+  width: 170px;
+  height: 170px;
+  padding: 15px;
+  border-radius: 50%;
+  color: whitesmoke;
+}
+.bg-icon-red {
+  background-color: $hmh-red ;
+  width: 170px;
+  height: 170px;
+  padding: 15px;
+  border-radius: 50%;
+  color: whitesmoke;
+}
+
+.bg-icon-yellow {
+  background-color: $hmh-yellow;
+  width: 170px;
+  height: 170px;
+  padding: 15px;
+  color: whitesmoke;
 }
