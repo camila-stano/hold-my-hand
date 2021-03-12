@@ -19,12 +19,23 @@
             <div class='row'>
               <% @chatrooms.each do |chatroom| %>
                   <div class="col-sm-12 col-md-6 col-lg-4" style="">
-                    <%= link_to chatroom_path(chatroom, anchor: "message-#{@last_message.id}") do %> 
+                    <%= link_to chatroom_path(chatroom) do %> 
                       <div class="card mt-3 w-100" style="height: 170px; background-color: #243500; padding: 7px;">     
                         <div class="card-body" style="padding: 7px;">
                           <h5 class="card-title text-center"><%= chatroom.name %></h5>
+                          <div class='text-center'>
+
+                            <%if chatroom.photo.present?%>
+                              <%= cl_image_tag current_user.photo.key, :transformation=>[
+                              {:width=>550, :height=>550, :gravity=>"face", :radius=>"max", :crop=>"crop"}, {:width=>200, :crop=>"scale"}
+                              ], class: "chatroom-img"%>
+                            <%else%>
+                              <%= image_tag "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg", class: "avatar dropdown-toggle" %>
+                            <%end%>
+
+                          </div>
                           <div class="d-flex justify-content-center">
-                            <p style="background-color: #578000; padding: 3px 10px; color: white; font-size: 0.85rem;">See more!</p>
+                            <p class='mt-3' style="background-color: #578000; padding: 3px 10px; color: white; font-size: 0.85rem;">See more!</p>
                           </div>
                         </div>
                       </div>
