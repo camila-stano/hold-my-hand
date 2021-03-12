@@ -224,22 +224,3 @@ puts '-----------------------------'
 end
 
 puts "...finished seeds!!!"
-
-
-#-----------------------------------------------USERS-----------------------------------------------#
-
-#  Yana Lahari Angola 29 
-# Abelina Nkosi Angola 23 
-# Acca Moyo Etiópia
-# Othili Zeisha Siria
-# Venita Mwangi Siria 
-# Kaira Vagdevi Jordânia
-
-# Conde Ibrahim Ruanda
-# Rand Ganak Sudão
-# Jaden Fahzim Sudão
-# Jahdai Trabelsi Jordânia
-# Paavak Bartolomeu República Democrática do Congo
-# Sabari Gajanan Afeganistão
-# Farook Ali Iraque
-# Raaja Akello Sirio

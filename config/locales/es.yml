@@ -18,7 +18,7 @@ es:
       find-good-lawyers-to-your-imigration-process: "ENCUENTRE BUENOS ABOGADOS PARA SU PROCESO DE INMIGRACIÓN"
   shared:
     navbar:
-      welcome: "Bienvenido"
+      welcome: "Bienvenida"
       profile: "Perfil"
       edit-registration: "Editar cuenta"
       logout: "Cerrar sesión"
