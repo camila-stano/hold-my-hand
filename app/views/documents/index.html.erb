@@ -15,7 +15,8 @@
               <h4><%= document.document_type %></h4>
               <p style="font-size: 14px"><%= document.description %></p>
               <p style="font-size: 14px"><strong>Required documents:</strong> <%= document.required_docs %></p>
-              <span class = 'btn btn-secondary' ><%=link_to "Online apply", document.url_agency, style: "color: white"%></span></p>
+              <span class = 'btn btn-secondary' ><%=link_to "Online apply", document.url_agency, target: "_blank", style: "color: white"%></span></p>
+
 
               <p></p>
             </div>
@@ -36,7 +37,8 @@
               <h4><%= document.document_type %></h4>
               <p style="font-size: 14px"><%= document.description %></p>
               <p style="font-size: 14px"><strong>Required documents:</strong> <%= document.required_docs %></p>
-              <span class = 'btn btn-secondary' ><%=link_to "Online apply", document.url_agency, style: "color: white"%></span></p>
+              <span class = 'btn btn-secondary' ><%=link_to "Online apply", document.url_agency, target: "_blank", style: "color: white"%></span></p>
+
             </div>
           </div>
         </div>

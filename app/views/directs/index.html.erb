@@ -8,31 +8,38 @@
     </div>
   <%# CONTENT ------------------------------- %>
     <div class="col-11">
-      <div class="container d-flex justify-content-center row" id = 'big-container-directs'>
-        <div class="col-8">
+      <% if @chatroom %>
+        <div class="container d-flex justify-content-center row" id = 'big-container-directs'>
           <div class="choose-someone-to-talk">
-            <h2>Choose someone to talk</h2>
+            <h2>You don't have messages</h2>
           </div>
         </div>
+        <% else %>
+        <div class="container d-flex justify-content-center row" id = 'big-container-directs'>
+          <div class="col-8">
+            <div class="choose-someone-to-talk">
+              <h2>Choose someone to talk</h2>
+            </div>
+          </div>
 
-        <div class="col-3" style='margin-top: 4rem;'>
-        <div>
-        <%@chatrooms.each do |direct|%>
-          <% direct_user = direct.chatroom.chat_members.reject{|direct| direct.user == current_user}.first.user %>
+          <div class="col-3" style='margin-top: 4rem;'>
           <div>
-            <span class='mr-2'>
-              <%= render "directs/avatar/talking_user", talking_user: direct_user %>
-            </span>
-            <%=link_to direct_path(direct.chatroom_id) do %> 
-              <%= direct_user.nickname %>
-            <%end%>
-            <hr class = 'hr-direct'>
+          <%@chatrooms.each do |direct|%>
+            <% direct_user = direct.chatroom.chat_members.reject{|direct| direct.user == current_user}.first.user %>
+            <div>
+              <span class='mr-2'>
+                <%= render "directs/avatar/talking_user", talking_user: direct_user %>
+              </span>
+              <%=link_to direct_path(direct.chatroom_id) do %> 
+                <%= direct_user.nickname %>
+              <%end%>
+              <hr class = 'hr-direct'>
+            </div>
+          <%end%>
           </div>
-        <%end%>
+          </div>
         </div>
-        </div>
-
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
