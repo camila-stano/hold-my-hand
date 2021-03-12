@@ -5,13 +5,7 @@
 <% end %>
     <div class="message-container ml-3" id="message-<%= message.id %>">
       <i class="author">
-        <% if current_user.photo.present? %>
-          <%= cl_image_tag current_user.photo.key, :transformation=>[
-          {:width=>550, :height=>550, :gravity=>"face", :radius=>"max", :crop=>"crop"}, {:width=>200, :crop=>"scale"}
-          ], class: "avatar-message", 'aria-haspopup': true, 'aria-expanded': false %>
-        <% else %>
-          <%= image_tag "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg", class: "avatar-message", 'aria-haspopup': true, 'aria-expanded': false %>
-        <% end %>
+        <%= render "chatrooms/avatar/talking_user_container", talking_user: current_user %>
         <span class = 'nickname'><%= message.user.nickname %></span>
         <small class = 'chat-date-hour'><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
       </i>

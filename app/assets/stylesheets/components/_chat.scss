@@ -1,17 +1,21 @@
 .chat-container {
-  width: 50%;
+  width: 100%;
 }
 .message-chat-to-right {
   display: flex;
   margin-left: auto;
-  background-color: rgb(157, 157, 229);
+  background-color: $hmh-blue;
   flex-direction:column;
+  opacity: 0.5;
+  color: whitesmoke;
 }
 .message-chat-to-left {
   display: flex;
   margin-right: auto;
-  background-color: rgb(190, 240, 190);
+  background-color: $hmh-green;
   flex-direction:column;
+  opacity: 0.5;
+  color: whitesmoke;
 }
 
 .message-group-chat {
@@ -35,9 +39,21 @@
 #h1-chat-group {
   font-size: 2rem;
 }
-.h4-chatroom {
-  padding: 20px 10px;
+.h2-chatroom {
+  padding: 0 10px;
+  margin-bottom: 10px;
+  margin-top: 26px;
+  font-size: 1.2rem;
 }
 .chatroom-show-all-groups {
   padding: 3px 20px;
+}
+.participants-group {
+  padding: 3px 20px;
+}
+.all-participants-group{
+  margin-top: 70px;
+}
+.hr-chatroom{
+  margin: 0.5rem 0;
 }
